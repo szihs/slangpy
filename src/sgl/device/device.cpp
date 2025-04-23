@@ -21,6 +21,7 @@
 #include "sgl/device/print.h"
 #include "sgl/device/blit.h"
 #include "sgl/device/hot_reload.h"
+#include "sgl/device/debug_logger.h"
 
 #include "sgl/core/file_system_watcher.h"
 #include "sgl/core/config.h"
@@ -40,52 +41,6 @@ namespace sgl {
 
 static std::vector<Device*> s_devices;
 static std::mutex s_devices_mutex;
-
-class DebugLogger : public rhi::IDebugCallback {
-public:
-    DebugLogger()
-    {
-        m_logger = Logger::create(LogLevel::debug, "rhi", false);
-        m_logger->use_same_outputs(Logger::get());
-    }
-
-    virtual SLANG_NO_THROW void SLANG_MCALL
-    handleMessage(rhi::DebugMessageType type, rhi::DebugMessageSource source, const char* message)
-    {
-        const char* source_str = "";
-        switch (source) {
-        case rhi::DebugMessageSource::Layer:
-            source_str = "layer";
-            break;
-        case rhi::DebugMessageSource::Driver:
-            source_str = "driver";
-            break;
-        case rhi::DebugMessageSource::Slang:
-            source_str = "slang";
-            break;
-        }
-        switch (type) {
-        case rhi::DebugMessageType::Info:
-            m_logger->info("{}: {}", source_str, message);
-            break;
-        case rhi::DebugMessageType::Warning:
-            m_logger->warn("{}: {}", source_str, message);
-            break;
-        case rhi::DebugMessageType::Error:
-            m_logger->error("{}: {}", source_str, message);
-            break;
-        }
-    }
-
-    static DebugLogger& get()
-    {
-        static DebugLogger instance;
-        return instance;
-    }
-
-private:
-    ref<Logger> m_logger;
-};
 
 Device::Device(const DeviceDesc& desc)
     : m_desc(desc)
@@ -167,7 +122,7 @@ Device::Device(const DeviceDesc& desc)
     m_info.limits.max_texture_dimension_2d = rhi_device_info.limits.maxTextureDimension2D;
     m_info.limits.max_texture_dimension_3d = rhi_device_info.limits.maxTextureDimension3D;
     m_info.limits.max_texture_dimension_cube = rhi_device_info.limits.maxTextureDimensionCube;
-    m_info.limits.max_texture_array_layers = rhi_device_info.limits.maxTextureArrayLayers;
+    m_info.limits.max_texture_layers = rhi_device_info.limits.maxTextureLayers;
     m_info.limits.max_vertex_input_elements = rhi_device_info.limits.maxVertexInputElements;
     m_info.limits.max_vertex_input_element_offset = rhi_device_info.limits.maxVertexInputElementOffset;
     m_info.limits.max_vertex_streams = rhi_device_info.limits.maxVertexStreams;
@@ -216,16 +171,18 @@ Device::Device(const DeviceDesc& desc)
     }
     log_debug("Supported shader model: {}", m_supported_shader_model);
 
-    // Get features.
-    const char* features[256];
-    uint32_t feature_count = 0;
-    SLANG_CALL(m_rhi_device->getFeatures(features, std::size(features), &feature_count));
-    for (uint32_t i = 0; i < feature_count; ++i)
-        m_features.push_back(features[i]);
-    log_debug("Supported features: {}", string::join(m_features, ", "));
+    // Query features.
+    std::vector<std::string> feature_names;
+    for (uint32_t i = 0; i < uint32_t(rhi::Feature::_Count); ++i) {
+        if (m_rhi_device->hasFeature(static_cast<rhi::Feature>(i))) {
+            m_features.push_back(static_cast<Feature>(i));
+            feature_names.push_back(enum_to_string(static_cast<Feature>(i)));
+        }
+    }
+    log_debug("Supported features: {}", string::join(feature_names, ", "));
 
     // Create graphics queue.
-    SLANG_CALL(m_rhi_device->getQueue(rhi::QueueType::Graphics, m_rhi_graphics_queue.writeRef()));
+    SLANG_RHI_CALL(m_rhi_device->getQueue(rhi::QueueType::Graphics, m_rhi_graphics_queue.writeRef()));
 
     // Create default slang session.
     m_slang_session = create_slang_session({
@@ -280,15 +237,15 @@ ShaderCacheStats Device::shader_cache_stats() const
     };
 }
 
-bool Device::has_feature(std::string_view feature) const
+bool Device::has_feature(Feature feature) const
 {
-    return std::find(m_features.begin(), m_features.end(), feature) != m_features.end();
+    return m_rhi_device->hasFeature(static_cast<rhi::Feature>(feature));
 }
 
 FormatSupport Device::get_format_support(Format format) const
 {
     rhi::FormatSupport rhi_format_support;
-    SLANG_CALL(m_rhi_device->getFormatSupport(static_cast<rhi::Format>(format), &rhi_format_support));
+    SLANG_RHI_CALL(m_rhi_device->getFormatSupport(static_cast<rhi::Format>(format), &rhi_format_support));
     return static_cast<FormatSupport>(rhi_format_support);
 }
 
@@ -395,7 +352,7 @@ AccelerationStructureSizes Device::get_acceleration_structure_sizes(const Accele
 {
     AccelerationStructureBuildDescConverter converter(desc);
     rhi::AccelerationStructureSizes rhi_sizes;
-    SLANG_CALL(m_rhi_device->getAccelerationStructureSizes(converter.rhi_desc, &rhi_sizes));
+    SLANG_RHI_CALL(m_rhi_device->getAccelerationStructureSizes(converter.rhi_desc, &rhi_sizes));
     return {
         .acceleration_structure_size = rhi_sizes.accelerationStructureSize,
         .scratch_size = rhi_sizes.scratchSize,
@@ -477,7 +434,8 @@ ref<ShaderProgram> Device::load_program(
 ref<ShaderObject> Device::create_root_shader_object(const ShaderProgram* shader_program)
 {
     Slang::ComPtr<rhi::IShaderObject> rhi_shader_object;
-    SLANG_CALL(m_rhi_device->createRootShaderObject(shader_program->rhi_shader_program(), rhi_shader_object.writeRef())
+    SLANG_RHI_CALL(
+        m_rhi_device->createRootShaderObject(shader_program->rhi_shader_program(), rhi_shader_object.writeRef())
     );
 
     ref<ShaderObject> shader_object = make_ref<ShaderObject>(ref<Device>(this), rhi_shader_object);
@@ -492,7 +450,7 @@ ref<ShaderObject> Device::create_root_shader_object(const ShaderProgram* shader_
 ref<ShaderObject> Device::create_shader_object(const TypeLayoutReflection* type_layout)
 {
     Slang::ComPtr<rhi::IShaderObject> rhi_shader_object;
-    SLANG_CALL(m_rhi_device->createShaderObjectFromTypeLayout(
+    SLANG_RHI_CALL(m_rhi_device->createShaderObjectFromTypeLayout(
         type_layout->get_slang_type_layout(),
         rhi_shader_object.writeRef()
     ));
@@ -531,7 +489,7 @@ ref<CommandEncoder> Device::create_command_encoder(CommandQueueType queue)
     SGL_CHECK(queue == CommandQueueType::graphics, "Only graphics queue is supported.");
 
     Slang::ComPtr<rhi::ICommandEncoder> rhi_command_encoder;
-    SLANG_CALL(m_rhi_graphics_queue->createCommandEncoder(rhi_command_encoder.writeRef()));
+    SLANG_RHI_CALL(m_rhi_graphics_queue->createCommandEncoder(rhi_command_encoder.writeRef()));
     return make_ref<CommandEncoder>(ref(this), rhi_command_encoder);
 }
 
@@ -633,7 +591,7 @@ uint64_t Device::submit_command_buffers(
         .signalFenceValues = rhi_signal_fence_values.data(),
         .signalFenceCount = narrow_cast<uint32_t>(rhi_signal_fences.size()),
     };
-    SLANG_CALL(m_rhi_graphics_queue->submit(rhi_submit_desc));
+    SLANG_RHI_CALL(m_rhi_graphics_queue->submit(rhi_submit_desc));
     m_wait_global_fence = false;
 
     // Handle CUDA interop.
@@ -717,7 +675,7 @@ void Device::read_buffer_data(const Buffer* buffer, void* data, size_t size, siz
     SGL_CHECK(offset + size <= buffer->size(), "Buffer read is out of bounds");
     SGL_CHECK_NOT_NULL(data);
 
-    SLANG_CALL(m_rhi_device->readBuffer(buffer->rhi_buffer(), offset, size, data));
+    SLANG_RHI_CALL(m_rhi_device->readBuffer(buffer->rhi_buffer(), offset, size, data));
 }
 
 void Device::upload_texture_data(
@@ -746,23 +704,22 @@ OwnedSubresourceData Device::read_texture_data(const Texture* texture, uint32_t 
     SGL_CHECK_LT(layer, texture->layer_count());
     SGL_CHECK_LT(mip, texture->mip_count());
 
-    // TODO(slang-rhi) use readTexture function that takes data pointer instead of doing extra copy
-    Slang::ComPtr<ISlangBlob> blob;
+    // Query layout information.
     rhi::SubresourceLayout rhi_layout;
-    SLANG_CALL(m_rhi_device->readTexture(texture->rhi_texture(), layer, mip, blob.writeRef(), &rhi_layout));
+    SLANG_RHI_CALL(texture->rhi_texture()->getSubresourceLayout(mip, &rhi_layout));
 
     // Setup owned sub resource data that can contain the results.
     OwnedSubresourceData subresource_data;
-    subresource_data.owned_data = std::make_unique<uint8_t[]>(blob->getBufferSize());
+    subresource_data.owned_data = std::make_unique<uint8_t[]>(rhi_layout.sizeInBytes);
     subresource_data.data = subresource_data.owned_data.get();
+    subresource_data.size = rhi_layout.sizeInBytes;
+    subresource_data.row_pitch = rhi_layout.rowPitch;
+    subresource_data.slice_pitch = rhi_layout.slicePitch;
 
-    // Store additional layout information.
-    SubresourceLayout layout = layout_from_rhilayout(rhi_layout);
-    subresource_data.row_pitch = layout.row_pitch;
-    subresource_data.slice_pitch = layout.slice_pitch;
-    subresource_data.size = layout.size_in_bytes;
-
-    std::memcpy(subresource_data.owned_data.get(), blob->getBufferPointer(), subresource_data.size);
+    // Read texture data.
+    SLANG_RHI_CALL(
+        m_rhi_device->readTexture(texture->rhi_texture(), layer, mip, rhi_layout, subresource_data.owned_data.get())
+    );
 
     return subresource_data;
 }
@@ -770,7 +727,7 @@ OwnedSubresourceData Device::read_texture_data(const Texture* texture, uint32_t 
 std::array<NativeHandle, 3> Device::native_handles() const
 {
     rhi::DeviceNativeHandles handles = {};
-    SLANG_CALL(m_rhi_device->getNativeDeviceHandles(&handles));
+    SLANG_RHI_CALL(m_rhi_device->getNativeDeviceHandles(&handles));
     return {NativeHandle(handles.handles[0]), NativeHandle(handles.handles[1]), NativeHandle(handles.handles[2])};
 }
 
@@ -778,7 +735,7 @@ NativeHandle Device::get_native_command_queue_handle(CommandQueueType queue) con
 {
     SGL_CHECK(queue == CommandQueueType::graphics, "Only graphics queue is supported.");
     rhi::NativeHandle rhi_handle = {};
-    SLANG_CALL(m_rhi_graphics_queue->getNativeHandle(&rhi_handle));
+    SLANG_RHI_CALL(m_rhi_graphics_queue->getNativeHandle(&rhi_handle));
     return NativeHandle(rhi_handle);
 }
 

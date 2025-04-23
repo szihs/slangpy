@@ -2,6 +2,8 @@
 
 #include "helpers.h"
 
+#include "sgl/device/debug_logger.h"
+
 #include "sgl/core/config.h"
 #include "sgl/core/macros.h"
 #include "sgl/core/format.h"
@@ -13,11 +15,50 @@
 #include <dxgi1_3.h>
 #endif
 
-namespace sgl {
+namespace sgl::detail {
 
+static const char* get_slang_result_name(SlangResult result)
+{
+    switch (result) {
+    case SLANG_OK:
+        return "SLANG_OK";
+    case SLANG_FAIL:
+        return "SLANG_FAIL";
+    case SLANG_E_NOT_IMPLEMENTED:
+        return "SLANG_E_NOT_IMPLEMENTED";
+    case SLANG_E_NO_INTERFACE:
+        return "SLANG_E_NO_INTERFACE";
+    case SLANG_E_ABORT:
+        return "SLANG_E_ABORT";
+    case SLANG_E_INVALID_HANDLE:
+        return "SLANG_E_INVALID_HANDLE";
+    case SLANG_E_INVALID_ARG:
+        return "SLANG_E_INVALID_ARG";
+    case SLANG_E_OUT_OF_MEMORY:
+        return "SLANG_E_OUT_OF_MEMORY";
+    case SLANG_E_BUFFER_TOO_SMALL:
+        return "SLANG_E_BUFFER_TOO_SMALL";
+    case SLANG_E_UNINITIALIZED:
+        return "SLANG_E_UNINITIALIZED";
+    case SLANG_E_PENDING:
+        return "SLANG_E_PENDING";
+    case SLANG_E_CANNOT_OPEN:
+        return "SLANG_E_CANNOT_OPEN";
+    case SLANG_E_NOT_FOUND:
+        return "SLANG_E_NOT_FOUND";
+    case SLANG_E_INTERNAL_FAIL:
+        return "SLANG_E_INTERNAL_FAIL";
+    case SLANG_E_NOT_AVAILABLE:
+        return "SLANG_E_NOT_AVAILABLE";
+    case SLANG_E_TIME_OUT:
+        return "SLANG_E_TIME_OUT";
+    default:
+        return "unknown";
+    }
+}
 
 // Reads last error from graphics layer.
-std::string get_last_rhi_layer_error()
+static std::string get_last_graphics_errors()
 {
 #if SGL_HAS_D3D12
     IDXGIDebug* dxgiDebug = nullptr;
@@ -47,18 +88,34 @@ std::string get_last_rhi_layer_error()
 #endif
 }
 
-// Builds the user friendly message that is passed into a slang failure exception,
-// used by SLANG_CALL.
-std::string build_slang_failed_message(const char* call, SlangResult result)
+/// Called when a slang call fails.
+std::string build_slang_error_message(const char* call, SlangResult result)
 {
-    auto msg = fmt::format("Slang call {} failed with error: {}\n", call, result);
+    return fmt::format("{} failed with error: {} ({})\n", call, result, get_slang_result_name(result));
+}
+
+size_t get_slang_rhi_message_count()
+{
+    return DebugLogger::get().message_count();
+}
+
+/// Called when a slang-rhi call fails.
+std::string build_slang_rhi_error_message(const char* call, rhi::Result result, size_t before_message_count)
+{
+    size_t after_message_count = get_slang_rhi_message_count();
+    auto msg = fmt::format("{} failed with error: {} ({})\n", call, result, get_slang_result_name(result));
+    if (after_message_count > before_message_count) {
+        msg += "\nRHI messages:\n";
+        msg += DebugLogger::get().get_messages(before_message_count, after_message_count);
+    }
     if (static_cast<uint32_t>(result) >= 0x80000000U) {
-        std::string rhi_error = get_last_rhi_layer_error();
-        if (!rhi_error.empty()) {
-            msg += "\nLast graphics layer error:\n" + rhi_error;
+        std::string graphics_errors = get_last_graphics_errors();
+        if (!graphics_errors.empty()) {
+            msg += "\nLast graphics layer error:\n";
+            msg += graphics_errors;
         }
     }
     return msg;
 }
 
-} // namespace sgl
+} // namespace sgl::detail

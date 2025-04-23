@@ -2307,7 +2307,7 @@ static const char *__doc_sgl_DeviceLimits_max_framebuffer_dimensions = R"doc(Max
 
 static const char *__doc_sgl_DeviceLimits_max_shader_visible_samplers = R"doc(Maximum samplers visible in a shader stage.)doc";
 
-static const char *__doc_sgl_DeviceLimits_max_texture_array_layers = R"doc(Maximum number of texture layers.)doc";
+static const char *__doc_sgl_DeviceLimits_max_texture_layers = R"doc(Maximum number of texture layers.)doc";
 
 static const char *__doc_sgl_DeviceLimits_max_texture_dimension_1d = R"doc(Maximum dimension for 1D textures.)doc";
 

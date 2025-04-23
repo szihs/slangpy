@@ -168,7 +168,7 @@ def test_gfx_clear(device_type: sgl.DeviceType):
 class GfxContext:
     def __init__(self, ctx: PipelineTestContext) -> None:
         super().__init__()
-        if not "rasterization" in ctx.device.features:
+        if not ctx.device.has_feature(sgl.Feature.rasterization):
             pytest.skip("Rasterization not supported on this device")
 
         self.ctx = ctx
@@ -570,9 +570,9 @@ def test_rhi_alpha_coverage(device_type: sgl.DeviceType):
 class RayContext:
     def __init__(self, ctx: PipelineTestContext) -> None:
         super().__init__()
-        if not "acceleration-structure" in ctx.device.features:
+        if not ctx.device.has_feature(sgl.Feature.acceleration_structure):
             pytest.skip("Acceleration structures not supported on this device")
-        if not "ray-tracing" in ctx.device.features:
+        if not ctx.device.has_feature(sgl.Feature.ray_tracing):
             pytest.skip("Ray tracing not supported on this device")
 
         self.ctx = ctx
@@ -681,7 +681,7 @@ class RayContext:
 
     def dispatch_ray_grid(self, tlas: sgl.AccelerationStructure, mode: str):
         if mode == "compute":
-            if not "ray-query" in self.ctx.device.features:
+            if not self.ctx.device.has_feature(sgl.Feature.ray_query):
                 pytest.skip("Ray queries not supported on this device")
             self.dispatch_ray_grid_compute(tlas)
         elif mode == "ray":

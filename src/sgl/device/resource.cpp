@@ -114,7 +114,7 @@ Buffer::Buffer(ref<Device> device, BufferDesc desc)
     if (m_desc.memory_type == MemoryType::device_local)
         rhi_desc.usage |= rhi::BufferUsage::CopySource | rhi::BufferUsage::CopyDestination;
 
-    SLANG_CALL(m_device->rhi_device()->createBuffer(rhi_desc, nullptr, m_rhi_buffer.writeRef()));
+    SLANG_RHI_CALL(m_device->rhi_device()->createBuffer(rhi_desc, nullptr, m_rhi_buffer.writeRef()));
 
     // Upload init data.
     if (m_desc.data)
@@ -136,7 +136,7 @@ void* Buffer::map() const
     SGL_ASSERT(m_mapped_ptr == nullptr);
     rhi::CpuAccessMode mode
         = m_desc.memory_type == MemoryType::upload ? rhi::CpuAccessMode::Write : rhi::CpuAccessMode::Read;
-    SLANG_CALL(m_device->rhi_device()->mapBuffer(m_rhi_buffer, mode, &m_mapped_ptr));
+    SLANG_RHI_CALL(m_device->rhi_device()->mapBuffer(m_rhi_buffer, mode, &m_mapped_ptr));
     return m_mapped_ptr;
 }
 
@@ -144,7 +144,7 @@ void Buffer::unmap() const
 {
     SGL_ASSERT(m_desc.memory_type != MemoryType::device_local);
     SGL_ASSERT(m_mapped_ptr != nullptr);
-    SLANG_CALL(m_device->rhi_device()->unmapBuffer(m_rhi_buffer));
+    SLANG_RHI_CALL(m_device->rhi_device()->unmapBuffer(m_rhi_buffer));
     m_mapped_ptr = nullptr;
 }
 
@@ -386,7 +386,7 @@ Texture::Texture(ref<Device> device, TextureDesc desc)
     rhi_desc.size.height = static_cast<rhi::Size>(m_desc.height);
     rhi_desc.size.depth = static_cast<rhi::Size>(m_desc.depth);
     rhi_desc.arrayLength = m_desc.array_length;
-    rhi_desc.mipLevelCount = m_desc.mip_count;
+    rhi_desc.mipCount = m_desc.mip_count;
     rhi_desc.format = static_cast<rhi::Format>(m_desc.format);
     rhi_desc.sampleCount = m_desc.sample_count;
     rhi_desc.sampleQuality = m_desc.sample_quality;
@@ -396,7 +396,7 @@ Texture::Texture(ref<Device> device, TextureDesc desc)
     if (m_desc.memory_type == MemoryType::device_local)
         rhi_desc.usage |= rhi::TextureUsage::CopySource | rhi::TextureUsage::CopyDestination;
 
-    SLANG_CALL(m_device->rhi_device()->createTexture(rhi_desc, nullptr, m_rhi_texture.writeRef()));
+    SLANG_RHI_CALL(m_device->rhi_device()->createTexture(rhi_desc, nullptr, m_rhi_texture.writeRef()));
 
     // Upload init data.
     if (!m_desc.data.empty()) {
@@ -442,7 +442,7 @@ SubresourceLayout Texture::get_subresource_layout(uint32_t mip, uint32_t row_ali
     SGL_CHECK_LT(mip, mip_count());
 
     rhi::SubresourceLayout rhi_layout;
-    SLANG_CALL(m_rhi_texture->getSubresourceLayout(mip, row_alignment, &rhi_layout));
+    SLANG_RHI_CALL(m_rhi_texture->getSubresourceLayout(mip, row_alignment, &rhi_layout));
 
     return layout_from_rhilayout(rhi_layout);
 }
@@ -478,7 +478,7 @@ NativeHandle Texture::shared_handle() const
 DeviceResource::MemoryUsage Texture::memory_usage() const
 {
     rhi::Size size = 0, alignment = 0;
-    SLANG_CALL(m_device->rhi_device()->getTextureAllocationInfo(m_rhi_texture->getDesc(), &size, &alignment));
+    SLANG_RHI_CALL(m_device->rhi_device()->getTextureAllocationInfo(m_rhi_texture->getDesc(), &size, &alignment));
     return {.device = size};
 }
 
@@ -655,12 +655,12 @@ TextureView::TextureView(ref<Device> device, ref<Texture> texture, TextureViewDe
         .subresourceRange{
             .layer = m_desc.subresource_range.layer,
             .layerCount = m_desc.subresource_range.layer_count,
-            .mipLevel = m_desc.subresource_range.mip,
-            .mipLevelCount = m_desc.subresource_range.mip_count,
+            .mip = m_desc.subresource_range.mip,
+            .mipCount = m_desc.subresource_range.mip_count,
         },
         .label = m_desc.label.empty() ? nullptr : m_desc.label.c_str(),
     };
-    SLANG_CALL(
+    SLANG_RHI_CALL(
         m_device->rhi_device()->createTextureView(m_texture->rhi_texture(), rhi_desc, m_rhi_texture_view.writeRef())
     );
 }

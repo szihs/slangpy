@@ -25,7 +25,7 @@ Surface::Surface(WindowHandle window_handle, ref<Device> device)
     rhi::WindowHandle rhi_window_handle = rhi::WindowHandle::fromNSWindow(window_handle.nswindow);
 #endif
 
-    SLANG_CALL(m_device->rhi_device()->createSurface(rhi_window_handle, m_rhi_surface.writeRef()));
+    SLANG_RHI_CALL(m_device->rhi_device()->createSurface(rhi_window_handle, m_rhi_surface.writeRef()));
 
     const rhi::SurfaceInfo& rhi_info = m_rhi_surface->getInfo();
     m_info.preferred_format = static_cast<Format>(rhi_info.preferredFormat);
@@ -53,7 +53,7 @@ void Surface::configure(const SurfaceConfig& config)
         .vsync = config.vsync,
     };
 
-    SLANG_CALL(m_rhi_surface->configure(rhi_config));
+    SLANG_RHI_CALL(m_rhi_surface->configure(rhi_config));
 
     m_config = config;
 }
@@ -61,7 +61,7 @@ void Surface::configure(const SurfaceConfig& config)
 ref<Texture> Surface::acquire_next_image()
 {
     Slang::ComPtr<rhi::ITexture> texture;
-    SLANG_CALL(m_rhi_surface->acquireNextImage(texture.writeRef()));
+    SLANG_RHI_CALL(m_rhi_surface->acquireNextImage(texture.writeRef()));
     rhi::TextureDesc texture_desc = texture->getDesc();
     return m_device->create_texture_from_resource(
         {
@@ -69,7 +69,7 @@ ref<Texture> Surface::acquire_next_image()
             .format = static_cast<Format>(texture_desc.format),
             .width = narrow_cast<uint32_t>(texture_desc.size.width),
             .height = narrow_cast<uint32_t>(texture_desc.size.height),
-            .mip_count = texture_desc.mipLevelCount,
+            .mip_count = texture_desc.mipCount,
             .usage = static_cast<TextureUsage>(m_config.usage),
         },
         texture
@@ -78,7 +78,7 @@ ref<Texture> Surface::acquire_next_image()
 
 void Surface::present()
 {
-    SLANG_CALL(m_rhi_surface->present());
+    SLANG_RHI_CALL(m_rhi_surface->present());
 }
 
 } // namespace sgl

@@ -51,7 +51,7 @@ ComputePipeline::ComputePipeline(ref<Device> device, ComputePipelineDesc desc)
 void ComputePipeline::recreate()
 {
     rhi::ComputePipelineDesc rhi_desc{.program = m_desc.program->rhi_shader_program()};
-    SLANG_CALL(
+    SLANG_RHI_CALL(
         m_device->rhi_device()->createComputePipeline(rhi_desc, (rhi::IComputePipeline**)m_rhi_pipeline.writeRef())
     );
     m_thread_group_size = m_desc.program->layout()->get_entry_point_by_index(0)->compute_thread_group_size();
@@ -164,7 +164,8 @@ void RenderPipeline::recreate()
         },
     };
 
-    SLANG_CALL(m_device->rhi_device()->createRenderPipeline(rhi_desc, (rhi::IRenderPipeline**)m_rhi_pipeline.writeRef())
+    SLANG_RHI_CALL(
+        m_device->rhi_device()->createRenderPipeline(rhi_desc, (rhi::IRenderPipeline**)m_rhi_pipeline.writeRef())
     );
 }
 
@@ -224,8 +225,8 @@ void RayTracingPipeline::recreate()
         .maxAttributeSizeInBytes = desc.max_attribute_size,
         .flags = static_cast<rhi::RayTracingPipelineFlags>(desc.flags),
     };
-    SLANG_CALL(m_device->rhi_device()
-                   ->createRayTracingPipeline(rhi_desc, (rhi::IRayTracingPipeline**)m_rhi_pipeline.writeRef()));
+    SLANG_RHI_CALL(m_device->rhi_device()
+                       ->createRayTracingPipeline(rhi_desc, (rhi::IRayTracingPipeline**)m_rhi_pipeline.writeRef()));
 }
 
 NativeHandle RayTracingPipeline::native_handle() const

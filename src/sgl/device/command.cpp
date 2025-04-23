@@ -30,8 +30,8 @@ namespace detail {
         return rhi::SubresourceRange{
             .layer = subresource_index / texture->mip_count(),
             .layerCount = 1,
-            .mipLevel = subresource_index % texture->mip_count(),
-            .mipLevelCount = 1,
+            .mip = subresource_index % texture->mip_count(),
+            .mipCount = 1,
         };
     }
 
@@ -40,8 +40,8 @@ namespace detail {
         return rhi::SubresourceRange{
             .layer = range.layer,
             .layerCount = range.layer_count,
-            .mipLevel = range.mip,
-            .mipLevelCount = range.mip_count,
+            .mip = range.mip,
+            .mipCount = range.mip_count,
         };
     }
 
@@ -385,7 +385,7 @@ void CommandEncoder::copy_texture(
     rhi::SubresourceRange src_sr = detail::to_rhi(src_subresource_range);
 
     if (all(extent == uint3(-1)))
-        extent = src->get_mip_size(src_sr.mipLevel) - src_offset;
+        extent = src->get_mip_size(src_sr.mip) - src_offset;
 
     m_rhi_command_encoder->copyTexture(
         dst->rhi_texture(),
@@ -422,7 +422,7 @@ void CommandEncoder::copy_texture(
     rhi::SubresourceRange src_sr = {src_layer, 1, src_mip, 1};
 
     if (all(extent == uint3(-1)))
-        extent = src->get_mip_size(src_sr.mipLevel) - src_offset;
+        extent = src->get_mip_size(src_sr.mip) - src_offset;
 
     m_rhi_command_encoder->copyTexture(
         dst->rhi_texture(),
@@ -508,7 +508,8 @@ void CommandEncoder::upload_buffer_data(Buffer* buffer, size_t offset, size_t si
 
     set_buffer_state(buffer, ResourceState::copy_destination);
 
-    SLANG_CALL(m_rhi_command_encoder->uploadBufferData(buffer->rhi_buffer(), offset, size, const_cast<void*>(data)));
+    SLANG_RHI_CALL(m_rhi_command_encoder->uploadBufferData(buffer->rhi_buffer(), offset, size, const_cast<void*>(data))
+    );
 }
 
 void CommandEncoder::upload_texture_data(
@@ -531,7 +532,7 @@ void CommandEncoder::upload_texture_data(
         });
     }
 
-    SLANG_CALL(m_rhi_command_encoder->uploadTextureData(
+    SLANG_RHI_CALL(m_rhi_command_encoder->uploadTextureData(
         texture->rhi_texture(),
         detail::to_rhi(subresource_range),
         rhi::Offset3D{offset.x, offset.y, offset.z},
@@ -556,8 +557,8 @@ void CommandEncoder::upload_texture_data(
     rhi::SubresourceRange rhi_subresource_range = {
         .layer = layer,
         .layerCount = 1,
-        .mipLevel = mip,
-        .mipLevelCount = 1,
+        .mip = mip,
+        .mipCount = 1,
     };
 
     rhi::SubresourceData rhi_subresource_data = {
@@ -566,7 +567,7 @@ void CommandEncoder::upload_texture_data(
         .slicePitch = subresource_data.slice_pitch,
     };
 
-    SLANG_CALL(m_rhi_command_encoder->uploadTextureData(
+    SLANG_RHI_CALL(m_rhi_command_encoder->uploadTextureData(
         texture->rhi_texture(),
         rhi_subresource_range,
         rhi::Offset3D{0, 0, 0},
@@ -780,8 +781,8 @@ void CommandEncoder::set_texture_state(Texture* texture, SubresourceRange range,
         {
             .layer = range.layer,
             .layerCount = range.layer_count,
-            .mipLevel = range.mip,
-            .mipLevelCount = range.mip_count,
+            .mip = range.mip,
+            .mipCount = range.mip_count,
         },
         static_cast<rhi::ResourceState>(state)
     );
@@ -821,7 +822,7 @@ ref<CommandBuffer> CommandEncoder::finish()
 {
     SGL_CHECK(m_open, "Command encoder is finished");
     Slang::ComPtr<rhi::ICommandBuffer> rhi_command_buffer;
-    SLANG_CALL(m_rhi_command_encoder->finish(rhi_command_buffer.writeRef()));
+    SLANG_RHI_CALL(m_rhi_command_encoder->finish(rhi_command_buffer.writeRef()));
     ref<CommandBuffer> command_buffer = make_ref<CommandBuffer>(m_device, rhi_command_buffer);
     m_open = false;
     return command_buffer;

@@ -11,7 +11,7 @@ namespace sgl {
 CoopVec::CoopVec(Device* device)
     : m_device(device)
 {
-    SGL_CHECK(m_device->has_feature("cooperative-vector"), "Device does not support cooperative vectors.");
+    SGL_CHECK(m_device->has_feature(Feature::cooperative_vector), "Device does not support cooperative vectors.");
 }
 
 static uint32_t calc_element_stride(uint32_t rows, uint32_t cols, CoopVecMatrixLayout layout)
@@ -94,7 +94,7 @@ size_t CoopVec::query_matrix_size(uint32_t rows, uint32_t cols, CoopVecMatrixLay
     desc.dstLayout = static_cast<rhi::CooperativeVectorMatrixLayout>(layout);
     desc.dstStride = calc_element_stride(rows, cols, layout) * get_element_size(element_type);
 
-    SLANG_CALL(m_device->rhi_device()->convertCooperativeVectorMatrix(&desc, 1));
+    SLANG_RHI_CALL(m_device->rhi_device()->convertCooperativeVectorMatrix(&desc, 1));
     SGL_CHECK(required_size > 0, "Expected matrix size to be larger than zero.");
 
     return required_size;
@@ -177,7 +177,7 @@ size_t CoopVec::convert_matrix_host(const void* src, CoopVecMatrixDesc src_desc,
     rhi::ConvertCooperativeVectorMatrixDesc desc
         = build_rhi_matrix_desc(rhi_src, src_desc, rhi_dst, dst_desc, &actual_size);
 
-    SLANG_CALL(m_device->rhi_device()->convertCooperativeVectorMatrix(&desc, 1));
+    SLANG_RHI_CALL(m_device->rhi_device()->convertCooperativeVectorMatrix(&desc, 1));
     SGL_CHECK(actual_size > 0, "Expected matrix size to be larger than zero.");
 
     return actual_size;

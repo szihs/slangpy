@@ -10,7 +10,7 @@ import sglhelpers as helpers
 
 def get_coop_vec_device(device_type: sgl.DeviceType) -> sgl.Device:
     device = helpers.get_device(device_type)
-    if not "cooperative-vector" in device.features:
+    if not device.has_feature(sgl.Feature.cooperative_vector):
         pytest.skip("Device does not support cooperative vector")
     return device
 

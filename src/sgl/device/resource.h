@@ -211,7 +211,7 @@ SGL_ENUM_INFO(
 SGL_ENUM_REGISTER(TextureAspect);
 
 static constexpr uint32_t ALL_LAYERS = rhi::kAllLayers;
-static constexpr uint32_t ALL_MIPS = rhi::kAllMipLevels;
+static constexpr uint32_t ALL_MIPS = rhi::kAllMips;
 
 struct SubresourceRange {
     /// First array layer.

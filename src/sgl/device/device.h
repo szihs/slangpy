@@ -125,7 +125,7 @@ struct DeviceLimits {
     /// Maximum dimensions for cube textures.
     uint32_t max_texture_dimension_cube;
     /// Maximum number of texture layers.
-    uint32_t max_texture_array_layers;
+    uint32_t max_texture_layers;
 
     /// Maximum number of vertex input elements in a graphics pipeline.
     uint32_t max_vertex_input_elements;
@@ -209,10 +209,10 @@ public:
     ShaderModel supported_shader_model() const { return m_supported_shader_model; }
 
     /// List of features supported by the device.
-    const std::vector<std::string>& features() const { return m_features; }
+    const std::vector<Feature>& features() const { return m_features; }
 
     /// Check if the device supports a given feature.
-    bool has_feature(std::string_view feature) const;
+    bool has_feature(Feature feature) const;
 
     /// True if the device supports CUDA interoperability.
     bool supports_cuda_interop() const { return m_supports_cuda_interop; }
@@ -637,7 +637,7 @@ private:
 
     ref<SlangSession> m_slang_session;
 
-    std::vector<std::string> m_features;
+    std::vector<Feature> m_features;
 
     ref<Fence> m_global_fence;
 

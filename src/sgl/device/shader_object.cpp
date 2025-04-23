@@ -76,19 +76,20 @@ ref<ShaderObject> ShaderObject::get_object(const ShaderOffset& offset)
 
 void ShaderObject::set_object(const ShaderOffset& offset, const ref<ShaderObject>& object)
 {
-    SLANG_CALL(m_shader_object->setObject(rhi_shader_offset(offset), object ? object->rhi_shader_object() : nullptr));
+    SLANG_RHI_CALL(m_shader_object->setObject(rhi_shader_offset(offset), object ? object->rhi_shader_object() : nullptr)
+    );
 }
 
 void ShaderObject::set_buffer(const ShaderOffset& offset, const ref<Buffer>& buffer)
 {
-    SLANG_CALL(
+    SLANG_RHI_CALL(
         m_shader_object->setBinding(rhi_shader_offset(offset), rhi::Binding(buffer ? buffer->rhi_buffer() : nullptr))
     );
 }
 
 void ShaderObject::set_buffer_view(const ShaderOffset& offset, const ref<BufferView>& buffer_view)
 {
-    SLANG_CALL(m_shader_object->setBinding(
+    SLANG_RHI_CALL(m_shader_object->setBinding(
         rhi_shader_offset(offset),
         rhi::Binding(
             buffer_view->buffer()->rhi_buffer(),
@@ -99,14 +100,14 @@ void ShaderObject::set_buffer_view(const ShaderOffset& offset, const ref<BufferV
 
 void ShaderObject::set_texture(const ShaderOffset& offset, const ref<Texture>& texture)
 {
-    SLANG_CALL(
+    SLANG_RHI_CALL(
         m_shader_object->setBinding(rhi_shader_offset(offset), rhi::Binding(texture ? texture->rhi_texture() : nullptr))
     );
 }
 
 void ShaderObject::set_texture_view(const ShaderOffset& offset, const ref<TextureView>& texture_view)
 {
-    SLANG_CALL(m_shader_object->setBinding(
+    SLANG_RHI_CALL(m_shader_object->setBinding(
         rhi_shader_offset(offset),
         rhi::Binding(texture_view ? texture_view->rhi_texture_view() : nullptr)
     ));
@@ -114,7 +115,7 @@ void ShaderObject::set_texture_view(const ShaderOffset& offset, const ref<Textur
 
 void ShaderObject::set_sampler(const ShaderOffset& offset, const ref<Sampler>& sampler)
 {
-    SLANG_CALL(
+    SLANG_RHI_CALL(
         m_shader_object->setBinding(rhi_shader_offset(offset), rhi::Binding(sampler ? sampler->rhi_sampler() : nullptr))
     );
 }
@@ -124,7 +125,7 @@ void ShaderObject::set_acceleration_structure(
     const ref<AccelerationStructure>& acceleration_structure
 )
 {
-    SLANG_CALL(m_shader_object->setBinding(
+    SLANG_RHI_CALL(m_shader_object->setBinding(
         rhi_shader_offset(offset),
         rhi::Binding(acceleration_structure ? acceleration_structure->rhi_acceleration_structure() : nullptr)
     ));
@@ -132,7 +133,7 @@ void ShaderObject::set_acceleration_structure(
 
 void ShaderObject::set_data(const ShaderOffset& offset, const void* data, size_t size)
 {
-    SLANG_CALL(m_shader_object->setData(rhi_shader_offset(offset), data, size));
+    SLANG_RHI_CALL(m_shader_object->setData(rhi_shader_offset(offset), data, size));
 }
 
 void ShaderObject::set_cuda_tensor_view(const ShaderOffset& offset, const cuda::TensorView& tensor_view, bool is_uav)

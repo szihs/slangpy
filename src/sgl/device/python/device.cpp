@@ -161,11 +161,7 @@ SGL_PY_EXPORT(device_device)
             &DeviceLimits::max_texture_dimension_cube,
             D(DeviceLimits, max_texture_dimension_cube)
         )
-        .def_ro(
-            "max_texture_array_layers",
-            &DeviceLimits::max_texture_array_layers,
-            D(DeviceLimits, max_texture_array_layers)
-        )
+        .def_ro("max_texture_layers", &DeviceLimits::max_texture_layers, D(DeviceLimits, max_texture_layers))
         .def_ro(
             "max_vertex_input_elements",
             &DeviceLimits::max_vertex_input_elements,
@@ -270,6 +266,7 @@ SGL_PY_EXPORT(device_device)
     device.def_prop_ro("features", &Device::features, D(Device, features));
     device.def_prop_ro("supports_cuda_interop", &Device::supports_cuda_interop, D(Device, supports_cuda_interop));
     device.def_prop_ro("native_handles", &Device::native_handles, D(Device, native_handles));
+    device.def("has_feature", &Device::has_feature, "feature"_a, D(Device, has_feature));
     device.def("get_format_support", &Device::get_format_support, "format"_a, D(Device, get_format_support));
 
     device.def_prop_ro("slang_session", &Device::slang_session, D(Device, slang_session));

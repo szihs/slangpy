@@ -84,6 +84,7 @@ target_sources(sgl PRIVATE
     sgl/device/cuda_utils.h
     sgl/device/cursor_utils.cpp
     sgl/device/cursor_utils.h
+    sgl/device/debug_logger.h
     sgl/device/device_resource.cpp
     sgl/device/device_resource.h
     sgl/device/device.cpp
