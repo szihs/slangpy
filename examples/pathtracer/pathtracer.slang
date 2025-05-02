@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 static const float PI = 3.14159265358979323846;
 static const float TWO_PI = 6.28318530717958647692;

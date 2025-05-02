@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 RWTexture2D g_output;
 Texture2DArray<float4> g_texture;

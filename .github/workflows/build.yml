@@ -46,7 +46,7 @@ jobs:
       # Install Python packages.
       - name: Install Python packages
         run: |
-          python -m pip install -r tools/buildrequirements.txt
+          python -m pip install -r requirements-dev.txt
           python -m pip install pytest-github-actions-annotate-failures
 
       # Install MSVC.

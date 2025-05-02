@@ -6,7 +6,7 @@ version: 2
 submodules:
   include:
     - data
-    - tutorials
+    - samples
   recursive: false
 
 build:

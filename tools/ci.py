@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 """
 Script for running CI tasks.
 """
@@ -147,9 +149,7 @@ def unit_test_cpp(args: Any):
     out = run_command(f"{args.bin_dir}/sgl_tests -r=console,junit")
     # doctest outputs both regular output and junit xml report on stdout
     # filter out regular output and write remaining to junit xml file
-    report = "\n".join(
-        filter(lambda line: line.strip().startswith("<"), out.splitlines())
-    )
+    report = "\n".join(filter(lambda line: line.strip().startswith("<"), out.splitlines()))
     os.makedirs("reports", exist_ok=True)
     with open("reports/doctest-junit.xml", "w") as f:
         f.write(report)
@@ -163,7 +163,7 @@ def typing_check_python(args: Any):
 def unit_test_python(args: Any):
     env = get_python_env(args)
     os.makedirs("reports", exist_ok=True)
-    run_command(f"pytest src -r a --junit-xml=reports/pytest-junit.xml", env=env)
+    run_command(f"pytest tests -r a --junit-xml=reports/pytest-junit.xml", env=env)
 
 
 def coverage_report(args: Any):
@@ -175,24 +175,14 @@ def coverage_report(args: Any):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--os", type=str, action="store", help="OS (windows, linux, macos)"
-    )
-    parser.add_argument(
-        "--platform", type=str, action="store", help="Platform (x86_64, aarch64)"
-    )
-    parser.add_argument(
-        "--compiler", type=str, action="store", help="Compiler (msvc, gcc, clang)"
-    )
-    parser.add_argument(
-        "--config", type=str, action="store", help="Config (Release, Debug)"
-    )
+    parser.add_argument("--os", type=str, action="store", help="OS (windows, linux, macos)")
+    parser.add_argument("--platform", type=str, action="store", help="Platform (x86_64, aarch64)")
+    parser.add_argument("--compiler", type=str, action="store", help="Compiler (msvc, gcc, clang)")
+    parser.add_argument("--config", type=str, action="store", help="Config (Release, Debug)")
     parser.add_argument("--python", type=str, action="store", help="Python version")
     parser.add_argument("--flags", type=str, action="store", help="Additional flags")
 
-    commands = parser.add_subparsers(
-        dest="command", required=True, help="sub-command help"
-    )
+    commands = parser.add_subparsers(dest="command", required=True, help="sub-command help")
 
     parser_setup = commands.add_parser("setup", help="run setup.bat or setup.sh")
 
@@ -206,13 +196,9 @@ def main():
         "typing-check-python", help="run pyright typing checks (python)"
     )
 
-    parser_test_python = commands.add_parser(
-        "unit-test-python", help="run unit tests (python)"
-    )
+    parser_test_python = commands.add_parser("unit-test-python", help="run unit tests (python)")
 
-    parser_coverage_report = commands.add_parser(
-        "coverage-report", help="generate coverage report"
-    )
+    parser_coverage_report = commands.add_parser("coverage-report", help="generate coverage report")
 
     args = parser.parse_args()
     args = vars(args)
@@ -235,9 +221,9 @@ def main():
 
     # Determine cmake executable path.
     args["cmake"] = {
-        "windows": "./tools/host/cmake/bin/cmake.exe",
-        "linux": "./tools/host/cmake/bin/cmake",
-        "macos": "./tools/host/cmake/CMake.app/Contents/bin/cmake",
+        "windows": "cmake.exe",
+        "linux": "cmake",
+        "macos": "cmake",
     }[args["os"]]
 
     # Determine cmake preset.

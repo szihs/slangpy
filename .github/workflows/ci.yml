@@ -71,6 +71,11 @@ jobs:
           submodules: recursive
           lfs: true
 
+      - name: Cleanup submodules # Fix for https://github.com/actions/checkout/issues/358
+        run: |
+          git submodule foreach --recursive git clean -ffdx
+          git submodule foreach --recursive git reset --hard
+
       # Setup Linux.
       - name: Setup Linux
         if: startsWith(matrix.os, 'linux') && contains(matrix.runs-on, 'ubuntu-')
@@ -87,12 +92,16 @@ jobs:
       # Setup Python environment.
       - name: Setup Python environment
         run: |
-          python -m pip install -r tools/buildrequirements.txt
+          python -m pip install -r requirements-dev.txt
           python -m pip install pytest-github-actions-annotate-failures
 
       # Setup MSVC.
       - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
+
+      # Setup CMake/Ninja.
+      - name: Setup CMake/Ninja
+        uses: lukka/get-cmake@latest
 
       # Setup.
       - name: Setup

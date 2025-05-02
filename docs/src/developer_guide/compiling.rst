@@ -19,18 +19,18 @@ following command:
 
 .. code-block:: bash
 
-    git clone https://github.com/shader-slang/sgl.git
+    git clone https://github.com/shader-slang/slangpy.git --recursive
 
 
 Setup
 -----
 
-To make it easy to build ``sgl`` reliably, an additional setup step is required:
+To make it easy to build ``slangpy`` reliably, an additional setup step is required:
 
 .. code-block:: bash
 
     # Install Python build prerequisites
-    pip install -r tools/buildrequirements.txt
+    pip install -r requirements-dev.txt
 
     # On Windows
     setup.bat
@@ -42,12 +42,6 @@ To make it easy to build ``sgl`` reliably, an additional setup step is required:
 This will do the following:
 
 * Make sure all git submodules are initialized and up-to-date.
-
-* Install a set of host tools for easy and reliable builds, consisting of:
-
-  * CMake
-  * Ninja
-  * clang-format
 
 * On the first run, setup a ``.vscode`` directory with initial settings for
   VS Code.
@@ -69,13 +63,13 @@ commands to build the project:
 .. code-block:: bash
 
     # Configure
-    tools\host\cmake\bin\cmake.exe --preset windows-msvc
+    cmake --preset windows-msvc
 
     # Build "Debug" configuration
-    tools\host\cmake\bin\cmake.exe --build --preset windows-msvc-debug
+    cmake --build --preset windows-msvc-debug
 
     # Build "Release" configuration
-    tools\host\cmake\bin\cmake.exe --build --preset windows-msvc-release
+    cmake --build --preset windows-msvc-release
 
 
 The build artifacts are placed in ``build\windows-msvc\bin\Debug`` or
@@ -113,13 +107,13 @@ Then use the following commands to build the project:
 .. code-block:: bash
 
     # Configure
-    ./tools/host/cmake/bin/cmake --preset linux-gcc
+    cmake --preset linux-gcc
 
     # Build "Debug" configuration
-    ./tools/host/cmake/bin/cmake --build --preset linux-gcc-debug
+    cmake --build --preset linux-gcc-debug
 
     # Build "Release" configuration
-    ./tools/host/cmake/bin/cmake --build --preset linux-gcc-release
+    cmake --build --preset linux-gcc-release
 
 
 The build artifacts are placed in ``build\linux-gcc\bin\Debug`` or
@@ -153,13 +147,13 @@ Then use the following commands to build the project:
 .. code-block:: bash
 
     # Configure
-    ./tools/host/cmake/CMake.app/Contents/bin/cmake --preset macos-arm64-clang
+    cmake --preset macos-arm64-clang
 
     # Build "Debug" configuration
-    ./tools/host/cmake/CMake.app/Contents/bin/cmake --build --preset macos-arm64-clang-debug
+    cmake --build --preset macos-arm64-clang-debug
 
     # Build "Release" configuration
-    ./tools/host/cmake/CMake.app/Contents/bin/cmake --build --preset macos-arm64-clang-release
+    cmake --build --preset macos-arm64-clang-release
 
 The build artifacts are placed in ``build\macos-arm64-clang\bin\Debug`` or
 ``build\macos-arm64-clang\bin\Release``.
@@ -177,7 +171,7 @@ To build for the x64 architecture, use the ``macos-x64-clang`` preset.
 Configuration options
 ---------------------
 
-``sgl`` can be configured using the following CMake options. These options
+SlangPy can be configured using the following CMake options. These options
 can be specified on the command line when running CMake, for example:
 
 .. code-block:: bash

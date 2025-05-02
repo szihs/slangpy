@@ -1,61 +1,61 @@
 Core
 ----
 
-.. py:class:: sgl.DataType
+.. py:class:: slangpy.DataType
 
     Base class: :py:class:`enum.Enum`
     
     
     
-    .. py:attribute:: sgl.DataType.void
+    .. py:attribute:: slangpy.DataType.void
         :type: DataType
         :value: DataType.void
     
-    .. py:attribute:: sgl.DataType.bool
+    .. py:attribute:: slangpy.DataType.bool
         :type: DataType
         :value: DataType.bool
     
-    .. py:attribute:: sgl.DataType.int8
+    .. py:attribute:: slangpy.DataType.int8
         :type: DataType
         :value: DataType.int8
     
-    .. py:attribute:: sgl.DataType.int16
+    .. py:attribute:: slangpy.DataType.int16
         :type: DataType
         :value: DataType.int16
     
-    .. py:attribute:: sgl.DataType.int32
+    .. py:attribute:: slangpy.DataType.int32
         :type: DataType
         :value: DataType.int32
     
-    .. py:attribute:: sgl.DataType.int64
+    .. py:attribute:: slangpy.DataType.int64
         :type: DataType
         :value: DataType.int64
     
-    .. py:attribute:: sgl.DataType.uint8
+    .. py:attribute:: slangpy.DataType.uint8
         :type: DataType
         :value: DataType.uint8
     
-    .. py:attribute:: sgl.DataType.uint16
+    .. py:attribute:: slangpy.DataType.uint16
         :type: DataType
         :value: DataType.uint16
     
-    .. py:attribute:: sgl.DataType.uint32
+    .. py:attribute:: slangpy.DataType.uint32
         :type: DataType
         :value: DataType.uint32
     
-    .. py:attribute:: sgl.DataType.uint64
+    .. py:attribute:: slangpy.DataType.uint64
         :type: DataType
         :value: DataType.uint64
     
-    .. py:attribute:: sgl.DataType.float16
+    .. py:attribute:: slangpy.DataType.float16
         :type: DataType
         :value: DataType.float16
     
-    .. py:attribute:: sgl.DataType.float32
+    .. py:attribute:: slangpy.DataType.float32
         :type: DataType
         :value: DataType.float32
     
-    .. py:attribute:: sgl.DataType.float64
+    .. py:attribute:: slangpy.DataType.float64
         :type: DataType
         :value: DataType.float64
     
@@ -63,7 +63,7 @@ Core
 
 ----
 
-.. py:class:: sgl.Object
+.. py:class:: slangpy.Object
 
     Base class for all reference counted objects.
     
@@ -71,109 +71,109 @@ Core
 
 ----
 
-.. py:class:: sgl.Bitmap
+.. py:class:: slangpy.Bitmap
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:method:: __init__(self, pixel_format: sgl.Bitmap.PixelFormat, component_type: sgl.Struct.Type, width: int, height: int, channel_count: int = 0, channel_names: collections.abc.Sequence[str] = []) -> None
+    .. py:method:: __init__(self, pixel_format: slangpy.Bitmap.PixelFormat, component_type: slangpy.DataStruct.Type, width: int, height: int, channel_count: int = 0, channel_names: collections.abc.Sequence[str] = []) -> None
     
-    .. py:method:: __init__(self, data: ndarray[device='cpu'], pixel_format: sgl.Bitmap.PixelFormat | None = None, channel_names: collections.abc.Sequence[str] | None = None) -> None
+    .. py:method:: __init__(self, data: ndarray[device='cpu'], pixel_format: slangpy.Bitmap.PixelFormat | None = None, channel_names: collections.abc.Sequence[str] | None = None) -> None
         :no-index:
     
     .. py:method:: __init__(self, path: str | os.PathLike) -> None
         :no-index:
     
-    .. py:class:: sgl.Bitmap.PixelFormat
+    .. py:class:: slangpy.Bitmap.PixelFormat
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.y
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.y
             :type: PixelFormat
             :value: PixelFormat.y
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.ya
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.ya
             :type: PixelFormat
             :value: PixelFormat.ya
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.r
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.r
             :type: PixelFormat
             :value: PixelFormat.r
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.rg
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.rg
             :type: PixelFormat
             :value: PixelFormat.rg
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.rgb
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.rgb
             :type: PixelFormat
             :value: PixelFormat.rgb
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.rgba
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.rgba
             :type: PixelFormat
             :value: PixelFormat.rgba
         
-        .. py:attribute:: sgl.Bitmap.PixelFormat.multi_channel
+        .. py:attribute:: slangpy.Bitmap.PixelFormat.multi_channel
             :type: PixelFormat
             :value: PixelFormat.multi_channel
         
-    .. py:class:: sgl.Bitmap.ComponentType
-        :canonical: sgl.Struct.Type
+    .. py:class:: slangpy.Bitmap.ComponentType
+        :canonical: slangpy.DataStruct.Type
         
-        Alias class: :py:class:`sgl.Struct.Type`
+        Alias class: :py:class:`slangpy.DataStruct.Type`
         
-    .. py:class:: sgl.Bitmap.FileFormat
+    .. py:class:: slangpy.Bitmap.FileFormat
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.unknown
+        .. py:attribute:: slangpy.Bitmap.FileFormat.unknown
             :type: FileFormat
             :value: FileFormat.unknown
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.auto
+        .. py:attribute:: slangpy.Bitmap.FileFormat.auto
             :type: FileFormat
             :value: FileFormat.auto
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.png
+        .. py:attribute:: slangpy.Bitmap.FileFormat.png
             :type: FileFormat
             :value: FileFormat.png
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.jpg
+        .. py:attribute:: slangpy.Bitmap.FileFormat.jpg
             :type: FileFormat
             :value: FileFormat.jpg
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.bmp
+        .. py:attribute:: slangpy.Bitmap.FileFormat.bmp
             :type: FileFormat
             :value: FileFormat.bmp
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.tga
+        .. py:attribute:: slangpy.Bitmap.FileFormat.tga
             :type: FileFormat
             :value: FileFormat.tga
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.hdr
+        .. py:attribute:: slangpy.Bitmap.FileFormat.hdr
             :type: FileFormat
             :value: FileFormat.hdr
         
-        .. py:attribute:: sgl.Bitmap.FileFormat.exr
+        .. py:attribute:: slangpy.Bitmap.FileFormat.exr
             :type: FileFormat
             :value: FileFormat.exr
         
     .. py:property:: pixel_format
-        :type: sgl.Bitmap.PixelFormat
+        :type: slangpy.Bitmap.PixelFormat
     
         The pixel format.
         
     .. py:property:: component_type
-        :type: sgl.Struct.Type
+        :type: slangpy.DataStruct.Type
     
         The component type.
         
     .. py:property:: pixel_struct
-        :type: sgl.Struct
+        :type: slangpy.DataStruct
     
         Struct describing the pixel layout.
         
@@ -233,7 +233,7 @@ Core
     
         Vertically flip the bitmap.
         
-    .. py:method:: split(self) -> list[tuple[str, sgl.Bitmap]]
+    .. py:method:: split(self) -> list[tuple[str, slangpy.Bitmap]]
     
         Split bitmap into multiple bitmaps, each containing the channels with
         the same prefix.
@@ -253,13 +253,13 @@ Core
         Returns:
             Returns a list of (prefix, bitmap) pairs.
         
-    .. py:method:: convert(self, pixel_format: sgl.Bitmap.PixelFormat | None = None, component_type: sgl.Struct.Type | None = None, srgb_gamma: bool | None = None) -> sgl.Bitmap
+    .. py:method:: convert(self, pixel_format: slangpy.Bitmap.PixelFormat | None = None, component_type: slangpy.DataStruct.Type | None = None, srgb_gamma: bool | None = None) -> slangpy.Bitmap
     
-    .. py:method:: write(self, path: str | os.PathLike, format: sgl.Bitmap.FileFormat = FileFormat.auto, quality: int = -1) -> None
+    .. py:method:: write(self, path: str | os.PathLike, format: slangpy.Bitmap.FileFormat = FileFormat.auto, quality: int = -1) -> None
     
-    .. py:method:: write_async(self, path: str | os.PathLike, format: sgl.Bitmap.FileFormat = FileFormat.auto, quality: int = -1) -> None
+    .. py:method:: write_async(self, path: str | os.PathLike, format: slangpy.Bitmap.FileFormat = FileFormat.auto, quality: int = -1) -> None
     
-    .. py:staticmethod:: read_multiple(paths: Sequence[str | os.PathLike], format: sgl.Bitmap.FileFormat = FileFormat.auto) -> list[sgl.Bitmap]
+    .. py:staticmethod:: read_multiple(paths: Sequence[str | os.PathLike], format: slangpy.Bitmap.FileFormat = FileFormat.auto) -> list[slangpy.Bitmap]
     
         Load a list of bitmaps from multiple paths. Uses multi-threading to
         load bitmaps in parallel.
@@ -268,9 +268,9 @@ Core
 
 ----
 
-.. py:class:: sgl.Struct
+.. py:class:: slangpy.DataStruct
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Structured data definition.
     
@@ -278,7 +278,7 @@ Core
     used by the StructConverter class to convert between different
     layouts.
     
-    .. py:method:: __init__(self, pack: bool = False, byte_order: sgl.Struct.ByteOrder = ByteOrder.host) -> None
+    .. py:method:: __init__(self, pack: bool = False, byte_order: slangpy.DataStruct.ByteOrder = ByteOrder.host) -> None
     
         Constructor.
         
@@ -288,97 +288,97 @@ Core
         Parameter ``byte_order``:
             Byte order of the struct.
         
-    .. py:class:: sgl.Struct.Type
+    .. py:class:: slangpy.DataStruct.Type
     
         Base class: :py:class:`enum.Enum`
         
         Struct field type.
         
-        .. py:attribute:: sgl.Struct.Type.int8
+        .. py:attribute:: slangpy.DataStruct.Type.int8
             :type: Type
             :value: Type.int8
         
-        .. py:attribute:: sgl.Struct.Type.int16
+        .. py:attribute:: slangpy.DataStruct.Type.int16
             :type: Type
             :value: Type.int16
         
-        .. py:attribute:: sgl.Struct.Type.int32
+        .. py:attribute:: slangpy.DataStruct.Type.int32
             :type: Type
             :value: Type.int32
         
-        .. py:attribute:: sgl.Struct.Type.int64
+        .. py:attribute:: slangpy.DataStruct.Type.int64
             :type: Type
             :value: Type.int64
         
-        .. py:attribute:: sgl.Struct.Type.uint8
+        .. py:attribute:: slangpy.DataStruct.Type.uint8
             :type: Type
             :value: Type.uint8
         
-        .. py:attribute:: sgl.Struct.Type.uint16
+        .. py:attribute:: slangpy.DataStruct.Type.uint16
             :type: Type
             :value: Type.uint16
         
-        .. py:attribute:: sgl.Struct.Type.uint32
+        .. py:attribute:: slangpy.DataStruct.Type.uint32
             :type: Type
             :value: Type.uint32
         
-        .. py:attribute:: sgl.Struct.Type.uint64
+        .. py:attribute:: slangpy.DataStruct.Type.uint64
             :type: Type
             :value: Type.uint64
         
-        .. py:attribute:: sgl.Struct.Type.float16
+        .. py:attribute:: slangpy.DataStruct.Type.float16
             :type: Type
             :value: Type.float16
         
-        .. py:attribute:: sgl.Struct.Type.float32
+        .. py:attribute:: slangpy.DataStruct.Type.float32
             :type: Type
             :value: Type.float32
         
-        .. py:attribute:: sgl.Struct.Type.float64
+        .. py:attribute:: slangpy.DataStruct.Type.float64
             :type: Type
             :value: Type.float64
         
-    .. py:class:: sgl.Struct.Flags
+    .. py:class:: slangpy.DataStruct.Flags
     
         Base class: :py:class:`enum.IntFlag`
         
         Struct field flags.
         
-        .. py:attribute:: sgl.Struct.Flags.none
+        .. py:attribute:: slangpy.DataStruct.Flags.none
             :type: Flags
-            :value: Flags.none
+            :value: 0
         
-        .. py:attribute:: sgl.Struct.Flags.normalized
+        .. py:attribute:: slangpy.DataStruct.Flags.normalized
             :type: Flags
-            :value: Flags.normalized
+            :value: 1
         
-        .. py:attribute:: sgl.Struct.Flags.srgb_gamma
+        .. py:attribute:: slangpy.DataStruct.Flags.srgb_gamma
             :type: Flags
-            :value: Flags.srgb_gamma
+            :value: 2
         
-        .. py:attribute:: sgl.Struct.Flags.default
+        .. py:attribute:: slangpy.DataStruct.Flags.default
             :type: Flags
-            :value: Flags.default
+            :value: 4
         
-    .. py:class:: sgl.Struct.ByteOrder
+    .. py:class:: slangpy.DataStruct.ByteOrder
     
         Base class: :py:class:`enum.Enum`
         
         Byte order.
         
-        .. py:attribute:: sgl.Struct.ByteOrder.little_endian
+        .. py:attribute:: slangpy.DataStruct.ByteOrder.little_endian
             :type: ByteOrder
             :value: ByteOrder.little_endian
         
-        .. py:attribute:: sgl.Struct.ByteOrder.big_endian
+        .. py:attribute:: slangpy.DataStruct.ByteOrder.big_endian
             :type: ByteOrder
             :value: ByteOrder.big_endian
         
-        .. py:attribute:: sgl.Struct.ByteOrder.host
+        .. py:attribute:: slangpy.DataStruct.ByteOrder.host
             :type: ByteOrder
             :value: ByteOrder.host
         
-    .. py:class:: sgl.Struct.Field
+    .. py:class:: slangpy.DataStruct.Field
     
         Struct field.
         
@@ -388,12 +388,12 @@ Core
             Name of the field.
             
         .. py:property:: type
-            :type: sgl.Struct.Type
+            :type: slangpy.DataStruct.Type
         
             Type of the field.
             
         .. py:property:: flags
-            :type: sgl.Struct.Flags
+            :type: slangpy.DataStruct.Flags
         
             Field flags.
             
@@ -428,11 +428,11 @@ Core
         
             Check if the field is a floating point type.
             
-    .. py:method:: append(self, field: sgl.Struct.Field) -> sgl.Struct
+    .. py:method:: append(self, field: slangpy.DataStruct.Field) -> slangpy.DataStruct
     
         Append a field to the struct.
         
-    .. py:method:: append(self, name: str, type: sgl.Struct.Type, flags: sgl.Struct.Flags = Flags.none, default_value: float = 0.0, blend: collections.abc.Sequence[tuple[float, str]] = []) -> sgl.Struct
+    .. py:method:: append(self, name: str, type: slangpy.DataStruct.Type, flags: slangpy.DataStruct.Flags = 0, default_value: float = 0.0, blend: collections.abc.Sequence[tuple[float, str]] = []) -> slangpy.DataStruct
         :no-index:
     
         Append a field to the struct.
@@ -459,7 +459,7 @@ Core
     
         Check if a field with the specified name exists.
         
-    .. py:method:: field(self, name: str) -> sgl.Struct.Field
+    .. py:method:: field(self, name: str) -> slangpy.DataStruct.Field
     
         Access field by name. Throws if field is not found.
         
@@ -474,31 +474,31 @@ Core
         The alignment of the struct in bytes.
         
     .. py:property:: byte_order
-        :type: sgl.Struct.ByteOrder
+        :type: slangpy.DataStruct.ByteOrder
     
         The byte order of the struct.
         
-    .. py:staticmethod:: type_size(arg: sgl.Struct.Type, /) -> int
+    .. py:staticmethod:: type_size(arg: slangpy.DataStruct.Type, /) -> int
     
         Get the size of a type in bytes.
         
-    .. py:staticmethod:: type_range(arg: sgl.Struct.Type, /) -> tuple[float, float]
+    .. py:staticmethod:: type_range(arg: slangpy.DataStruct.Type, /) -> tuple[float, float]
     
         Get the numeric range of a type.
         
-    .. py:staticmethod:: is_integer(arg: sgl.Struct.Type, /) -> bool
+    .. py:staticmethod:: is_integer(arg: slangpy.DataStruct.Type, /) -> bool
     
         Check if ``type`` is an integer type.
         
-    .. py:staticmethod:: is_unsigned(arg: sgl.Struct.Type, /) -> bool
+    .. py:staticmethod:: is_unsigned(arg: slangpy.DataStruct.Type, /) -> bool
     
         Check if ``type`` is an unsigned type.
         
-    .. py:staticmethod:: is_signed(arg: sgl.Struct.Type, /) -> bool
+    .. py:staticmethod:: is_signed(arg: slangpy.DataStruct.Type, /) -> bool
     
         Check if ``type`` is a signed type.
         
-    .. py:staticmethod:: is_float(arg: sgl.Struct.Type, /) -> bool
+    .. py:staticmethod:: is_float(arg: slangpy.DataStruct.Type, /) -> bool
     
         Check if ``type`` is a floating point type.
         
@@ -506,16 +506,16 @@ Core
 
 ----
 
-.. py:class:: sgl.StructConverter
+.. py:class:: slangpy.StructConverter
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Struct converter.
     
     This helper class can be used to convert between structs with
     different layouts.
     
-    .. py:method:: __init__(self, src: sgl.Struct, dst: sgl.Struct) -> None
+    .. py:method:: __init__(self, src: slangpy.DataStruct, dst: slangpy.DataStruct) -> None
     
         Constructor.
         
@@ -526,12 +526,12 @@ Core
             Destination struct definition.
         
     .. py:property:: src
-        :type: sgl.Struct
+        :type: slangpy.DataStruct
     
         The source struct definition.
         
     .. py:property:: dst
-        :type: sgl.Struct
+        :type: slangpy.DataStruct
     
         The destination struct definition.
         
@@ -541,7 +541,7 @@ Core
 
 ----
 
-.. py:class:: sgl.Timer
+.. py:class:: slangpy.Timer
 
     High resolution CPU timer.
     
@@ -591,7 +591,7 @@ Core
 
 ----
 
-.. py:class:: sgl.SHA1
+.. py:class:: slangpy.SHA1
 
     Helper to compute SHA-1 hash.
     
@@ -603,7 +603,7 @@ Core
     .. py:method:: __init__(self, str: str) -> None
         :no-index:
     
-    .. py:method:: update(self, data: bytes) -> sgl.SHA1
+    .. py:method:: update(self, data: bytes) -> slangpy.SHA1
     
         Update hash by adding the given data.
         
@@ -613,7 +613,7 @@ Core
         Parameter ``len``:
             Length of data in bytes.
         
-    .. py:method:: update(self, str: str) -> sgl.SHA1
+    .. py:method:: update(self, str: str) -> slangpy.SHA1
         :no-index:
     
         Update hash by adding the given string.
@@ -636,15 +636,39 @@ Core
 Constants
 ---------
 
-.. py:data:: sgl.SGL_VERSION
-    :type: str
-    :value: "0.15.0"
+.. py:data:: slangpy.ALL_LAYERS
+    :type: int
+    :value: 4294967295
 
 
 
 ----
 
-.. py:data:: sgl.SGL_VERSION_MAJOR
+.. py:data:: slangpy.ALL_MIPS
+    :type: int
+    :value: 4294967295
+
+
+
+----
+
+.. py:data:: slangpy.SGL_BUILD_TYPE
+    :type: str
+    :value: "Release"
+
+
+
+----
+
+.. py:data:: slangpy.SGL_GIT_VERSION
+    :type: str
+    :value: "commit: 3f7755e / branch: slangpy (local changes)"
+
+
+
+----
+
+.. py:data:: slangpy.SGL_VERSION_MAJOR
     :type: int
     :value: 0
 
@@ -652,15 +676,15 @@ Constants
 
 ----
 
-.. py:data:: sgl.SGL_VERSION_MINOR
+.. py:data:: slangpy.SGL_VERSION_MINOR
     :type: int
-    :value: 15
+    :value: 24
 
 
 
 ----
 
-.. py:data:: sgl.SGL_VERSION_PATCH
+.. py:data:: slangpy.SGL_VERSION_PATCH
     :type: int
     :value: 0
 
@@ -668,9 +692,9 @@ Constants
 
 ----
 
-.. py:data:: sgl.SGL_GIT_VERSION
+.. py:data:: slangpy.SGL_VERSION
     :type: str
-    :value: "commit: 19981de / branch: fix-doc (local changes)"
+    :value: "0.24.0"
 
 
 
@@ -679,33 +703,33 @@ Constants
 Logging
 -------
 
-.. py:class:: sgl.LogLevel
+.. py:class:: slangpy.LogLevel
 
     Base class: :py:class:`enum.IntEnum`
     
     Log level.
     
-    .. py:attribute:: sgl.LogLevel.none
+    .. py:attribute:: slangpy.LogLevel.none
         :type: LogLevel
         :value: LogLevel.none
     
-    .. py:attribute:: sgl.LogLevel.debug
+    .. py:attribute:: slangpy.LogLevel.debug
         :type: LogLevel
         :value: LogLevel.debug
     
-    .. py:attribute:: sgl.LogLevel.info
+    .. py:attribute:: slangpy.LogLevel.info
         :type: LogLevel
         :value: LogLevel.info
     
-    .. py:attribute:: sgl.LogLevel.warn
+    .. py:attribute:: slangpy.LogLevel.warn
         :type: LogLevel
         :value: LogLevel.warn
     
-    .. py:attribute:: sgl.LogLevel.error
+    .. py:attribute:: slangpy.LogLevel.error
         :type: LogLevel
         :value: LogLevel.error
     
-    .. py:attribute:: sgl.LogLevel.fatal
+    .. py:attribute:: slangpy.LogLevel.fatal
         :type: LogLevel
         :value: LogLevel.fatal
     
@@ -713,17 +737,17 @@ Logging
 
 ----
 
-.. py:class:: sgl.LogFrequency
+.. py:class:: slangpy.LogFrequency
 
     Base class: :py:class:`enum.Enum`
     
     Log frequency.
     
-    .. py:attribute:: sgl.LogFrequency.always
+    .. py:attribute:: slangpy.LogFrequency.always
         :type: LogFrequency
         :value: LogFrequency.always
     
-    .. py:attribute:: sgl.LogFrequency.once
+    .. py:attribute:: slangpy.LogFrequency.once
         :type: LogFrequency
         :value: LogFrequency.once
     
@@ -731,11 +755,13 @@ Logging
 
 ----
 
-.. py:class:: sgl.Logger
+.. py:class:: slangpy.Logger
 
+    Base class: :py:class:`slangpy.Object`
     
     
-    .. py:method:: __init__(self, level: sgl.LogLevel = LogLevel.info, name: str = '', use_default_outputs: bool = True) -> None
+    
+    .. py:method:: __init__(self, level: slangpy.LogLevel = LogLevel.info, name: str = '', use_default_outputs: bool = True) -> None
     
         Constructor.
         
@@ -750,7 +776,7 @@ Logging
             windows).
         
     .. py:property:: level
-        :type: sgl.LogLevel
+        :type: slangpy.LogLevel
     
         The log level.
         
@@ -759,7 +785,7 @@ Logging
     
         The name of the logger.
         
-    .. py:method:: add_console_output(self, colored: bool = True) -> sgl.LoggerOutput
+    .. py:method:: add_console_output(self, colored: bool = True) -> slangpy.LoggerOutput
     
         Add a console logger output.
         
@@ -769,7 +795,7 @@ Logging
         Returns:
             The created logger output.
         
-    .. py:method:: add_file_output(self, path: str | os.PathLike) -> sgl.LoggerOutput
+    .. py:method:: add_file_output(self, path: str | os.PathLike) -> slangpy.LoggerOutput
     
         Add a file logger output.
         
@@ -779,28 +805,28 @@ Logging
         Returns:
             The created logger output.
         
-    .. py:method:: add_debug_console_output(self) -> sgl.LoggerOutput
+    .. py:method:: add_debug_console_output(self) -> slangpy.LoggerOutput
     
         Add a debug console logger output (Windows only).
         
         Returns:
             The created logger output.
         
-    .. py:method:: add_output(self, output: sgl.LoggerOutput) -> None
+    .. py:method:: add_output(self, output: slangpy.LoggerOutput) -> None
     
         Add a logger output.
         
         Parameter ``output``:
             The logger output to add.
         
-    .. py:method:: use_same_outputs(self, other: sgl.Logger) -> None
+    .. py:method:: use_same_outputs(self, other: slangpy.Logger) -> None
     
         Use the same outputs as the given logger.
         
         Parameter ``other``:
             Logger to copy outputs from.
         
-    .. py:method:: remove_output(self, output: sgl.LoggerOutput) -> None
+    .. py:method:: remove_output(self, output: slangpy.LoggerOutput) -> None
     
         Remove a logger output.
         
@@ -811,7 +837,7 @@ Logging
     
         Remove all logger outputs.
         
-    .. py:method:: log(self, level: sgl.LogLevel, msg: str, frequency: sgl.LogFrequency = LogFrequency.always) -> None
+    .. py:method:: log(self, level: slangpy.LogLevel, msg: str, frequency: slangpy.LogFrequency = LogFrequency.always) -> None
     
         Log a message.
         
@@ -844,7 +870,7 @@ Logging
     
     .. py:method:: fatal_once(self, msg: str) -> None
     
-    .. py:staticmethod:: get() -> sgl.Logger
+    .. py:staticmethod:: get() -> slangpy.Logger
     
         Returns the global logger instance.
         
@@ -852,15 +878,15 @@ Logging
 
 ----
 
-.. py:class:: sgl.LoggerOutput
+.. py:class:: slangpy.LoggerOutput
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Abstract base class for logger outputs.
     
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: write(self, level: sgl.LogLevel, name: str, msg: str) -> None
+    .. py:method:: write(self, level: slangpy.LogLevel, name: str, msg: str) -> None
     
         Write a log message.
         
@@ -877,9 +903,9 @@ Logging
 
 ----
 
-.. py:class:: sgl.ConsoleLoggerOutput
+.. py:class:: slangpy.ConsoleLoggerOutput
 
-    Base class: :py:class:`sgl.LoggerOutput`
+    Base class: :py:class:`slangpy.LoggerOutput`
     
     Logger output that writes to the console. Error messages are printed
     to stderr, all other messages to stdout. Messages are optionally
@@ -891,9 +917,9 @@ Logging
 
 ----
 
-.. py:class:: sgl.FileLoggerOutput
+.. py:class:: slangpy.FileLoggerOutput
 
-    Base class: :py:class:`sgl.LoggerOutput`
+    Base class: :py:class:`slangpy.LoggerOutput`
     
     Logger output that writes to a file.
     
@@ -903,9 +929,9 @@ Logging
 
 ----
 
-.. py:class:: sgl.DebugConsoleLoggerOutput
+.. py:class:: slangpy.DebugConsoleLoggerOutput
 
-    Base class: :py:class:`sgl.LoggerOutput`
+    Base class: :py:class:`slangpy.LoggerOutput`
     
     Logger output that writes to the debug console (Windows only).
     
@@ -915,7 +941,7 @@ Logging
 
 ----
 
-.. py:function:: sgl.log(level: sgl.LogLevel, msg: str, frequency: sgl.LogFrequency = LogFrequency.always) -> None
+.. py:function:: slangpy.log(level: slangpy.LogLevel, msg: str, frequency: slangpy.LogFrequency = LogFrequency.always) -> None
 
     Log a message.
     
@@ -932,61 +958,61 @@ Logging
 
 ----
 
-.. py:function:: sgl.log_debug(msg: str) -> None
+.. py:function:: slangpy.log_debug(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_debug_once(msg: str) -> None
+.. py:function:: slangpy.log_debug_once(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_info(msg: str) -> None
+.. py:function:: slangpy.log_info(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_info_once(msg: str) -> None
+.. py:function:: slangpy.log_info_once(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_warn(msg: str) -> None
+.. py:function:: slangpy.log_warn(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_warn_once(msg: str) -> None
+.. py:function:: slangpy.log_warn_once(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_error(msg: str) -> None
+.. py:function:: slangpy.log_error(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_error_once(msg: str) -> None
+.. py:function:: slangpy.log_error_once(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_fatal(msg: str) -> None
+.. py:function:: slangpy.log_fatal(msg: str) -> None
 
 
 
 ----
 
-.. py:function:: sgl.log_fatal_once(msg: str) -> None
+.. py:function:: slangpy.log_fatal_once(msg: str) -> None
 
 
 
@@ -995,21 +1021,21 @@ Logging
 Windowing
 ---------
 
-.. py:class:: sgl.CursorMode
+.. py:class:: slangpy.CursorMode
 
     Base class: :py:class:`enum.Enum`
     
     Mouse cursor modes.
     
-    .. py:attribute:: sgl.CursorMode.normal
+    .. py:attribute:: slangpy.CursorMode.normal
         :type: CursorMode
         :value: CursorMode.normal
     
-    .. py:attribute:: sgl.CursorMode.hidden
+    .. py:attribute:: slangpy.CursorMode.hidden
         :type: CursorMode
         :value: CursorMode.hidden
     
-    .. py:attribute:: sgl.CursorMode.disabled
+    .. py:attribute:: slangpy.CursorMode.disabled
         :type: CursorMode
         :value: CursorMode.disabled
     
@@ -1017,21 +1043,21 @@ Windowing
 
 ----
 
-.. py:class:: sgl.WindowMode
+.. py:class:: slangpy.WindowMode
 
     Base class: :py:class:`enum.Enum`
     
     Window modes.
     
-    .. py:attribute:: sgl.WindowMode.normal
+    .. py:attribute:: slangpy.WindowMode.normal
         :type: WindowMode
         :value: WindowMode.normal
     
-    .. py:attribute:: sgl.WindowMode.minimized
+    .. py:attribute:: slangpy.WindowMode.minimized
         :type: WindowMode
         :value: WindowMode.minimized
     
-    .. py:attribute:: sgl.WindowMode.fullscreen
+    .. py:attribute:: slangpy.WindowMode.fullscreen
         :type: WindowMode
         :value: WindowMode.fullscreen
     
@@ -1039,16 +1065,16 @@ Windowing
 
 ----
 
-.. py:class:: sgl.Window
+.. py:class:: slangpy.Window
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Window class.
     
     Platform independent class for managing a window and handle input
     events.
     
-    .. py:method:: __init__(self, width: int = 1024, height: int = 1024, title: str = 'sgl', mode: sgl.WindowMode = WindowMode.normal, resizable: bool = True) -> None
+    .. py:method:: __init__(self, width: int = 1024, height: int = 1024, title: str = 'sgl', mode: slangpy.WindowMode = WindowMode.normal, resizable: bool = True) -> None
     
         Constructor.
         
@@ -1113,7 +1139,7 @@ Windowing
         Get the clipboard content.
         
     .. py:property:: cursor_mode
-        :type: sgl.CursorMode
+        :type: slangpy.CursorMode
     
         The mouse cursor mode.
         
@@ -1123,22 +1149,22 @@ Windowing
         Event handler to be called when the window is resized.
         
     .. py:property:: on_keyboard_event
-        :type: collections.abc.Callable[[sgl.KeyboardEvent], None]
+        :type: collections.abc.Callable[[slangpy.KeyboardEvent], None]
     
         Event handler to be called when a keyboard event occurs.
         
     .. py:property:: on_mouse_event
-        :type: collections.abc.Callable[[sgl.MouseEvent], None]
+        :type: collections.abc.Callable[[slangpy.MouseEvent], None]
     
         Event handler to be called when a mouse event occurs.
         
     .. py:property:: on_gamepad_event
-        :type: collections.abc.Callable[[sgl.GamepadEvent], None]
+        :type: collections.abc.Callable[[slangpy.GamepadEvent], None]
     
         Event handler to be called when a gamepad event occurs.
         
     .. py:property:: on_gamepad_state
-        :type: collections.abc.Callable[[sgl.GamepadState], None]
+        :type: collections.abc.Callable[[slangpy.GamepadState], None]
     
         Event handler to be called when the gamepad state changes.
         
@@ -1151,25 +1177,25 @@ Windowing
 
 ----
 
-.. py:class:: sgl.MouseButton
+.. py:class:: slangpy.MouseButton
 
     Base class: :py:class:`enum.Enum`
     
     Mouse buttons.
     
-    .. py:attribute:: sgl.MouseButton.left
+    .. py:attribute:: slangpy.MouseButton.left
         :type: MouseButton
         :value: MouseButton.left
     
-    .. py:attribute:: sgl.MouseButton.middle
+    .. py:attribute:: slangpy.MouseButton.middle
         :type: MouseButton
         :value: MouseButton.middle
     
-    .. py:attribute:: sgl.MouseButton.right
+    .. py:attribute:: slangpy.MouseButton.right
         :type: MouseButton
         :value: MouseButton.right
     
-    .. py:attribute:: sgl.MouseButton.unknown
+    .. py:attribute:: slangpy.MouseButton.unknown
         :type: MouseButton
         :value: MouseButton.unknown
     
@@ -1177,25 +1203,25 @@ Windowing
 
 ----
 
-.. py:class:: sgl.KeyModifierFlags
+.. py:class:: slangpy.KeyModifierFlags
 
     Base class: :py:class:`enum.Enum`
     
     Keyboard modifier flags.
     
-    .. py:attribute:: sgl.KeyModifierFlags.none
+    .. py:attribute:: slangpy.KeyModifierFlags.none
         :type: KeyModifierFlags
         :value: KeyModifierFlags.none
     
-    .. py:attribute:: sgl.KeyModifierFlags.shift
+    .. py:attribute:: slangpy.KeyModifierFlags.shift
         :type: KeyModifierFlags
         :value: KeyModifierFlags.shift
     
-    .. py:attribute:: sgl.KeyModifierFlags.ctrl
+    .. py:attribute:: slangpy.KeyModifierFlags.ctrl
         :type: KeyModifierFlags
         :value: KeyModifierFlags.ctrl
     
-    .. py:attribute:: sgl.KeyModifierFlags.alt
+    .. py:attribute:: slangpy.KeyModifierFlags.alt
         :type: KeyModifierFlags
         :value: KeyModifierFlags.alt
     
@@ -1203,21 +1229,21 @@ Windowing
 
 ----
 
-.. py:class:: sgl.KeyModifier
+.. py:class:: slangpy.KeyModifier
 
     Base class: :py:class:`enum.Enum`
     
     Keyboard modifiers.
     
-    .. py:attribute:: sgl.KeyModifier.shift
+    .. py:attribute:: slangpy.KeyModifier.shift
         :type: KeyModifier
         :value: KeyModifier.shift
     
-    .. py:attribute:: sgl.KeyModifier.ctrl
+    .. py:attribute:: slangpy.KeyModifier.ctrl
         :type: KeyModifier
         :value: KeyModifier.ctrl
     
-    .. py:attribute:: sgl.KeyModifier.alt
+    .. py:attribute:: slangpy.KeyModifier.alt
         :type: KeyModifier
         :value: KeyModifier.alt
     
@@ -1225,433 +1251,433 @@ Windowing
 
 ----
 
-.. py:class:: sgl.KeyCode
+.. py:class:: slangpy.KeyCode
 
     Base class: :py:class:`enum.Enum`
     
     Keyboard key codes.
     
-    .. py:attribute:: sgl.KeyCode.space
+    .. py:attribute:: slangpy.KeyCode.space
         :type: KeyCode
         :value: KeyCode.space
     
-    .. py:attribute:: sgl.KeyCode.apostrophe
+    .. py:attribute:: slangpy.KeyCode.apostrophe
         :type: KeyCode
         :value: KeyCode.apostrophe
     
-    .. py:attribute:: sgl.KeyCode.comma
+    .. py:attribute:: slangpy.KeyCode.comma
         :type: KeyCode
         :value: KeyCode.comma
     
-    .. py:attribute:: sgl.KeyCode.minus
+    .. py:attribute:: slangpy.KeyCode.minus
         :type: KeyCode
         :value: KeyCode.minus
     
-    .. py:attribute:: sgl.KeyCode.period
+    .. py:attribute:: slangpy.KeyCode.period
         :type: KeyCode
         :value: KeyCode.period
     
-    .. py:attribute:: sgl.KeyCode.slash
+    .. py:attribute:: slangpy.KeyCode.slash
         :type: KeyCode
         :value: KeyCode.slash
     
-    .. py:attribute:: sgl.KeyCode.key0
+    .. py:attribute:: slangpy.KeyCode.key0
         :type: KeyCode
         :value: KeyCode.key0
     
-    .. py:attribute:: sgl.KeyCode.key1
+    .. py:attribute:: slangpy.KeyCode.key1
         :type: KeyCode
         :value: KeyCode.key1
     
-    .. py:attribute:: sgl.KeyCode.key2
+    .. py:attribute:: slangpy.KeyCode.key2
         :type: KeyCode
         :value: KeyCode.key2
     
-    .. py:attribute:: sgl.KeyCode.key3
+    .. py:attribute:: slangpy.KeyCode.key3
         :type: KeyCode
         :value: KeyCode.key3
     
-    .. py:attribute:: sgl.KeyCode.key4
+    .. py:attribute:: slangpy.KeyCode.key4
         :type: KeyCode
         :value: KeyCode.key4
     
-    .. py:attribute:: sgl.KeyCode.key5
+    .. py:attribute:: slangpy.KeyCode.key5
         :type: KeyCode
         :value: KeyCode.key5
     
-    .. py:attribute:: sgl.KeyCode.key6
+    .. py:attribute:: slangpy.KeyCode.key6
         :type: KeyCode
         :value: KeyCode.key6
     
-    .. py:attribute:: sgl.KeyCode.key7
+    .. py:attribute:: slangpy.KeyCode.key7
         :type: KeyCode
         :value: KeyCode.key7
     
-    .. py:attribute:: sgl.KeyCode.key8
+    .. py:attribute:: slangpy.KeyCode.key8
         :type: KeyCode
         :value: KeyCode.key8
     
-    .. py:attribute:: sgl.KeyCode.key9
+    .. py:attribute:: slangpy.KeyCode.key9
         :type: KeyCode
         :value: KeyCode.key9
     
-    .. py:attribute:: sgl.KeyCode.semicolon
+    .. py:attribute:: slangpy.KeyCode.semicolon
         :type: KeyCode
         :value: KeyCode.semicolon
     
-    .. py:attribute:: sgl.KeyCode.equal
+    .. py:attribute:: slangpy.KeyCode.equal
         :type: KeyCode
         :value: KeyCode.equal
     
-    .. py:attribute:: sgl.KeyCode.a
+    .. py:attribute:: slangpy.KeyCode.a
         :type: KeyCode
         :value: KeyCode.a
     
-    .. py:attribute:: sgl.KeyCode.b
+    .. py:attribute:: slangpy.KeyCode.b
         :type: KeyCode
         :value: KeyCode.b
     
-    .. py:attribute:: sgl.KeyCode.c
+    .. py:attribute:: slangpy.KeyCode.c
         :type: KeyCode
         :value: KeyCode.c
     
-    .. py:attribute:: sgl.KeyCode.d
+    .. py:attribute:: slangpy.KeyCode.d
         :type: KeyCode
         :value: KeyCode.d
     
-    .. py:attribute:: sgl.KeyCode.e
+    .. py:attribute:: slangpy.KeyCode.e
         :type: KeyCode
         :value: KeyCode.e
     
-    .. py:attribute:: sgl.KeyCode.f
+    .. py:attribute:: slangpy.KeyCode.f
         :type: KeyCode
         :value: KeyCode.f
     
-    .. py:attribute:: sgl.KeyCode.g
+    .. py:attribute:: slangpy.KeyCode.g
         :type: KeyCode
         :value: KeyCode.g
     
-    .. py:attribute:: sgl.KeyCode.h
+    .. py:attribute:: slangpy.KeyCode.h
         :type: KeyCode
         :value: KeyCode.h
     
-    .. py:attribute:: sgl.KeyCode.i
+    .. py:attribute:: slangpy.KeyCode.i
         :type: KeyCode
         :value: KeyCode.i
     
-    .. py:attribute:: sgl.KeyCode.j
+    .. py:attribute:: slangpy.KeyCode.j
         :type: KeyCode
         :value: KeyCode.j
     
-    .. py:attribute:: sgl.KeyCode.k
+    .. py:attribute:: slangpy.KeyCode.k
         :type: KeyCode
         :value: KeyCode.k
     
-    .. py:attribute:: sgl.KeyCode.l
+    .. py:attribute:: slangpy.KeyCode.l
         :type: KeyCode
         :value: KeyCode.l
     
-    .. py:attribute:: sgl.KeyCode.m
+    .. py:attribute:: slangpy.KeyCode.m
         :type: KeyCode
         :value: KeyCode.m
     
-    .. py:attribute:: sgl.KeyCode.n
+    .. py:attribute:: slangpy.KeyCode.n
         :type: KeyCode
         :value: KeyCode.n
     
-    .. py:attribute:: sgl.KeyCode.o
+    .. py:attribute:: slangpy.KeyCode.o
         :type: KeyCode
         :value: KeyCode.o
     
-    .. py:attribute:: sgl.KeyCode.p
+    .. py:attribute:: slangpy.KeyCode.p
         :type: KeyCode
         :value: KeyCode.p
     
-    .. py:attribute:: sgl.KeyCode.q
+    .. py:attribute:: slangpy.KeyCode.q
         :type: KeyCode
         :value: KeyCode.q
     
-    .. py:attribute:: sgl.KeyCode.r
+    .. py:attribute:: slangpy.KeyCode.r
         :type: KeyCode
         :value: KeyCode.r
     
-    .. py:attribute:: sgl.KeyCode.s
+    .. py:attribute:: slangpy.KeyCode.s
         :type: KeyCode
         :value: KeyCode.s
     
-    .. py:attribute:: sgl.KeyCode.t
+    .. py:attribute:: slangpy.KeyCode.t
         :type: KeyCode
         :value: KeyCode.t
     
-    .. py:attribute:: sgl.KeyCode.u
+    .. py:attribute:: slangpy.KeyCode.u
         :type: KeyCode
         :value: KeyCode.u
     
-    .. py:attribute:: sgl.KeyCode.v
+    .. py:attribute:: slangpy.KeyCode.v
         :type: KeyCode
         :value: KeyCode.v
     
-    .. py:attribute:: sgl.KeyCode.w
+    .. py:attribute:: slangpy.KeyCode.w
         :type: KeyCode
         :value: KeyCode.w
     
-    .. py:attribute:: sgl.KeyCode.x
+    .. py:attribute:: slangpy.KeyCode.x
         :type: KeyCode
         :value: KeyCode.x
     
-    .. py:attribute:: sgl.KeyCode.y
+    .. py:attribute:: slangpy.KeyCode.y
         :type: KeyCode
         :value: KeyCode.y
     
-    .. py:attribute:: sgl.KeyCode.z
+    .. py:attribute:: slangpy.KeyCode.z
         :type: KeyCode
         :value: KeyCode.z
     
-    .. py:attribute:: sgl.KeyCode.left_bracket
+    .. py:attribute:: slangpy.KeyCode.left_bracket
         :type: KeyCode
         :value: KeyCode.left_bracket
     
-    .. py:attribute:: sgl.KeyCode.backslash
+    .. py:attribute:: slangpy.KeyCode.backslash
         :type: KeyCode
         :value: KeyCode.backslash
     
-    .. py:attribute:: sgl.KeyCode.right_bracket
+    .. py:attribute:: slangpy.KeyCode.right_bracket
         :type: KeyCode
         :value: KeyCode.right_bracket
     
-    .. py:attribute:: sgl.KeyCode.grave_accent
+    .. py:attribute:: slangpy.KeyCode.grave_accent
         :type: KeyCode
         :value: KeyCode.grave_accent
     
-    .. py:attribute:: sgl.KeyCode.escape
+    .. py:attribute:: slangpy.KeyCode.escape
         :type: KeyCode
         :value: KeyCode.escape
     
-    .. py:attribute:: sgl.KeyCode.tab
+    .. py:attribute:: slangpy.KeyCode.tab
         :type: KeyCode
         :value: KeyCode.tab
     
-    .. py:attribute:: sgl.KeyCode.enter
+    .. py:attribute:: slangpy.KeyCode.enter
         :type: KeyCode
         :value: KeyCode.enter
     
-    .. py:attribute:: sgl.KeyCode.backspace
+    .. py:attribute:: slangpy.KeyCode.backspace
         :type: KeyCode
         :value: KeyCode.backspace
     
-    .. py:attribute:: sgl.KeyCode.insert
+    .. py:attribute:: slangpy.KeyCode.insert
         :type: KeyCode
         :value: KeyCode.insert
     
-    .. py:attribute:: sgl.KeyCode.delete
+    .. py:attribute:: slangpy.KeyCode.delete
         :type: KeyCode
         :value: KeyCode.delete
     
-    .. py:attribute:: sgl.KeyCode.right
+    .. py:attribute:: slangpy.KeyCode.right
         :type: KeyCode
         :value: KeyCode.right
     
-    .. py:attribute:: sgl.KeyCode.left
+    .. py:attribute:: slangpy.KeyCode.left
         :type: KeyCode
         :value: KeyCode.left
     
-    .. py:attribute:: sgl.KeyCode.down
+    .. py:attribute:: slangpy.KeyCode.down
         :type: KeyCode
         :value: KeyCode.down
     
-    .. py:attribute:: sgl.KeyCode.up
+    .. py:attribute:: slangpy.KeyCode.up
         :type: KeyCode
         :value: KeyCode.up
     
-    .. py:attribute:: sgl.KeyCode.page_up
+    .. py:attribute:: slangpy.KeyCode.page_up
         :type: KeyCode
         :value: KeyCode.page_up
     
-    .. py:attribute:: sgl.KeyCode.page_down
+    .. py:attribute:: slangpy.KeyCode.page_down
         :type: KeyCode
         :value: KeyCode.page_down
     
-    .. py:attribute:: sgl.KeyCode.home
+    .. py:attribute:: slangpy.KeyCode.home
         :type: KeyCode
         :value: KeyCode.home
     
-    .. py:attribute:: sgl.KeyCode.end
+    .. py:attribute:: slangpy.KeyCode.end
         :type: KeyCode
         :value: KeyCode.end
     
-    .. py:attribute:: sgl.KeyCode.caps_lock
+    .. py:attribute:: slangpy.KeyCode.caps_lock
         :type: KeyCode
         :value: KeyCode.caps_lock
     
-    .. py:attribute:: sgl.KeyCode.scroll_lock
+    .. py:attribute:: slangpy.KeyCode.scroll_lock
         :type: KeyCode
         :value: KeyCode.scroll_lock
     
-    .. py:attribute:: sgl.KeyCode.num_lock
+    .. py:attribute:: slangpy.KeyCode.num_lock
         :type: KeyCode
         :value: KeyCode.num_lock
     
-    .. py:attribute:: sgl.KeyCode.print_screen
+    .. py:attribute:: slangpy.KeyCode.print_screen
         :type: KeyCode
         :value: KeyCode.print_screen
     
-    .. py:attribute:: sgl.KeyCode.pause
+    .. py:attribute:: slangpy.KeyCode.pause
         :type: KeyCode
         :value: KeyCode.pause
     
-    .. py:attribute:: sgl.KeyCode.f1
+    .. py:attribute:: slangpy.KeyCode.f1
         :type: KeyCode
         :value: KeyCode.f1
     
-    .. py:attribute:: sgl.KeyCode.f2
+    .. py:attribute:: slangpy.KeyCode.f2
         :type: KeyCode
         :value: KeyCode.f2
     
-    .. py:attribute:: sgl.KeyCode.f3
+    .. py:attribute:: slangpy.KeyCode.f3
         :type: KeyCode
         :value: KeyCode.f3
     
-    .. py:attribute:: sgl.KeyCode.f4
+    .. py:attribute:: slangpy.KeyCode.f4
         :type: KeyCode
         :value: KeyCode.f4
     
-    .. py:attribute:: sgl.KeyCode.f5
+    .. py:attribute:: slangpy.KeyCode.f5
         :type: KeyCode
         :value: KeyCode.f5
     
-    .. py:attribute:: sgl.KeyCode.f6
+    .. py:attribute:: slangpy.KeyCode.f6
         :type: KeyCode
         :value: KeyCode.f6
     
-    .. py:attribute:: sgl.KeyCode.f7
+    .. py:attribute:: slangpy.KeyCode.f7
         :type: KeyCode
         :value: KeyCode.f7
     
-    .. py:attribute:: sgl.KeyCode.f8
+    .. py:attribute:: slangpy.KeyCode.f8
         :type: KeyCode
         :value: KeyCode.f8
     
-    .. py:attribute:: sgl.KeyCode.f9
+    .. py:attribute:: slangpy.KeyCode.f9
         :type: KeyCode
         :value: KeyCode.f9
     
-    .. py:attribute:: sgl.KeyCode.f10
+    .. py:attribute:: slangpy.KeyCode.f10
         :type: KeyCode
         :value: KeyCode.f10
     
-    .. py:attribute:: sgl.KeyCode.f11
+    .. py:attribute:: slangpy.KeyCode.f11
         :type: KeyCode
         :value: KeyCode.f11
     
-    .. py:attribute:: sgl.KeyCode.f12
+    .. py:attribute:: slangpy.KeyCode.f12
         :type: KeyCode
         :value: KeyCode.f12
     
-    .. py:attribute:: sgl.KeyCode.keypad0
+    .. py:attribute:: slangpy.KeyCode.keypad0
         :type: KeyCode
         :value: KeyCode.keypad0
     
-    .. py:attribute:: sgl.KeyCode.keypad1
+    .. py:attribute:: slangpy.KeyCode.keypad1
         :type: KeyCode
         :value: KeyCode.keypad1
     
-    .. py:attribute:: sgl.KeyCode.keypad2
+    .. py:attribute:: slangpy.KeyCode.keypad2
         :type: KeyCode
         :value: KeyCode.keypad2
     
-    .. py:attribute:: sgl.KeyCode.keypad3
+    .. py:attribute:: slangpy.KeyCode.keypad3
         :type: KeyCode
         :value: KeyCode.keypad3
     
-    .. py:attribute:: sgl.KeyCode.keypad4
+    .. py:attribute:: slangpy.KeyCode.keypad4
         :type: KeyCode
         :value: KeyCode.keypad4
     
-    .. py:attribute:: sgl.KeyCode.keypad5
+    .. py:attribute:: slangpy.KeyCode.keypad5
         :type: KeyCode
         :value: KeyCode.keypad5
     
-    .. py:attribute:: sgl.KeyCode.keypad6
+    .. py:attribute:: slangpy.KeyCode.keypad6
         :type: KeyCode
         :value: KeyCode.keypad6
     
-    .. py:attribute:: sgl.KeyCode.keypad7
+    .. py:attribute:: slangpy.KeyCode.keypad7
         :type: KeyCode
         :value: KeyCode.keypad7
     
-    .. py:attribute:: sgl.KeyCode.keypad8
+    .. py:attribute:: slangpy.KeyCode.keypad8
         :type: KeyCode
         :value: KeyCode.keypad8
     
-    .. py:attribute:: sgl.KeyCode.keypad9
+    .. py:attribute:: slangpy.KeyCode.keypad9
         :type: KeyCode
         :value: KeyCode.keypad9
     
-    .. py:attribute:: sgl.KeyCode.keypad_del
+    .. py:attribute:: slangpy.KeyCode.keypad_del
         :type: KeyCode
         :value: KeyCode.keypad_del
     
-    .. py:attribute:: sgl.KeyCode.keypad_divide
+    .. py:attribute:: slangpy.KeyCode.keypad_divide
         :type: KeyCode
         :value: KeyCode.keypad_divide
     
-    .. py:attribute:: sgl.KeyCode.keypad_multiply
+    .. py:attribute:: slangpy.KeyCode.keypad_multiply
         :type: KeyCode
         :value: KeyCode.keypad_multiply
     
-    .. py:attribute:: sgl.KeyCode.keypad_subtract
+    .. py:attribute:: slangpy.KeyCode.keypad_subtract
         :type: KeyCode
         :value: KeyCode.keypad_subtract
     
-    .. py:attribute:: sgl.KeyCode.keypad_add
+    .. py:attribute:: slangpy.KeyCode.keypad_add
         :type: KeyCode
         :value: KeyCode.keypad_add
     
-    .. py:attribute:: sgl.KeyCode.keypad_enter
+    .. py:attribute:: slangpy.KeyCode.keypad_enter
         :type: KeyCode
         :value: KeyCode.keypad_enter
     
-    .. py:attribute:: sgl.KeyCode.keypad_equal
+    .. py:attribute:: slangpy.KeyCode.keypad_equal
         :type: KeyCode
         :value: KeyCode.keypad_equal
     
-    .. py:attribute:: sgl.KeyCode.left_shift
+    .. py:attribute:: slangpy.KeyCode.left_shift
         :type: KeyCode
         :value: KeyCode.left_shift
     
-    .. py:attribute:: sgl.KeyCode.left_control
+    .. py:attribute:: slangpy.KeyCode.left_control
         :type: KeyCode
         :value: KeyCode.left_control
     
-    .. py:attribute:: sgl.KeyCode.left_alt
+    .. py:attribute:: slangpy.KeyCode.left_alt
         :type: KeyCode
         :value: KeyCode.left_alt
     
-    .. py:attribute:: sgl.KeyCode.left_super
+    .. py:attribute:: slangpy.KeyCode.left_super
         :type: KeyCode
         :value: KeyCode.left_super
     
-    .. py:attribute:: sgl.KeyCode.right_shift
+    .. py:attribute:: slangpy.KeyCode.right_shift
         :type: KeyCode
         :value: KeyCode.right_shift
     
-    .. py:attribute:: sgl.KeyCode.right_control
+    .. py:attribute:: slangpy.KeyCode.right_control
         :type: KeyCode
         :value: KeyCode.right_control
     
-    .. py:attribute:: sgl.KeyCode.right_alt
+    .. py:attribute:: slangpy.KeyCode.right_alt
         :type: KeyCode
         :value: KeyCode.right_alt
     
-    .. py:attribute:: sgl.KeyCode.right_super
+    .. py:attribute:: slangpy.KeyCode.right_super
         :type: KeyCode
         :value: KeyCode.right_super
     
-    .. py:attribute:: sgl.KeyCode.menu
+    .. py:attribute:: slangpy.KeyCode.menu
         :type: KeyCode
         :value: KeyCode.menu
     
-    .. py:attribute:: sgl.KeyCode.unknown
+    .. py:attribute:: slangpy.KeyCode.unknown
         :type: KeyCode
         :value: KeyCode.unknown
     
@@ -1659,25 +1685,25 @@ Windowing
 
 ----
 
-.. py:class:: sgl.KeyboardEventType
+.. py:class:: slangpy.KeyboardEventType
 
     Base class: :py:class:`enum.Enum`
     
     Keyboard event types.
     
-    .. py:attribute:: sgl.KeyboardEventType.key_press
+    .. py:attribute:: slangpy.KeyboardEventType.key_press
         :type: KeyboardEventType
         :value: KeyboardEventType.key_press
     
-    .. py:attribute:: sgl.KeyboardEventType.key_release
+    .. py:attribute:: slangpy.KeyboardEventType.key_release
         :type: KeyboardEventType
         :value: KeyboardEventType.key_release
     
-    .. py:attribute:: sgl.KeyboardEventType.key_repeat
+    .. py:attribute:: slangpy.KeyboardEventType.key_repeat
         :type: KeyboardEventType
         :value: KeyboardEventType.key_repeat
     
-    .. py:attribute:: sgl.KeyboardEventType.input
+    .. py:attribute:: slangpy.KeyboardEventType.input
         :type: KeyboardEventType
         :value: KeyboardEventType.input
     
@@ -1685,22 +1711,22 @@ Windowing
 
 ----
 
-.. py:class:: sgl.KeyboardEvent
+.. py:class:: slangpy.KeyboardEvent
 
     Keyboard event.
     
     .. py:property:: type
-        :type: sgl.KeyboardEventType
+        :type: slangpy.KeyboardEventType
     
         The event type.
         
     .. py:property:: key
-        :type: sgl.KeyCode
+        :type: slangpy.KeyCode
     
         The key that was pressed/released/repeated.
         
     .. py:property:: mods
-        :type: sgl.KeyModifierFlags
+        :type: slangpy.KeyModifierFlags
     
         Keyboard modifier flags.
         
@@ -1725,7 +1751,7 @@ Windowing
     
         Returns true if this event is an input event.
         
-    .. py:method:: has_modifier(self, arg: sgl.KeyModifier, /) -> bool
+    .. py:method:: has_modifier(self, arg: slangpy.KeyModifier, /) -> bool
     
         Returns true if the specified modifier is set.
         
@@ -1733,25 +1759,25 @@ Windowing
 
 ----
 
-.. py:class:: sgl.MouseEventType
+.. py:class:: slangpy.MouseEventType
 
     Base class: :py:class:`enum.Enum`
     
     Mouse event types.
     
-    .. py:attribute:: sgl.MouseEventType.button_down
+    .. py:attribute:: slangpy.MouseEventType.button_down
         :type: MouseEventType
         :value: MouseEventType.button_down
     
-    .. py:attribute:: sgl.MouseEventType.button_up
+    .. py:attribute:: slangpy.MouseEventType.button_up
         :type: MouseEventType
         :value: MouseEventType.button_up
     
-    .. py:attribute:: sgl.MouseEventType.move
+    .. py:attribute:: slangpy.MouseEventType.move
         :type: MouseEventType
         :value: MouseEventType.move
     
-    .. py:attribute:: sgl.MouseEventType.scroll
+    .. py:attribute:: slangpy.MouseEventType.scroll
         :type: MouseEventType
         :value: MouseEventType.scroll
     
@@ -1759,32 +1785,32 @@ Windowing
 
 ----
 
-.. py:class:: sgl.MouseEvent
+.. py:class:: slangpy.MouseEvent
 
     Mouse event.
     
     .. py:property:: type
-        :type: sgl.MouseEventType
+        :type: slangpy.MouseEventType
     
         The event type.
         
     .. py:property:: pos
-        :type: sgl.math.float2
+        :type: slangpy.math.float2
     
         The mouse position.
         
     .. py:property:: scroll
-        :type: sgl.math.float2
+        :type: slangpy.math.float2
     
         The scroll offset.
         
     .. py:property:: button
-        :type: sgl.MouseButton
+        :type: slangpy.MouseButton
     
         The mouse button that was pressed/released.
         
     .. py:property:: mods
-        :type: sgl.KeyModifierFlags
+        :type: slangpy.KeyModifierFlags
     
         Keyboard modifier flags.
         
@@ -1804,7 +1830,7 @@ Windowing
     
         Returns true if this event is a mouse scroll event.
         
-    .. py:method:: has_modifier(self, arg: sgl.KeyModifier, /) -> bool
+    .. py:method:: has_modifier(self, arg: slangpy.KeyModifier, /) -> bool
     
         Returns true if the specified modifier is set.
         
@@ -1812,25 +1838,25 @@ Windowing
 
 ----
 
-.. py:class:: sgl.GamepadEventType
+.. py:class:: slangpy.GamepadEventType
 
     Base class: :py:class:`enum.Enum`
     
     Gamepad event types.
     
-    .. py:attribute:: sgl.GamepadEventType.button_down
+    .. py:attribute:: slangpy.GamepadEventType.button_down
         :type: GamepadEventType
         :value: GamepadEventType.button_down
     
-    .. py:attribute:: sgl.GamepadEventType.button_up
+    .. py:attribute:: slangpy.GamepadEventType.button_up
         :type: GamepadEventType
         :value: GamepadEventType.button_up
     
-    .. py:attribute:: sgl.GamepadEventType.connect
+    .. py:attribute:: slangpy.GamepadEventType.connect
         :type: GamepadEventType
         :value: GamepadEventType.connect
     
-    .. py:attribute:: sgl.GamepadEventType.disconnect
+    .. py:attribute:: slangpy.GamepadEventType.disconnect
         :type: GamepadEventType
         :value: GamepadEventType.disconnect
     
@@ -1838,69 +1864,69 @@ Windowing
 
 ----
 
-.. py:class:: sgl.GamepadButton
+.. py:class:: slangpy.GamepadButton
 
     Base class: :py:class:`enum.Enum`
     
     Gamepad buttons.
     
-    .. py:attribute:: sgl.GamepadButton.a
+    .. py:attribute:: slangpy.GamepadButton.a
         :type: GamepadButton
         :value: GamepadButton.a
     
-    .. py:attribute:: sgl.GamepadButton.b
+    .. py:attribute:: slangpy.GamepadButton.b
         :type: GamepadButton
         :value: GamepadButton.b
     
-    .. py:attribute:: sgl.GamepadButton.x
+    .. py:attribute:: slangpy.GamepadButton.x
         :type: GamepadButton
         :value: GamepadButton.x
     
-    .. py:attribute:: sgl.GamepadButton.y
+    .. py:attribute:: slangpy.GamepadButton.y
         :type: GamepadButton
         :value: GamepadButton.y
     
-    .. py:attribute:: sgl.GamepadButton.left_bumper
+    .. py:attribute:: slangpy.GamepadButton.left_bumper
         :type: GamepadButton
         :value: GamepadButton.left_bumper
     
-    .. py:attribute:: sgl.GamepadButton.right_bumper
+    .. py:attribute:: slangpy.GamepadButton.right_bumper
         :type: GamepadButton
         :value: GamepadButton.right_bumper
     
-    .. py:attribute:: sgl.GamepadButton.back
+    .. py:attribute:: slangpy.GamepadButton.back
         :type: GamepadButton
         :value: GamepadButton.back
     
-    .. py:attribute:: sgl.GamepadButton.start
+    .. py:attribute:: slangpy.GamepadButton.start
         :type: GamepadButton
         :value: GamepadButton.start
     
-    .. py:attribute:: sgl.GamepadButton.guide
+    .. py:attribute:: slangpy.GamepadButton.guide
         :type: GamepadButton
         :value: GamepadButton.guide
     
-    .. py:attribute:: sgl.GamepadButton.left_thumb
+    .. py:attribute:: slangpy.GamepadButton.left_thumb
         :type: GamepadButton
         :value: GamepadButton.left_thumb
     
-    .. py:attribute:: sgl.GamepadButton.right_thumb
+    .. py:attribute:: slangpy.GamepadButton.right_thumb
         :type: GamepadButton
         :value: GamepadButton.right_thumb
     
-    .. py:attribute:: sgl.GamepadButton.up
+    .. py:attribute:: slangpy.GamepadButton.up
         :type: GamepadButton
         :value: GamepadButton.up
     
-    .. py:attribute:: sgl.GamepadButton.right
+    .. py:attribute:: slangpy.GamepadButton.right
         :type: GamepadButton
         :value: GamepadButton.right
     
-    .. py:attribute:: sgl.GamepadButton.down
+    .. py:attribute:: slangpy.GamepadButton.down
         :type: GamepadButton
         :value: GamepadButton.down
     
-    .. py:attribute:: sgl.GamepadButton.left
+    .. py:attribute:: slangpy.GamepadButton.left
         :type: GamepadButton
         :value: GamepadButton.left
     
@@ -1908,17 +1934,17 @@ Windowing
 
 ----
 
-.. py:class:: sgl.GamepadEvent
+.. py:class:: slangpy.GamepadEvent
 
     Gamepad event.
     
     .. py:property:: type
-        :type: sgl.GamepadEventType
+        :type: slangpy.GamepadEventType
     
         The event type.
         
     .. py:property:: button
-        :type: sgl.GamepadButton
+        :type: slangpy.GamepadButton
     
         The gamepad button that was pressed/released.
         
@@ -1942,7 +1968,7 @@ Windowing
 
 ----
 
-.. py:class:: sgl.GamepadState
+.. py:class:: slangpy.GamepadState
 
     Gamepad state.
     
@@ -1981,7 +2007,7 @@ Windowing
     
         Bitfield of gamepad buttons (see GamepadButton).
         
-    .. py:method:: is_button_down(self, arg: sgl.GamepadButton, /) -> bool
+    .. py:method:: is_button_down(self, arg: slangpy.GamepadButton, /) -> bool
     
         Returns true if the specified button is down.
         
@@ -1992,7 +2018,7 @@ Windowing
 Platform
 --------
 
-.. py:class:: sgl.platform.FileDialogFilter
+.. py:class:: slangpy.platform.FileDialogFilter
 
     
     
@@ -2018,7 +2044,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.open_file_dialog(filters: collections.abc.Sequence[sgl.platform.FileDialogFilter] = []) -> pathlib.Path | None
+.. py:function:: slangpy.platform.open_file_dialog(filters: collections.abc.Sequence[slangpy.platform.FileDialogFilter] = []) -> pathlib.Path | None
 
     Show a file open dialog.
     
@@ -2032,7 +2058,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.save_file_dialog(filters: collections.abc.Sequence[sgl.platform.FileDialogFilter] = []) -> pathlib.Path | None
+.. py:function:: slangpy.platform.save_file_dialog(filters: collections.abc.Sequence[slangpy.platform.FileDialogFilter] = []) -> pathlib.Path | None
 
     Show a file save dialog.
     
@@ -2046,7 +2072,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.choose_folder_dialog() -> pathlib.Path | None
+.. py:function:: slangpy.platform.choose_folder_dialog() -> pathlib.Path | None
 
     Show a folder selection dialog.
     
@@ -2057,7 +2083,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.display_scale_factor() -> float
+.. py:function:: slangpy.platform.display_scale_factor() -> float
 
     The pixel scale factor of the primary display.
     
@@ -2065,7 +2091,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.executable_path() -> pathlib.Path
+.. py:function:: slangpy.platform.executable_path() -> pathlib.Path
 
     The full path to the current executable.
     
@@ -2073,7 +2099,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.executable_directory() -> pathlib.Path
+.. py:function:: slangpy.platform.executable_directory() -> pathlib.Path
 
     The current executable directory.
     
@@ -2081,7 +2107,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.executable_name() -> str
+.. py:function:: slangpy.platform.executable_name() -> str
 
     The current executable name.
     
@@ -2089,7 +2115,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.app_data_directory() -> pathlib.Path
+.. py:function:: slangpy.platform.app_data_directory() -> pathlib.Path
 
     The application data directory.
     
@@ -2097,7 +2123,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.home_directory() -> pathlib.Path
+.. py:function:: slangpy.platform.home_directory() -> pathlib.Path
 
     The home directory.
     
@@ -2105,7 +2131,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.project_directory() -> pathlib.Path
+.. py:function:: slangpy.platform.project_directory() -> pathlib.Path
 
     The project source directory. Note that this is only valid during
     development.
@@ -2114,7 +2140,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.runtime_directory() -> pathlib.Path
+.. py:function:: slangpy.platform.runtime_directory() -> pathlib.Path
 
     The runtime directory. This is the path where the sgl runtime library
     (sgl.dll, libsgl.so or libsgl.dynlib) resides.
@@ -2123,15 +2149,15 @@ Platform
 
 ----
 
-.. py:data:: sgl.platform.page_size
+.. py:data:: slangpy.platform.page_size
     :type: int
-    :value: 4096
+    :value: 65536
 
 
 
 ----
 
-.. py:class:: sgl.platform.MemoryStats
+.. py:class:: slangpy.platform.MemoryStats
 
     
     
@@ -2149,7 +2175,7 @@ Platform
 
 ----
 
-.. py:function:: sgl.platform.memory_stats() -> sgl.platform.MemoryStats
+.. py:function:: slangpy.platform.memory_stats() -> slangpy.platform.MemoryStats
 
     Get the current memory stats.
     
@@ -2160,7 +2186,7 @@ Platform
 Threading
 ---------
 
-.. py:function:: sgl.thread.wait_for_tasks() -> None
+.. py:function:: slangpy.thread.wait_for_tasks() -> None
 
     Block until all scheduled tasks are completed.
     
@@ -2171,23 +2197,23 @@ Threading
 Device
 ------
 
-.. py:class:: sgl.AccelerationStructure
+.. py:class:: slangpy.AccelerationStructure
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: desc
-        :type: sgl.AccelerationStructureDesc
+        :type: slangpy.AccelerationStructureDesc
     
     .. py:property:: handle
-        :type: sgl.AccelerationStructureHandle
+        :type: slangpy.AccelerationStructureHandle
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildDesc
+.. py:class:: slangpy.AccelerationStructureBuildDesc
 
     
     
@@ -2197,56 +2223,56 @@ Device
         :no-index:
     
     .. py:property:: inputs
-        :type: list[sgl.AccelerationStructureBuildInputInstances | sgl.AccelerationStructureBuildInputTriangles | sgl.AccelerationStructureBuildInputProceduralPrimitives]
+        :type: list[slangpy.AccelerationStructureBuildInputInstances | slangpy.AccelerationStructureBuildInputTriangles | slangpy.AccelerationStructureBuildInputProceduralPrimitives]
     
         List of build inputs. All inputs must be of the same type.
         
     .. py:property:: motion_options
-        :type: sgl.AccelerationStructureBuildInputMotionOptions
+        :type: slangpy.AccelerationStructureBuildInputMotionOptions
     
     .. py:property:: mode
-        :type: sgl.AccelerationStructureBuildMode
+        :type: slangpy.AccelerationStructureBuildMode
     
     .. py:property:: flags
-        :type: sgl.AccelerationStructureBuildFlags
+        :type: slangpy.AccelerationStructureBuildFlags
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildFlags
+.. py:class:: slangpy.AccelerationStructureBuildFlags
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.none
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.none
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.allow_update
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.allow_update
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.allow_update
+        :value: 1
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.allow_compaction
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.allow_compaction
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.allow_compaction
+        :value: 2
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.prefer_fast_trace
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.prefer_fast_trace
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.prefer_fast_trace
+        :value: 4
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.prefer_fast_build
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.prefer_fast_build
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.prefer_fast_build
+        :value: 8
     
-    .. py:attribute:: sgl.AccelerationStructureBuildFlags.minimize_memory
+    .. py:attribute:: slangpy.AccelerationStructureBuildFlags.minimize_memory
         :type: AccelerationStructureBuildFlags
-        :value: AccelerationStructureBuildFlags.minimize_memory
+        :value: 16
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildInputInstances
+.. py:class:: slangpy.AccelerationStructureBuildInputInstances
 
     
     
@@ -2256,7 +2282,7 @@ Device
         :no-index:
     
     .. py:property:: instance_buffer
-        :type: sgl.BufferOffsetPair
+        :type: slangpy.BufferOffsetPair
     
     .. py:property:: instance_stride
         :type: int
@@ -2268,7 +2294,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildInputMotionOptions
+.. py:class:: slangpy.AccelerationStructureBuildInputMotionOptions
 
     
     
@@ -2290,7 +2316,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildInputProceduralPrimitives
+.. py:class:: slangpy.AccelerationStructureBuildInputProceduralPrimitives
 
     
     
@@ -2300,7 +2326,7 @@ Device
         :no-index:
     
     .. py:property:: aabb_buffers
-        :type: list[sgl.BufferOffsetPair]
+        :type: list[slangpy.BufferOffsetPair]
     
     .. py:property:: aabb_stride
         :type: int
@@ -2309,13 +2335,13 @@ Device
         :type: int
     
     .. py:property:: flags
-        :type: sgl.AccelerationStructureGeometryFlags
+        :type: slangpy.AccelerationStructureGeometryFlags
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildInputTriangles
+.. py:class:: slangpy.AccelerationStructureBuildInputTriangles
 
     
     
@@ -2325,10 +2351,10 @@ Device
         :no-index:
     
     .. py:property:: vertex_buffers
-        :type: list[sgl.BufferOffsetPair]
+        :type: list[slangpy.BufferOffsetPair]
     
     .. py:property:: vertex_format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: vertex_count
         :type: int
@@ -2337,33 +2363,33 @@ Device
         :type: int
     
     .. py:property:: index_buffer
-        :type: sgl.BufferOffsetPair
+        :type: slangpy.BufferOffsetPair
     
     .. py:property:: index_format
-        :type: sgl.IndexFormat
+        :type: slangpy.IndexFormat
     
     .. py:property:: index_count
         :type: int
     
     .. py:property:: pre_transform_buffer
-        :type: sgl.BufferOffsetPair
+        :type: slangpy.BufferOffsetPair
     
     .. py:property:: flags
-        :type: sgl.AccelerationStructureGeometryFlags
+        :type: slangpy.AccelerationStructureGeometryFlags
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureBuildMode
+.. py:class:: slangpy.AccelerationStructureBuildMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.AccelerationStructureBuildMode.build
+    .. py:attribute:: slangpy.AccelerationStructureBuildMode.build
         :type: AccelerationStructureBuildMode
         :value: AccelerationStructureBuildMode.build
     
-    .. py:attribute:: sgl.AccelerationStructureBuildMode.update
+    .. py:attribute:: slangpy.AccelerationStructureBuildMode.update
         :type: AccelerationStructureBuildMode
         :value: AccelerationStructureBuildMode.update
     
@@ -2371,15 +2397,15 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureCopyMode
+.. py:class:: slangpy.AccelerationStructureCopyMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.AccelerationStructureCopyMode.clone
+    .. py:attribute:: slangpy.AccelerationStructureCopyMode.clone
         :type: AccelerationStructureCopyMode
         :value: AccelerationStructureCopyMode.clone
     
-    .. py:attribute:: sgl.AccelerationStructureCopyMode.compact
+    .. py:attribute:: slangpy.AccelerationStructureCopyMode.compact
         :type: AccelerationStructureCopyMode
         :value: AccelerationStructureCopyMode.compact
     
@@ -2387,7 +2413,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureDesc
+.. py:class:: slangpy.AccelerationStructureDesc
 
     
     
@@ -2406,27 +2432,27 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureGeometryFlags
+.. py:class:: slangpy.AccelerationStructureGeometryFlags
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.AccelerationStructureGeometryFlags.none
+    .. py:attribute:: slangpy.AccelerationStructureGeometryFlags.none
         :type: AccelerationStructureGeometryFlags
-        :value: AccelerationStructureGeometryFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.AccelerationStructureGeometryFlags.opaque
+    .. py:attribute:: slangpy.AccelerationStructureGeometryFlags.opaque
         :type: AccelerationStructureGeometryFlags
-        :value: AccelerationStructureGeometryFlags.opaque
+        :value: 1
     
-    .. py:attribute:: sgl.AccelerationStructureGeometryFlags.no_duplicate_any_hit_invocation
+    .. py:attribute:: slangpy.AccelerationStructureGeometryFlags.no_duplicate_any_hit_invocation
         :type: AccelerationStructureGeometryFlags
-        :value: AccelerationStructureGeometryFlags.no_duplicate_any_hit_invocation
+        :value: 2
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureHandle
+.. py:class:: slangpy.AccelerationStructureHandle
 
     N/A
     
@@ -2436,7 +2462,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureInstanceDesc
+.. py:class:: slangpy.AccelerationStructureInstanceDesc
 
     
     
@@ -2446,7 +2472,7 @@ Device
         :no-index:
     
     .. py:property:: transform
-        :type: sgl.math.float3x4
+        :type: slangpy.math.float3x4
     
     .. py:property:: instance_id
         :type: int
@@ -2458,10 +2484,10 @@ Device
         :type: int
     
     .. py:property:: flags
-        :type: sgl.AccelerationStructureInstanceFlags
+        :type: slangpy.AccelerationStructureInstanceFlags
     
     .. py:property:: acceleration_structure
-        :type: sgl.AccelerationStructureHandle
+        :type: slangpy.AccelerationStructureHandle
     
     .. py:method:: to_numpy(self) -> numpy.ndarray[dtype=uint8, shape=(64), writable=False]
     
@@ -2469,37 +2495,37 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureInstanceFlags
+.. py:class:: slangpy.AccelerationStructureInstanceFlags
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.AccelerationStructureInstanceFlags.none
+    .. py:attribute:: slangpy.AccelerationStructureInstanceFlags.none
         :type: AccelerationStructureInstanceFlags
-        :value: AccelerationStructureInstanceFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.AccelerationStructureInstanceFlags.triangle_facing_cull_disable
+    .. py:attribute:: slangpy.AccelerationStructureInstanceFlags.triangle_facing_cull_disable
         :type: AccelerationStructureInstanceFlags
-        :value: AccelerationStructureInstanceFlags.triangle_facing_cull_disable
+        :value: 1
     
-    .. py:attribute:: sgl.AccelerationStructureInstanceFlags.triangle_front_counter_clockwise
+    .. py:attribute:: slangpy.AccelerationStructureInstanceFlags.triangle_front_counter_clockwise
         :type: AccelerationStructureInstanceFlags
-        :value: AccelerationStructureInstanceFlags.triangle_front_counter_clockwise
+        :value: 2
     
-    .. py:attribute:: sgl.AccelerationStructureInstanceFlags.force_opaque
+    .. py:attribute:: slangpy.AccelerationStructureInstanceFlags.force_opaque
         :type: AccelerationStructureInstanceFlags
-        :value: AccelerationStructureInstanceFlags.force_opaque
+        :value: 4
     
-    .. py:attribute:: sgl.AccelerationStructureInstanceFlags.no_opaque
+    .. py:attribute:: slangpy.AccelerationStructureInstanceFlags.no_opaque
         :type: AccelerationStructureInstanceFlags
-        :value: AccelerationStructureInstanceFlags.no_opaque
+        :value: 8
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureInstanceList
+.. py:class:: slangpy.AccelerationStructureInstanceList
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
@@ -2511,20 +2537,20 @@ Device
     
     .. py:method:: resize(self, size: int) -> None
     
-    .. py:method:: write(self, index: int, instance: sgl.AccelerationStructureInstanceDesc) -> None
+    .. py:method:: write(self, index: int, instance: slangpy.AccelerationStructureInstanceDesc) -> None
     
-    .. py:method:: write(self, index: int, instances: Sequence[sgl.AccelerationStructureInstanceDesc]) -> None
+    .. py:method:: write(self, index: int, instances: Sequence[slangpy.AccelerationStructureInstanceDesc]) -> None
         :no-index:
     
-    .. py:method:: buffer(self) -> sgl.Buffer
+    .. py:method:: buffer(self) -> slangpy.Buffer
     
-    .. py:method:: build_input_instances(self) -> sgl.AccelerationStructureBuildInputInstances
+    .. py:method:: build_input_instances(self) -> slangpy.AccelerationStructureBuildInputInstances
     
 
 
 ----
 
-.. py:class:: sgl.AccelerationStructureQueryDesc
+.. py:class:: slangpy.AccelerationStructureQueryDesc
 
     
     
@@ -2534,10 +2560,10 @@ Device
         :no-index:
     
     .. py:property:: query_type
-        :type: sgl.QueryType
+        :type: slangpy.QueryType
     
     .. py:property:: query_pool
-        :type: sgl.QueryPool
+        :type: slangpy.QueryPool
     
     .. py:property:: first_query_index
         :type: int
@@ -2546,7 +2572,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AccelerationStructureSizes
+.. py:class:: slangpy.AccelerationStructureSizes
 
     
     
@@ -2563,7 +2589,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AdapterInfo
+.. py:class:: slangpy.AdapterInfo
 
     
     
@@ -2593,7 +2619,7 @@ Device
 
 ----
 
-.. py:class:: sgl.AspectBlendDesc
+.. py:class:: slangpy.AspectBlendDesc
 
     
     
@@ -2603,21 +2629,21 @@ Device
         :no-index:
     
     .. py:property:: src_factor
-        :type: sgl.BlendFactor
+        :type: slangpy.BlendFactor
     
     .. py:property:: dst_factor
-        :type: sgl.BlendFactor
+        :type: slangpy.BlendFactor
     
     .. py:property:: op
-        :type: sgl.BlendOp
+        :type: slangpy.BlendOp
     
 
 
 ----
 
-.. py:class:: sgl.BaseReflectionObject
+.. py:class:: slangpy.BaseReflectionObject
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
@@ -2628,75 +2654,75 @@ Device
 
 ----
 
-.. py:class:: sgl.BlendFactor
+.. py:class:: slangpy.BlendFactor
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.BlendFactor.zero
+    .. py:attribute:: slangpy.BlendFactor.zero
         :type: BlendFactor
         :value: BlendFactor.zero
     
-    .. py:attribute:: sgl.BlendFactor.one
+    .. py:attribute:: slangpy.BlendFactor.one
         :type: BlendFactor
         :value: BlendFactor.one
     
-    .. py:attribute:: sgl.BlendFactor.src_color
+    .. py:attribute:: slangpy.BlendFactor.src_color
         :type: BlendFactor
         :value: BlendFactor.src_color
     
-    .. py:attribute:: sgl.BlendFactor.inv_src_color
+    .. py:attribute:: slangpy.BlendFactor.inv_src_color
         :type: BlendFactor
         :value: BlendFactor.inv_src_color
     
-    .. py:attribute:: sgl.BlendFactor.src_alpha
+    .. py:attribute:: slangpy.BlendFactor.src_alpha
         :type: BlendFactor
         :value: BlendFactor.src_alpha
     
-    .. py:attribute:: sgl.BlendFactor.inv_src_alpha
+    .. py:attribute:: slangpy.BlendFactor.inv_src_alpha
         :type: BlendFactor
         :value: BlendFactor.inv_src_alpha
     
-    .. py:attribute:: sgl.BlendFactor.dest_alpha
+    .. py:attribute:: slangpy.BlendFactor.dest_alpha
         :type: BlendFactor
         :value: BlendFactor.dest_alpha
     
-    .. py:attribute:: sgl.BlendFactor.inv_dest_alpha
+    .. py:attribute:: slangpy.BlendFactor.inv_dest_alpha
         :type: BlendFactor
         :value: BlendFactor.inv_dest_alpha
     
-    .. py:attribute:: sgl.BlendFactor.dest_color
+    .. py:attribute:: slangpy.BlendFactor.dest_color
         :type: BlendFactor
         :value: BlendFactor.dest_color
     
-    .. py:attribute:: sgl.BlendFactor.inv_dest_color
+    .. py:attribute:: slangpy.BlendFactor.inv_dest_color
         :type: BlendFactor
         :value: BlendFactor.inv_dest_color
     
-    .. py:attribute:: sgl.BlendFactor.src_alpha_saturate
+    .. py:attribute:: slangpy.BlendFactor.src_alpha_saturate
         :type: BlendFactor
         :value: BlendFactor.src_alpha_saturate
     
-    .. py:attribute:: sgl.BlendFactor.blend_color
+    .. py:attribute:: slangpy.BlendFactor.blend_color
         :type: BlendFactor
         :value: BlendFactor.blend_color
     
-    .. py:attribute:: sgl.BlendFactor.inv_blend_color
+    .. py:attribute:: slangpy.BlendFactor.inv_blend_color
         :type: BlendFactor
         :value: BlendFactor.inv_blend_color
     
-    .. py:attribute:: sgl.BlendFactor.secondary_src_color
+    .. py:attribute:: slangpy.BlendFactor.secondary_src_color
         :type: BlendFactor
         :value: BlendFactor.secondary_src_color
     
-    .. py:attribute:: sgl.BlendFactor.inv_secondary_src_color
+    .. py:attribute:: slangpy.BlendFactor.inv_secondary_src_color
         :type: BlendFactor
         :value: BlendFactor.inv_secondary_src_color
     
-    .. py:attribute:: sgl.BlendFactor.secondary_src_alpha
+    .. py:attribute:: slangpy.BlendFactor.secondary_src_alpha
         :type: BlendFactor
         :value: BlendFactor.secondary_src_alpha
     
-    .. py:attribute:: sgl.BlendFactor.inv_secondary_src_alpha
+    .. py:attribute:: slangpy.BlendFactor.inv_secondary_src_alpha
         :type: BlendFactor
         :value: BlendFactor.inv_secondary_src_alpha
     
@@ -2704,27 +2730,27 @@ Device
 
 ----
 
-.. py:class:: sgl.BlendOp
+.. py:class:: slangpy.BlendOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.BlendOp.add
+    .. py:attribute:: slangpy.BlendOp.add
         :type: BlendOp
         :value: BlendOp.add
     
-    .. py:attribute:: sgl.BlendOp.subtract
+    .. py:attribute:: slangpy.BlendOp.subtract
         :type: BlendOp
         :value: BlendOp.subtract
     
-    .. py:attribute:: sgl.BlendOp.reverse_subtract
+    .. py:attribute:: slangpy.BlendOp.reverse_subtract
         :type: BlendOp
         :value: BlendOp.reverse_subtract
     
-    .. py:attribute:: sgl.BlendOp.min
+    .. py:attribute:: slangpy.BlendOp.min
         :type: BlendOp
         :value: BlendOp.min
     
-    .. py:attribute:: sgl.BlendOp.max
+    .. py:attribute:: slangpy.BlendOp.max
         :type: BlendOp
         :value: BlendOp.max
     
@@ -2732,14 +2758,14 @@ Device
 
 ----
 
-.. py:class:: sgl.Buffer
+.. py:class:: slangpy.Buffer
 
-    Base class: :py:class:`sgl.Resource`
+    Base class: :py:class:`slangpy.Resource`
     
     
     
     .. py:property:: desc
-        :type: sgl.BufferDesc
+        :type: slangpy.BufferDesc
     
     .. py:property:: size
         :type: int
@@ -2750,44 +2776,49 @@ Device
     .. py:property:: device_address
         :type: int
     
+    .. py:property:: shared_handle
+        :type: slangpy.NativeHandle
+    
+        Get the shared resource handle.
+        
     .. py:method:: to_numpy(self) -> numpy.ndarray[]
     
     .. py:method:: copy_from_numpy(self, data: numpy.ndarray[]) -> None
     
-    .. py:method:: to_torch(self, type: sgl.DataType = DataType.void, shape: collections.abc.Sequence[int] = [], strides: collections.abc.Sequence[int] = [], offset: int = 0) -> torch.Tensor[device='cuda']
+    .. py:method:: to_torch(self, type: slangpy.DataType = DataType.void, shape: collections.abc.Sequence[int] = [], strides: collections.abc.Sequence[int] = [], offset: int = 0) -> torch.Tensor[device='cuda']
     
 
 
 ----
 
-.. py:class:: sgl.BufferCursor
+.. py:class:: slangpy.BufferCursor
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Represents a list of elements in a block of memory, and provides
     simple interface to get a BufferElementCursor for each one. As this
     can be the owner of its data, it is a ref counted object that elements
     refer to.
     
-    .. py:method:: __init__(self, element_layout: sgl.TypeLayoutReflection, size: int) -> None
+    .. py:method:: __init__(self, element_layout: slangpy.TypeLayoutReflection, size: int) -> None
     
-    .. py:method:: __init__(self, element_layout: sgl.TypeLayoutReflection, buffer_resource: sgl.Buffer, load_before_write: bool = True) -> None
+    .. py:method:: __init__(self, element_layout: slangpy.TypeLayoutReflection, buffer_resource: slangpy.Buffer, load_before_write: bool = True) -> None
         :no-index:
     
-    .. py:method:: __init__(self, element_layout: sgl.TypeLayoutReflection, buffer_resource: sgl.Buffer, size: int, offset: int, load_before_write: bool = True) -> None
+    .. py:method:: __init__(self, element_layout: slangpy.TypeLayoutReflection, buffer_resource: slangpy.Buffer, size: int, offset: int, load_before_write: bool = True) -> None
         :no-index:
     
     .. py:property:: element_type_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
     
         Get type layout of an element of the cursor.
         
     .. py:property:: element_type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
         Get type of an element of the cursor.
         
-    .. py:method:: find_element(self, index: int) -> sgl.BufferElementCursor
+    .. py:method:: find_element(self, index: int) -> slangpy.BufferElementCursor
     
         Get element at a given index.
         
@@ -2825,7 +2856,7 @@ Device
         In case of GPU only buffers, pushes all data to the GPU.
         
     .. py:property:: resource
-        :type: sgl.Buffer
+        :type: slangpy.Buffer
     
         Get the resource this cursor represents (if any).
         
@@ -2837,7 +2868,7 @@ Device
 
 ----
 
-.. py:class:: sgl.BufferDesc
+.. py:class:: slangpy.BufferDesc
 
     
     
@@ -2857,22 +2888,22 @@ Device
         Struct size in bytes.
         
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Buffer format. Used when creating typed buffer views.
         
     .. py:property:: memory_type
-        :type: sgl.MemoryType
+        :type: slangpy.MemoryType
     
         Memory type.
         
     .. py:property:: usage
-        :type: sgl.BufferUsage
+        :type: slangpy.BufferUsage
     
         Resource usage flags.
         
     .. py:property:: default_state
-        :type: sgl.ResourceState
+        :type: slangpy.ResourceState
     
         Initial resource state.
         
@@ -2885,7 +2916,7 @@ Device
 
 ----
 
-.. py:class:: sgl.BufferElementCursor
+.. py:class:: slangpy.BufferElementCursor
 
     Represents a single element of a given type in a block of memory, and
     provides read/write tools to access its members via reflection.
@@ -2899,11 +2930,11 @@ Device
     
         N/A
         
-    .. py:method:: find_field(self, name: str) -> sgl.BufferElementCursor
+    .. py:method:: find_field(self, name: str) -> slangpy.BufferElementCursor
     
         N/A
         
-    .. py:method:: find_element(self, index: int) -> sgl.BufferElementCursor
+    .. py:method:: find_element(self, index: int) -> slangpy.BufferElementCursor
     
         N/A
         
@@ -2927,23 +2958,23 @@ Device
 
 ----
 
-.. py:class:: sgl.BufferOffsetPair
+.. py:class:: slangpy.BufferOffsetPair
 
     
     
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, buffer: sgl.Buffer) -> None
+    .. py:method:: __init__(self, buffer: slangpy.Buffer) -> None
         :no-index:
     
-    .. py:method:: __init__(self, buffer: sgl.Buffer, offset: int = 0) -> None
+    .. py:method:: __init__(self, buffer: slangpy.Buffer, offset: int = 0) -> None
         :no-index:
     
     .. py:method:: __init__(self, arg: dict, /) -> None
         :no-index:
     
     .. py:property:: buffer
-        :type: sgl.Buffer
+        :type: slangpy.Buffer
     
     .. py:property:: offset
         :type: int
@@ -2952,7 +2983,7 @@ Device
 
 ----
 
-.. py:class:: sgl.BufferRange
+.. py:class:: slangpy.BufferRange
 
     
     
@@ -2968,67 +2999,67 @@ Device
 
 ----
 
-.. py:class:: sgl.BufferUsage
+.. py:class:: slangpy.BufferUsage
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.BufferUsage.none
+    .. py:attribute:: slangpy.BufferUsage.none
         :type: BufferUsage
-        :value: BufferUsage.none
+        :value: 0
     
-    .. py:attribute:: sgl.BufferUsage.vertex_buffer
+    .. py:attribute:: slangpy.BufferUsage.vertex_buffer
         :type: BufferUsage
-        :value: BufferUsage.vertex_buffer
+        :value: 1
     
-    .. py:attribute:: sgl.BufferUsage.index_buffer
+    .. py:attribute:: slangpy.BufferUsage.index_buffer
         :type: BufferUsage
-        :value: BufferUsage.index_buffer
+        :value: 2
     
-    .. py:attribute:: sgl.BufferUsage.constant_buffer
+    .. py:attribute:: slangpy.BufferUsage.constant_buffer
         :type: BufferUsage
-        :value: BufferUsage.constant_buffer
+        :value: 4
     
-    .. py:attribute:: sgl.BufferUsage.shader_resource
+    .. py:attribute:: slangpy.BufferUsage.shader_resource
         :type: BufferUsage
-        :value: BufferUsage.shader_resource
+        :value: 8
     
-    .. py:attribute:: sgl.BufferUsage.unordered_access
+    .. py:attribute:: slangpy.BufferUsage.unordered_access
         :type: BufferUsage
-        :value: BufferUsage.unordered_access
+        :value: 16
     
-    .. py:attribute:: sgl.BufferUsage.indirect_argument
+    .. py:attribute:: slangpy.BufferUsage.indirect_argument
         :type: BufferUsage
-        :value: BufferUsage.indirect_argument
+        :value: 32
     
-    .. py:attribute:: sgl.BufferUsage.copy_source
+    .. py:attribute:: slangpy.BufferUsage.copy_source
         :type: BufferUsage
-        :value: BufferUsage.copy_source
+        :value: 64
     
-    .. py:attribute:: sgl.BufferUsage.copy_destination
+    .. py:attribute:: slangpy.BufferUsage.copy_destination
         :type: BufferUsage
-        :value: BufferUsage.copy_destination
+        :value: 128
     
-    .. py:attribute:: sgl.BufferUsage.acceleration_structure
+    .. py:attribute:: slangpy.BufferUsage.acceleration_structure
         :type: BufferUsage
-        :value: BufferUsage.acceleration_structure
+        :value: 256
     
-    .. py:attribute:: sgl.BufferUsage.acceleration_structure_build_input
+    .. py:attribute:: slangpy.BufferUsage.acceleration_structure_build_input
         :type: BufferUsage
-        :value: BufferUsage.acceleration_structure_build_input
+        :value: 512
     
-    .. py:attribute:: sgl.BufferUsage.shader_table
+    .. py:attribute:: slangpy.BufferUsage.shader_table
         :type: BufferUsage
-        :value: BufferUsage.shader_table
+        :value: 1024
     
-    .. py:attribute:: sgl.BufferUsage.shared
+    .. py:attribute:: slangpy.BufferUsage.shared
         :type: BufferUsage
-        :value: BufferUsage.shared
+        :value: 2048
     
 
 
 ----
 
-.. py:class:: sgl.ColorTargetDesc
+.. py:class:: slangpy.ColorTargetDesc
 
     
     
@@ -3038,30 +3069,30 @@ Device
         :no-index:
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: color
-        :type: sgl.AspectBlendDesc
+        :type: slangpy.AspectBlendDesc
     
     .. py:property:: alpha
-        :type: sgl.AspectBlendDesc
+        :type: slangpy.AspectBlendDesc
     
     .. py:property:: write_mask
-        :type: sgl.RenderTargetWriteMask
+        :type: slangpy.RenderTargetWriteMask
     
     .. py:property:: enable_blend
         :type: bool
     
     .. py:property:: logic_op
-        :type: sgl.LogicOp
+        :type: slangpy.LogicOp
     
 
 
 ----
 
-.. py:class:: sgl.CommandBuffer
+.. py:class:: slangpy.CommandBuffer
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
@@ -3069,19 +3100,19 @@ Device
 
 ----
 
-.. py:class:: sgl.CommandEncoder
+.. py:class:: slangpy.CommandEncoder
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
-    .. py:method:: begin_render_pass(self, desc: sgl.RenderPassDesc) -> sgl.RenderPassEncoder
+    .. py:method:: begin_render_pass(self, desc: slangpy.RenderPassDesc) -> slangpy.RenderPassEncoder
     
-    .. py:method:: begin_compute_pass(self) -> sgl.ComputePassEncoder
+    .. py:method:: begin_compute_pass(self) -> slangpy.ComputePassEncoder
     
-    .. py:method:: begin_ray_tracing_pass(self) -> sgl.RayTracingPassEncoder
+    .. py:method:: begin_ray_tracing_pass(self) -> slangpy.RayTracingPassEncoder
     
-    .. py:method:: copy_buffer(self, dst: sgl.Buffer, dst_offset: int, src: sgl.Buffer, src_offset: int, size: int) -> None
+    .. py:method:: copy_buffer(self, dst: slangpy.Buffer, dst_offset: int, src: slangpy.Buffer, src_offset: int, size: int) -> None
     
         Copy a buffer region.
         
@@ -3100,15 +3131,15 @@ Device
         Parameter ``size``:
             Size in bytes.
         
-    .. py:method:: copy_texture(self, dst: sgl.Texture, dst_subresource: int, dst_offset: sgl.math.uint3, src: sgl.Texture, src_subresource: int, src_offset: sgl.math.uint3, extent: sgl.math.uint3 = {4294967295, 4294967295, 4294967295}) -> None
+    .. py:method:: copy_texture(self, dst: slangpy.Texture, dst_subresource_range: slangpy.SubresourceRange, dst_offset: slangpy.math.uint3, src: slangpy.Texture, src_subresource_range: slangpy.SubresourceRange, src_offset: slangpy.math.uint3, extent: slangpy.math.uint3 = {4294967295, 4294967295, 4294967295}) -> None
     
         Copy a texture region.
         
         Parameter ``dst``:
             Destination texture.
         
-        Parameter ``dst_subresource``:
-            Destination subresource index.
+        Parameter ``dst_subresource_range``:
+            Destination subresource range.
         
         Parameter ``dst_offset``:
             Destination offset in texels.
@@ -3116,8 +3147,8 @@ Device
         Parameter ``src``:
             Source texture.
         
-        Parameter ``src_subresource``:
-            Source subresource index.
+        Parameter ``src_subresource_range``:
+            Source subresource range.
         
         Parameter ``src_offset``:
             Source offset in texels.
@@ -3125,17 +3156,127 @@ Device
         Parameter ``extent``:
             Size in texels (-1 for maximum possible size).
         
-    .. py:method:: clear_buffer(self, buffer: sgl.Buffer, range: sgl.BufferRange = BufferRange(offset=0, size=18446744073709551615) -> None
+    .. py:method:: copy_texture(self, dst: slangpy.Texture, dst_layer: int, dst_mip: int, dst_offset: slangpy.math.uint3, src: slangpy.Texture, src_layer: int, src_mip: int, src_offset: slangpy.math.uint3, extent: slangpy.math.uint3 = {4294967295, 4294967295, 4294967295}) -> None
+        :no-index:
     
-    .. py:method:: clear_texture_float(self, texture: sgl.Texture, range: sgl.SubresourceRange = SubresourceRange(mip_level=0, mip_count=4294967295, base_array_layer=0, layer_count=4294967295, clear_value: sgl.math.float4 = {0, 0, 0, 0}) -> None
+        Copy a texture region.
+        
+        Parameter ``dst``:
+            Destination texture.
+        
+        Parameter ``dst_layer``:
+            Destination layer.
+        
+        Parameter ``dst_mip``:
+            Destination mip level.
+        
+        Parameter ``dst_offset``:
+            Destination offset in texels.
+        
+        Parameter ``src``:
+            Source texture.
+        
+        Parameter ``src_layer``:
+            Source layer.
+        
+        Parameter ``src_mip``:
+            Source mip level.
+        
+        Parameter ``src_offset``:
+            Source offset in texels.
+        
+        Parameter ``extent``:
+            Size in texels (-1 for maximum possible size).
+        
+    .. py:method:: copy_texture_to_buffer(self, dst: slangpy.Buffer, dst_offset: int, dst_size: int, dst_row_pitch: int, src: slangpy.Texture, src_layer: int, src_mip: int, src_offset: slangpy.math.uint3 = {0, 0, 0}, extent: slangpy.math.uint3 = {4294967295, 4294967295, 4294967295}) -> None
     
-    .. py:method:: clear_texture_uint(self, texture: sgl.Texture, range: sgl.SubresourceRange = SubresourceRange(mip_level=0, mip_count=4294967295, base_array_layer=0, layer_count=4294967295, clear_value: sgl.math.uint4 = {0, 0, 0, 0}) -> None
+        Copy a texture to a buffer.
+        
+        Parameter ``dst``:
+            Destination buffer.
+        
+        Parameter ``dst_offset``:
+            Destination offset in bytes.
+        
+        Parameter ``dst_size``:
+            Destination size in bytes.
+        
+        Parameter ``dst_row_pitch``:
+            Destination row stride in bytes.
+        
+        Parameter ``src``:
+            Source texture.
+        
+        Parameter ``src_layer``:
+            Source layer.
+        
+        Parameter ``src_mip``:
+            Source mip level.
+        
+        Parameter ``src_offset``:
+            Source offset in texels.
+        
+        Parameter ``extent``:
+            Extent in texels (-1 for maximum possible extent).
+        
+    .. py:method:: copy_buffer_to_texture(self, dst: slangpy.Texture, dst_layer: int, dst_mip: int, dst_offset: slangpy.math.uint3, src: slangpy.Buffer, src_offset: int, src_size: int, src_row_pitch: int, extent: slangpy.math.uint3 = {4294967295, 4294967295, 4294967295}) -> None
     
-    .. py:method:: clear_texture_sint(self, texture: sgl.Texture, range: sgl.SubresourceRange = SubresourceRange(mip_level=0, mip_count=4294967295, base_array_layer=0, layer_count=4294967295, clear_value: sgl.math.int4 = {0, 0, 0, 0}) -> None
+        Copy a buffer to a texture.
+        
+        Parameter ``dst``:
+            Destination texture.
+        
+        Parameter ``dst_layer``:
+            Destination layer.
+        
+        Parameter ``dst_mip``:
+            Destination mip level.
+        
+        Parameter ``dst_offset``:
+            Destination offset in texels.
+        
+        Parameter ``src``:
+            Source buffer.
+        
+        Parameter ``src_offset``:
+            Source offset in bytes.
+        
+        Parameter ``src_size``:
+            Size in bytes.
+        
+        Parameter ``src_row_pitch``:
+            Source row stride in bytes.
+        
+        Parameter ``extent``:
+            Extent in texels (-1 for maximum possible extent).
+        
+    .. py:method:: upload_buffer_data(self, buffer: slangpy.Buffer, offset: int, data: numpy.ndarray[]) -> None
     
-    .. py:method:: clear_texture_depth_stencil(self, texture: sgl.Texture, range: sgl.SubresourceRange = SubresourceRange(mip_level=0, mip_count=4294967295, base_array_layer=0, layer_count=4294967295, clear_depth: bool = True, depth_value: float = 0.0, clear_stencil: bool = True, stencil_value: int = 0) -> None
+    .. py:method:: upload_texture_data(self, texture: slangpy.Texture, layer: int, mip: int, data: numpy.ndarray[]) -> None
     
-    .. py:method:: blit(self, dst: sgl.TextureView, src: sgl.TextureView, filter: sgl.TextureFilteringMode = TextureFilteringMode.linear) -> None
+    .. py:method:: upload_texture_data(self, texture: slangpy.Texture, offset: slangpy.math.uint3, extent: slangpy.math.uint3, range: slangpy.SubresourceRange, subresource_data: Sequence[numpy.ndarray[]]) -> None
+        :no-index:
+    
+    .. py:method:: upload_texture_data(self, texture: slangpy.Texture, offset: slangpy.math.uint3, extent: slangpy.math.uint3, range: slangpy.SubresourceRange, subresource_data: Sequence[numpy.ndarray[]]) -> None
+        :no-index:
+    
+    .. py:method:: upload_texture_data(self, texture: slangpy.Texture, range: slangpy.SubresourceRange, subresource_data: Sequence[numpy.ndarray[]]) -> None
+        :no-index:
+    
+    .. py:method:: upload_texture_data(self, texture: slangpy.Texture, subresource_data: Sequence[numpy.ndarray[]]) -> None
+        :no-index:
+    
+    .. py:method:: clear_buffer(self, buffer: slangpy.Buffer, range: slangpy.BufferRange = BufferRange(offset=0, size=18446744073709551615) -> None
+    
+    .. py:method:: clear_texture_float(self, texture: slangpy.Texture, range: slangpy.SubresourceRange = SubresourceRange(layer=0, layer_count=4294967295, mip=0, mip_count=4294967295, clear_value: slangpy.math.float4 = {0, 0, 0, 0}) -> None
+    
+    .. py:method:: clear_texture_uint(self, texture: slangpy.Texture, range: slangpy.SubresourceRange = SubresourceRange(layer=0, layer_count=4294967295, mip=0, mip_count=4294967295, clear_value: slangpy.math.uint4 = {0, 0, 0, 0}) -> None
+    
+    .. py:method:: clear_texture_sint(self, texture: slangpy.Texture, range: slangpy.SubresourceRange = SubresourceRange(layer=0, layer_count=4294967295, mip=0, mip_count=4294967295, clear_value: slangpy.math.int4 = {0, 0, 0, 0}) -> None
+    
+    .. py:method:: clear_texture_depth_stencil(self, texture: slangpy.Texture, range: slangpy.SubresourceRange = SubresourceRange(layer=0, layer_count=4294967295, mip=0, mip_count=4294967295, clear_depth: bool = True, depth_value: float = 0.0, clear_stencil: bool = True, stencil_value: int = 0) -> None
+    
+    .. py:method:: blit(self, dst: slangpy.TextureView, src: slangpy.TextureView, filter: slangpy.TextureFilteringMode = TextureFilteringMode.linear) -> None
     
         Blit a texture view.
         
@@ -3151,7 +3292,7 @@ Device
         Parameter ``filter``:
             Filtering mode to use.
         
-    .. py:method:: blit(self, dst: sgl.Texture, src: sgl.Texture, filter: sgl.TextureFilteringMode = TextureFilteringMode.linear) -> None
+    .. py:method:: blit(self, dst: slangpy.Texture, src: slangpy.Texture, filter: slangpy.TextureFilteringMode = TextureFilteringMode.linear) -> None
         :no-index:
     
         Blit a texture.
@@ -3168,19 +3309,19 @@ Device
         Parameter ``filter``:
             Filtering mode to use.
         
-    .. py:method:: resolve_query(self, query_pool: sgl.QueryPool, index: int, count: int, buffer: sgl.Buffer, offset: int) -> None
+    .. py:method:: resolve_query(self, query_pool: slangpy.QueryPool, index: int, count: int, buffer: slangpy.Buffer, offset: int) -> None
     
-    .. py:method:: build_acceleration_structure(self, desc: sgl.AccelerationStructureBuildDesc, dst: sgl.AccelerationStructure, src: sgl.AccelerationStructure | None, scratch_buffer: sgl.BufferOffsetPair, queries: Sequence[sgl.AccelerationStructureQueryDesc] = []) -> None
+    .. py:method:: build_acceleration_structure(self, desc: slangpy.AccelerationStructureBuildDesc, dst: slangpy.AccelerationStructure, src: slangpy.AccelerationStructure | None, scratch_buffer: slangpy.BufferOffsetPair, queries: Sequence[slangpy.AccelerationStructureQueryDesc] = []) -> None
     
-    .. py:method:: copy_acceleration_structure(self, src: sgl.AccelerationStructure, dst: sgl.AccelerationStructure, mode: sgl.AccelerationStructureCopyMode) -> None
+    .. py:method:: copy_acceleration_structure(self, src: slangpy.AccelerationStructure, dst: slangpy.AccelerationStructure, mode: slangpy.AccelerationStructureCopyMode) -> None
     
-    .. py:method:: query_acceleration_structure_properties(self, acceleration_structures: Sequence[sgl.AccelerationStructure], queries: Sequence[sgl.AccelerationStructureQueryDesc]) -> None
+    .. py:method:: query_acceleration_structure_properties(self, acceleration_structures: Sequence[slangpy.AccelerationStructure], queries: Sequence[slangpy.AccelerationStructureQueryDesc]) -> None
     
-    .. py:method:: serialize_acceleration_structure(self, dst: sgl.BufferOffsetPair, src: sgl.AccelerationStructure) -> None
+    .. py:method:: serialize_acceleration_structure(self, dst: slangpy.BufferOffsetPair, src: slangpy.AccelerationStructure) -> None
     
-    .. py:method:: deserialize_acceleration_structure(self, dst: sgl.AccelerationStructure, src: sgl.BufferOffsetPair) -> None
+    .. py:method:: deserialize_acceleration_structure(self, dst: slangpy.AccelerationStructure, src: slangpy.BufferOffsetPair) -> None
     
-    .. py:method:: set_buffer_state(self, buffer: sgl.Buffer, state: sgl.ResourceState) -> None
+    .. py:method:: set_buffer_state(self, buffer: slangpy.Buffer, state: slangpy.ResourceState) -> None
     
         Transition resource state of a buffer and add a barrier if state has
         changed.
@@ -3191,7 +3332,7 @@ Device
         Parameter ``state``:
             New state
         
-    .. py:method:: set_texture_state(self, texture: sgl.Texture, state: sgl.ResourceState) -> None
+    .. py:method:: set_texture_state(self, texture: slangpy.Texture, state: slangpy.ResourceState) -> None
     
         Transition resource state of a texture and add a barrier if state has
         changed.
@@ -3202,10 +3343,10 @@ Device
         Parameter ``state``:
             New state
         
-    .. py:method:: set_texture_state(self, texture: sgl.Texture, range: sgl.SubresourceRange, state: sgl.ResourceState) -> None
+    .. py:method:: set_texture_state(self, texture: slangpy.Texture, range: slangpy.SubresourceRange, state: slangpy.ResourceState) -> None
         :no-index:
     
-    .. py:method:: push_debug_group(self, name: str, color: sgl.math.float3) -> None
+    .. py:method:: push_debug_group(self, name: str, color: slangpy.math.float3) -> None
     
         Push a debug group.
         
@@ -3213,7 +3354,7 @@ Device
     
         Pop a debug group.
         
-    .. py:method:: insert_debug_marker(self, name: str, color: sgl.math.float3) -> None
+    .. py:method:: insert_debug_marker(self, name: str, color: slangpy.math.float3) -> None
     
         Insert a debug marker.
         
@@ -3223,7 +3364,7 @@ Device
         Parameter ``color``:
             Color of the marker.
         
-    .. py:method:: write_timestamp(self, query_pool: sgl.QueryPool, index: int) -> None
+    .. py:method:: write_timestamp(self, query_pool: slangpy.QueryPool, index: int) -> None
     
         Write a timestamp.
         
@@ -3233,17 +3374,20 @@ Device
         Parameter ``index``:
             Index of the query.
         
-    .. py:method:: finish(self) -> sgl.CommandBuffer
+    .. py:method:: finish(self) -> slangpy.CommandBuffer
+    
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
     
 
 
 ----
 
-.. py:class:: sgl.CommandQueueType
+.. py:class:: slangpy.CommandQueueType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.CommandQueueType.graphics
+    .. py:attribute:: slangpy.CommandQueueType.graphics
         :type: CommandQueueType
         :value: CommandQueueType.graphics
     
@@ -3251,39 +3395,39 @@ Device
 
 ----
 
-.. py:class:: sgl.ComparisonFunc
+.. py:class:: slangpy.ComparisonFunc
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.ComparisonFunc.never
+    .. py:attribute:: slangpy.ComparisonFunc.never
         :type: ComparisonFunc
         :value: ComparisonFunc.never
     
-    .. py:attribute:: sgl.ComparisonFunc.less
+    .. py:attribute:: slangpy.ComparisonFunc.less
         :type: ComparisonFunc
         :value: ComparisonFunc.less
     
-    .. py:attribute:: sgl.ComparisonFunc.equal
+    .. py:attribute:: slangpy.ComparisonFunc.equal
         :type: ComparisonFunc
         :value: ComparisonFunc.equal
     
-    .. py:attribute:: sgl.ComparisonFunc.less_equal
+    .. py:attribute:: slangpy.ComparisonFunc.less_equal
         :type: ComparisonFunc
         :value: ComparisonFunc.less_equal
     
-    .. py:attribute:: sgl.ComparisonFunc.greater
+    .. py:attribute:: slangpy.ComparisonFunc.greater
         :type: ComparisonFunc
         :value: ComparisonFunc.greater
     
-    .. py:attribute:: sgl.ComparisonFunc.not_equal
+    .. py:attribute:: slangpy.ComparisonFunc.not_equal
         :type: ComparisonFunc
         :value: ComparisonFunc.not_equal
     
-    .. py:attribute:: sgl.ComparisonFunc.greater_equal
+    .. py:attribute:: slangpy.ComparisonFunc.greater_equal
         :type: ComparisonFunc
         :value: ComparisonFunc.greater_equal
     
-    .. py:attribute:: sgl.ComparisonFunc.always
+    .. py:attribute:: slangpy.ComparisonFunc.always
         :type: ComparisonFunc
         :value: ComparisonFunc.always
     
@@ -3291,72 +3435,78 @@ Device
 
 ----
 
-.. py:class:: sgl.ComputeKernel
+.. py:class:: slangpy.ComputeKernel
 
-    Base class: :py:class:`sgl.Kernel`
+    Base class: :py:class:`slangpy.Kernel`
     
     
     
     .. py:property:: pipeline
-        :type: sgl.ComputePipeline
+        :type: slangpy.ComputePipeline
     
-    .. py:method:: dispatch(self, thread_count: sgl.math.uint3, vars: dict = {}, command_encoder: sgl.CommandEncoder | None = None, **kwargs) -> None
+    .. py:method:: dispatch(self, thread_count: slangpy.math.uint3, vars: dict = {}, command_encoder: slangpy.CommandEncoder | None = None, **kwargs) -> None
     
 
 
 ----
 
-.. py:class:: sgl.ComputeKernelDesc
+.. py:class:: slangpy.ComputeKernelDesc
 
     
     
     .. py:method:: __init__(self) -> None
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
 
 
 ----
 
-.. py:class:: sgl.ComputePassEncoder
+.. py:class:: slangpy.ComputePassEncoder
 
-    Base class: :py:class:`sgl.PassEncoder`
+    Base class: :py:class:`slangpy.PassEncoder`
     
     
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.ComputePipeline) -> sgl.ShaderObject
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.ComputePipeline) -> slangpy.ShaderObject
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.ComputePipeline, root_object: sgl.ShaderObject) -> None
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.ComputePipeline, root_object: slangpy.ShaderObject) -> None
         :no-index:
     
-    .. py:method:: dispatch(self, thread_count: sgl.math.uint3) -> None
+    .. py:method:: dispatch(self, thread_count: slangpy.math.uint3) -> None
     
-    .. py:method:: dispatch_compute(self, thread_group_count: sgl.math.uint3) -> None
+    .. py:method:: dispatch_compute(self, thread_group_count: slangpy.math.uint3) -> None
     
-    .. py:method:: dispatch_compute_indirect(self, arg_buffer: sgl.BufferOffsetPair) -> None
+    .. py:method:: dispatch_compute_indirect(self, arg_buffer: slangpy.BufferOffsetPair) -> None
     
 
 
 ----
 
-.. py:class:: sgl.ComputePipeline
+.. py:class:: slangpy.ComputePipeline
 
-    Base class: :py:class:`sgl.Pipeline`
+    Base class: :py:class:`slangpy.Pipeline`
     
     Compute pipeline.
     
     .. py:property:: thread_group_size
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
         Thread group size. Used to determine the number of thread groups to
         dispatch.
+        
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: ID3D12PipelineState* - Vulkan:
+        VkPipeline
         
 
 
 ----
 
-.. py:class:: sgl.ComputePipelineDesc
+.. py:class:: slangpy.ComputePipelineDesc
 
     
     
@@ -3366,19 +3516,19 @@ Device
         :no-index:
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
 
 
 ----
 
-.. py:class:: sgl.CoopVecMatrixDesc
+.. py:class:: slangpy.CoopVecMatrixDesc
 
     
     
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, rows: int, cols: int, element_type: sgl.DataType, layout: sgl.CoopVecMatrixLayout, size: int, offset: int) -> None
+    .. py:method:: __init__(self, rows: int, cols: int, element_type: slangpy.DataType, layout: slangpy.CoopVecMatrixLayout, size: int, offset: int) -> None
         :no-index:
     
     .. py:property:: rows
@@ -3388,10 +3538,10 @@ Device
         :type: int
     
     .. py:property:: element_type
-        :type: sgl.DataType
+        :type: slangpy.DataType
     
     .. py:property:: layout
-        :type: sgl.CoopVecMatrixLayout
+        :type: slangpy.CoopVecMatrixLayout
     
     .. py:property:: size
         :type: int
@@ -3403,25 +3553,25 @@ Device
 
 ----
 
-.. py:class:: sgl.CoopVecMatrixLayout
+.. py:class:: slangpy.CoopVecMatrixLayout
 
     Base class: :py:class:`enum.Enum`
     
     
     
-    .. py:attribute:: sgl.CoopVecMatrixLayout.row_major
+    .. py:attribute:: slangpy.CoopVecMatrixLayout.row_major
         :type: CoopVecMatrixLayout
         :value: CoopVecMatrixLayout.row_major
     
-    .. py:attribute:: sgl.CoopVecMatrixLayout.column_major
+    .. py:attribute:: slangpy.CoopVecMatrixLayout.column_major
         :type: CoopVecMatrixLayout
         :value: CoopVecMatrixLayout.column_major
     
-    .. py:attribute:: sgl.CoopVecMatrixLayout.inferencing_optimal
+    .. py:attribute:: slangpy.CoopVecMatrixLayout.inferencing_optimal
         :type: CoopVecMatrixLayout
         :value: CoopVecMatrixLayout.inferencing_optimal
     
-    .. py:attribute:: sgl.CoopVecMatrixLayout.training_optimal
+    .. py:attribute:: slangpy.CoopVecMatrixLayout.training_optimal
         :type: CoopVecMatrixLayout
         :value: CoopVecMatrixLayout.training_optimal
     
@@ -3429,19 +3579,19 @@ Device
 
 ----
 
-.. py:class:: sgl.CullMode
+.. py:class:: slangpy.CullMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.CullMode.none
+    .. py:attribute:: slangpy.CullMode.none
         :type: CullMode
         :value: CullMode.none
     
-    .. py:attribute:: sgl.CullMode.front
+    .. py:attribute:: slangpy.CullMode.front
         :type: CullMode
         :value: CullMode.front
     
-    .. py:attribute:: sgl.CullMode.back
+    .. py:attribute:: slangpy.CullMode.back
         :type: CullMode
         :value: CullMode.back
     
@@ -3449,49 +3599,49 @@ Device
 
 ----
 
-.. py:class:: sgl.DeclReflection
+.. py:class:: slangpy.DeclReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
-    .. py:class:: sgl.DeclReflection.Kind
+    .. py:class:: slangpy.DeclReflection.Kind
     
         Base class: :py:class:`enum.Enum`
         
         Different kinds of decl slang can return.
         
-        .. py:attribute:: sgl.DeclReflection.Kind.unsupported
+        .. py:attribute:: slangpy.DeclReflection.Kind.unsupported
             :type: Kind
             :value: Kind.unsupported
         
-        .. py:attribute:: sgl.DeclReflection.Kind.struct
+        .. py:attribute:: slangpy.DeclReflection.Kind.struct
             :type: Kind
             :value: Kind.struct
         
-        .. py:attribute:: sgl.DeclReflection.Kind.func
+        .. py:attribute:: slangpy.DeclReflection.Kind.func
             :type: Kind
             :value: Kind.func
         
-        .. py:attribute:: sgl.DeclReflection.Kind.module
+        .. py:attribute:: slangpy.DeclReflection.Kind.module
             :type: Kind
             :value: Kind.module
         
-        .. py:attribute:: sgl.DeclReflection.Kind.generic
+        .. py:attribute:: slangpy.DeclReflection.Kind.generic
             :type: Kind
             :value: Kind.generic
         
-        .. py:attribute:: sgl.DeclReflection.Kind.variable
+        .. py:attribute:: slangpy.DeclReflection.Kind.variable
             :type: Kind
             :value: Kind.variable
         
     .. py:property:: kind
-        :type: sgl.DeclReflection.Kind
+        :type: slangpy.DeclReflection.Kind
     
         Decl kind (struct/function/module/generic/variable).
         
     .. py:property:: children
-        :type: sgl.DeclReflectionChildList
+        :type: slangpy.DeclReflectionChildList
     
         List of children of this cursor.
         
@@ -3503,28 +3653,28 @@ Device
     .. py:property:: name
         :type: str
     
-    .. py:method:: children_of_kind(self, kind: sgl.DeclReflection.Kind) -> sgl.DeclReflectionIndexedChildList
+    .. py:method:: children_of_kind(self, kind: slangpy.DeclReflection.Kind) -> slangpy.DeclReflectionIndexedChildList
     
         List of children of this cursor of a specific kind.
         
-    .. py:method:: as_type(self) -> sgl.TypeReflection
+    .. py:method:: as_type(self) -> slangpy.TypeReflection
     
         Get type corresponding to this decl ref.
         
-    .. py:method:: as_variable(self) -> sgl.VariableReflection
+    .. py:method:: as_variable(self) -> slangpy.VariableReflection
     
         Get variable corresponding to this decl ref.
         
-    .. py:method:: as_function(self) -> sgl.FunctionReflection
+    .. py:method:: as_function(self) -> slangpy.FunctionReflection
     
         Get function corresponding to this decl ref.
         
-    .. py:method:: find_children_of_kind(self, kind: sgl.DeclReflection.Kind, child_name: str) -> sgl.DeclReflectionIndexedChildList
+    .. py:method:: find_children_of_kind(self, kind: slangpy.DeclReflection.Kind, child_name: str) -> slangpy.DeclReflectionIndexedChildList
     
         Finds all children of a specific kind with a given name. Note: Only
         supported for types, functions and variables.
         
-    .. py:method:: find_first_child_of_kind(self, kind: sgl.DeclReflection.Kind, child_name: str) -> sgl.DeclReflection
+    .. py:method:: find_first_child_of_kind(self, kind: slangpy.DeclReflection.Kind, child_name: str) -> slangpy.DeclReflection
     
         Finds the first child of a specific kind with a given name. Note: Only
         supported for types, functions and variables.
@@ -3533,7 +3683,7 @@ Device
 
 ----
 
-.. py:class:: sgl.DeclReflectionChildList
+.. py:class:: slangpy.DeclReflectionChildList
 
     DeclReflection lazy child list evaluation.
     
@@ -3541,7 +3691,7 @@ Device
 
 ----
 
-.. py:class:: sgl.DeclReflectionIndexedChildList
+.. py:class:: slangpy.DeclReflectionIndexedChildList
 
     DeclReflection lazy search result evaluation.
     
@@ -3549,7 +3699,7 @@ Device
 
 ----
 
-.. py:class:: sgl.DepthStencilDesc
+.. py:class:: slangpy.DepthStencilDesc
 
     
     
@@ -3559,7 +3709,7 @@ Device
         :no-index:
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: depth_test_enable
         :type: bool
@@ -3568,7 +3718,7 @@ Device
         :type: bool
     
     .. py:property:: depth_func
-        :type: sgl.ComparisonFunc
+        :type: slangpy.ComparisonFunc
     
     .. py:property:: stencil_enable
         :type: bool
@@ -3580,16 +3730,16 @@ Device
         :type: int
     
     .. py:property:: front_face
-        :type: sgl.DepthStencilOpDesc
+        :type: slangpy.DepthStencilOpDesc
     
     .. py:property:: back_face
-        :type: sgl.DepthStencilOpDesc
+        :type: slangpy.DepthStencilOpDesc
     
 
 
 ----
 
-.. py:class:: sgl.DepthStencilOpDesc
+.. py:class:: slangpy.DepthStencilOpDesc
 
     
     
@@ -3599,52 +3749,52 @@ Device
         :no-index:
     
     .. py:property:: stencil_fail_op
-        :type: sgl.StencilOp
+        :type: slangpy.StencilOp
     
     .. py:property:: stencil_depth_fail_op
-        :type: sgl.StencilOp
+        :type: slangpy.StencilOp
     
     .. py:property:: stencil_pass_op
-        :type: sgl.StencilOp
+        :type: slangpy.StencilOp
     
     .. py:property:: stencil_func
-        :type: sgl.ComparisonFunc
+        :type: slangpy.ComparisonFunc
     
 
 
 ----
 
-.. py:class:: sgl.Device
+.. py:class:: slangpy.Device
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:method:: __init__(self, type: sgl.DeviceType = DeviceType.automatic, enable_debug_layers: bool = False, enable_cuda_interop: bool = False, enable_print: bool = False, enable_hot_reload: bool = True, adapter_luid: collections.abc.Sequence[int] | None = None, compiler_options: sgl.SlangCompilerOptions | None = None, shader_cache_path: str | os.PathLike | None = None) -> None
+    .. py:method:: __init__(self, type: slangpy.DeviceType = DeviceType.automatic, enable_debug_layers: bool = False, enable_cuda_interop: bool = False, enable_print: bool = False, enable_hot_reload: bool = True, adapter_luid: collections.abc.Sequence[int] | None = None, compiler_options: slangpy.SlangCompilerOptions | None = None, shader_cache_path: str | os.PathLike | None = None) -> None
     
-    .. py:method:: __init__(self, desc: sgl.DeviceDesc) -> None
+    .. py:method:: __init__(self, desc: slangpy.DeviceDesc) -> None
         :no-index:
     
     .. py:property:: desc
-        :type: sgl.DeviceDesc
+        :type: slangpy.DeviceDesc
     
     .. py:property:: info
-        :type: sgl.DeviceInfo
+        :type: slangpy.DeviceInfo
     
         Device information.
         
     .. py:property:: shader_cache_stats
-        :type: sgl.ShaderCacheStats
+        :type: slangpy.ShaderCacheStats
     
         Shader cache statistics.
         
     .. py:property:: supported_shader_model
-        :type: sgl.ShaderModel
+        :type: slangpy.ShaderModel
     
         The highest shader model supported by the device.
         
     .. py:property:: features
-        :type: list[str]
+        :type: list[slangpy.Feature]
     
         List of features supported by the device.
         
@@ -3653,12 +3803,22 @@ Device
     
         True if the device supports CUDA interoperability.
         
-    .. py:method:: get_format_support(self, format: sgl.Format) -> sgl.FormatSupport
+    .. py:property:: native_handles
+        :type: list[slangpy.NativeHandle]
+    
+        Returns the native API handle: - D3D12: ID3D12Device* (0) - Vulkan:
+        VkInstance (0), VkPhysicalDevice (1), VkDevice (2)
+        
+    .. py:method:: has_feature(self, feature: slangpy.Feature) -> bool
+    
+        Check if the device supports a given feature.
+        
+    .. py:method:: get_format_support(self, format: slangpy.Format) -> slangpy.FormatSupport
     
         Returns the supported resource states for a given format.
         
     .. py:property:: slang_session
-        :type: sgl.SlangSession
+        :type: slangpy.SlangSession
     
         Default slang session.
         
@@ -3676,7 +3836,7 @@ Device
         when the interpreter is terminated through an `atexit` handler. If a
         device is to be destroyed at runtime, it must be closed explicitly.
         
-    .. py:method:: create_surface(self, window: sgl.Window) -> sgl.Surface
+    .. py:method:: create_surface(self, window: slangpy.Window) -> slangpy.Surface
     
         Create a new surface.
         
@@ -3686,7 +3846,7 @@ Device
         Returns:
             New surface object.
         
-    .. py:method:: create_surface(self, window_handle: sgl.WindowHandle) -> sgl.Surface
+    .. py:method:: create_surface(self, window_handle: slangpy.WindowHandle) -> slangpy.Surface
         :no-index:
     
         Create a new surface.
@@ -3697,7 +3857,7 @@ Device
         Returns:
             New surface object.
         
-    .. py:method:: create_buffer(self, size: int = 0, element_count: int = 0, struct_size: int = 0, struct_type: object | None = None, format: sgl.Format = Format.undefined, memory_type: sgl.MemoryType = MemoryType.device_local, usage: sgl.BufferUsage = BufferUsage.none, label: str = '', data: numpy.ndarray[] | None = None) -> sgl.Buffer
+    .. py:method:: create_buffer(self, size: int = 0, element_count: int = 0, struct_size: int = 0, struct_type: object | None = None, format: slangpy.Format = Format.undefined, memory_type: slangpy.MemoryType = MemoryType.device_local, usage: slangpy.BufferUsage = 0, label: str = '', data: numpy.ndarray[] | None = None) -> slangpy.Buffer
     
         Create a new buffer.
         
@@ -3739,10 +3899,10 @@ Device
         Returns:
             New buffer object.
         
-    .. py:method:: create_buffer(self, desc: sgl.BufferDesc) -> sgl.Buffer
+    .. py:method:: create_buffer(self, desc: slangpy.BufferDesc) -> slangpy.Buffer
         :no-index:
     
-    .. py:method:: create_texture(self, type: sgl.TextureType = TextureType.texture_2d, format: sgl.Format = Format.undefined, width: int = 1, height: int = 1, depth: int = 1, array_length: int = 1, mip_count: int = 0, sample_count: int = 1, sample_quality: int = 0, memory_type: sgl.MemoryType = MemoryType.device_local, usage: sgl.TextureUsage = TextureUsage.none, label: str = '', data: numpy.ndarray[] | None = None) -> sgl.Texture
+    .. py:method:: create_texture(self, type: slangpy.TextureType = TextureType.texture_2d, format: slangpy.Format = Format.undefined, width: int = 1, height: int = 1, depth: int = 1, array_length: int = 1, mip_count: int = 1, sample_count: int = 1, sample_quality: int = 0, memory_type: slangpy.MemoryType = MemoryType.device_local, usage: slangpy.TextureUsage = 0, label: str = '', data: numpy.ndarray[] | None = None) -> slangpy.Texture
     
         Create a new texture.
         
@@ -3765,7 +3925,8 @@ Device
             Array length.
         
         Parameter ``mip_count``:
-            Mip level count. Number of mip levels (0 for auto-generated mips).
+            Mip level count. Number of mip levels (ALL_MIPS for all mip
+            levels).
         
         Parameter ``sample_count``:
             Number of samples for multisampled textures.
@@ -3788,10 +3949,10 @@ Device
         Returns:
             New texture object.
         
-    .. py:method:: create_texture(self, desc: sgl.TextureDesc) -> sgl.Texture
+    .. py:method:: create_texture(self, desc: slangpy.TextureDesc) -> slangpy.Texture
         :no-index:
     
-    .. py:method:: create_sampler(self, min_filter: sgl.TextureFilteringMode = TextureFilteringMode.linear, mag_filter: sgl.TextureFilteringMode = TextureFilteringMode.linear, mip_filter: sgl.TextureFilteringMode = TextureFilteringMode.linear, reduction_op: sgl.TextureReductionOp = TextureReductionOp.average, address_u: sgl.TextureAddressingMode = TextureAddressingMode.wrap, address_v: sgl.TextureAddressingMode = TextureAddressingMode.wrap, address_w: sgl.TextureAddressingMode = TextureAddressingMode.wrap, mip_lod_bias: float = 0.0, max_anisotropy: int = 1, comparison_func: sgl.ComparisonFunc = ComparisonFunc.never, border_color: sgl.math.float4 = {1, 1, 1, 1}, min_lod: float = -1000.0, max_lod: float = 1000.0) -> sgl.Sampler
+    .. py:method:: create_sampler(self, min_filter: slangpy.TextureFilteringMode = TextureFilteringMode.linear, mag_filter: slangpy.TextureFilteringMode = TextureFilteringMode.linear, mip_filter: slangpy.TextureFilteringMode = TextureFilteringMode.linear, reduction_op: slangpy.TextureReductionOp = TextureReductionOp.average, address_u: slangpy.TextureAddressingMode = TextureAddressingMode.wrap, address_v: slangpy.TextureAddressingMode = TextureAddressingMode.wrap, address_w: slangpy.TextureAddressingMode = TextureAddressingMode.wrap, mip_lod_bias: float = 0.0, max_anisotropy: int = 1, comparison_func: slangpy.ComparisonFunc = ComparisonFunc.never, border_color: slangpy.math.float4 = {1, 1, 1, 1}, min_lod: float = -1000.0, max_lod: float = 1000.0, label: str = '') -> slangpy.Sampler
     
         Create a new sampler.
         
@@ -3840,10 +4001,10 @@ Device
         Returns:
             New sampler object.
         
-    .. py:method:: create_sampler(self, desc: sgl.SamplerDesc) -> sgl.Sampler
+    .. py:method:: create_sampler(self, desc: slangpy.SamplerDesc) -> slangpy.Sampler
         :no-index:
     
-    .. py:method:: create_fence(self, initial_value: int = 0, shared: bool = False) -> sgl.Fence
+    .. py:method:: create_fence(self, initial_value: int = 0, shared: bool = False) -> slangpy.Fence
     
         Create a new fence.
         
@@ -3856,10 +4017,10 @@ Device
         Returns:
             New fence object.
         
-    .. py:method:: create_fence(self, desc: sgl.FenceDesc) -> sgl.Fence
+    .. py:method:: create_fence(self, desc: slangpy.FenceDesc) -> slangpy.Fence
         :no-index:
     
-    .. py:method:: create_query_pool(self, type: sgl.QueryType, count: int) -> sgl.QueryPool
+    .. py:method:: create_query_pool(self, type: slangpy.QueryType, count: int) -> slangpy.QueryPool
     
         Create a new query pool.
         
@@ -3872,7 +4033,7 @@ Device
         Returns:
             New query pool object.
         
-    .. py:method:: create_input_layout(self, input_elements: collections.abc.Sequence[sgl.InputElementDesc], vertex_streams: collections.abc.Sequence[sgl.VertexStreamDesc]) -> sgl.InputLayout
+    .. py:method:: create_input_layout(self, input_elements: collections.abc.Sequence[slangpy.InputElementDesc], vertex_streams: collections.abc.Sequence[slangpy.VertexStreamDesc]) -> slangpy.InputLayout
     
         Create a new input layout.
         
@@ -3885,12 +4046,14 @@ Device
         Returns:
             New input layout object.
         
-    .. py:method:: create_input_layout(self, desc: sgl.InputLayoutDesc) -> sgl.InputLayout
+    .. py:method:: create_input_layout(self, desc: slangpy.InputLayoutDesc) -> slangpy.InputLayout
         :no-index:
     
-    .. py:method:: create_command_encoder(self, queue: sgl.CommandQueueType = CommandQueueType.graphics) -> sgl.CommandEncoder
+    .. py:method:: create_command_encoder(self, queue: slangpy.CommandQueueType = CommandQueueType.graphics) -> slangpy.CommandEncoder
     
-    .. py:method:: submit_command_buffer(self, command_buffer: sgl.CommandBuffer, queue: sgl.CommandQueueType = CommandQueueType.graphics) -> int
+    .. py:method:: submit_command_buffers(self, command_buffers: Sequence[slangpy.CommandBuffer], wait_fences: Sequence[slangpy.Fence] = [], wait_fence_values: Sequence[int] = [], signal_fences: Sequence[slangpy.Fence] = [], signal_fence_values: Sequence[int] = [], queue: slangpy.CommandQueueType = CommandQueueType.graphics) -> int
+    
+    .. py:method:: submit_command_buffer(self, command_buffer: slangpy.CommandBuffer, queue: slangpy.CommandQueueType = CommandQueueType.graphics) -> int
     
         Submit a command buffer to the device.
         
@@ -3906,7 +4069,7 @@ Device
         Returns:
             Submission ID.
         
-    .. py:method:: is_command_buffer_complete(self, id: int) -> bool
+    .. py:method:: is_submit_finished(self, id: int) -> bool
     
         Check if a command buffer is complete.
         
@@ -3916,14 +4079,14 @@ Device
         Returns:
             True if the command buffer is complete.
         
-    .. py:method:: wait_command_buffer(self, id: int) -> None
+    .. py:method:: wait_for_submit(self, id: int) -> None
     
         Wait for a command buffer to complete.
         
         Parameter ``id``:
             Submission ID.
         
-    .. py:method:: wait_for_idle(self, queue: sgl.CommandQueueType = CommandQueueType.graphics) -> None
+    .. py:method:: wait_for_idle(self, queue: slangpy.CommandQueueType = CommandQueueType.graphics) -> None
     
         Wait for the command queue to be idle.
         
@@ -3950,7 +4113,7 @@ Device
         Parameter ``cuda_stream``:
             CUDA stream
         
-    .. py:method:: get_acceleration_structure_sizes(self, desc: sgl.AccelerationStructureBuildDesc) -> sgl.AccelerationStructureSizes
+    .. py:method:: get_acceleration_structure_sizes(self, desc: slangpy.AccelerationStructureBuildDesc) -> slangpy.AccelerationStructureSizes
     
         Query the device for buffer sizes required for acceleration structure
         builds.
@@ -3961,19 +4124,19 @@ Device
         Returns:
             Acceleration structure sizes.
         
-    .. py:method:: create_acceleration_structure(self, size: int = 0, label: str = '') -> sgl.AccelerationStructure
+    .. py:method:: create_acceleration_structure(self, size: int = 0, label: str = '') -> slangpy.AccelerationStructure
     
-    .. py:method:: create_acceleration_structure(self, desc: sgl.AccelerationStructureDesc) -> sgl.AccelerationStructure
+    .. py:method:: create_acceleration_structure(self, desc: slangpy.AccelerationStructureDesc) -> slangpy.AccelerationStructure
         :no-index:
     
-    .. py:method:: create_acceleration_structure_instance_list(self, size: int) -> sgl.AccelerationStructureInstanceList
+    .. py:method:: create_acceleration_structure_instance_list(self, size: int) -> slangpy.AccelerationStructureInstanceList
     
-    .. py:method:: create_shader_table(self, program: sgl.ShaderProgram, ray_gen_entry_points: collections.abc.Sequence[str] = [], miss_entry_points: collections.abc.Sequence[str] = [], hit_group_names: collections.abc.Sequence[str] = [], callable_entry_points: collections.abc.Sequence[str] = []) -> sgl.ShaderTable
+    .. py:method:: create_shader_table(self, program: slangpy.ShaderProgram, ray_gen_entry_points: collections.abc.Sequence[str] = [], miss_entry_points: collections.abc.Sequence[str] = [], hit_group_names: collections.abc.Sequence[str] = [], callable_entry_points: collections.abc.Sequence[str] = []) -> slangpy.ShaderTable
     
-    .. py:method:: create_shader_table(self, desc: sgl.ShaderTableDesc) -> sgl.ShaderTable
+    .. py:method:: create_shader_table(self, desc: slangpy.ShaderTableDesc) -> slangpy.ShaderTable
         :no-index:
     
-    .. py:method:: create_slang_session(self, compiler_options: sgl.SlangCompilerOptions | None = None, add_default_include_paths: bool = True, cache_path: str | os.PathLike | None = None) -> sgl.SlangSession
+    .. py:method:: create_slang_session(self, compiler_options: slangpy.SlangCompilerOptions | None = None, add_default_include_paths: bool = True, cache_path: str | os.PathLike | None = None) -> slangpy.SlangSession
     
         Create a new slang session.
         
@@ -3985,39 +4148,39 @@ Device
         
     .. py:method:: reload_all_programs(self) -> None
     
-    .. py:method:: load_module(self, module_name: str) -> sgl.SlangModule
+    .. py:method:: load_module(self, module_name: str) -> slangpy.SlangModule
     
-    .. py:method:: load_module_from_source(self, module_name: str, source: str, path: str | os.PathLike | None = None) -> sgl.SlangModule
+    .. py:method:: load_module_from_source(self, module_name: str, source: str, path: str | os.PathLike | None = None) -> slangpy.SlangModule
     
-    .. py:method:: link_program(self, modules: collections.abc.Sequence[sgl.SlangModule], entry_points: collections.abc.Sequence[sgl.SlangEntryPoint], link_options: sgl.SlangLinkOptions | None = None) -> sgl.ShaderProgram
+    .. py:method:: link_program(self, modules: collections.abc.Sequence[slangpy.SlangModule], entry_points: collections.abc.Sequence[slangpy.SlangEntryPoint], link_options: slangpy.SlangLinkOptions | None = None) -> slangpy.ShaderProgram
     
-    .. py:method:: load_program(self, module_name: str, entry_point_names: collections.abc.Sequence[str], additional_source: str | None = None, link_options: sgl.SlangLinkOptions | None = None) -> sgl.ShaderProgram
+    .. py:method:: load_program(self, module_name: str, entry_point_names: collections.abc.Sequence[str], additional_source: str | None = None, link_options: slangpy.SlangLinkOptions | None = None) -> slangpy.ShaderProgram
     
-    .. py:method:: create_root_shader_object(self, shader_program: sgl.ShaderProgram) -> sgl.ShaderObject
+    .. py:method:: create_root_shader_object(self, shader_program: slangpy.ShaderProgram) -> slangpy.ShaderObject
     
-    .. py:method:: create_shader_object(self, type_layout: sgl.TypeLayoutReflection) -> sgl.ShaderObject
+    .. py:method:: create_shader_object(self, type_layout: slangpy.TypeLayoutReflection) -> slangpy.ShaderObject
     
-    .. py:method:: create_shader_object(self, cursor: sgl.ReflectionCursor) -> sgl.ShaderObject
+    .. py:method:: create_shader_object(self, cursor: slangpy.ReflectionCursor) -> slangpy.ShaderObject
         :no-index:
     
-    .. py:method:: create_compute_pipeline(self, program: sgl.ShaderProgram) -> sgl.ComputePipeline
+    .. py:method:: create_compute_pipeline(self, program: slangpy.ShaderProgram) -> slangpy.ComputePipeline
     
-    .. py:method:: create_compute_pipeline(self, desc: sgl.ComputePipelineDesc) -> sgl.ComputePipeline
+    .. py:method:: create_compute_pipeline(self, desc: slangpy.ComputePipelineDesc) -> slangpy.ComputePipeline
         :no-index:
     
-    .. py:method:: create_render_pipeline(self, program: sgl.ShaderProgram, input_layout: sgl.InputLayout | None, primitive_topology: sgl.PrimitiveTopology = PrimitiveTopology.triangle_list, targets: collections.abc.Sequence[sgl.ColorTargetDesc] = [], depth_stencil: sgl.DepthStencilDesc | None = None, rasterizer: sgl.RasterizerDesc | None = None, multisample: sgl.MultisampleDesc | None = None) -> sgl.RenderPipeline
+    .. py:method:: create_render_pipeline(self, program: slangpy.ShaderProgram, input_layout: slangpy.InputLayout | None, primitive_topology: slangpy.PrimitiveTopology = PrimitiveTopology.triangle_list, targets: collections.abc.Sequence[slangpy.ColorTargetDesc] = [], depth_stencil: slangpy.DepthStencilDesc | None = None, rasterizer: slangpy.RasterizerDesc | None = None, multisample: slangpy.MultisampleDesc | None = None) -> slangpy.RenderPipeline
     
-    .. py:method:: create_render_pipeline(self, desc: sgl.RenderPipelineDesc) -> sgl.RenderPipeline
+    .. py:method:: create_render_pipeline(self, desc: slangpy.RenderPipelineDesc) -> slangpy.RenderPipeline
         :no-index:
     
-    .. py:method:: create_ray_tracing_pipeline(self, program: sgl.ShaderProgram, hit_groups: collections.abc.Sequence[sgl.HitGroupDesc], max_recursion: int = 0, max_ray_payload_size: int = 0, max_attribute_size: int = 8, flags: sgl.RayTracingPipelineFlags = RayTracingPipelineFlags.none) -> sgl.RayTracingPipeline
+    .. py:method:: create_ray_tracing_pipeline(self, program: slangpy.ShaderProgram, hit_groups: collections.abc.Sequence[slangpy.HitGroupDesc], max_recursion: int = 0, max_ray_payload_size: int = 0, max_attribute_size: int = 8, flags: slangpy.RayTracingPipelineFlags = 0) -> slangpy.RayTracingPipeline
     
-    .. py:method:: create_ray_tracing_pipeline(self, desc: sgl.RayTracingPipelineDesc) -> sgl.RayTracingPipeline
+    .. py:method:: create_ray_tracing_pipeline(self, desc: slangpy.RayTracingPipelineDesc) -> slangpy.RayTracingPipeline
         :no-index:
     
-    .. py:method:: create_compute_kernel(self, program: sgl.ShaderProgram) -> sgl.ComputeKernel
+    .. py:method:: create_compute_kernel(self, program: slangpy.ShaderProgram) -> slangpy.ComputeKernel
     
-    .. py:method:: create_compute_kernel(self, desc: sgl.ComputeKernelDesc) -> sgl.ComputeKernel
+    .. py:method:: create_compute_kernel(self, desc: slangpy.ComputeKernelDesc) -> slangpy.ComputeKernel
         :no-index:
     
     .. py:method:: flush_print(self) -> None
@@ -4028,43 +4191,36 @@ Device
     
         Block and flush all shader side debug print output to a string.
         
-    .. py:method:: run_garbage_collection(self) -> None
-    
-        Execute garbage collection.
-        
-        This function should be called regularly to execute deferred releases
-        (at least once a frame).
-        
     .. py:method:: wait(self) -> None
     
         Wait for all device work to complete.
         
-    .. py:method:: register_shader_hot_reload_callback(self, callback: collections.abc.Callable[[sgl.ShaderHotReloadEvent], None]) -> None
+    .. py:method:: register_shader_hot_reload_callback(self, callback: collections.abc.Callable[[slangpy.ShaderHotReloadEvent], None]) -> None
     
         Register a hot reload hook, called immediately after any module is
         reloaded.
         
-    .. py:method:: register_device_close_callback(self, callback: collections.abc.Callable[[sgl.Device], None]) -> None
+    .. py:method:: register_device_close_callback(self, callback: collections.abc.Callable[[slangpy.Device], None]) -> None
     
         Register a device close callback, called at start of device close.
         
-    .. py:method:: coopvec_query_matrix_size(self, rows: int, cols: int, layout: sgl.CoopVecMatrixLayout, element_type: sgl.DataType) -> int
+    .. py:method:: coopvec_query_matrix_size(self, rows: int, cols: int, layout: slangpy.CoopVecMatrixLayout, element_type: slangpy.DataType) -> int
     
         N/A
         
-    .. py:method:: coopvec_create_matrix_desc(self, rows: int, cols: int, layout: sgl.CoopVecMatrixLayout, element_type: sgl.DataType, offset: int = 0) -> sgl.CoopVecMatrixDesc
+    .. py:method:: coopvec_create_matrix_desc(self, rows: int, cols: int, layout: slangpy.CoopVecMatrixLayout, element_type: slangpy.DataType, offset: int = 0) -> slangpy.CoopVecMatrixDesc
     
         N/A
         
-    .. py:method:: coopvec_convert_matrix_host(self, src: ndarray[device='cpu'], dst: ndarray[device='cpu'], src_layout: sgl.CoopVecMatrixLayout | None = None, dst_layout: sgl.CoopVecMatrixLayout | None = None) -> int
+    .. py:method:: coopvec_convert_matrix_host(self, src: ndarray[device='cpu'], dst: ndarray[device='cpu'], src_layout: slangpy.CoopVecMatrixLayout | None = None, dst_layout: slangpy.CoopVecMatrixLayout | None = None) -> int
     
         N/A
         
-    .. py:method:: coopvec_convert_matrix_device(self, src: sgl.Buffer, src_desc: sgl.CoopVecMatrixDesc, dst: sgl.Buffer, dst_desc: sgl.CoopVecMatrixDesc, encoder: sgl.CommandEncoder | None = None) -> None
+    .. py:method:: coopvec_convert_matrix_device(self, src: slangpy.Buffer, src_desc: slangpy.CoopVecMatrixDesc, dst: slangpy.Buffer, dst_desc: slangpy.CoopVecMatrixDesc, encoder: slangpy.CommandEncoder | None = None) -> None
     
         N/A
         
-    .. py:method:: coopvec_convert_matrix_device(self, src: sgl.Buffer, src_desc: collections.abc.Sequence[sgl.CoopVecMatrixDesc], dst: sgl.Buffer, dst_desc: collections.abc.Sequence[sgl.CoopVecMatrixDesc], encoder: sgl.CommandEncoder | None = None) -> None
+    .. py:method:: coopvec_convert_matrix_device(self, src: slangpy.Buffer, src_desc: collections.abc.Sequence[slangpy.CoopVecMatrixDesc], dst: slangpy.Buffer, dst_desc: collections.abc.Sequence[slangpy.CoopVecMatrixDesc], encoder: slangpy.CommandEncoder | None = None) -> None
         :no-index:
     
     .. py:method:: coopvec_align_matrix_offset(self, offset: int) -> int
@@ -4075,20 +4231,20 @@ Device
     
         N/A
         
-    .. py:staticmethod:: enumerate_adapters(type: sgl.DeviceType = DeviceType.automatic) -> list[sgl.AdapterInfo]
+    .. py:staticmethod:: enumerate_adapters(type: slangpy.DeviceType = DeviceType.automatic) -> list[slangpy.AdapterInfo]
     
         Enumerates all available adapters of a given device type.
         
     .. py:staticmethod:: report_live_objects() -> None
     
-        Report live objects in the slang/gfx layer. This is useful for
-        checking clean shutdown with all resources released properly.
+        Report live objects in the rhi layer. This is useful for checking
+        clean shutdown with all resources released properly.
         
 
 
 ----
 
-.. py:class:: sgl.DeviceDesc
+.. py:class:: slangpy.DeviceDesc
 
     
     
@@ -4098,7 +4254,7 @@ Device
         :no-index:
     
     .. py:property:: type
-        :type: sgl.DeviceType
+        :type: slangpy.DeviceType
     
         The type of the device.
         
@@ -4128,7 +4284,7 @@ Device
         Adapter LUID to select adapter on which the device will be created.
         
     .. py:property:: compiler_options
-        :type: sgl.SlangCompilerOptions
+        :type: slangpy.SlangCompilerOptions
     
         Compiler options (used for default slang session).
         
@@ -4142,12 +4298,12 @@ Device
 
 ----
 
-.. py:class:: sgl.DeviceInfo
+.. py:class:: slangpy.DeviceInfo
 
     
     
     .. py:property:: type
-        :type: sgl.DeviceType
+        :type: slangpy.DeviceType
     
         The type of the device.
         
@@ -4168,7 +4324,7 @@ Device
         seconds, divide by this value.
         
     .. py:property:: limits
-        :type: sgl.DeviceLimits
+        :type: slangpy.DeviceLimits
     
         Limits of the device.
         
@@ -4176,7 +4332,7 @@ Device
 
 ----
 
-.. py:class:: sgl.DeviceLimits
+.. py:class:: slangpy.DeviceLimits
 
     
     
@@ -4200,7 +4356,7 @@ Device
     
         Maximum dimensions for cube textures.
         
-    .. py:property:: max_texture_array_layers
+    .. py:property:: max_texture_layers
         :type: int
     
         Maximum number of texture layers.
@@ -4231,12 +4387,12 @@ Device
         Maximum number of threads per thread group.
         
     .. py:property:: max_compute_thread_group_size
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
         Maximum dimensions of a thread group.
         
     .. py:property:: max_compute_dispatch_thread_groups
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
         Maximum number of thread groups per dimension in a single dispatch.
         
@@ -4246,12 +4402,12 @@ Device
         Maximum number of viewports per pipeline.
         
     .. py:property:: max_viewport_dimensions
-        :type: sgl.math.uint2
+        :type: slangpy.math.uint2
     
         Maximum viewport dimensions.
         
     .. py:property:: max_framebuffer_dimensions
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
         Maximum framebuffer dimensions.
         
@@ -4264,13 +4420,13 @@ Device
 
 ----
 
-.. py:class:: sgl.DeviceResource
+.. py:class:: slangpy.DeviceResource
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:class:: sgl.DeviceResource.MemoryUsage
+    .. py:class:: slangpy.DeviceResource.MemoryUsage
     
         
         
@@ -4285,10 +4441,10 @@ Device
             The amount of memory in bytes used on the host.
             
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
     .. py:property:: memory_usage
-        :type: sgl.DeviceResource.MemoryUsage
+        :type: slangpy.DeviceResource.MemoryUsage
     
         The memory usage by this resource.
         
@@ -4296,35 +4452,35 @@ Device
 
 ----
 
-.. py:class:: sgl.DeviceType
+.. py:class:: slangpy.DeviceType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.DeviceType.automatic
+    .. py:attribute:: slangpy.DeviceType.automatic
         :type: DeviceType
         :value: DeviceType.automatic
     
-    .. py:attribute:: sgl.DeviceType.d3d12
+    .. py:attribute:: slangpy.DeviceType.d3d12
         :type: DeviceType
         :value: DeviceType.d3d12
     
-    .. py:attribute:: sgl.DeviceType.vulkan
+    .. py:attribute:: slangpy.DeviceType.vulkan
         :type: DeviceType
         :value: DeviceType.vulkan
     
-    .. py:attribute:: sgl.DeviceType.metal
+    .. py:attribute:: slangpy.DeviceType.metal
         :type: DeviceType
         :value: DeviceType.metal
     
-    .. py:attribute:: sgl.DeviceType.wgpu
+    .. py:attribute:: slangpy.DeviceType.wgpu
         :type: DeviceType
         :value: DeviceType.wgpu
     
-    .. py:attribute:: sgl.DeviceType.cpu
+    .. py:attribute:: slangpy.DeviceType.cpu
         :type: DeviceType
         :value: DeviceType.cpu
     
-    .. py:attribute:: sgl.DeviceType.cuda
+    .. py:attribute:: slangpy.DeviceType.cuda
         :type: DeviceType
         :value: DeviceType.cuda
     
@@ -4332,7 +4488,7 @@ Device
 
 ----
 
-.. py:class:: sgl.DrawArguments
+.. py:class:: slangpy.DrawArguments
 
     
     
@@ -4360,9 +4516,9 @@ Device
 
 ----
 
-.. py:class:: sgl.EntryPointLayout
+.. py:class:: slangpy.EntryPointLayout
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
@@ -4373,19 +4529,19 @@ Device
         :type: str
     
     .. py:property:: stage
-        :type: sgl.ShaderStage
+        :type: slangpy.ShaderStage
     
     .. py:property:: compute_thread_group_size
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
     .. py:property:: parameters
-        :type: sgl.EntryPointLayoutParameterList
+        :type: slangpy.EntryPointLayoutParameterList
     
 
 
 ----
 
-.. py:class:: sgl.EntryPointLayoutParameterList
+.. py:class:: slangpy.EntryPointLayoutParameterList
 
     EntryPointLayout lazy parameter list evaluation.
     
@@ -4393,14 +4549,222 @@ Device
 
 ----
 
-.. py:class:: sgl.Fence
+.. py:class:: slangpy.Feature
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`enum.IntEnum`
+    
+    .. py:attribute:: slangpy.Feature.hardware_device
+        :type: Feature
+        :value: Feature.hardware_device
+    
+    .. py:attribute:: slangpy.Feature.software_device
+        :type: Feature
+        :value: Feature.software_device
+    
+    .. py:attribute:: slangpy.Feature.parameter_block
+        :type: Feature
+        :value: Feature.parameter_block
+    
+    .. py:attribute:: slangpy.Feature.surface
+        :type: Feature
+        :value: Feature.surface
+    
+    .. py:attribute:: slangpy.Feature.rasterization
+        :type: Feature
+        :value: Feature.rasterization
+    
+    .. py:attribute:: slangpy.Feature.barycentrics
+        :type: Feature
+        :value: Feature.barycentrics
+    
+    .. py:attribute:: slangpy.Feature.multi_view
+        :type: Feature
+        :value: Feature.multi_view
+    
+    .. py:attribute:: slangpy.Feature.rasterizer_ordered_views
+        :type: Feature
+        :value: Feature.rasterizer_ordered_views
+    
+    .. py:attribute:: slangpy.Feature.conservative_rasterization
+        :type: Feature
+        :value: Feature.conservative_rasterization
+    
+    .. py:attribute:: slangpy.Feature.custom_border_color
+        :type: Feature
+        :value: Feature.custom_border_color
+    
+    .. py:attribute:: slangpy.Feature.fragment_shading_rate
+        :type: Feature
+        :value: Feature.fragment_shading_rate
+    
+    .. py:attribute:: slangpy.Feature.sampler_feedback
+        :type: Feature
+        :value: Feature.sampler_feedback
+    
+    .. py:attribute:: slangpy.Feature.acceleration_structure
+        :type: Feature
+        :value: Feature.acceleration_structure
+    
+    .. py:attribute:: slangpy.Feature.acceleration_structure_spheres
+        :type: Feature
+        :value: Feature.acceleration_structure_spheres
+    
+    .. py:attribute:: slangpy.Feature.ray_tracing
+        :type: Feature
+        :value: Feature.ray_tracing
+    
+    .. py:attribute:: slangpy.Feature.ray_query
+        :type: Feature
+        :value: Feature.ray_query
+    
+    .. py:attribute:: slangpy.Feature.shader_execution_reordering
+        :type: Feature
+        :value: Feature.shader_execution_reordering
+    
+    .. py:attribute:: slangpy.Feature.ray_tracing_validation
+        :type: Feature
+        :value: Feature.ray_tracing_validation
+    
+    .. py:attribute:: slangpy.Feature.timestamp_query
+        :type: Feature
+        :value: Feature.timestamp_query
+    
+    .. py:attribute:: slangpy.Feature.realtime_clock
+        :type: Feature
+        :value: Feature.realtime_clock
+    
+    .. py:attribute:: slangpy.Feature.cooperative_vector
+        :type: Feature
+        :value: Feature.cooperative_vector
+    
+    .. py:attribute:: slangpy.Feature.cooperative_matrix
+        :type: Feature
+        :value: Feature.cooperative_matrix
+    
+    .. py:attribute:: slangpy.Feature.sm_5_1
+        :type: Feature
+        :value: Feature.sm_5_1
+    
+    .. py:attribute:: slangpy.Feature.sm_6_0
+        :type: Feature
+        :value: Feature.sm_6_0
+    
+    .. py:attribute:: slangpy.Feature.sm_6_1
+        :type: Feature
+        :value: Feature.sm_6_1
+    
+    .. py:attribute:: slangpy.Feature.sm_6_2
+        :type: Feature
+        :value: Feature.sm_6_2
+    
+    .. py:attribute:: slangpy.Feature.sm_6_3
+        :type: Feature
+        :value: Feature.sm_6_3
+    
+    .. py:attribute:: slangpy.Feature.sm_6_4
+        :type: Feature
+        :value: Feature.sm_6_4
+    
+    .. py:attribute:: slangpy.Feature.sm_6_5
+        :type: Feature
+        :value: Feature.sm_6_5
+    
+    .. py:attribute:: slangpy.Feature.sm_6_6
+        :type: Feature
+        :value: Feature.sm_6_6
+    
+    .. py:attribute:: slangpy.Feature.sm_6_7
+        :type: Feature
+        :value: Feature.sm_6_7
+    
+    .. py:attribute:: slangpy.Feature.sm_6_8
+        :type: Feature
+        :value: Feature.sm_6_8
+    
+    .. py:attribute:: slangpy.Feature.sm_6_9
+        :type: Feature
+        :value: Feature.sm_6_9
+    
+    .. py:attribute:: slangpy.Feature.half
+        :type: Feature
+        :value: Feature.half
+    
+    .. py:attribute:: slangpy.Feature.double_
+        :type: Feature
+        :value: Feature.double_
+    
+    .. py:attribute:: slangpy.Feature.int16
+        :type: Feature
+        :value: Feature.int16
+    
+    .. py:attribute:: slangpy.Feature.int64
+        :type: Feature
+        :value: Feature.int64
+    
+    .. py:attribute:: slangpy.Feature.atomic_float
+        :type: Feature
+        :value: Feature.atomic_float
+    
+    .. py:attribute:: slangpy.Feature.atomic_half
+        :type: Feature
+        :value: Feature.atomic_half
+    
+    .. py:attribute:: slangpy.Feature.atomic_int64
+        :type: Feature
+        :value: Feature.atomic_int64
+    
+    .. py:attribute:: slangpy.Feature.wave_ops
+        :type: Feature
+        :value: Feature.wave_ops
+    
+    .. py:attribute:: slangpy.Feature.mesh_shader
+        :type: Feature
+        :value: Feature.mesh_shader
+    
+    .. py:attribute:: slangpy.Feature.pointer
+        :type: Feature
+        :value: Feature.pointer
+    
+    .. py:attribute:: slangpy.Feature.conservative_rasterization1
+        :type: Feature
+        :value: Feature.conservative_rasterization1
+    
+    .. py:attribute:: slangpy.Feature.conservative_rasterization2
+        :type: Feature
+        :value: Feature.conservative_rasterization2
+    
+    .. py:attribute:: slangpy.Feature.conservative_rasterization3
+        :type: Feature
+        :value: Feature.conservative_rasterization3
+    
+    .. py:attribute:: slangpy.Feature.programmable_sample_positions1
+        :type: Feature
+        :value: Feature.programmable_sample_positions1
+    
+    .. py:attribute:: slangpy.Feature.programmable_sample_positions2
+        :type: Feature
+        :value: Feature.programmable_sample_positions2
+    
+    .. py:attribute:: slangpy.Feature.shader_resource_min_lod
+        :type: Feature
+        :value: Feature.shader_resource_min_lod
+    
+    .. py:attribute:: slangpy.Feature.argument_buffer_tier2
+        :type: Feature
+        :value: Feature.argument_buffer_tier2
+    
+
+
+----
+
+.. py:class:: slangpy.Fence
+
+    Base class: :py:class:`slangpy.DeviceResource`
     
     Fence.
     
     .. py:property:: desc
-        :type: sgl.FenceDesc
+        :type: slangpy.FenceDesc
     
     .. py:method:: signal(self, value: int = 18446744073709551615) -> int
     
@@ -4436,11 +4800,23 @@ Device
     
         Returns the last signaled value on the device.
         
-    .. py:attribute:: sgl.Fence.AUTO
+    .. py:property:: shared_handle
+        :type: slangpy.NativeHandle
+    
+        Get the shared fence handle. Throws if the fence was not created with
+        the ``FenceDesc::shared`` flag.
+        
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: ID3D12Fence* - Vulkan:
+        currently not supported
+        
+    .. py:attribute:: slangpy.Fence.AUTO
         :type: int
         :value: 18446744073709551615
     
-    .. py:attribute:: sgl.Fence.TIMEOUT_INFINITE
+    .. py:attribute:: slangpy.Fence.TIMEOUT_INFINITE
         :type: int
         :value: 18446744073709551615
     
@@ -4448,7 +4824,7 @@ Device
 
 ----
 
-.. py:class:: sgl.FenceDesc
+.. py:class:: slangpy.FenceDesc
 
     Fence descriptor.
     
@@ -4471,15 +4847,15 @@ Device
 
 ----
 
-.. py:class:: sgl.FillMode
+.. py:class:: slangpy.FillMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.FillMode.solid
+    .. py:attribute:: slangpy.FillMode.solid
         :type: FillMode
         :value: FillMode.solid
     
-    .. py:attribute:: sgl.FillMode.wireframe
+    .. py:attribute:: slangpy.FillMode.wireframe
         :type: FillMode
         :value: FillMode.wireframe
     
@@ -4487,291 +4863,291 @@ Device
 
 ----
 
-.. py:class:: sgl.Format
+.. py:class:: slangpy.Format
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.Format.undefined
+    .. py:attribute:: slangpy.Format.undefined
         :type: Format
         :value: Format.undefined
     
-    .. py:attribute:: sgl.Format.r8_uint
+    .. py:attribute:: slangpy.Format.r8_uint
         :type: Format
         :value: Format.r8_uint
     
-    .. py:attribute:: sgl.Format.r8_sint
+    .. py:attribute:: slangpy.Format.r8_sint
         :type: Format
         :value: Format.r8_sint
     
-    .. py:attribute:: sgl.Format.r8_unorm
+    .. py:attribute:: slangpy.Format.r8_unorm
         :type: Format
         :value: Format.r8_unorm
     
-    .. py:attribute:: sgl.Format.r8_snorm
+    .. py:attribute:: slangpy.Format.r8_snorm
         :type: Format
         :value: Format.r8_snorm
     
-    .. py:attribute:: sgl.Format.rg8_uint
+    .. py:attribute:: slangpy.Format.rg8_uint
         :type: Format
         :value: Format.rg8_uint
     
-    .. py:attribute:: sgl.Format.rg8_sint
+    .. py:attribute:: slangpy.Format.rg8_sint
         :type: Format
         :value: Format.rg8_sint
     
-    .. py:attribute:: sgl.Format.rg8_unorm
+    .. py:attribute:: slangpy.Format.rg8_unorm
         :type: Format
         :value: Format.rg8_unorm
     
-    .. py:attribute:: sgl.Format.rg8_snorm
+    .. py:attribute:: slangpy.Format.rg8_snorm
         :type: Format
         :value: Format.rg8_snorm
     
-    .. py:attribute:: sgl.Format.rgba8_uint
+    .. py:attribute:: slangpy.Format.rgba8_uint
         :type: Format
         :value: Format.rgba8_uint
     
-    .. py:attribute:: sgl.Format.rgba8_sint
+    .. py:attribute:: slangpy.Format.rgba8_sint
         :type: Format
         :value: Format.rgba8_sint
     
-    .. py:attribute:: sgl.Format.rgba8_unorm
+    .. py:attribute:: slangpy.Format.rgba8_unorm
         :type: Format
         :value: Format.rgba8_unorm
     
-    .. py:attribute:: sgl.Format.rgba8_unorm_srgb
+    .. py:attribute:: slangpy.Format.rgba8_unorm_srgb
         :type: Format
         :value: Format.rgba8_unorm_srgb
     
-    .. py:attribute:: sgl.Format.rgba8_snorm
+    .. py:attribute:: slangpy.Format.rgba8_snorm
         :type: Format
         :value: Format.rgba8_snorm
     
-    .. py:attribute:: sgl.Format.bgra8_unorm
+    .. py:attribute:: slangpy.Format.bgra8_unorm
         :type: Format
         :value: Format.bgra8_unorm
     
-    .. py:attribute:: sgl.Format.bgra8_unorm_srgb
+    .. py:attribute:: slangpy.Format.bgra8_unorm_srgb
         :type: Format
         :value: Format.bgra8_unorm_srgb
     
-    .. py:attribute:: sgl.Format.bgrx8_unorm
+    .. py:attribute:: slangpy.Format.bgrx8_unorm
         :type: Format
         :value: Format.bgrx8_unorm
     
-    .. py:attribute:: sgl.Format.bgrx8_unorm_srgb
+    .. py:attribute:: slangpy.Format.bgrx8_unorm_srgb
         :type: Format
         :value: Format.bgrx8_unorm_srgb
     
-    .. py:attribute:: sgl.Format.r16_uint
+    .. py:attribute:: slangpy.Format.r16_uint
         :type: Format
         :value: Format.r16_uint
     
-    .. py:attribute:: sgl.Format.r16_sint
+    .. py:attribute:: slangpy.Format.r16_sint
         :type: Format
         :value: Format.r16_sint
     
-    .. py:attribute:: sgl.Format.r16_unorm
+    .. py:attribute:: slangpy.Format.r16_unorm
         :type: Format
         :value: Format.r16_unorm
     
-    .. py:attribute:: sgl.Format.r16_snorm
+    .. py:attribute:: slangpy.Format.r16_snorm
         :type: Format
         :value: Format.r16_snorm
     
-    .. py:attribute:: sgl.Format.r16_float
+    .. py:attribute:: slangpy.Format.r16_float
         :type: Format
         :value: Format.r16_float
     
-    .. py:attribute:: sgl.Format.rg16_uint
+    .. py:attribute:: slangpy.Format.rg16_uint
         :type: Format
         :value: Format.rg16_uint
     
-    .. py:attribute:: sgl.Format.rg16_sint
+    .. py:attribute:: slangpy.Format.rg16_sint
         :type: Format
         :value: Format.rg16_sint
     
-    .. py:attribute:: sgl.Format.rg16_unorm
+    .. py:attribute:: slangpy.Format.rg16_unorm
         :type: Format
         :value: Format.rg16_unorm
     
-    .. py:attribute:: sgl.Format.rg16_snorm
+    .. py:attribute:: slangpy.Format.rg16_snorm
         :type: Format
         :value: Format.rg16_snorm
     
-    .. py:attribute:: sgl.Format.rg16_float
+    .. py:attribute:: slangpy.Format.rg16_float
         :type: Format
         :value: Format.rg16_float
     
-    .. py:attribute:: sgl.Format.rgba16_uint
+    .. py:attribute:: slangpy.Format.rgba16_uint
         :type: Format
         :value: Format.rgba16_uint
     
-    .. py:attribute:: sgl.Format.rgba16_sint
+    .. py:attribute:: slangpy.Format.rgba16_sint
         :type: Format
         :value: Format.rgba16_sint
     
-    .. py:attribute:: sgl.Format.rgba16_unorm
+    .. py:attribute:: slangpy.Format.rgba16_unorm
         :type: Format
         :value: Format.rgba16_unorm
     
-    .. py:attribute:: sgl.Format.rgba16_snorm
+    .. py:attribute:: slangpy.Format.rgba16_snorm
         :type: Format
         :value: Format.rgba16_snorm
     
-    .. py:attribute:: sgl.Format.rgba16_float
+    .. py:attribute:: slangpy.Format.rgba16_float
         :type: Format
         :value: Format.rgba16_float
     
-    .. py:attribute:: sgl.Format.r32_uint
+    .. py:attribute:: slangpy.Format.r32_uint
         :type: Format
         :value: Format.r32_uint
     
-    .. py:attribute:: sgl.Format.r32_sint
+    .. py:attribute:: slangpy.Format.r32_sint
         :type: Format
         :value: Format.r32_sint
     
-    .. py:attribute:: sgl.Format.r32_float
+    .. py:attribute:: slangpy.Format.r32_float
         :type: Format
         :value: Format.r32_float
     
-    .. py:attribute:: sgl.Format.rg32_uint
+    .. py:attribute:: slangpy.Format.rg32_uint
         :type: Format
         :value: Format.rg32_uint
     
-    .. py:attribute:: sgl.Format.rg32_sint
+    .. py:attribute:: slangpy.Format.rg32_sint
         :type: Format
         :value: Format.rg32_sint
     
-    .. py:attribute:: sgl.Format.rg32_float
+    .. py:attribute:: slangpy.Format.rg32_float
         :type: Format
         :value: Format.rg32_float
     
-    .. py:attribute:: sgl.Format.rgb32_uint
+    .. py:attribute:: slangpy.Format.rgb32_uint
         :type: Format
         :value: Format.rgb32_uint
     
-    .. py:attribute:: sgl.Format.rgb32_sint
+    .. py:attribute:: slangpy.Format.rgb32_sint
         :type: Format
         :value: Format.rgb32_sint
     
-    .. py:attribute:: sgl.Format.rgb32_float
+    .. py:attribute:: slangpy.Format.rgb32_float
         :type: Format
         :value: Format.rgb32_float
     
-    .. py:attribute:: sgl.Format.rgba32_uint
+    .. py:attribute:: slangpy.Format.rgba32_uint
         :type: Format
         :value: Format.rgba32_uint
     
-    .. py:attribute:: sgl.Format.rgba32_sint
+    .. py:attribute:: slangpy.Format.rgba32_sint
         :type: Format
         :value: Format.rgba32_sint
     
-    .. py:attribute:: sgl.Format.rgba32_float
+    .. py:attribute:: slangpy.Format.rgba32_float
         :type: Format
         :value: Format.rgba32_float
     
-    .. py:attribute:: sgl.Format.r64_uint
+    .. py:attribute:: slangpy.Format.r64_uint
         :type: Format
         :value: Format.r64_uint
     
-    .. py:attribute:: sgl.Format.r64_sint
+    .. py:attribute:: slangpy.Format.r64_sint
         :type: Format
         :value: Format.r64_sint
     
-    .. py:attribute:: sgl.Format.bgra4_unorm
+    .. py:attribute:: slangpy.Format.bgra4_unorm
         :type: Format
         :value: Format.bgra4_unorm
     
-    .. py:attribute:: sgl.Format.b5g6r5_unorm
+    .. py:attribute:: slangpy.Format.b5g6r5_unorm
         :type: Format
         :value: Format.b5g6r5_unorm
     
-    .. py:attribute:: sgl.Format.bgr5a1_unorm
+    .. py:attribute:: slangpy.Format.bgr5a1_unorm
         :type: Format
         :value: Format.bgr5a1_unorm
     
-    .. py:attribute:: sgl.Format.rgb9e5_ufloat
+    .. py:attribute:: slangpy.Format.rgb9e5_ufloat
         :type: Format
         :value: Format.rgb9e5_ufloat
     
-    .. py:attribute:: sgl.Format.rgb10a2_uint
+    .. py:attribute:: slangpy.Format.rgb10a2_uint
         :type: Format
         :value: Format.rgb10a2_uint
     
-    .. py:attribute:: sgl.Format.rgb10a2_unorm
+    .. py:attribute:: slangpy.Format.rgb10a2_unorm
         :type: Format
         :value: Format.rgb10a2_unorm
     
-    .. py:attribute:: sgl.Format.r11g11b10_float
+    .. py:attribute:: slangpy.Format.r11g11b10_float
         :type: Format
         :value: Format.r11g11b10_float
     
-    .. py:attribute:: sgl.Format.d32_float
+    .. py:attribute:: slangpy.Format.d32_float
         :type: Format
         :value: Format.d32_float
     
-    .. py:attribute:: sgl.Format.d16_unorm
+    .. py:attribute:: slangpy.Format.d16_unorm
         :type: Format
         :value: Format.d16_unorm
     
-    .. py:attribute:: sgl.Format.d32_float_s8_uint
+    .. py:attribute:: slangpy.Format.d32_float_s8_uint
         :type: Format
         :value: Format.d32_float_s8_uint
     
-    .. py:attribute:: sgl.Format.bc1_unorm
+    .. py:attribute:: slangpy.Format.bc1_unorm
         :type: Format
         :value: Format.bc1_unorm
     
-    .. py:attribute:: sgl.Format.bc1_unorm_srgb
+    .. py:attribute:: slangpy.Format.bc1_unorm_srgb
         :type: Format
         :value: Format.bc1_unorm_srgb
     
-    .. py:attribute:: sgl.Format.bc2_unorm
+    .. py:attribute:: slangpy.Format.bc2_unorm
         :type: Format
         :value: Format.bc2_unorm
     
-    .. py:attribute:: sgl.Format.bc2_unorm_srgb
+    .. py:attribute:: slangpy.Format.bc2_unorm_srgb
         :type: Format
         :value: Format.bc2_unorm_srgb
     
-    .. py:attribute:: sgl.Format.bc3_unorm
+    .. py:attribute:: slangpy.Format.bc3_unorm
         :type: Format
         :value: Format.bc3_unorm
     
-    .. py:attribute:: sgl.Format.bc3_unorm_srgb
+    .. py:attribute:: slangpy.Format.bc3_unorm_srgb
         :type: Format
         :value: Format.bc3_unorm_srgb
     
-    .. py:attribute:: sgl.Format.bc4_unorm
+    .. py:attribute:: slangpy.Format.bc4_unorm
         :type: Format
         :value: Format.bc4_unorm
     
-    .. py:attribute:: sgl.Format.bc4_snorm
+    .. py:attribute:: slangpy.Format.bc4_snorm
         :type: Format
         :value: Format.bc4_snorm
     
-    .. py:attribute:: sgl.Format.bc5_unorm
+    .. py:attribute:: slangpy.Format.bc5_unorm
         :type: Format
         :value: Format.bc5_unorm
     
-    .. py:attribute:: sgl.Format.bc5_snorm
+    .. py:attribute:: slangpy.Format.bc5_snorm
         :type: Format
         :value: Format.bc5_snorm
     
-    .. py:attribute:: sgl.Format.bc6h_ufloat
+    .. py:attribute:: slangpy.Format.bc6h_ufloat
         :type: Format
         :value: Format.bc6h_ufloat
     
-    .. py:attribute:: sgl.Format.bc6h_sfloat
+    .. py:attribute:: slangpy.Format.bc6h_sfloat
         :type: Format
         :value: Format.bc6h_sfloat
     
-    .. py:attribute:: sgl.Format.bc7_unorm
+    .. py:attribute:: slangpy.Format.bc7_unorm
         :type: Format
         :value: Format.bc7_unorm
     
-    .. py:attribute:: sgl.Format.bc7_unorm_srgb
+    .. py:attribute:: slangpy.Format.bc7_unorm_srgb
         :type: Format
         :value: Format.bc7_unorm_srgb
     
@@ -4779,52 +5155,52 @@ Device
 
 ----
 
-.. py:class:: sgl.FormatChannels
+.. py:class:: slangpy.FormatChannels
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.FormatChannels.none
+    .. py:attribute:: slangpy.FormatChannels.none
         :type: FormatChannels
-        :value: FormatChannels.none
+        :value: 0
     
-    .. py:attribute:: sgl.FormatChannels.r
+    .. py:attribute:: slangpy.FormatChannels.r
         :type: FormatChannels
-        :value: FormatChannels.r
+        :value: 1
     
-    .. py:attribute:: sgl.FormatChannels.g
+    .. py:attribute:: slangpy.FormatChannels.g
         :type: FormatChannels
-        :value: FormatChannels.g
+        :value: 2
     
-    .. py:attribute:: sgl.FormatChannels.b
+    .. py:attribute:: slangpy.FormatChannels.b
         :type: FormatChannels
-        :value: FormatChannels.b
+        :value: 4
     
-    .. py:attribute:: sgl.FormatChannels.a
+    .. py:attribute:: slangpy.FormatChannels.a
         :type: FormatChannels
-        :value: FormatChannels.a
+        :value: 8
     
-    .. py:attribute:: sgl.FormatChannels.rg
+    .. py:attribute:: slangpy.FormatChannels.rg
         :type: FormatChannels
-        :value: FormatChannels.rg
+        :value: 3
     
-    .. py:attribute:: sgl.FormatChannels.rgb
+    .. py:attribute:: slangpy.FormatChannels.rgb
         :type: FormatChannels
-        :value: FormatChannels.rgb
+        :value: 7
     
-    .. py:attribute:: sgl.FormatChannels.rgba
+    .. py:attribute:: slangpy.FormatChannels.rgba
         :type: FormatChannels
-        :value: FormatChannels.rgba
+        :value: 15
     
 
 
 ----
 
-.. py:class:: sgl.FormatInfo
+.. py:class:: slangpy.FormatInfo
 
     Resource format information.
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Resource format.
         
@@ -4844,7 +5220,7 @@ Device
         Number of channels.
         
     .. py:property:: type
-        :type: sgl.FormatType
+        :type: slangpy.FormatType
     
         Format type (typeless, float, unorm, unorm_srgb, snorm, uint, sint).
         
@@ -4908,11 +5284,11 @@ Device
     
         True if format is sRGB.
         
-    .. py:method:: get_channels(self) -> sgl.FormatChannels
+    .. py:method:: get_channels(self) -> slangpy.FormatChannels
     
         Get the channels for the format (only for color formats).
         
-    .. py:method:: get_channel_bits(self, arg: sgl.FormatChannels, /) -> int
+    .. py:method:: get_channel_bits(self, arg: slangpy.FormatChannels, /) -> int
     
         Get the number of bits for the specified channels.
         
@@ -4924,95 +5300,95 @@ Device
 
 ----
 
-.. py:class:: sgl.FormatSupport
+.. py:class:: slangpy.FormatSupport
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.FormatSupport.none
+    .. py:attribute:: slangpy.FormatSupport.none
         :type: FormatSupport
-        :value: FormatSupport.none
+        :value: 0
     
-    .. py:attribute:: sgl.FormatSupport.buffer
+    .. py:attribute:: slangpy.FormatSupport.buffer
         :type: FormatSupport
-        :value: FormatSupport.buffer
+        :value: 1
     
-    .. py:attribute:: sgl.FormatSupport.index_buffer
+    .. py:attribute:: slangpy.FormatSupport.index_buffer
         :type: FormatSupport
-        :value: FormatSupport.index_buffer
+        :value: 2
     
-    .. py:attribute:: sgl.FormatSupport.vertex_buffer
+    .. py:attribute:: slangpy.FormatSupport.vertex_buffer
         :type: FormatSupport
-        :value: FormatSupport.vertex_buffer
+        :value: 4
     
-    .. py:attribute:: sgl.FormatSupport.texture
+    .. py:attribute:: slangpy.FormatSupport.texture
         :type: FormatSupport
-        :value: FormatSupport.texture
+        :value: 8
     
-    .. py:attribute:: sgl.FormatSupport.depth_stencil
+    .. py:attribute:: slangpy.FormatSupport.depth_stencil
         :type: FormatSupport
-        :value: FormatSupport.depth_stencil
+        :value: 16
     
-    .. py:attribute:: sgl.FormatSupport.render_target
+    .. py:attribute:: slangpy.FormatSupport.render_target
         :type: FormatSupport
-        :value: FormatSupport.render_target
+        :value: 32
     
-    .. py:attribute:: sgl.FormatSupport.blendable
+    .. py:attribute:: slangpy.FormatSupport.blendable
         :type: FormatSupport
-        :value: FormatSupport.blendable
+        :value: 64
     
-    .. py:attribute:: sgl.FormatSupport.shader_load
+    .. py:attribute:: slangpy.FormatSupport.shader_load
         :type: FormatSupport
-        :value: FormatSupport.shader_load
+        :value: 128
     
-    .. py:attribute:: sgl.FormatSupport.shader_sample
+    .. py:attribute:: slangpy.FormatSupport.shader_sample
         :type: FormatSupport
-        :value: FormatSupport.shader_sample
+        :value: 256
     
-    .. py:attribute:: sgl.FormatSupport.shader_uav_load
+    .. py:attribute:: slangpy.FormatSupport.shader_uav_load
         :type: FormatSupport
-        :value: FormatSupport.shader_uav_load
+        :value: 512
     
-    .. py:attribute:: sgl.FormatSupport.shader_uav_store
+    .. py:attribute:: slangpy.FormatSupport.shader_uav_store
         :type: FormatSupport
-        :value: FormatSupport.shader_uav_store
+        :value: 1024
     
-    .. py:attribute:: sgl.FormatSupport.shader_atomic
+    .. py:attribute:: slangpy.FormatSupport.shader_atomic
         :type: FormatSupport
-        :value: FormatSupport.shader_atomic
+        :value: 2048
     
 
 
 ----
 
-.. py:class:: sgl.FormatType
+.. py:class:: slangpy.FormatType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.FormatType.unknown
+    .. py:attribute:: slangpy.FormatType.unknown
         :type: FormatType
         :value: FormatType.unknown
     
-    .. py:attribute:: sgl.FormatType.float
+    .. py:attribute:: slangpy.FormatType.float
         :type: FormatType
         :value: FormatType.float
     
-    .. py:attribute:: sgl.FormatType.unorm
+    .. py:attribute:: slangpy.FormatType.unorm
         :type: FormatType
         :value: FormatType.unorm
     
-    .. py:attribute:: sgl.FormatType.unorm_srgb
+    .. py:attribute:: slangpy.FormatType.unorm_srgb
         :type: FormatType
         :value: FormatType.unorm_srgb
     
-    .. py:attribute:: sgl.FormatType.snorm
+    .. py:attribute:: slangpy.FormatType.snorm
         :type: FormatType
         :value: FormatType.snorm
     
-    .. py:attribute:: sgl.FormatType.uint
+    .. py:attribute:: slangpy.FormatType.uint
         :type: FormatType
         :value: FormatType.uint
     
-    .. py:attribute:: sgl.FormatType.sint
+    .. py:attribute:: slangpy.FormatType.sint
         :type: FormatType
         :value: FormatType.sint
     
@@ -5020,15 +5396,15 @@ Device
 
 ----
 
-.. py:class:: sgl.FrontFaceMode
+.. py:class:: slangpy.FrontFaceMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.FrontFaceMode.counter_clockwise
+    .. py:attribute:: slangpy.FrontFaceMode.counter_clockwise
         :type: FrontFaceMode
         :value: FrontFaceMode.counter_clockwise
     
-    .. py:attribute:: sgl.FrontFaceMode.clockwise
+    .. py:attribute:: slangpy.FrontFaceMode.clockwise
         :type: FrontFaceMode
         :value: FrontFaceMode.clockwise
     
@@ -5036,9 +5412,9 @@ Device
 
 ----
 
-.. py:class:: sgl.FunctionReflection
+.. py:class:: slangpy.FunctionReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
@@ -5048,20 +5424,20 @@ Device
         Function name.
         
     .. py:property:: return_type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
         Function return type.
         
     .. py:property:: parameters
-        :type: sgl.FunctionReflectionParameterList
+        :type: slangpy.FunctionReflectionParameterList
     
         List of all function parameters.
         
-    .. py:method:: has_modifier(self, modifier: sgl.ModifierID) -> bool
+    .. py:method:: has_modifier(self, modifier: slangpy.ModifierID) -> bool
     
         Check if the function has a given modifier (e.g. 'differentiable').
         
-    .. py:method:: specialize_with_arg_types(self, types: collections.abc.Sequence[sgl.TypeReflection]) -> sgl.FunctionReflection
+    .. py:method:: specialize_with_arg_types(self, types: collections.abc.Sequence[slangpy.TypeReflection]) -> slangpy.FunctionReflection
     
         Specialize a generic or interface based function with a set of
         concrete argument types. Calling on a none-generic/interface function
@@ -5077,7 +5453,7 @@ Device
         functions, accessible via the overloads list.
         
     .. py:property:: overloads
-        :type: sgl.FunctionReflectionOverloadList
+        :type: slangpy.FunctionReflectionOverloadList
     
         List of all overloads of this function.
         
@@ -5085,7 +5461,7 @@ Device
 
 ----
 
-.. py:class:: sgl.FunctionReflectionOverloadList
+.. py:class:: slangpy.FunctionReflectionOverloadList
 
     FunctionReflection lazy overload list evaluation.
     
@@ -5093,7 +5469,7 @@ Device
 
 ----
 
-.. py:class:: sgl.FunctionReflectionParameterList
+.. py:class:: slangpy.FunctionReflectionParameterList
 
     FunctionReflection lazy parameter list evaluation.
     
@@ -5101,13 +5477,13 @@ Device
 
 ----
 
-.. py:function:: sgl.get_format_info(arg: sgl.Format, /) -> sgl.FormatInfo
+.. py:function:: slangpy.get_format_info(arg: slangpy.Format, /) -> slangpy.FormatInfo
 
 
 
 ----
 
-.. py:class:: sgl.HitGroupDesc
+.. py:class:: slangpy.HitGroupDesc
 
     
     
@@ -5135,15 +5511,15 @@ Device
 
 ----
 
-.. py:class:: sgl.IndexFormat
+.. py:class:: slangpy.IndexFormat
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.IndexFormat.uint16
+    .. py:attribute:: slangpy.IndexFormat.uint16
         :type: IndexFormat
         :value: IndexFormat.uint16
     
-    .. py:attribute:: sgl.IndexFormat.uint32
+    .. py:attribute:: slangpy.IndexFormat.uint32
         :type: IndexFormat
         :value: IndexFormat.uint32
     
@@ -5151,7 +5527,7 @@ Device
 
 ----
 
-.. py:class:: sgl.InputElementDesc
+.. py:class:: slangpy.InputElementDesc
 
     
     
@@ -5172,7 +5548,7 @@ Device
         if multiple parameters share a semantic name.
         
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         The format of the data being fetched for this element.
         
@@ -5191,20 +5567,20 @@ Device
 
 ----
 
-.. py:class:: sgl.InputLayout
+.. py:class:: slangpy.InputLayout
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: desc
-        :type: sgl.InputLayoutDesc
+        :type: slangpy.InputLayoutDesc
     
 
 
 ----
 
-.. py:class:: sgl.InputLayoutDesc
+.. py:class:: slangpy.InputLayoutDesc
 
     
     
@@ -5214,24 +5590,24 @@ Device
         :no-index:
     
     .. py:property:: input_elements
-        :type: list[sgl.InputElementDesc]
+        :type: list[slangpy.InputElementDesc]
     
     .. py:property:: vertex_streams
-        :type: list[sgl.VertexStreamDesc]
+        :type: list[slangpy.VertexStreamDesc]
     
 
 
 ----
 
-.. py:class:: sgl.InputSlotClass
+.. py:class:: slangpy.InputSlotClass
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.InputSlotClass.per_vertex
+    .. py:attribute:: slangpy.InputSlotClass.per_vertex
         :type: InputSlotClass
         :value: InputSlotClass.per_vertex
     
-    .. py:attribute:: sgl.InputSlotClass.per_instance
+    .. py:attribute:: slangpy.InputSlotClass.per_instance
         :type: InputSlotClass
         :value: InputSlotClass.per_instance
     
@@ -5239,35 +5615,35 @@ Device
 
 ----
 
-.. py:class:: sgl.Kernel
+.. py:class:: slangpy.Kernel
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
     .. py:property:: reflection
-        :type: sgl.ReflectionCursor
+        :type: slangpy.ReflectionCursor
     
 
 
 ----
 
-.. py:class:: sgl.LoadOp
+.. py:class:: slangpy.LoadOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.LoadOp.load
+    .. py:attribute:: slangpy.LoadOp.load
         :type: LoadOp
         :value: LoadOp.load
     
-    .. py:attribute:: sgl.LoadOp.clear
+    .. py:attribute:: slangpy.LoadOp.clear
         :type: LoadOp
         :value: LoadOp.clear
     
-    .. py:attribute:: sgl.LoadOp.dont_care
+    .. py:attribute:: slangpy.LoadOp.dont_care
         :type: LoadOp
         :value: LoadOp.dont_care
     
@@ -5275,11 +5651,11 @@ Device
 
 ----
 
-.. py:class:: sgl.LogicOp
+.. py:class:: slangpy.LogicOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.LogicOp.no_op
+    .. py:attribute:: slangpy.LogicOp.no_op
         :type: LogicOp
         :value: LogicOp.no_op
     
@@ -5287,19 +5663,19 @@ Device
 
 ----
 
-.. py:class:: sgl.MemoryType
+.. py:class:: slangpy.MemoryType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.MemoryType.device_local
+    .. py:attribute:: slangpy.MemoryType.device_local
         :type: MemoryType
         :value: MemoryType.device_local
     
-    .. py:attribute:: sgl.MemoryType.upload
+    .. py:attribute:: slangpy.MemoryType.upload
         :type: MemoryType
         :value: MemoryType.upload
     
-    .. py:attribute:: sgl.MemoryType.read_back
+    .. py:attribute:: slangpy.MemoryType.read_back
         :type: MemoryType
         :value: MemoryType.read_back
     
@@ -5307,51 +5683,51 @@ Device
 
 ----
 
-.. py:class:: sgl.ModifierID
+.. py:class:: slangpy.ModifierID
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.ModifierID.shared
+    .. py:attribute:: slangpy.ModifierID.shared
         :type: ModifierID
         :value: ModifierID.shared
     
-    .. py:attribute:: sgl.ModifierID.nodiff
+    .. py:attribute:: slangpy.ModifierID.nodiff
         :type: ModifierID
         :value: ModifierID.nodiff
     
-    .. py:attribute:: sgl.ModifierID.static
+    .. py:attribute:: slangpy.ModifierID.static
         :type: ModifierID
         :value: ModifierID.static
     
-    .. py:attribute:: sgl.ModifierID.const
+    .. py:attribute:: slangpy.ModifierID.const
         :type: ModifierID
         :value: ModifierID.const
     
-    .. py:attribute:: sgl.ModifierID.export
+    .. py:attribute:: slangpy.ModifierID.export
         :type: ModifierID
         :value: ModifierID.export
     
-    .. py:attribute:: sgl.ModifierID.extern
+    .. py:attribute:: slangpy.ModifierID.extern
         :type: ModifierID
         :value: ModifierID.extern
     
-    .. py:attribute:: sgl.ModifierID.differentiable
+    .. py:attribute:: slangpy.ModifierID.differentiable
         :type: ModifierID
         :value: ModifierID.differentiable
     
-    .. py:attribute:: sgl.ModifierID.mutating
+    .. py:attribute:: slangpy.ModifierID.mutating
         :type: ModifierID
         :value: ModifierID.mutating
     
-    .. py:attribute:: sgl.ModifierID.inn
+    .. py:attribute:: slangpy.ModifierID.inn
         :type: ModifierID
         :value: ModifierID.inn
     
-    .. py:attribute:: sgl.ModifierID.out
+    .. py:attribute:: slangpy.ModifierID.out
         :type: ModifierID
         :value: ModifierID.out
     
-    .. py:attribute:: sgl.ModifierID.inout
+    .. py:attribute:: slangpy.ModifierID.inout
         :type: ModifierID
         :value: ModifierID.inout
     
@@ -5359,7 +5735,7 @@ Device
 
 ----
 
-.. py:class:: sgl.MultisampleDesc
+.. py:class:: slangpy.MultisampleDesc
 
     
     
@@ -5384,15 +5760,243 @@ Device
 
 ----
 
-.. py:class:: sgl.PassEncoder
+.. py:class:: slangpy.NativeHandle
 
-    Base class: :py:class:`sgl.Object`
+    N/A
+    
+    .. py:property:: type
+        :type: slangpy.NativeHandleType
+    
+        N/A
+        
+    .. py:property:: value
+        :type: int
+    
+        N/A
+        
+
+
+----
+
+.. py:class:: slangpy.NativeHandleType
+
+    Base class: :py:class:`enum.Enum`
+    
+    N/A
+    
+    .. py:attribute:: slangpy.NativeHandleType.undefined
+        :type: NativeHandleType
+        :value: NativeHandleType.undefined
+    
+    .. py:attribute:: slangpy.NativeHandleType.win32
+        :type: NativeHandleType
+        :value: NativeHandleType.win32
+    
+    .. py:attribute:: slangpy.NativeHandleType.file_descriptor
+        :type: NativeHandleType
+        :value: NativeHandleType.file_descriptor
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12Device
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12Device
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12CommandQueue
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12CommandQueue
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12GraphicsCommandList
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12GraphicsCommandList
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12Resource
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12Resource
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12PipelineState
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12PipelineState
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12StateObject
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12StateObject
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12CpuDescriptorHandle
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12CpuDescriptorHandle
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12Fence
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12Fence
+    
+    .. py:attribute:: slangpy.NativeHandleType.D3D12DeviceAddress
+        :type: NativeHandleType
+        :value: NativeHandleType.D3D12DeviceAddress
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkDevice
+        :type: NativeHandleType
+        :value: NativeHandleType.VkDevice
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkPhysicalDevice
+        :type: NativeHandleType
+        :value: NativeHandleType.VkPhysicalDevice
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkInstance
+        :type: NativeHandleType
+        :value: NativeHandleType.VkInstance
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkQueue
+        :type: NativeHandleType
+        :value: NativeHandleType.VkQueue
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkCommandBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.VkCommandBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.VkBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkImage
+        :type: NativeHandleType
+        :value: NativeHandleType.VkImage
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkImageView
+        :type: NativeHandleType
+        :value: NativeHandleType.VkImageView
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkAccelerationStructureKHR
+        :type: NativeHandleType
+        :value: NativeHandleType.VkAccelerationStructureKHR
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkSampler
+        :type: NativeHandleType
+        :value: NativeHandleType.VkSampler
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkPipeline
+        :type: NativeHandleType
+        :value: NativeHandleType.VkPipeline
+    
+    .. py:attribute:: slangpy.NativeHandleType.VkSemaphore
+        :type: NativeHandleType
+        :value: NativeHandleType.VkSemaphore
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLDevice
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLDevice
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLCommandQueue
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLCommandQueue
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLCommandBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLCommandBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLTexture
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLTexture
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLComputePipelineState
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLComputePipelineState
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLRenderPipelineState
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLRenderPipelineState
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLSharedEvent
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLSharedEvent
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLSamplerState
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLSamplerState
+    
+    .. py:attribute:: slangpy.NativeHandleType.MTLAccelerationStructure
+        :type: NativeHandleType
+        :value: NativeHandleType.MTLAccelerationStructure
+    
+    .. py:attribute:: slangpy.NativeHandleType.CUdevice
+        :type: NativeHandleType
+        :value: NativeHandleType.CUdevice
+    
+    .. py:attribute:: slangpy.NativeHandleType.CUdeviceptr
+        :type: NativeHandleType
+        :value: NativeHandleType.CUdeviceptr
+    
+    .. py:attribute:: slangpy.NativeHandleType.CUtexObject
+        :type: NativeHandleType
+        :value: NativeHandleType.CUtexObject
+    
+    .. py:attribute:: slangpy.NativeHandleType.CUstream
+        :type: NativeHandleType
+        :value: NativeHandleType.CUstream
+    
+    .. py:attribute:: slangpy.NativeHandleType.OptixDeviceContext
+        :type: NativeHandleType
+        :value: NativeHandleType.OptixDeviceContext
+    
+    .. py:attribute:: slangpy.NativeHandleType.OptixTraversableHandle
+        :type: NativeHandleType
+        :value: NativeHandleType.OptixTraversableHandle
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUDevice
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUDevice
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUTexture
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUTexture
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUSampler
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUSampler
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPURenderPipeline
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPURenderPipeline
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUComputePipeline
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUComputePipeline
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUQueue
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUQueue
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUCommandBuffer
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUCommandBuffer
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUTextureView
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUTextureView
+    
+    .. py:attribute:: slangpy.NativeHandleType.WGPUCommandEncoder
+        :type: NativeHandleType
+        :value: NativeHandleType.WGPUCommandEncoder
+    
+
+
+----
+
+.. py:class:: slangpy.PassEncoder
+
+    Base class: :py:class:`slangpy.Object`
     
     
     
     .. py:method:: end(self) -> None
     
-    .. py:method:: push_debug_group(self, name: str, color: sgl.math.float3) -> None
+    .. py:method:: push_debug_group(self, name: str, color: slangpy.math.float3) -> None
     
         Push a debug group.
         
@@ -5400,7 +6004,7 @@ Device
     
         Pop a debug group.
         
-    .. py:method:: insert_debug_marker(self, name: str, color: sgl.math.float3) -> None
+    .. py:method:: insert_debug_marker(self, name: str, color: slangpy.math.float3) -> None
     
         Insert a debug marker.
         
@@ -5414,9 +6018,9 @@ Device
 
 ----
 
-.. py:class:: sgl.Pipeline
+.. py:class:: slangpy.Pipeline
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     Pipeline base class.
     
@@ -5424,31 +6028,31 @@ Device
 
 ----
 
-.. py:class:: sgl.PrimitiveTopology
+.. py:class:: slangpy.PrimitiveTopology
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.PrimitiveTopology.point_list
+    .. py:attribute:: slangpy.PrimitiveTopology.point_list
         :type: PrimitiveTopology
         :value: PrimitiveTopology.point_list
     
-    .. py:attribute:: sgl.PrimitiveTopology.line_list
+    .. py:attribute:: slangpy.PrimitiveTopology.line_list
         :type: PrimitiveTopology
         :value: PrimitiveTopology.line_list
     
-    .. py:attribute:: sgl.PrimitiveTopology.line_strip
+    .. py:attribute:: slangpy.PrimitiveTopology.line_strip
         :type: PrimitiveTopology
         :value: PrimitiveTopology.line_strip
     
-    .. py:attribute:: sgl.PrimitiveTopology.triangle_list
+    .. py:attribute:: slangpy.PrimitiveTopology.triangle_list
         :type: PrimitiveTopology
         :value: PrimitiveTopology.triangle_list
     
-    .. py:attribute:: sgl.PrimitiveTopology.triangle_strip
+    .. py:attribute:: slangpy.PrimitiveTopology.triangle_strip
         :type: PrimitiveTopology
         :value: PrimitiveTopology.triangle_strip
     
-    .. py:attribute:: sgl.PrimitiveTopology.patch_list
+    .. py:attribute:: slangpy.PrimitiveTopology.patch_list
         :type: PrimitiveTopology
         :value: PrimitiveTopology.patch_list
     
@@ -5456,13 +6060,13 @@ Device
 
 ----
 
-.. py:class:: sgl.ProgramLayout
+.. py:class:: slangpy.ProgramLayout
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
-    .. py:class:: sgl.ProgramLayout.HashedString
+    .. py:class:: slangpy.ProgramLayout.HashedString
     
         
         
@@ -5473,49 +6077,49 @@ Device
             :type: int
         
     .. py:property:: globals_type_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
     
     .. py:property:: globals_variable_layout
-        :type: sgl.VariableLayoutReflection
+        :type: slangpy.VariableLayoutReflection
     
     .. py:property:: parameters
-        :type: sgl.ProgramLayoutParameterList
+        :type: slangpy.ProgramLayoutParameterList
     
     .. py:property:: entry_points
-        :type: sgl.ProgramLayoutEntryPointList
+        :type: slangpy.ProgramLayoutEntryPointList
     
-    .. py:method:: find_type_by_name(self, name: str) -> sgl.TypeReflection
+    .. py:method:: find_type_by_name(self, name: str) -> slangpy.TypeReflection
     
         Find a given type by name. Handles generic specilization if generic
         variable values are provided.
         
-    .. py:method:: find_function_by_name(self, name: str) -> sgl.FunctionReflection
+    .. py:method:: find_function_by_name(self, name: str) -> slangpy.FunctionReflection
     
         Find a given function by name. Handles generic specilization if
         generic variable values are provided.
         
-    .. py:method:: find_function_by_name_in_type(self, type: sgl.TypeReflection, name: str) -> sgl.FunctionReflection
+    .. py:method:: find_function_by_name_in_type(self, type: slangpy.TypeReflection, name: str) -> slangpy.FunctionReflection
     
         Find a given function in a type by name. Handles generic specilization
         if generic variable values are provided.
         
-    .. py:method:: get_type_layout(self, type: sgl.TypeReflection) -> sgl.TypeLayoutReflection
+    .. py:method:: get_type_layout(self, type: slangpy.TypeReflection) -> slangpy.TypeLayoutReflection
     
         Get corresponding type layout from a given type.
         
-    .. py:method:: is_sub_type(self, sub_type: sgl.TypeReflection, super_type: sgl.TypeReflection) -> bool
+    .. py:method:: is_sub_type(self, sub_type: slangpy.TypeReflection, super_type: slangpy.TypeReflection) -> bool
     
         Test whether a type is a sub type of another type. Handles both struct
         inheritance and interface implementation.
         
     .. py:property:: hashed_strings
-        :type: list[sgl.ProgramLayout.HashedString]
+        :type: list[slangpy.ProgramLayout.HashedString]
     
 
 
 ----
 
-.. py:class:: sgl.ProgramLayoutEntryPointList
+.. py:class:: slangpy.ProgramLayoutEntryPointList
 
     ProgramLayout lazy entry point list evaluation.
     
@@ -5523,7 +6127,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ProgramLayoutParameterList
+.. py:class:: slangpy.ProgramLayoutParameterList
 
     ProgramLayout lazy parameter list evaluation.
     
@@ -5531,14 +6135,14 @@ Device
 
 ----
 
-.. py:class:: sgl.QueryPool
+.. py:class:: slangpy.QueryPool
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: desc
-        :type: sgl.QueryPoolDesc
+        :type: slangpy.QueryPoolDesc
     
     .. py:method:: reset(self) -> None
     
@@ -5554,7 +6158,7 @@ Device
 
 ----
 
-.. py:class:: sgl.QueryPoolDesc
+.. py:class:: slangpy.QueryPoolDesc
 
     
     
@@ -5564,7 +6168,7 @@ Device
         :no-index:
     
     .. py:property:: type
-        :type: sgl.QueryType
+        :type: slangpy.QueryType
     
         Query type.
         
@@ -5577,23 +6181,23 @@ Device
 
 ----
 
-.. py:class:: sgl.QueryType
+.. py:class:: slangpy.QueryType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.QueryType.timestamp
+    .. py:attribute:: slangpy.QueryType.timestamp
         :type: QueryType
         :value: QueryType.timestamp
     
-    .. py:attribute:: sgl.QueryType.acceleration_structure_compacted_size
+    .. py:attribute:: slangpy.QueryType.acceleration_structure_compacted_size
         :type: QueryType
         :value: QueryType.acceleration_structure_compacted_size
     
-    .. py:attribute:: sgl.QueryType.acceleration_structure_serialized_size
+    .. py:attribute:: slangpy.QueryType.acceleration_structure_serialized_size
         :type: QueryType
         :value: QueryType.acceleration_structure_serialized_size
     
-    .. py:attribute:: sgl.QueryType.acceleration_structure_current_size
+    .. py:attribute:: slangpy.QueryType.acceleration_structure_current_size
         :type: QueryType
         :value: QueryType.acceleration_structure_current_size
     
@@ -5601,7 +6205,7 @@ Device
 
 ----
 
-.. py:class:: sgl.RasterizerDesc
+.. py:class:: slangpy.RasterizerDesc
 
     
     
@@ -5611,13 +6215,13 @@ Device
         :no-index:
     
     .. py:property:: fill_mode
-        :type: sgl.FillMode
+        :type: slangpy.FillMode
     
     .. py:property:: cull_mode
-        :type: sgl.CullMode
+        :type: slangpy.CullMode
     
     .. py:property:: front_face
-        :type: sgl.FrontFaceMode
+        :type: slangpy.FrontFaceMode
     
     .. py:property:: depth_bias
         :type: int
@@ -5650,34 +6254,40 @@ Device
 
 ----
 
-.. py:class:: sgl.RayTracingPassEncoder
+.. py:class:: slangpy.RayTracingPassEncoder
 
-    Base class: :py:class:`sgl.PassEncoder`
+    Base class: :py:class:`slangpy.PassEncoder`
     
     
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.RayTracingPipeline, shader_table: sgl.ShaderTable) -> sgl.ShaderObject
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.RayTracingPipeline, shader_table: slangpy.ShaderTable) -> slangpy.ShaderObject
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.RayTracingPipeline, shader_table: sgl.ShaderTable, root_object: sgl.ShaderObject) -> None
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.RayTracingPipeline, shader_table: slangpy.ShaderTable, root_object: slangpy.ShaderObject) -> None
         :no-index:
     
-    .. py:method:: dispatch_rays(self, ray_gen_shader_index: int, dimensions: sgl.math.uint3) -> None
+    .. py:method:: dispatch_rays(self, ray_gen_shader_index: int, dimensions: slangpy.math.uint3) -> None
     
 
 
 ----
 
-.. py:class:: sgl.RayTracingPipeline
+.. py:class:: slangpy.RayTracingPipeline
 
-    Base class: :py:class:`sgl.Pipeline`
+    Base class: :py:class:`slangpy.Pipeline`
     
     Ray tracing pipeline.
     
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: ID3D12PipelineState* - Vulkan:
+        VkPipeline
+        
 
 
 ----
 
-.. py:class:: sgl.RayTracingPipelineDesc
+.. py:class:: slangpy.RayTracingPipelineDesc
 
     
     
@@ -5687,10 +6297,10 @@ Device
         :no-index:
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
     .. py:property:: hit_groups
-        :type: list[sgl.HitGroupDesc]
+        :type: list[slangpy.HitGroupDesc]
     
     .. py:property:: max_recursion
         :type: int
@@ -5702,59 +6312,59 @@ Device
         :type: int
     
     .. py:property:: flags
-        :type: sgl.RayTracingPipelineFlags
+        :type: slangpy.RayTracingPipelineFlags
     
 
 
 ----
 
-.. py:class:: sgl.RayTracingPipelineFlags
+.. py:class:: slangpy.RayTracingPipelineFlags
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.RayTracingPipelineFlags.none
+    .. py:attribute:: slangpy.RayTracingPipelineFlags.none
         :type: RayTracingPipelineFlags
-        :value: RayTracingPipelineFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.RayTracingPipelineFlags.skip_triangles
+    .. py:attribute:: slangpy.RayTracingPipelineFlags.skip_triangles
         :type: RayTracingPipelineFlags
-        :value: RayTracingPipelineFlags.skip_triangles
+        :value: 1
     
-    .. py:attribute:: sgl.RayTracingPipelineFlags.skip_procedurals
+    .. py:attribute:: slangpy.RayTracingPipelineFlags.skip_procedurals
         :type: RayTracingPipelineFlags
-        :value: RayTracingPipelineFlags.skip_procedurals
+        :value: 2
     
 
 
 ----
 
-.. py:class:: sgl.ReflectionCursor
+.. py:class:: slangpy.ReflectionCursor
 
     
     
-    .. py:method:: __init__(self, shader_program: sgl.ShaderProgram) -> None
+    .. py:method:: __init__(self, shader_program: slangpy.ShaderProgram) -> None
     
     .. py:method:: is_valid(self) -> bool
     
-    .. py:method:: find_field(self, name: str) -> sgl.ReflectionCursor
+    .. py:method:: find_field(self, name: str) -> slangpy.ReflectionCursor
     
-    .. py:method:: find_element(self, index: int) -> sgl.ReflectionCursor
+    .. py:method:: find_element(self, index: int) -> slangpy.ReflectionCursor
     
     .. py:method:: has_field(self, name: str) -> bool
     
     .. py:method:: has_element(self, index: int) -> bool
     
     .. py:property:: type_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
     
     .. py:property:: type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
 
 
 ----
 
-.. py:class:: sgl.RenderPassColorAttachment
+.. py:class:: slangpy.RenderPassColorAttachment
 
     
     
@@ -5764,25 +6374,25 @@ Device
         :no-index:
     
     .. py:property:: view
-        :type: sgl.TextureView
+        :type: slangpy.TextureView
     
     .. py:property:: resolve_target
-        :type: sgl.TextureView
+        :type: slangpy.TextureView
     
     .. py:property:: load_op
-        :type: sgl.LoadOp
+        :type: slangpy.LoadOp
     
     .. py:property:: store_op
-        :type: sgl.StoreOp
+        :type: slangpy.StoreOp
     
     .. py:property:: clear_value
-        :type: sgl.math.float4
+        :type: slangpy.math.float4
     
 
 
 ----
 
-.. py:class:: sgl.RenderPassDepthStencilAttachment
+.. py:class:: slangpy.RenderPassDepthStencilAttachment
 
     
     
@@ -5792,13 +6402,13 @@ Device
         :no-index:
     
     .. py:property:: view
-        :type: sgl.TextureView
+        :type: slangpy.TextureView
     
     .. py:property:: depth_load_op
-        :type: sgl.LoadOp
+        :type: slangpy.LoadOp
     
     .. py:property:: depth_store_op
-        :type: sgl.StoreOp
+        :type: slangpy.StoreOp
     
     .. py:property:: depth_clear_value
         :type: float
@@ -5807,10 +6417,10 @@ Device
         :type: bool
     
     .. py:property:: stencil_load_op
-        :type: sgl.LoadOp
+        :type: slangpy.LoadOp
     
     .. py:property:: stencil_store_op
-        :type: sgl.StoreOp
+        :type: slangpy.StoreOp
     
     .. py:property:: stencil_clear_value
         :type: int
@@ -5822,7 +6432,7 @@ Device
 
 ----
 
-.. py:class:: sgl.RenderPassDesc
+.. py:class:: slangpy.RenderPassDesc
 
     
     
@@ -5832,53 +6442,59 @@ Device
         :no-index:
     
     .. py:property:: color_attachments
-        :type: list[sgl.RenderPassColorAttachment]
+        :type: list[slangpy.RenderPassColorAttachment]
     
     .. py:property:: depth_stencil_attachment
-        :type: sgl.RenderPassDepthStencilAttachment | None
+        :type: slangpy.RenderPassDepthStencilAttachment | None
     
 
 
 ----
 
-.. py:class:: sgl.RenderPassEncoder
+.. py:class:: slangpy.RenderPassEncoder
 
-    Base class: :py:class:`sgl.PassEncoder`
+    Base class: :py:class:`slangpy.PassEncoder`
     
     
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.RenderPipeline) -> sgl.ShaderObject
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.RenderPipeline) -> slangpy.ShaderObject
     
-    .. py:method:: bind_pipeline(self, pipeline: sgl.RenderPipeline, root_object: sgl.ShaderObject) -> None
+    .. py:method:: bind_pipeline(self, pipeline: slangpy.RenderPipeline, root_object: slangpy.ShaderObject) -> None
         :no-index:
     
-    .. py:method:: set_render_state(self, state: sgl.RenderState) -> None
+    .. py:method:: set_render_state(self, state: slangpy.RenderState) -> None
     
-    .. py:method:: draw(self, args: sgl.DrawArguments) -> None
+    .. py:method:: draw(self, args: slangpy.DrawArguments) -> None
     
-    .. py:method:: draw_indexed(self, args: sgl.DrawArguments) -> None
+    .. py:method:: draw_indexed(self, args: slangpy.DrawArguments) -> None
     
-    .. py:method:: draw_indirect(self, max_draw_count: int, arg_buffer: sgl.BufferOffsetPair, count_buffer: sgl.BufferOffsetPair = <sgl.BufferOffsetPair object at 0x7f5998eefd50>) -> None
+    .. py:method:: draw_indirect(self, max_draw_count: int, arg_buffer: slangpy.BufferOffsetPair, count_buffer: slangpy.BufferOffsetPair = <slangpy.BufferOffsetPair object at 0x0000018DD2F999E0>) -> None
     
-    .. py:method:: draw_indexed_indirect(self, max_draw_count: int, arg_buffer: sgl.BufferOffsetPair, count_buffer: sgl.BufferOffsetPair = <sgl.BufferOffsetPair object at 0x7f5998eefd80>) -> None
+    .. py:method:: draw_indexed_indirect(self, max_draw_count: int, arg_buffer: slangpy.BufferOffsetPair, count_buffer: slangpy.BufferOffsetPair = <slangpy.BufferOffsetPair object at 0x0000018DD2F99A10>) -> None
     
-    .. py:method:: draw_mesh_tasks(self, dimensions: sgl.math.uint3) -> None
+    .. py:method:: draw_mesh_tasks(self, dimensions: slangpy.math.uint3) -> None
     
 
 
 ----
 
-.. py:class:: sgl.RenderPipeline
+.. py:class:: slangpy.RenderPipeline
 
-    Base class: :py:class:`sgl.Pipeline`
+    Base class: :py:class:`slangpy.Pipeline`
     
     Render pipeline.
     
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: ID3D12PipelineState* - Vulkan:
+        VkPipeline
+        
 
 
 ----
 
-.. py:class:: sgl.RenderPipelineDesc
+.. py:class:: slangpy.RenderPipelineDesc
 
     
     
@@ -5888,31 +6504,31 @@ Device
         :no-index:
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
     .. py:property:: input_layout
-        :type: sgl.InputLayout
+        :type: slangpy.InputLayout
     
     .. py:property:: primitive_topology
-        :type: sgl.PrimitiveTopology
+        :type: slangpy.PrimitiveTopology
     
     .. py:property:: targets
-        :type: list[sgl.ColorTargetDesc]
+        :type: list[slangpy.ColorTargetDesc]
     
     .. py:property:: depth_stencil
-        :type: sgl.DepthStencilDesc
+        :type: slangpy.DepthStencilDesc
     
     .. py:property:: rasterizer
-        :type: sgl.RasterizerDesc
+        :type: slangpy.RasterizerDesc
     
     .. py:property:: multisample
-        :type: sgl.MultisampleDesc
+        :type: slangpy.MultisampleDesc
     
 
 
 ----
 
-.. py:class:: sgl.RenderState
+.. py:class:: slangpy.RenderState
 
     
     
@@ -5925,143 +6541,149 @@ Device
         :type: int
     
     .. py:property:: viewports
-        :type: list[sgl.Viewport]
+        :type: list[slangpy.Viewport]
     
     .. py:property:: scissor_rects
-        :type: list[sgl.ScissorRect]
+        :type: list[slangpy.ScissorRect]
     
     .. py:property:: vertex_buffers
-        :type: list[sgl.BufferOffsetPair]
+        :type: list[slangpy.BufferOffsetPair]
     
     .. py:property:: index_buffer
-        :type: sgl.BufferOffsetPair
+        :type: slangpy.BufferOffsetPair
     
     .. py:property:: index_format
-        :type: sgl.IndexFormat
+        :type: slangpy.IndexFormat
     
 
 
 ----
 
-.. py:class:: sgl.RenderTargetWriteMask
+.. py:class:: slangpy.RenderTargetWriteMask
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_none
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_none
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_none
+        :value: 0
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_red
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_red
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_red
+        :value: 1
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_green
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_green
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_green
+        :value: 2
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_blue
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_blue
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_blue
+        :value: 4
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_alpha
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_alpha
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_alpha
+        :value: 8
     
-    .. py:attribute:: sgl.RenderTargetWriteMask.enable_all
+    .. py:attribute:: slangpy.RenderTargetWriteMask.enable_all
         :type: RenderTargetWriteMask
-        :value: RenderTargetWriteMask.enable_all
+        :value: 15
     
 
 
 ----
 
-.. py:class:: sgl.Resource
+.. py:class:: slangpy.Resource
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: ID3D12Resource* - Vulkan:
+        VkBuffer or VkImage
+        
 
 
 ----
 
-.. py:class:: sgl.ResourceState
+.. py:class:: slangpy.ResourceState
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.ResourceState.undefined
+    .. py:attribute:: slangpy.ResourceState.undefined
         :type: ResourceState
         :value: ResourceState.undefined
     
-    .. py:attribute:: sgl.ResourceState.general
+    .. py:attribute:: slangpy.ResourceState.general
         :type: ResourceState
         :value: ResourceState.general
     
-    .. py:attribute:: sgl.ResourceState.vertex_buffer
+    .. py:attribute:: slangpy.ResourceState.vertex_buffer
         :type: ResourceState
         :value: ResourceState.vertex_buffer
     
-    .. py:attribute:: sgl.ResourceState.index_buffer
+    .. py:attribute:: slangpy.ResourceState.index_buffer
         :type: ResourceState
         :value: ResourceState.index_buffer
     
-    .. py:attribute:: sgl.ResourceState.constant_buffer
+    .. py:attribute:: slangpy.ResourceState.constant_buffer
         :type: ResourceState
         :value: ResourceState.constant_buffer
     
-    .. py:attribute:: sgl.ResourceState.stream_output
+    .. py:attribute:: slangpy.ResourceState.stream_output
         :type: ResourceState
         :value: ResourceState.stream_output
     
-    .. py:attribute:: sgl.ResourceState.shader_resource
+    .. py:attribute:: slangpy.ResourceState.shader_resource
         :type: ResourceState
         :value: ResourceState.shader_resource
     
-    .. py:attribute:: sgl.ResourceState.unordered_access
+    .. py:attribute:: slangpy.ResourceState.unordered_access
         :type: ResourceState
         :value: ResourceState.unordered_access
     
-    .. py:attribute:: sgl.ResourceState.render_target
+    .. py:attribute:: slangpy.ResourceState.render_target
         :type: ResourceState
         :value: ResourceState.render_target
     
-    .. py:attribute:: sgl.ResourceState.depth_read
+    .. py:attribute:: slangpy.ResourceState.depth_read
         :type: ResourceState
         :value: ResourceState.depth_read
     
-    .. py:attribute:: sgl.ResourceState.depth_write
+    .. py:attribute:: slangpy.ResourceState.depth_write
         :type: ResourceState
         :value: ResourceState.depth_write
     
-    .. py:attribute:: sgl.ResourceState.present
+    .. py:attribute:: slangpy.ResourceState.present
         :type: ResourceState
         :value: ResourceState.present
     
-    .. py:attribute:: sgl.ResourceState.indirect_argument
+    .. py:attribute:: slangpy.ResourceState.indirect_argument
         :type: ResourceState
         :value: ResourceState.indirect_argument
     
-    .. py:attribute:: sgl.ResourceState.copy_source
+    .. py:attribute:: slangpy.ResourceState.copy_source
         :type: ResourceState
         :value: ResourceState.copy_source
     
-    .. py:attribute:: sgl.ResourceState.copy_destination
+    .. py:attribute:: slangpy.ResourceState.copy_destination
         :type: ResourceState
         :value: ResourceState.copy_destination
     
-    .. py:attribute:: sgl.ResourceState.resolve_source
+    .. py:attribute:: slangpy.ResourceState.resolve_source
         :type: ResourceState
         :value: ResourceState.resolve_source
     
-    .. py:attribute:: sgl.ResourceState.resolve_destination
+    .. py:attribute:: slangpy.ResourceState.resolve_destination
         :type: ResourceState
         :value: ResourceState.resolve_destination
     
-    .. py:attribute:: sgl.ResourceState.acceleration_structure
+    .. py:attribute:: slangpy.ResourceState.acceleration_structure
         :type: ResourceState
         :value: ResourceState.acceleration_structure
     
-    .. py:attribute:: sgl.ResourceState.acceleration_structure_build_output
+    .. py:attribute:: slangpy.ResourceState.acceleration_structure_build_output
         :type: ResourceState
         :value: ResourceState.acceleration_structure_build_output
     
@@ -6069,20 +6691,26 @@ Device
 
 ----
 
-.. py:class:: sgl.Sampler
+.. py:class:: slangpy.Sampler
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: desc
-        :type: sgl.SamplerDesc
+        :type: slangpy.SamplerDesc
     
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
+    
+        Returns the native API handle: - D3D12: D3D12_CPU_DESCRIPTOR_HANDLE -
+        Vulkan: VkSampler
+        
 
 
 ----
 
-.. py:class:: sgl.SamplerDesc
+.. py:class:: slangpy.SamplerDesc
 
     
     
@@ -6092,25 +6720,25 @@ Device
         :no-index:
     
     .. py:property:: min_filter
-        :type: sgl.TextureFilteringMode
+        :type: slangpy.TextureFilteringMode
     
     .. py:property:: mag_filter
-        :type: sgl.TextureFilteringMode
+        :type: slangpy.TextureFilteringMode
     
     .. py:property:: mip_filter
-        :type: sgl.TextureFilteringMode
+        :type: slangpy.TextureFilteringMode
     
     .. py:property:: reduction_op
-        :type: sgl.TextureReductionOp
+        :type: slangpy.TextureReductionOp
     
     .. py:property:: address_u
-        :type: sgl.TextureAddressingMode
+        :type: slangpy.TextureAddressingMode
     
     .. py:property:: address_v
-        :type: sgl.TextureAddressingMode
+        :type: slangpy.TextureAddressingMode
     
     .. py:property:: address_w
-        :type: sgl.TextureAddressingMode
+        :type: slangpy.TextureAddressingMode
     
     .. py:property:: mip_lod_bias
         :type: float
@@ -6119,10 +6747,10 @@ Device
         :type: int
     
     .. py:property:: comparison_func
-        :type: sgl.ComparisonFunc
+        :type: slangpy.ComparisonFunc
     
     .. py:property:: border_color
-        :type: sgl.math.float4
+        :type: slangpy.math.float4
     
     .. py:property:: min_lod
         :type: float
@@ -6130,11 +6758,14 @@ Device
     .. py:property:: max_lod
         :type: float
     
+    .. py:property:: label
+        :type: str
+    
 
 
 ----
 
-.. py:class:: sgl.ScissorRect
+.. py:class:: slangpy.ScissorRect
 
     
     
@@ -6143,7 +6774,7 @@ Device
     .. py:method:: __init__(self, arg: dict, /) -> None
         :no-index:
     
-    .. py:staticmethod:: from_size(width: int, height: int) -> sgl.ScissorRect
+    .. py:staticmethod:: from_size(width: int, height: int) -> slangpy.ScissorRect
     
     .. py:property:: min_x
         :type: int
@@ -6161,7 +6792,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderCacheStats
+.. py:class:: slangpy.ShaderCacheStats
 
     
     
@@ -6184,7 +6815,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderCursor
+.. py:class:: slangpy.ShaderCursor
 
     Cursor used for parsing and setting shader object fields. This class
     does *NOT* use the SGL reflection wrappers for accessing due to the
@@ -6193,21 +6824,21 @@ Device
     the shader cursor is kept alive longer than the shader object it was
     created from.
     
-    .. py:method:: __init__(self, shader_object: sgl.ShaderObject) -> None
+    .. py:method:: __init__(self, shader_object: slangpy.ShaderObject) -> None
     
-    .. py:method:: dereference(self) -> sgl.ShaderCursor
+    .. py:method:: dereference(self) -> slangpy.ShaderCursor
     
-    .. py:method:: find_entry_point(self, index: int) -> sgl.ShaderCursor
+    .. py:method:: find_entry_point(self, index: int) -> slangpy.ShaderCursor
     
     .. py:method:: is_valid(self) -> bool
     
         N/A
         
-    .. py:method:: find_field(self, name: str) -> sgl.ShaderCursor
+    .. py:method:: find_field(self, name: str) -> slangpy.ShaderCursor
     
         N/A
         
-    .. py:method:: find_element(self, index: int) -> sgl.ShaderCursor
+    .. py:method:: find_element(self, index: int) -> slangpy.ShaderCursor
     
         N/A
         
@@ -6229,7 +6860,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderHotReloadEvent
+.. py:class:: slangpy.ShaderHotReloadEvent
 
     Event data for hot reload hook.
     
@@ -6237,43 +6868,43 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderModel
+.. py:class:: slangpy.ShaderModel
 
     Base class: :py:class:`enum.IntEnum`
     
-    .. py:attribute:: sgl.ShaderModel.unknown
+    .. py:attribute:: slangpy.ShaderModel.unknown
         :type: ShaderModel
         :value: ShaderModel.unknown
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_0
+    .. py:attribute:: slangpy.ShaderModel.sm_6_0
         :type: ShaderModel
         :value: ShaderModel.sm_6_0
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_1
+    .. py:attribute:: slangpy.ShaderModel.sm_6_1
         :type: ShaderModel
         :value: ShaderModel.sm_6_1
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_2
+    .. py:attribute:: slangpy.ShaderModel.sm_6_2
         :type: ShaderModel
         :value: ShaderModel.sm_6_2
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_3
+    .. py:attribute:: slangpy.ShaderModel.sm_6_3
         :type: ShaderModel
         :value: ShaderModel.sm_6_3
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_4
+    .. py:attribute:: slangpy.ShaderModel.sm_6_4
         :type: ShaderModel
         :value: ShaderModel.sm_6_4
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_5
+    .. py:attribute:: slangpy.ShaderModel.sm_6_5
         :type: ShaderModel
         :value: ShaderModel.sm_6_5
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_6
+    .. py:attribute:: slangpy.ShaderModel.sm_6_6
         :type: ShaderModel
         :value: ShaderModel.sm_6_6
     
-    .. py:attribute:: sgl.ShaderModel.sm_6_7
+    .. py:attribute:: slangpy.ShaderModel.sm_6_7
         :type: ShaderModel
         :value: ShaderModel.sm_6_7
     
@@ -6281,9 +6912,9 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderObject
+.. py:class:: slangpy.ShaderObject
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
@@ -6291,7 +6922,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderOffset
+.. py:class:: slangpy.ShaderOffset
 
     Represents the offset of a shader variable relative to its enclosing
     type/buffer/block.
@@ -6320,83 +6951,83 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderProgram
+.. py:class:: slangpy.ShaderProgram
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: layout
-        :type: sgl.ProgramLayout
+        :type: slangpy.ProgramLayout
     
     .. py:property:: reflection
-        :type: sgl.ReflectionCursor
+        :type: slangpy.ReflectionCursor
     
 
 
 ----
 
-.. py:class:: sgl.ShaderStage
+.. py:class:: slangpy.ShaderStage
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.ShaderStage.none
+    .. py:attribute:: slangpy.ShaderStage.none
         :type: ShaderStage
         :value: ShaderStage.none
     
-    .. py:attribute:: sgl.ShaderStage.vertex
+    .. py:attribute:: slangpy.ShaderStage.vertex
         :type: ShaderStage
         :value: ShaderStage.vertex
     
-    .. py:attribute:: sgl.ShaderStage.hull
+    .. py:attribute:: slangpy.ShaderStage.hull
         :type: ShaderStage
         :value: ShaderStage.hull
     
-    .. py:attribute:: sgl.ShaderStage.domain
+    .. py:attribute:: slangpy.ShaderStage.domain
         :type: ShaderStage
         :value: ShaderStage.domain
     
-    .. py:attribute:: sgl.ShaderStage.geometry
+    .. py:attribute:: slangpy.ShaderStage.geometry
         :type: ShaderStage
         :value: ShaderStage.geometry
     
-    .. py:attribute:: sgl.ShaderStage.fragment
+    .. py:attribute:: slangpy.ShaderStage.fragment
         :type: ShaderStage
         :value: ShaderStage.fragment
     
-    .. py:attribute:: sgl.ShaderStage.compute
+    .. py:attribute:: slangpy.ShaderStage.compute
         :type: ShaderStage
         :value: ShaderStage.compute
     
-    .. py:attribute:: sgl.ShaderStage.ray_generation
+    .. py:attribute:: slangpy.ShaderStage.ray_generation
         :type: ShaderStage
         :value: ShaderStage.ray_generation
     
-    .. py:attribute:: sgl.ShaderStage.intersection
+    .. py:attribute:: slangpy.ShaderStage.intersection
         :type: ShaderStage
         :value: ShaderStage.intersection
     
-    .. py:attribute:: sgl.ShaderStage.any_hit
+    .. py:attribute:: slangpy.ShaderStage.any_hit
         :type: ShaderStage
         :value: ShaderStage.any_hit
     
-    .. py:attribute:: sgl.ShaderStage.closest_hit
+    .. py:attribute:: slangpy.ShaderStage.closest_hit
         :type: ShaderStage
         :value: ShaderStage.closest_hit
     
-    .. py:attribute:: sgl.ShaderStage.miss
+    .. py:attribute:: slangpy.ShaderStage.miss
         :type: ShaderStage
         :value: ShaderStage.miss
     
-    .. py:attribute:: sgl.ShaderStage.callable
+    .. py:attribute:: slangpy.ShaderStage.callable
         :type: ShaderStage
         :value: ShaderStage.callable
     
-    .. py:attribute:: sgl.ShaderStage.mesh
+    .. py:attribute:: slangpy.ShaderStage.mesh
         :type: ShaderStage
         :value: ShaderStage.mesh
     
-    .. py:attribute:: sgl.ShaderStage.amplification
+    .. py:attribute:: slangpy.ShaderStage.amplification
         :type: ShaderStage
         :value: ShaderStage.amplification
     
@@ -6404,9 +7035,9 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderTable
+.. py:class:: slangpy.ShaderTable
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
@@ -6414,7 +7045,7 @@ Device
 
 ----
 
-.. py:class:: sgl.ShaderTableDesc
+.. py:class:: slangpy.ShaderTableDesc
 
     
     
@@ -6424,7 +7055,7 @@ Device
         :no-index:
     
     .. py:property:: program
-        :type: sgl.ShaderProgram
+        :type: slangpy.ShaderProgram
     
     .. py:property:: ray_gen_entry_points
         :type: list[str]
@@ -6442,7 +7073,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangCompileError
+.. py:class:: slangpy.SlangCompileError
 
     Base class: :py:class:`builtins.Exception`
     
@@ -6450,7 +7081,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangCompilerOptions
+.. py:class:: slangpy.SlangCompilerOptions
 
     Slang compiler options. Can be set when creating a Slang session.
     
@@ -6471,13 +7102,13 @@ Device
         Specifies a list of preprocessor defines.
         
     .. py:property:: shader_model
-        :type: sgl.ShaderModel
+        :type: slangpy.ShaderModel
     
         Specifies the shader model to use. Defaults to latest available on the
         device.
         
     .. py:property:: matrix_layout
-        :type: sgl.SlangMatrixLayout
+        :type: slangpy.SlangMatrixLayout
     
         Specifies the matrix layout. Defaults to row-major.
         
@@ -6515,18 +7146,18 @@ Device
         SPIRV.
         
     .. py:property:: floating_point_mode
-        :type: sgl.SlangFloatingPointMode
+        :type: slangpy.SlangFloatingPointMode
     
         Specifies the floating point mode.
         
     .. py:property:: debug_info
-        :type: sgl.SlangDebugInfoLevel
+        :type: slangpy.SlangDebugInfoLevel
     
         Specifies the level of debug information to include in the generated
         code.
         
     .. py:property:: optimization
-        :type: sgl.SlangOptimizationLevel
+        :type: slangpy.SlangOptimizationLevel
     
         Specifies the optimization level.
         
@@ -6550,23 +7181,23 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangDebugInfoLevel
+.. py:class:: slangpy.SlangDebugInfoLevel
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.SlangDebugInfoLevel.none
+    .. py:attribute:: slangpy.SlangDebugInfoLevel.none
         :type: SlangDebugInfoLevel
         :value: SlangDebugInfoLevel.none
     
-    .. py:attribute:: sgl.SlangDebugInfoLevel.minimal
+    .. py:attribute:: slangpy.SlangDebugInfoLevel.minimal
         :type: SlangDebugInfoLevel
         :value: SlangDebugInfoLevel.minimal
     
-    .. py:attribute:: sgl.SlangDebugInfoLevel.standard
+    .. py:attribute:: slangpy.SlangDebugInfoLevel.standard
         :type: SlangDebugInfoLevel
         :value: SlangDebugInfoLevel.standard
     
-    .. py:attribute:: sgl.SlangDebugInfoLevel.maximal
+    .. py:attribute:: slangpy.SlangDebugInfoLevel.maximal
         :type: SlangDebugInfoLevel
         :value: SlangDebugInfoLevel.maximal
     
@@ -6574,9 +7205,9 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangEntryPoint
+.. py:class:: slangpy.SlangEntryPoint
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
@@ -6584,14 +7215,14 @@ Device
         :type: str
     
     .. py:property:: stage
-        :type: sgl.ShaderStage
+        :type: slangpy.ShaderStage
     
     .. py:property:: layout
-        :type: sgl.EntryPointLayout
+        :type: slangpy.EntryPointLayout
     
-    .. py:method:: rename(self, new_name: str) -> sgl.SlangEntryPoint
+    .. py:method:: rename(self, new_name: str) -> slangpy.SlangEntryPoint
     
-    .. py:method:: with_name(self, new_name: str) -> sgl.SlangEntryPoint
+    .. py:method:: with_name(self, new_name: str) -> slangpy.SlangEntryPoint
     
         Returns a copy of the entry point with a new name.
         
@@ -6599,19 +7230,19 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangFloatingPointMode
+.. py:class:: slangpy.SlangFloatingPointMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.SlangFloatingPointMode.default
+    .. py:attribute:: slangpy.SlangFloatingPointMode.default
         :type: SlangFloatingPointMode
         :value: SlangFloatingPointMode.default
     
-    .. py:attribute:: sgl.SlangFloatingPointMode.fast
+    .. py:attribute:: slangpy.SlangFloatingPointMode.fast
         :type: SlangFloatingPointMode
         :value: SlangFloatingPointMode.fast
     
-    .. py:attribute:: sgl.SlangFloatingPointMode.precise
+    .. py:attribute:: slangpy.SlangFloatingPointMode.precise
         :type: SlangFloatingPointMode
         :value: SlangFloatingPointMode.precise
     
@@ -6619,7 +7250,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangLinkOptions
+.. py:class:: slangpy.SlangLinkOptions
 
     Slang link options. These can optionally be set when linking a shader
     program.
@@ -6630,18 +7261,18 @@ Device
         :no-index:
     
     .. py:property:: floating_point_mode
-        :type: sgl.SlangFloatingPointMode | None
+        :type: slangpy.SlangFloatingPointMode | None
     
         Specifies the floating point mode.
         
     .. py:property:: debug_info
-        :type: sgl.SlangDebugInfoLevel | None
+        :type: slangpy.SlangDebugInfoLevel | None
     
         Specifies the level of debug information to include in the generated
         code.
         
     .. py:property:: optimization
-        :type: sgl.SlangOptimizationLevel | None
+        :type: slangpy.SlangOptimizationLevel | None
     
         Specifies the optimization level.
         
@@ -6665,15 +7296,15 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangMatrixLayout
+.. py:class:: slangpy.SlangMatrixLayout
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.SlangMatrixLayout.row_major
+    .. py:attribute:: slangpy.SlangMatrixLayout.row_major
         :type: SlangMatrixLayout
         :value: SlangMatrixLayout.row_major
     
-    .. py:attribute:: sgl.SlangMatrixLayout.column_major
+    .. py:attribute:: slangpy.SlangMatrixLayout.column_major
         :type: SlangMatrixLayout
         :value: SlangMatrixLayout.column_major
     
@@ -6681,14 +7312,14 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangModule
+.. py:class:: slangpy.SlangModule
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
     .. py:property:: session
-        :type: sgl.SlangSession
+        :type: slangpy.SlangSession
     
         The session from which this module was built.
         
@@ -6704,19 +7335,19 @@ Device
         a string.
         
     .. py:property:: layout
-        :type: sgl.ProgramLayout
+        :type: slangpy.ProgramLayout
     
     .. py:property:: entry_points
-        :type: list[sgl.SlangEntryPoint]
+        :type: list[slangpy.SlangEntryPoint]
     
         Build and return vector of all current entry points in the module.
         
     .. py:property:: module_decl
-        :type: sgl.DeclReflection
+        :type: slangpy.DeclReflection
     
         Get root decl ref for this module
         
-    .. py:method:: entry_point(self, name: str, type_conformances: Sequence[sgl.TypeConformance] = []) -> sgl.SlangEntryPoint
+    .. py:method:: entry_point(self, name: str, type_conformances: Sequence[slangpy.TypeConformance] = []) -> slangpy.SlangEntryPoint
     
         Get an entry point, optionally applying type conformances to it.
         
@@ -6724,23 +7355,23 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangOptimizationLevel
+.. py:class:: slangpy.SlangOptimizationLevel
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.SlangOptimizationLevel.none
+    .. py:attribute:: slangpy.SlangOptimizationLevel.none
         :type: SlangOptimizationLevel
         :value: SlangOptimizationLevel.none
     
-    .. py:attribute:: sgl.SlangOptimizationLevel.default
+    .. py:attribute:: slangpy.SlangOptimizationLevel.default
         :type: SlangOptimizationLevel
         :value: SlangOptimizationLevel.default
     
-    .. py:attribute:: sgl.SlangOptimizationLevel.high
+    .. py:attribute:: slangpy.SlangOptimizationLevel.high
         :type: SlangOptimizationLevel
         :value: SlangOptimizationLevel.high
     
-    .. py:attribute:: sgl.SlangOptimizationLevel.maximal
+    .. py:attribute:: slangpy.SlangOptimizationLevel.maximal
         :type: SlangOptimizationLevel
         :value: SlangOptimizationLevel.maximal
     
@@ -6748,31 +7379,31 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangSession
+.. py:class:: slangpy.SlangSession
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     A slang session, used to load modules and link programs.
     
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
     .. py:property:: desc
-        :type: sgl.SlangSessionDesc
+        :type: slangpy.SlangSessionDesc
     
-    .. py:method:: load_module(self, module_name: str) -> sgl.SlangModule
+    .. py:method:: load_module(self, module_name: str) -> slangpy.SlangModule
     
         Load a module by name.
         
-    .. py:method:: load_module_from_source(self, module_name: str, source: str, path: str | os.PathLike | None = None) -> sgl.SlangModule
+    .. py:method:: load_module_from_source(self, module_name: str, source: str, path: str | os.PathLike | None = None) -> slangpy.SlangModule
     
         Load a module from string source code.
         
-    .. py:method:: link_program(self, modules: collections.abc.Sequence[sgl.SlangModule], entry_points: collections.abc.Sequence[sgl.SlangEntryPoint], link_options: sgl.SlangLinkOptions | None = None) -> sgl.ShaderProgram
+    .. py:method:: link_program(self, modules: collections.abc.Sequence[slangpy.SlangModule], entry_points: collections.abc.Sequence[slangpy.SlangEntryPoint], link_options: slangpy.SlangLinkOptions | None = None) -> slangpy.ShaderProgram
     
         Link a program with a set of modules and entry points.
         
-    .. py:method:: load_program(self, module_name: str, entry_point_names: collections.abc.Sequence[str], additional_source: str | None = None, link_options: sgl.SlangLinkOptions | None = None) -> sgl.ShaderProgram
+    .. py:method:: load_program(self, module_name: str, entry_point_names: collections.abc.Sequence[str], additional_source: str | None = None, link_options: slangpy.SlangLinkOptions | None = None) -> slangpy.ShaderProgram
     
         Load a program from a given module with a set of entry points.
         Internally this simply wraps link_program without requiring the user
@@ -6786,7 +7417,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SlangSessionDesc
+.. py:class:: slangpy.SlangSessionDesc
 
     Descriptor for slang session initialization.
     
@@ -6796,7 +7427,7 @@ Device
         :no-index:
     
     .. py:property:: compiler_options
-        :type: sgl.SlangCompilerOptions
+        :type: slangpy.SlangCompilerOptions
     
     .. py:property:: add_default_include_paths
         :type: bool
@@ -6808,39 +7439,39 @@ Device
 
 ----
 
-.. py:class:: sgl.StencilOp
+.. py:class:: slangpy.StencilOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.StencilOp.keep
+    .. py:attribute:: slangpy.StencilOp.keep
         :type: StencilOp
         :value: StencilOp.keep
     
-    .. py:attribute:: sgl.StencilOp.zero
+    .. py:attribute:: slangpy.StencilOp.zero
         :type: StencilOp
         :value: StencilOp.zero
     
-    .. py:attribute:: sgl.StencilOp.replace
+    .. py:attribute:: slangpy.StencilOp.replace
         :type: StencilOp
         :value: StencilOp.replace
     
-    .. py:attribute:: sgl.StencilOp.increment_saturate
+    .. py:attribute:: slangpy.StencilOp.increment_saturate
         :type: StencilOp
         :value: StencilOp.increment_saturate
     
-    .. py:attribute:: sgl.StencilOp.decrement_saturate
+    .. py:attribute:: slangpy.StencilOp.decrement_saturate
         :type: StencilOp
         :value: StencilOp.decrement_saturate
     
-    .. py:attribute:: sgl.StencilOp.invert
+    .. py:attribute:: slangpy.StencilOp.invert
         :type: StencilOp
         :value: StencilOp.invert
     
-    .. py:attribute:: sgl.StencilOp.increment_wrap
+    .. py:attribute:: slangpy.StencilOp.increment_wrap
         :type: StencilOp
         :value: StencilOp.increment_wrap
     
-    .. py:attribute:: sgl.StencilOp.decrement_wrap
+    .. py:attribute:: slangpy.StencilOp.decrement_wrap
         :type: StencilOp
         :value: StencilOp.decrement_wrap
     
@@ -6848,15 +7479,15 @@ Device
 
 ----
 
-.. py:class:: sgl.StoreOp
+.. py:class:: slangpy.StoreOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.StoreOp.store
+    .. py:attribute:: slangpy.StoreOp.store
         :type: StoreOp
         :value: StoreOp.store
     
-    .. py:attribute:: sgl.StoreOp.dont_care
+    .. py:attribute:: slangpy.StoreOp.dont_care
         :type: StoreOp
         :value: StoreOp.dont_care
     
@@ -6864,14 +7495,14 @@ Device
 
 ----
 
-.. py:class:: sgl.SubresourceLayout
+.. py:class:: slangpy.SubresourceLayout
 
     
     
     .. py:method:: __init__(self) -> None
     
     .. py:property:: size
-        :type: sgl.math.uint3
+        :type: slangpy.math.uint3
     
         Dimensions of the subresource (in texels).
         
@@ -6918,7 +7549,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SubresourceRange
+.. py:class:: slangpy.SubresourceRange
 
     
     
@@ -6927,17 +7558,7 @@ Device
     .. py:method:: __init__(self, arg: dict, /) -> None
         :no-index:
     
-    .. py:property:: mip_level
-        :type: int
-    
-        Most detailed mip level.
-        
-    .. py:property:: mip_count
-        :type: int
-    
-        Number of mip levels.
-        
-    .. py:property:: base_array_layer
+    .. py:property:: layer
         :type: int
     
         First array layer.
@@ -6947,34 +7568,44 @@ Device
     
         Number of array layers.
         
+    .. py:property:: mip
+        :type: int
+    
+        Most detailed mip level.
+        
+    .. py:property:: mip_count
+        :type: int
+    
+        Number of mip levels.
+        
 
 
 ----
 
-.. py:class:: sgl.Surface
+.. py:class:: slangpy.Surface
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
     .. py:property:: info
-        :type: sgl.SurfaceInfo
+        :type: slangpy.SurfaceInfo
     
         Returns the surface info.
         
     .. py:property:: config
-        :type: sgl.SurfaceConfig
+        :type: slangpy.SurfaceConfig
     
         Returns the surface config.
         
-    .. py:method:: configure(self, width: int, height: int, format: sgl.Format = Format.undefined, usage: sgl.TextureUsage = TextureUsage.render_target, desired_image_count: int = 3, vsync: bool = True) -> None
+    .. py:method:: configure(self, width: int, height: int, format: slangpy.Format = Format.undefined, usage: slangpy.TextureUsage = 4, desired_image_count: int = 3, vsync: bool = True) -> None
     
         Configure the surface.
         
-    .. py:method:: configure(self, config: sgl.SurfaceConfig) -> None
+    .. py:method:: configure(self, config: slangpy.SurfaceConfig) -> None
         :no-index:
     
-    .. py:method:: acquire_next_image(self) -> sgl.Texture
+    .. py:method:: acquire_next_image(self) -> slangpy.Texture
     
         Acquries the next surface image.
         
@@ -6986,7 +7617,7 @@ Device
 
 ----
 
-.. py:class:: sgl.SurfaceConfig
+.. py:class:: slangpy.SurfaceConfig
 
     
     
@@ -6996,12 +7627,12 @@ Device
         :no-index:
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Surface texture format.
         
     .. py:property:: usage
-        :type: sgl.TextureUsage
+        :type: slangpy.TextureUsage
     
         Surface texture usage.
         
@@ -7029,22 +7660,22 @@ Device
 
 ----
 
-.. py:class:: sgl.SurfaceInfo
+.. py:class:: slangpy.SurfaceInfo
 
     
     
     .. py:property:: preferred_format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Preferred format for the surface.
         
     .. py:property:: supported_usage
-        :type: sgl.TextureUsage
+        :type: slangpy.TextureUsage
     
         Supported texture usages.
         
     .. py:property:: formats
-        :type: list[sgl.Format]
+        :type: list[slangpy.Format]
     
         Supported texture formats.
         
@@ -7052,20 +7683,20 @@ Device
 
 ----
 
-.. py:class:: sgl.Texture
+.. py:class:: slangpy.Texture
 
-    Base class: :py:class:`sgl.Resource`
+    Base class: :py:class:`slangpy.Resource`
     
     
     
     .. py:property:: desc
-        :type: sgl.TextureDesc
+        :type: slangpy.TextureDesc
     
     .. py:property:: type
-        :type: sgl.TextureType
+        :type: slangpy.TextureType
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: width
         :type: int
@@ -7088,59 +7719,64 @@ Device
     .. py:property:: subresource_count
         :type: int
     
-    .. py:method:: get_mip_width(self, mip_level: int = 0) -> int
+    .. py:property:: shared_handle
+        :type: slangpy.NativeHandle
     
-    .. py:method:: get_mip_height(self, mip_level: int = 0) -> int
+        Get the shared resource handle.
+        
+    .. py:method:: get_mip_width(self, mip: int = 0) -> int
     
-    .. py:method:: get_mip_depth(self, mip_level: int = 0) -> int
+    .. py:method:: get_mip_height(self, mip: int = 0) -> int
     
-    .. py:method:: get_mip_size(self, mip_level: int = 0) -> sgl.math.uint3
+    .. py:method:: get_mip_depth(self, mip: int = 0) -> int
     
-    .. py:method:: get_subresource_layout(self, mip_level: int, row_alignment: int = 4294967295) -> sgl.SubresourceLayout
+    .. py:method:: get_mip_size(self, mip: int = 0) -> slangpy.math.uint3
+    
+    .. py:method:: get_subresource_layout(self, mip: int, row_alignment: int = 4294967295) -> slangpy.SubresourceLayout
     
         Get layout of a texture subresource. By default, the row alignment
         used is that required by the target for direct buffer upload/download.
         Pass in 1 for a completely packed layout.
         
-    .. py:method:: create_view(self, desc: sgl.TextureViewDesc) -> sgl.TextureView
+    .. py:method:: create_view(self, desc: slangpy.TextureViewDesc) -> slangpy.TextureView
     
-    .. py:method:: create_view(self, dict: dict) -> sgl.TextureView
+    .. py:method:: create_view(self, dict: dict) -> slangpy.TextureView
         :no-index:
     
-    .. py:method:: create_view(self, mip_level: int = 0, mip_count: int = 4294967295, base_array_layer: int = 0, layer_count: int = 4294967295, format: sgl.Format = Format.undefined) -> sgl.TextureView
+    .. py:method:: create_view(self, format: slangpy.Format = Format.undefined, aspect: slangpy.TextureAspect = TextureAspect.all, layer: int = 0, layer_count: int = 4294967295, mip: int = 0, mip_count: int = 4294967295, label: str = '') -> slangpy.TextureView
         :no-index:
     
-    .. py:method:: to_bitmap(self, layer: int = 0, mip_level: int = 0) -> sgl.Bitmap
+    .. py:method:: to_bitmap(self, layer: int = 0, mip: int = 0) -> slangpy.Bitmap
     
-    .. py:method:: to_numpy(self, layer: int = 0, mip_level: int = 0) -> numpy.ndarray[]
+    .. py:method:: to_numpy(self, layer: int = 0, mip: int = 0) -> numpy.ndarray[]
     
-    .. py:method:: copy_from_numpy(self, data: numpy.ndarray[], layer: int = 0, mip_level: int = 0) -> None
+    .. py:method:: copy_from_numpy(self, data: numpy.ndarray[], layer: int = 0, mip: int = 0) -> None
     
 
 
 ----
 
-.. py:class:: sgl.TextureAddressingMode
+.. py:class:: slangpy.TextureAddressingMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.TextureAddressingMode.wrap
+    .. py:attribute:: slangpy.TextureAddressingMode.wrap
         :type: TextureAddressingMode
         :value: TextureAddressingMode.wrap
     
-    .. py:attribute:: sgl.TextureAddressingMode.clamp_to_edge
+    .. py:attribute:: slangpy.TextureAddressingMode.clamp_to_edge
         :type: TextureAddressingMode
         :value: TextureAddressingMode.clamp_to_edge
     
-    .. py:attribute:: sgl.TextureAddressingMode.clamp_to_border
+    .. py:attribute:: slangpy.TextureAddressingMode.clamp_to_border
         :type: TextureAddressingMode
         :value: TextureAddressingMode.clamp_to_border
     
-    .. py:attribute:: sgl.TextureAddressingMode.mirror_repeat
+    .. py:attribute:: slangpy.TextureAddressingMode.mirror_repeat
         :type: TextureAddressingMode
         :value: TextureAddressingMode.mirror_repeat
     
-    .. py:attribute:: sgl.TextureAddressingMode.mirror_once
+    .. py:attribute:: slangpy.TextureAddressingMode.mirror_once
         :type: TextureAddressingMode
         :value: TextureAddressingMode.mirror_once
     
@@ -7148,19 +7784,19 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureAspect
+.. py:class:: slangpy.TextureAspect
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.TextureAspect.all
+    .. py:attribute:: slangpy.TextureAspect.all
         :type: TextureAspect
         :value: TextureAspect.all
     
-    .. py:attribute:: sgl.TextureAspect.depth_only
+    .. py:attribute:: slangpy.TextureAspect.depth_only
         :type: TextureAspect
         :value: TextureAspect.depth_only
     
-    .. py:attribute:: sgl.TextureAspect.stencil_only
+    .. py:attribute:: slangpy.TextureAspect.stencil_only
         :type: TextureAspect
         :value: TextureAspect.stencil_only
     
@@ -7168,7 +7804,7 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureDesc
+.. py:class:: slangpy.TextureDesc
 
     
     
@@ -7178,12 +7814,12 @@ Device
         :no-index:
     
     .. py:property:: type
-        :type: sgl.TextureType
+        :type: slangpy.TextureType
     
         Texture type.
         
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Texture format.
         
@@ -7210,7 +7846,7 @@ Device
     .. py:property:: mip_count
         :type: int
     
-        Number of mip levels (0 for auto-generated mips).
+        Number of mip levels (ALL_MIPS for all mip levels).
         
     .. py:property:: sample_count
         :type: int
@@ -7223,13 +7859,13 @@ Device
         Quality level for multisampled textures.
         
     .. py:property:: memory_type
-        :type: sgl.MemoryType
+        :type: slangpy.MemoryType
     
     .. py:property:: usage
-        :type: sgl.TextureUsage
+        :type: slangpy.TextureUsage
     
     .. py:property:: default_state
-        :type: sgl.ResourceState
+        :type: slangpy.ResourceState
     
     .. py:property:: label
         :type: str
@@ -7240,15 +7876,15 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureFilteringMode
+.. py:class:: slangpy.TextureFilteringMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.TextureFilteringMode.point
+    .. py:attribute:: slangpy.TextureFilteringMode.point
         :type: TextureFilteringMode
         :value: TextureFilteringMode.point
     
-    .. py:attribute:: sgl.TextureFilteringMode.linear
+    .. py:attribute:: slangpy.TextureFilteringMode.linear
         :type: TextureFilteringMode
         :value: TextureFilteringMode.linear
     
@@ -7256,23 +7892,23 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureReductionOp
+.. py:class:: slangpy.TextureReductionOp
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.TextureReductionOp.average
+    .. py:attribute:: slangpy.TextureReductionOp.average
         :type: TextureReductionOp
         :value: TextureReductionOp.average
     
-    .. py:attribute:: sgl.TextureReductionOp.comparison
+    .. py:attribute:: slangpy.TextureReductionOp.comparison
         :type: TextureReductionOp
         :value: TextureReductionOp.comparison
     
-    .. py:attribute:: sgl.TextureReductionOp.minimum
+    .. py:attribute:: slangpy.TextureReductionOp.minimum
         :type: TextureReductionOp
         :value: TextureReductionOp.minimum
     
-    .. py:attribute:: sgl.TextureReductionOp.maximum
+    .. py:attribute:: slangpy.TextureReductionOp.maximum
         :type: TextureReductionOp
         :value: TextureReductionOp.maximum
     
@@ -7280,43 +7916,43 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureType
+.. py:class:: slangpy.TextureType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.TextureType.texture_1d
+    .. py:attribute:: slangpy.TextureType.texture_1d
         :type: TextureType
         :value: TextureType.texture_1d
     
-    .. py:attribute:: sgl.TextureType.texture_1d_array
+    .. py:attribute:: slangpy.TextureType.texture_1d_array
         :type: TextureType
         :value: TextureType.texture_1d_array
     
-    .. py:attribute:: sgl.TextureType.texture_2d
+    .. py:attribute:: slangpy.TextureType.texture_2d
         :type: TextureType
         :value: TextureType.texture_2d
     
-    .. py:attribute:: sgl.TextureType.texture_2d_array
+    .. py:attribute:: slangpy.TextureType.texture_2d_array
         :type: TextureType
         :value: TextureType.texture_2d_array
     
-    .. py:attribute:: sgl.TextureType.texture_2d_ms
+    .. py:attribute:: slangpy.TextureType.texture_2d_ms
         :type: TextureType
         :value: TextureType.texture_2d_ms
     
-    .. py:attribute:: sgl.TextureType.texture_2d_ms_array
+    .. py:attribute:: slangpy.TextureType.texture_2d_ms_array
         :type: TextureType
         :value: TextureType.texture_2d_ms_array
     
-    .. py:attribute:: sgl.TextureType.texture_3d
+    .. py:attribute:: slangpy.TextureType.texture_3d
         :type: TextureType
         :value: TextureType.texture_3d
     
-    .. py:attribute:: sgl.TextureType.texture_cube
+    .. py:attribute:: slangpy.TextureType.texture_cube
         :type: TextureType
         :value: TextureType.texture_cube
     
-    .. py:attribute:: sgl.TextureType.texture_cube_array
+    .. py:attribute:: slangpy.TextureType.texture_cube_array
         :type: TextureType
         :value: TextureType.texture_cube_array
     
@@ -7324,91 +7960,94 @@ Device
 
 ----
 
-.. py:class:: sgl.TextureUsage
+.. py:class:: slangpy.TextureUsage
 
     Base class: :py:class:`enum.IntFlag`
     
-    .. py:attribute:: sgl.TextureUsage.none
+    .. py:attribute:: slangpy.TextureUsage.none
         :type: TextureUsage
-        :value: TextureUsage.none
+        :value: 0
     
-    .. py:attribute:: sgl.TextureUsage.shader_resource
+    .. py:attribute:: slangpy.TextureUsage.shader_resource
         :type: TextureUsage
-        :value: TextureUsage.shader_resource
+        :value: 1
     
-    .. py:attribute:: sgl.TextureUsage.unordered_access
+    .. py:attribute:: slangpy.TextureUsage.unordered_access
         :type: TextureUsage
-        :value: TextureUsage.unordered_access
+        :value: 2
     
-    .. py:attribute:: sgl.TextureUsage.render_target
+    .. py:attribute:: slangpy.TextureUsage.render_target
         :type: TextureUsage
-        :value: TextureUsage.render_target
+        :value: 4
     
-    .. py:attribute:: sgl.TextureUsage.depth_stencil
+    .. py:attribute:: slangpy.TextureUsage.depth_stencil
         :type: TextureUsage
-        :value: TextureUsage.depth_stencil
+        :value: 8
     
-    .. py:attribute:: sgl.TextureUsage.present
+    .. py:attribute:: slangpy.TextureUsage.present
         :type: TextureUsage
-        :value: TextureUsage.present
+        :value: 16
     
-    .. py:attribute:: sgl.TextureUsage.copy_source
+    .. py:attribute:: slangpy.TextureUsage.copy_source
         :type: TextureUsage
-        :value: TextureUsage.copy_source
+        :value: 32
     
-    .. py:attribute:: sgl.TextureUsage.copy_destination
+    .. py:attribute:: slangpy.TextureUsage.copy_destination
         :type: TextureUsage
-        :value: TextureUsage.copy_destination
+        :value: 64
     
-    .. py:attribute:: sgl.TextureUsage.resolve_source
+    .. py:attribute:: slangpy.TextureUsage.resolve_source
         :type: TextureUsage
-        :value: TextureUsage.resolve_source
+        :value: 128
     
-    .. py:attribute:: sgl.TextureUsage.resolve_destination
+    .. py:attribute:: slangpy.TextureUsage.resolve_destination
         :type: TextureUsage
-        :value: TextureUsage.resolve_destination
+        :value: 256
     
-    .. py:attribute:: sgl.TextureUsage.typeless
+    .. py:attribute:: slangpy.TextureUsage.typeless
         :type: TextureUsage
-        :value: TextureUsage.typeless
+        :value: 512
     
-    .. py:attribute:: sgl.TextureUsage.shared
+    .. py:attribute:: slangpy.TextureUsage.shared
         :type: TextureUsage
-        :value: TextureUsage.shared
+        :value: 1024
     
 
 
 ----
 
-.. py:class:: sgl.TextureView
+.. py:class:: slangpy.TextureView
 
-    Base class: :py:class:`sgl.DeviceResource`
+    Base class: :py:class:`slangpy.DeviceResource`
     
     
     
     .. py:property:: texture
-        :type: sgl.Texture
+        :type: slangpy.Texture
     
     .. py:property:: desc
-        :type: sgl.TextureViewDesc
+        :type: slangpy.TextureViewDesc
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: aspect
-        :type: sgl.TextureAspect
+        :type: slangpy.TextureAspect
     
     .. py:property:: subresource_range
-        :type: sgl.SubresourceRange
+        :type: slangpy.SubresourceRange
     
     .. py:property:: label
         :type: str
+    
+    .. py:property:: native_handle
+        :type: slangpy.NativeHandle
     
 
 
 ----
 
-.. py:class:: sgl.TextureViewDesc
+.. py:class:: slangpy.TextureViewDesc
 
     
     
@@ -7418,13 +8057,13 @@ Device
         :no-index:
     
     .. py:property:: format
-        :type: sgl.Format
+        :type: slangpy.Format
     
     .. py:property:: aspect
-        :type: sgl.TextureAspect
+        :type: slangpy.TextureAspect
     
     .. py:property:: subresource_range
-        :type: sgl.SubresourceRange
+        :type: slangpy.SubresourceRange
     
     .. py:property:: label
         :type: str
@@ -7433,7 +8072,7 @@ Device
 
 ----
 
-.. py:class:: sgl.TypeConformance
+.. py:class:: slangpy.TypeConformance
 
     Type conformance entry. Type conformances are used to narrow the set
     of types supported by a slang interface. They can be specified on an
@@ -7466,14 +8105,14 @@ Device
 
 ----
 
-.. py:class:: sgl.TypeLayoutReflection
+.. py:class:: slangpy.TypeLayoutReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
     .. py:property:: kind
-        :type: sgl.TypeReflection.Kind
+        :type: slangpy.TypeReflection.Kind
     
     .. py:property:: name
         :type: str
@@ -7488,21 +8127,21 @@ Device
         :type: int
     
     .. py:property:: type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
     .. py:property:: fields
-        :type: sgl.TypeLayoutReflectionFieldList
+        :type: slangpy.TypeLayoutReflectionFieldList
     
     .. py:property:: element_type_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
     
-    .. py:method:: unwrap_array(self) -> sgl.TypeLayoutReflection
+    .. py:method:: unwrap_array(self) -> slangpy.TypeLayoutReflection
     
 
 
 ----
 
-.. py:class:: sgl.TypeLayoutReflectionFieldList
+.. py:class:: slangpy.TypeLayoutReflectionFieldList
 
     TypeLayoutReflection lazy field list evaluation.
     
@@ -7510,352 +8149,352 @@ Device
 
 ----
 
-.. py:class:: sgl.TypeReflection
+.. py:class:: slangpy.TypeReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
-    .. py:class:: sgl.TypeReflection.Kind
+    .. py:class:: slangpy.TypeReflection.Kind
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.TypeReflection.Kind.none
+        .. py:attribute:: slangpy.TypeReflection.Kind.none
             :type: Kind
             :value: Kind.none
         
-        .. py:attribute:: sgl.TypeReflection.Kind.struct
+        .. py:attribute:: slangpy.TypeReflection.Kind.struct
             :type: Kind
             :value: Kind.struct
         
-        .. py:attribute:: sgl.TypeReflection.Kind.array
+        .. py:attribute:: slangpy.TypeReflection.Kind.array
             :type: Kind
             :value: Kind.array
         
-        .. py:attribute:: sgl.TypeReflection.Kind.matrix
+        .. py:attribute:: slangpy.TypeReflection.Kind.matrix
             :type: Kind
             :value: Kind.matrix
         
-        .. py:attribute:: sgl.TypeReflection.Kind.vector
+        .. py:attribute:: slangpy.TypeReflection.Kind.vector
             :type: Kind
             :value: Kind.vector
         
-        .. py:attribute:: sgl.TypeReflection.Kind.scalar
+        .. py:attribute:: slangpy.TypeReflection.Kind.scalar
             :type: Kind
             :value: Kind.scalar
         
-        .. py:attribute:: sgl.TypeReflection.Kind.constant_buffer
+        .. py:attribute:: slangpy.TypeReflection.Kind.constant_buffer
             :type: Kind
             :value: Kind.constant_buffer
         
-        .. py:attribute:: sgl.TypeReflection.Kind.resource
+        .. py:attribute:: slangpy.TypeReflection.Kind.resource
             :type: Kind
             :value: Kind.resource
         
-        .. py:attribute:: sgl.TypeReflection.Kind.sampler_state
+        .. py:attribute:: slangpy.TypeReflection.Kind.sampler_state
             :type: Kind
             :value: Kind.sampler_state
         
-        .. py:attribute:: sgl.TypeReflection.Kind.texture_buffer
+        .. py:attribute:: slangpy.TypeReflection.Kind.texture_buffer
             :type: Kind
             :value: Kind.texture_buffer
         
-        .. py:attribute:: sgl.TypeReflection.Kind.shader_storage_buffer
+        .. py:attribute:: slangpy.TypeReflection.Kind.shader_storage_buffer
             :type: Kind
             :value: Kind.shader_storage_buffer
         
-        .. py:attribute:: sgl.TypeReflection.Kind.parameter_block
+        .. py:attribute:: slangpy.TypeReflection.Kind.parameter_block
             :type: Kind
             :value: Kind.parameter_block
         
-        .. py:attribute:: sgl.TypeReflection.Kind.generic_type_parameter
+        .. py:attribute:: slangpy.TypeReflection.Kind.generic_type_parameter
             :type: Kind
             :value: Kind.generic_type_parameter
         
-        .. py:attribute:: sgl.TypeReflection.Kind.interface
+        .. py:attribute:: slangpy.TypeReflection.Kind.interface
             :type: Kind
             :value: Kind.interface
         
-        .. py:attribute:: sgl.TypeReflection.Kind.output_stream
+        .. py:attribute:: slangpy.TypeReflection.Kind.output_stream
             :type: Kind
             :value: Kind.output_stream
         
-        .. py:attribute:: sgl.TypeReflection.Kind.specialized
+        .. py:attribute:: slangpy.TypeReflection.Kind.specialized
             :type: Kind
             :value: Kind.specialized
         
-        .. py:attribute:: sgl.TypeReflection.Kind.feedback
+        .. py:attribute:: slangpy.TypeReflection.Kind.feedback
             :type: Kind
             :value: Kind.feedback
         
-        .. py:attribute:: sgl.TypeReflection.Kind.pointer
+        .. py:attribute:: slangpy.TypeReflection.Kind.pointer
             :type: Kind
             :value: Kind.pointer
         
-    .. py:class:: sgl.TypeReflection.ScalarType
+    .. py:class:: slangpy.TypeReflection.ScalarType
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.none
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.none
             :type: ScalarType
             :value: ScalarType.none
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.void
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.void
             :type: ScalarType
             :value: ScalarType.void
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.bool
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.bool
             :type: ScalarType
             :value: ScalarType.bool
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.int32
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.int32
             :type: ScalarType
             :value: ScalarType.int32
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.uint32
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.uint32
             :type: ScalarType
             :value: ScalarType.uint32
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.int64
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.int64
             :type: ScalarType
             :value: ScalarType.int64
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.uint64
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.uint64
             :type: ScalarType
             :value: ScalarType.uint64
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.float16
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.float16
             :type: ScalarType
             :value: ScalarType.float16
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.float32
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.float32
             :type: ScalarType
             :value: ScalarType.float32
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.float64
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.float64
             :type: ScalarType
             :value: ScalarType.float64
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.int8
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.int8
             :type: ScalarType
             :value: ScalarType.int8
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.uint8
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.uint8
             :type: ScalarType
             :value: ScalarType.uint8
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.int16
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.int16
             :type: ScalarType
             :value: ScalarType.int16
         
-        .. py:attribute:: sgl.TypeReflection.ScalarType.uint16
+        .. py:attribute:: slangpy.TypeReflection.ScalarType.uint16
             :type: ScalarType
             :value: ScalarType.uint16
         
-    .. py:class:: sgl.TypeReflection.ResourceShape
+    .. py:class:: slangpy.TypeReflection.ResourceShape
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.none
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.none
             :type: ResourceShape
             :value: ResourceShape.none
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_1d
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_1d
             :type: ResourceShape
             :value: ResourceShape.texture_1d
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_2d
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_2d
             :type: ResourceShape
             :value: ResourceShape.texture_2d
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_3d
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_3d
             :type: ResourceShape
             :value: ResourceShape.texture_3d
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_cube
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_cube
             :type: ResourceShape
             :value: ResourceShape.texture_cube
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_buffer
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_buffer
             :type: ResourceShape
             :value: ResourceShape.texture_buffer
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.structured_buffer
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.structured_buffer
             :type: ResourceShape
             :value: ResourceShape.structured_buffer
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.byte_address_buffer
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.byte_address_buffer
             :type: ResourceShape
             :value: ResourceShape.byte_address_buffer
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.unknown
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.unknown
             :type: ResourceShape
             :value: ResourceShape.unknown
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.acceleration_structure
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.acceleration_structure
             :type: ResourceShape
             :value: ResourceShape.acceleration_structure
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_feedback_flag
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_feedback_flag
             :type: ResourceShape
             :value: ResourceShape.texture_feedback_flag
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_array_flag
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_array_flag
             :type: ResourceShape
             :value: ResourceShape.texture_array_flag
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_multisample_flag
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_multisample_flag
             :type: ResourceShape
             :value: ResourceShape.texture_multisample_flag
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_1d_array
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_1d_array
             :type: ResourceShape
             :value: ResourceShape.texture_1d_array
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_2d_array
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_2d_array
             :type: ResourceShape
             :value: ResourceShape.texture_2d_array
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_cube_array
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_cube_array
             :type: ResourceShape
             :value: ResourceShape.texture_cube_array
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_2d_multisample
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_2d_multisample
             :type: ResourceShape
             :value: ResourceShape.texture_2d_multisample
         
-        .. py:attribute:: sgl.TypeReflection.ResourceShape.texture_2d_multisample_array
+        .. py:attribute:: slangpy.TypeReflection.ResourceShape.texture_2d_multisample_array
             :type: ResourceShape
             :value: ResourceShape.texture_2d_multisample_array
         
-    .. py:class:: sgl.TypeReflection.ResourceAccess
+    .. py:class:: slangpy.TypeReflection.ResourceAccess
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.none
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.none
             :type: ResourceAccess
             :value: ResourceAccess.none
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.read
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.read
             :type: ResourceAccess
             :value: ResourceAccess.read
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.read_write
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.read_write
             :type: ResourceAccess
             :value: ResourceAccess.read_write
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.raster_ordered
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.raster_ordered
             :type: ResourceAccess
             :value: ResourceAccess.raster_ordered
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.access_append
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.access_append
             :type: ResourceAccess
             :value: ResourceAccess.access_append
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.access_consume
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.access_consume
             :type: ResourceAccess
             :value: ResourceAccess.access_consume
         
-        .. py:attribute:: sgl.TypeReflection.ResourceAccess.access_write
+        .. py:attribute:: slangpy.TypeReflection.ResourceAccess.access_write
             :type: ResourceAccess
             :value: ResourceAccess.access_write
         
-    .. py:class:: sgl.TypeReflection.ParameterCategory
+    .. py:class:: slangpy.TypeReflection.ParameterCategory
     
         Base class: :py:class:`enum.Enum`
         
         
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.none
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.none
             :type: ParameterCategory
             :value: ParameterCategory.none
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.mixed
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.mixed
             :type: ParameterCategory
             :value: ParameterCategory.mixed
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.constant_buffer
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.constant_buffer
             :type: ParameterCategory
             :value: ParameterCategory.constant_buffer
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.shader_resource
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.shader_resource
             :type: ParameterCategory
             :value: ParameterCategory.shader_resource
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.unordered_access
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.unordered_access
             :type: ParameterCategory
             :value: ParameterCategory.unordered_access
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.varying_input
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.varying_input
             :type: ParameterCategory
             :value: ParameterCategory.varying_input
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.varying_output
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.varying_output
             :type: ParameterCategory
             :value: ParameterCategory.varying_output
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.sampler_state
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.sampler_state
             :type: ParameterCategory
             :value: ParameterCategory.sampler_state
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.uniform
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.uniform
             :type: ParameterCategory
             :value: ParameterCategory.uniform
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.descriptor_table_slot
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.descriptor_table_slot
             :type: ParameterCategory
             :value: ParameterCategory.descriptor_table_slot
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.specialization_constant
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.specialization_constant
             :type: ParameterCategory
             :value: ParameterCategory.specialization_constant
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.push_constant_buffer
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.push_constant_buffer
             :type: ParameterCategory
             :value: ParameterCategory.push_constant_buffer
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.register_space
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.register_space
             :type: ParameterCategory
             :value: ParameterCategory.register_space
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.generic
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.generic
             :type: ParameterCategory
             :value: ParameterCategory.generic
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.ray_payload
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.ray_payload
             :type: ParameterCategory
             :value: ParameterCategory.ray_payload
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.hit_attributes
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.hit_attributes
             :type: ParameterCategory
             :value: ParameterCategory.hit_attributes
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.callable_payload
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.callable_payload
             :type: ParameterCategory
             :value: ParameterCategory.callable_payload
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.shader_record
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.shader_record
             :type: ParameterCategory
             :value: ParameterCategory.shader_record
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.existential_type_param
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.existential_type_param
             :type: ParameterCategory
             :value: ParameterCategory.existential_type_param
         
-        .. py:attribute:: sgl.TypeReflection.ParameterCategory.existential_object_param
+        .. py:attribute:: slangpy.TypeReflection.ParameterCategory.existential_object_param
             :type: ParameterCategory
             :value: ParameterCategory.existential_object_param
         
     .. py:property:: kind
-        :type: sgl.TypeReflection.Kind
+        :type: slangpy.TypeReflection.Kind
     
     .. py:property:: name
         :type: str
@@ -7864,13 +8503,13 @@ Device
         :type: str
     
     .. py:property:: fields
-        :type: sgl.TypeReflectionFieldList
+        :type: slangpy.TypeReflectionFieldList
     
     .. py:property:: element_count
         :type: int
     
     .. py:property:: element_type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
     .. py:property:: row_count
         :type: int
@@ -7879,24 +8518,24 @@ Device
         :type: int
     
     .. py:property:: scalar_type
-        :type: sgl.TypeReflection.ScalarType
+        :type: slangpy.TypeReflection.ScalarType
     
     .. py:property:: resource_result_type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
     .. py:property:: resource_shape
-        :type: sgl.TypeReflection.ResourceShape
+        :type: slangpy.TypeReflection.ResourceShape
     
     .. py:property:: resource_access
-        :type: sgl.TypeReflection.ResourceAccess
+        :type: slangpy.TypeReflection.ResourceAccess
     
-    .. py:method:: unwrap_array(self) -> sgl.TypeReflection
+    .. py:method:: unwrap_array(self) -> slangpy.TypeReflection
     
 
 
 ----
 
-.. py:class:: sgl.TypeReflectionFieldList
+.. py:class:: slangpy.TypeReflectionFieldList
 
     TypeReflection lazy field list evaluation.
     
@@ -7904,9 +8543,9 @@ Device
 
 ----
 
-.. py:class:: sgl.VariableLayoutReflection
+.. py:class:: slangpy.VariableLayoutReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     
     
@@ -7914,10 +8553,10 @@ Device
         :type: str
     
     .. py:property:: variable
-        :type: sgl.VariableReflection
+        :type: slangpy.VariableReflection
     
     .. py:property:: type_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
     
     .. py:property:: offset
         :type: int
@@ -7926,9 +8565,9 @@ Device
 
 ----
 
-.. py:class:: sgl.VariableReflection
+.. py:class:: slangpy.VariableReflection
 
-    Base class: :py:class:`sgl.BaseReflectionObject`
+    Base class: :py:class:`slangpy.BaseReflectionObject`
     
     .. py:property:: name
         :type: str
@@ -7936,11 +8575,11 @@ Device
         Variable name.
         
     .. py:property:: type
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
         Variable type reflection.
         
-    .. py:method:: has_modifier(self, modifier: sgl.ModifierID) -> bool
+    .. py:method:: has_modifier(self, modifier: slangpy.ModifierID) -> bool
     
         Check if variable has a given modifier (e.g. 'inout').
         
@@ -7948,7 +8587,7 @@ Device
 
 ----
 
-.. py:class:: sgl.VertexStreamDesc
+.. py:class:: slangpy.VertexStreamDesc
 
     
     
@@ -7963,7 +8602,7 @@ Device
         The stride in bytes for this vertex stream.
         
     .. py:property:: slot_class
-        :type: sgl.InputSlotClass
+        :type: slangpy.InputSlotClass
     
         Whether the stream contains per-vertex or per-instance data.
         
@@ -7976,7 +8615,7 @@ Device
 
 ----
 
-.. py:class:: sgl.Viewport
+.. py:class:: slangpy.Viewport
 
     
     
@@ -7985,7 +8624,7 @@ Device
     .. py:method:: __init__(self, arg: dict, /) -> None
         :no-index:
     
-    .. py:staticmethod:: from_size(width: float, height: float) -> sgl.Viewport
+    .. py:staticmethod:: from_size(width: float, height: float) -> slangpy.Viewport
     
     .. py:property:: x
         :type: float
@@ -8009,11 +8648,11 @@ Device
 
 ----
 
-.. py:class:: sgl.WindowHandle
+.. py:class:: slangpy.WindowHandle
 
     Native window handle.
     
-    .. py:method:: __init__(self, xdisplay: int, xwindow: int) -> None
+    .. py:method:: __init__(self, hwnd: int) -> None
     
 
 
@@ -8022,7 +8661,7 @@ Device
 Application
 -----------
 
-.. py:class:: sgl.AppDesc
+.. py:class:: slangpy.AppDesc
 
     
     
@@ -8032,7 +8671,7 @@ Application
         :no-index:
     
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
         Device to use for rendering. If not provided, a default device will be
         created.
@@ -8041,19 +8680,19 @@ Application
 
 ----
 
-.. py:class:: sgl.App
+.. py:class:: slangpy.App
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:method:: __init__(self, arg: sgl.AppDesc, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.AppDesc, /) -> None
     
-    .. py:method:: __init__(self, device: sgl.Device | None = None) -> None
+    .. py:method:: __init__(self, device: slangpy.Device | None = None) -> None
         :no-index:
     
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
     .. py:method:: run(self) -> None
     
@@ -8065,7 +8704,7 @@ Application
 
 ----
 
-.. py:class:: sgl.AppWindowDesc
+.. py:class:: slangpy.AppWindowDesc
 
     
     
@@ -8090,7 +8729,7 @@ Application
         Title of the window.
         
     .. py:property:: mode
-        :type: sgl.WindowMode
+        :type: slangpy.WindowMode
     
         Window mode.
         
@@ -8100,7 +8739,7 @@ Application
         Whether the window is resizable.
         
     .. py:property:: surface_format
-        :type: sgl.Format
+        :type: slangpy.Format
     
         Format of the swapchain images.
         
@@ -8113,39 +8752,39 @@ Application
 
 ----
 
-.. py:class:: sgl.AppWindow
+.. py:class:: slangpy.AppWindow
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:method:: __init__(self, app: sgl.App, width: int = 1920, height: int = 1280, title: str = 'sgl', mode: sgl.WindowMode = WindowMode.normal, resizable: bool = True, surface_format: sgl.Format = Format.undefined, enable_vsync: bool = False) -> None
+    .. py:method:: __init__(self, app: slangpy.App, width: int = 1920, height: int = 1280, title: str = 'sgl', mode: slangpy.WindowMode = WindowMode.normal, resizable: bool = True, surface_format: slangpy.Format = Format.undefined, enable_vsync: bool = False) -> None
     
-    .. py:class:: sgl.AppWindow.RenderContext
+    .. py:class:: slangpy.AppWindow.RenderContext
     
         
         
         .. py:property:: surface_texture
-            :type: sgl.Texture
+            :type: slangpy.Texture
         
         .. py:property:: command_encoder
-            :type: sgl.CommandEncoder
+            :type: slangpy.CommandEncoder
         
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
     .. py:property:: screen
-        :type: sgl.ui.Screen
+        :type: slangpy.ui.Screen
     
-    .. py:method:: render(self, render_context: sgl.AppWindow.RenderContext) -> None
+    .. py:method:: render(self, render_context: slangpy.AppWindow.RenderContext) -> None
     
     .. py:method:: on_resize(self, width: int, height: int) -> None
     
-    .. py:method:: on_keyboard_event(self, event: sgl.KeyboardEvent) -> None
+    .. py:method:: on_keyboard_event(self, event: slangpy.KeyboardEvent) -> None
     
-    .. py:method:: on_mouse_event(self, event: sgl.MouseEvent) -> None
+    .. py:method:: on_mouse_event(self, event: slangpy.MouseEvent) -> None
     
-    .. py:method:: on_gamepad_event(self, event: sgl.GamepadEvent) -> None
+    .. py:method:: on_gamepad_event(self, event: slangpy.GamepadEvent) -> None
     
     .. py:method:: on_drop_files(self, files: Sequence[str]) -> None
     
@@ -8156,7 +8795,7 @@ Application
 Math
 ----
 
-.. py:class:: sgl.math.float1
+.. py:class:: slangpy.math.float1
 
     .. py:method:: __init__(self) -> None
     
@@ -8179,7 +8818,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float2
+.. py:class:: slangpy.math.float2
 
     .. py:method:: __init__(self) -> None
     
@@ -8208,7 +8847,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float3
+.. py:class:: slangpy.math.float3
 
     .. py:method:: __init__(self) -> None
     
@@ -8218,10 +8857,10 @@ Math
     .. py:method:: __init__(self, x: float, y: float, z: float) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.float2, z: float) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.float2, z: float) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: float, yz: sgl.math.float2) -> None
+    .. py:method:: __init__(self, x: float, yz: slangpy.math.float2) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[float]) -> None
@@ -8246,7 +8885,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float4
+.. py:class:: slangpy.math.float4
 
     .. py:method:: __init__(self) -> None
     
@@ -8256,13 +8895,13 @@ Math
     .. py:method:: __init__(self, x: float, y: float, z: float, w: float) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.float2, zw: sgl.math.float2) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.float2, zw: slangpy.math.float2) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xyz: sgl.math.float3, w: float) -> None
+    .. py:method:: __init__(self, xyz: slangpy.math.float3, w: float) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: float, yzw: sgl.math.float3) -> None
+    .. py:method:: __init__(self, x: float, yzw: slangpy.math.float3) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[float]) -> None
@@ -8290,43 +8929,43 @@ Math
 
 ----
 
-.. py:class:: sgl.float1
-    :canonical: sgl.math.float1
+.. py:class:: slangpy.float1
+    :canonical: slangpy.math.float1
     
-    Alias class: :py:class:`sgl.math.float1`
-    
-
-
-----
-
-.. py:class:: sgl.float2
-    :canonical: sgl.math.float2
-    
-    Alias class: :py:class:`sgl.math.float2`
+    Alias class: :py:class:`slangpy.math.float1`
     
 
 
 ----
 
-.. py:class:: sgl.float3
-    :canonical: sgl.math.float3
+.. py:class:: slangpy.float2
+    :canonical: slangpy.math.float2
     
-    Alias class: :py:class:`sgl.math.float3`
-    
-
-
-----
-
-.. py:class:: sgl.float4
-    :canonical: sgl.math.float4
-    
-    Alias class: :py:class:`sgl.math.float4`
+    Alias class: :py:class:`slangpy.math.float2`
     
 
 
 ----
 
-.. py:class:: sgl.math.int1
+.. py:class:: slangpy.float3
+    :canonical: slangpy.math.float3
+    
+    Alias class: :py:class:`slangpy.math.float3`
+    
+
+
+----
+
+.. py:class:: slangpy.float4
+    :canonical: slangpy.math.float4
+    
+    Alias class: :py:class:`slangpy.math.float4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.int1
 
     .. py:method:: __init__(self) -> None
     
@@ -8349,177 +8988,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.int2
-
-    .. py:method:: __init__(self) -> None
-    
-    .. py:method:: __init__(self, scalar: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, x: int, y: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
-        :no-index:
-    
-    .. py:property:: x
-        :type: int
-    
-    .. py:property:: y
-        :type: int
-    
-    .. py:property:: shape
-        :type: tuple
-    
-    .. py:property:: element_type
-        :type: object
-    
-
-
-----
-
-.. py:class:: sgl.math.int3
-
-    .. py:method:: __init__(self) -> None
-    
-    .. py:method:: __init__(self, scalar: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, x: int, y: int, z: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, xy: sgl.math.int2, z: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, x: int, yz: sgl.math.int2) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
-        :no-index:
-    
-    .. py:property:: x
-        :type: int
-    
-    .. py:property:: y
-        :type: int
-    
-    .. py:property:: z
-        :type: int
-    
-    .. py:property:: shape
-        :type: tuple
-    
-    .. py:property:: element_type
-        :type: object
-    
-
-
-----
-
-.. py:class:: sgl.math.int4
-
-    .. py:method:: __init__(self) -> None
-    
-    .. py:method:: __init__(self, scalar: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, x: int, y: int, z: int, w: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, xy: sgl.math.int2, zw: sgl.math.int2) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, xyz: sgl.math.int3, w: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, x: int, yzw: sgl.math.int3) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
-        :no-index:
-    
-    .. py:property:: x
-        :type: int
-    
-    .. py:property:: y
-        :type: int
-    
-    .. py:property:: z
-        :type: int
-    
-    .. py:property:: w
-        :type: int
-    
-    .. py:property:: shape
-        :type: tuple
-    
-    .. py:property:: element_type
-        :type: object
-    
-
-
-----
-
-.. py:class:: sgl.int1
-    :canonical: sgl.math.int1
-    
-    Alias class: :py:class:`sgl.math.int1`
-    
-
-
-----
-
-.. py:class:: sgl.int2
-    :canonical: sgl.math.int2
-    
-    Alias class: :py:class:`sgl.math.int2`
-    
-
-
-----
-
-.. py:class:: sgl.int3
-    :canonical: sgl.math.int3
-    
-    Alias class: :py:class:`sgl.math.int3`
-    
-
-
-----
-
-.. py:class:: sgl.int4
-    :canonical: sgl.math.int4
-    
-    Alias class: :py:class:`sgl.math.int4`
-    
-
-
-----
-
-.. py:class:: sgl.math.uint1
-
-    .. py:method:: __init__(self) -> None
-    
-    .. py:method:: __init__(self, scalar: int) -> None
-        :no-index:
-    
-    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
-        :no-index:
-    
-    .. py:property:: x
-        :type: int
-    
-    .. py:property:: shape
-        :type: tuple
-    
-    .. py:property:: element_type
-        :type: object
-    
-
-
-----
-
-.. py:class:: sgl.math.uint2
+.. py:class:: slangpy.math.int2
 
     .. py:method:: __init__(self) -> None
     
@@ -8548,7 +9017,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.uint3
+.. py:class:: slangpy.math.int3
 
     .. py:method:: __init__(self) -> None
     
@@ -8558,10 +9027,10 @@ Math
     .. py:method:: __init__(self, x: int, y: int, z: int) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.uint2, z: int) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.int2, z: int) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: int, yz: sgl.math.uint2) -> None
+    .. py:method:: __init__(self, x: int, yz: slangpy.math.int2) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
@@ -8586,7 +9055,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.uint4
+.. py:class:: slangpy.math.int4
 
     .. py:method:: __init__(self) -> None
     
@@ -8596,13 +9065,13 @@ Math
     .. py:method:: __init__(self, x: int, y: int, z: int, w: int) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.uint2, zw: sgl.math.uint2) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.int2, zw: slangpy.math.int2) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xyz: sgl.math.uint3, w: int) -> None
+    .. py:method:: __init__(self, xyz: slangpy.math.int3, w: int) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: int, yzw: sgl.math.uint3) -> None
+    .. py:method:: __init__(self, x: int, yzw: slangpy.math.int3) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
@@ -8630,43 +9099,213 @@ Math
 
 ----
 
-.. py:class:: sgl.uint1
-    :canonical: sgl.math.uint1
+.. py:class:: slangpy.int1
+    :canonical: slangpy.math.int1
     
-    Alias class: :py:class:`sgl.math.uint1`
-    
-
-
-----
-
-.. py:class:: sgl.uint2
-    :canonical: sgl.math.uint2
-    
-    Alias class: :py:class:`sgl.math.uint2`
+    Alias class: :py:class:`slangpy.math.int1`
     
 
 
 ----
 
-.. py:class:: sgl.uint3
-    :canonical: sgl.math.uint3
+.. py:class:: slangpy.int2
+    :canonical: slangpy.math.int2
     
-    Alias class: :py:class:`sgl.math.uint3`
-    
-
-
-----
-
-.. py:class:: sgl.uint4
-    :canonical: sgl.math.uint4
-    
-    Alias class: :py:class:`sgl.math.uint4`
+    Alias class: :py:class:`slangpy.math.int2`
     
 
 
 ----
 
-.. py:class:: sgl.math.bool1
+.. py:class:: slangpy.int3
+    :canonical: slangpy.math.int3
+    
+    Alias class: :py:class:`slangpy.math.int3`
+    
+
+
+----
+
+.. py:class:: slangpy.int4
+    :canonical: slangpy.math.int4
+    
+    Alias class: :py:class:`slangpy.math.int4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.uint1
+
+    .. py:method:: __init__(self) -> None
+    
+    .. py:method:: __init__(self, scalar: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
+        :no-index:
+    
+    .. py:property:: x
+        :type: int
+    
+    .. py:property:: shape
+        :type: tuple
+    
+    .. py:property:: element_type
+        :type: object
+    
+
+
+----
+
+.. py:class:: slangpy.math.uint2
+
+    .. py:method:: __init__(self) -> None
+    
+    .. py:method:: __init__(self, scalar: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, x: int, y: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
+        :no-index:
+    
+    .. py:property:: x
+        :type: int
+    
+    .. py:property:: y
+        :type: int
+    
+    .. py:property:: shape
+        :type: tuple
+    
+    .. py:property:: element_type
+        :type: object
+    
+
+
+----
+
+.. py:class:: slangpy.math.uint3
+
+    .. py:method:: __init__(self) -> None
+    
+    .. py:method:: __init__(self, scalar: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, x: int, y: int, z: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, xy: slangpy.math.uint2, z: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, x: int, yz: slangpy.math.uint2) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
+        :no-index:
+    
+    .. py:property:: x
+        :type: int
+    
+    .. py:property:: y
+        :type: int
+    
+    .. py:property:: z
+        :type: int
+    
+    .. py:property:: shape
+        :type: tuple
+    
+    .. py:property:: element_type
+        :type: object
+    
+
+
+----
+
+.. py:class:: slangpy.math.uint4
+
+    .. py:method:: __init__(self) -> None
+    
+    .. py:method:: __init__(self, scalar: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, x: int, y: int, z: int, w: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, xy: slangpy.math.uint2, zw: slangpy.math.uint2) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, xyz: slangpy.math.uint3, w: int) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, x: int, yzw: slangpy.math.uint3) -> None
+        :no-index:
+    
+    .. py:method:: __init__(self, a: collections.abc.Sequence[int]) -> None
+        :no-index:
+    
+    .. py:property:: x
+        :type: int
+    
+    .. py:property:: y
+        :type: int
+    
+    .. py:property:: z
+        :type: int
+    
+    .. py:property:: w
+        :type: int
+    
+    .. py:property:: shape
+        :type: tuple
+    
+    .. py:property:: element_type
+        :type: object
+    
+
+
+----
+
+.. py:class:: slangpy.uint1
+    :canonical: slangpy.math.uint1
+    
+    Alias class: :py:class:`slangpy.math.uint1`
+    
+
+
+----
+
+.. py:class:: slangpy.uint2
+    :canonical: slangpy.math.uint2
+    
+    Alias class: :py:class:`slangpy.math.uint2`
+    
+
+
+----
+
+.. py:class:: slangpy.uint3
+    :canonical: slangpy.math.uint3
+    
+    Alias class: :py:class:`slangpy.math.uint3`
+    
+
+
+----
+
+.. py:class:: slangpy.uint4
+    :canonical: slangpy.math.uint4
+    
+    Alias class: :py:class:`slangpy.math.uint4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.bool1
 
     .. py:method:: __init__(self) -> None
     
@@ -8689,7 +9328,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.bool2
+.. py:class:: slangpy.math.bool2
 
     .. py:method:: __init__(self) -> None
     
@@ -8718,7 +9357,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.bool3
+.. py:class:: slangpy.math.bool3
 
     .. py:method:: __init__(self) -> None
     
@@ -8728,10 +9367,10 @@ Math
     .. py:method:: __init__(self, x: bool, y: bool, z: bool) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.bool2, z: bool) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.bool2, z: bool) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: bool, yz: sgl.math.bool2) -> None
+    .. py:method:: __init__(self, x: bool, yz: slangpy.math.bool2) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[bool]) -> None
@@ -8756,7 +9395,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.bool4
+.. py:class:: slangpy.math.bool4
 
     .. py:method:: __init__(self) -> None
     
@@ -8766,13 +9405,13 @@ Math
     .. py:method:: __init__(self, x: bool, y: bool, z: bool, w: bool) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.bool2, zw: sgl.math.bool2) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.bool2, zw: slangpy.math.bool2) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xyz: sgl.math.bool3, w: bool) -> None
+    .. py:method:: __init__(self, xyz: slangpy.math.bool3, w: bool) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: bool, yzw: sgl.math.bool3) -> None
+    .. py:method:: __init__(self, x: bool, yzw: slangpy.math.bool3) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[bool]) -> None
@@ -8800,43 +9439,43 @@ Math
 
 ----
 
-.. py:class:: sgl.bool1
-    :canonical: sgl.math.bool1
+.. py:class:: slangpy.bool1
+    :canonical: slangpy.math.bool1
     
-    Alias class: :py:class:`sgl.math.bool1`
-    
-
-
-----
-
-.. py:class:: sgl.bool2
-    :canonical: sgl.math.bool2
-    
-    Alias class: :py:class:`sgl.math.bool2`
+    Alias class: :py:class:`slangpy.math.bool1`
     
 
 
 ----
 
-.. py:class:: sgl.bool3
-    :canonical: sgl.math.bool3
+.. py:class:: slangpy.bool2
+    :canonical: slangpy.math.bool2
     
-    Alias class: :py:class:`sgl.math.bool3`
-    
-
-
-----
-
-.. py:class:: sgl.bool4
-    :canonical: sgl.math.bool4
-    
-    Alias class: :py:class:`sgl.math.bool4`
+    Alias class: :py:class:`slangpy.math.bool2`
     
 
 
 ----
 
-.. py:class:: sgl.math.float16_t
+.. py:class:: slangpy.bool3
+    :canonical: slangpy.math.bool3
+    
+    Alias class: :py:class:`slangpy.math.bool3`
+    
+
+
+----
+
+.. py:class:: slangpy.bool4
+    :canonical: slangpy.math.bool4
+    
+    Alias class: :py:class:`slangpy.math.bool4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.float16_t
 
     .. py:method:: __init__(self, value: float) -> None
     
@@ -8847,27 +9486,27 @@ Math
 
 ----
 
-.. py:class:: sgl.float16_t
-    :canonical: sgl.math.float16_t
+.. py:class:: slangpy.float16_t
+    :canonical: slangpy.math.float16_t
     
-    Alias class: :py:class:`sgl.math.float16_t`
+    Alias class: :py:class:`slangpy.math.float16_t`
     
 
 
 ----
 
-.. py:class:: sgl.math.float16_t1
+.. py:class:: slangpy.math.float16_t1
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, scalar: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, scalar: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, a: collections.abc.Sequence[sgl.math.float16_t]) -> None
+    .. py:method:: __init__(self, a: collections.abc.Sequence[slangpy.math.float16_t]) -> None
         :no-index:
     
     .. py:property:: x
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: shape
         :type: tuple
@@ -8879,24 +9518,24 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float16_t2
+.. py:class:: slangpy.math.float16_t2
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, scalar: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, scalar: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: sgl.math.float16_t, y: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, x: slangpy.math.float16_t, y: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, a: collections.abc.Sequence[sgl.math.float16_t]) -> None
+    .. py:method:: __init__(self, a: collections.abc.Sequence[slangpy.math.float16_t]) -> None
         :no-index:
     
     .. py:property:: x
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: y
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: shape
         :type: tuple
@@ -8908,33 +9547,33 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float16_t3
+.. py:class:: slangpy.math.float16_t3
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, scalar: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, scalar: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: sgl.math.float16_t, y: sgl.math.float16_t, z: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, x: slangpy.math.float16_t, y: slangpy.math.float16_t, z: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.float16_t2, z: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.float16_t2, z: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: sgl.math.float16_t, yz: sgl.math.float16_t2) -> None
+    .. py:method:: __init__(self, x: slangpy.math.float16_t, yz: slangpy.math.float16_t2) -> None
         :no-index:
     
-    .. py:method:: __init__(self, a: collections.abc.Sequence[sgl.math.float16_t]) -> None
+    .. py:method:: __init__(self, a: collections.abc.Sequence[slangpy.math.float16_t]) -> None
         :no-index:
     
     .. py:property:: x
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: y
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: z
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: shape
         :type: tuple
@@ -8946,39 +9585,39 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float16_t4
+.. py:class:: slangpy.math.float16_t4
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, scalar: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, scalar: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: sgl.math.float16_t, y: sgl.math.float16_t, z: sgl.math.float16_t, w: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, x: slangpy.math.float16_t, y: slangpy.math.float16_t, z: slangpy.math.float16_t, w: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xy: sgl.math.float16_t2, zw: sgl.math.float16_t2) -> None
+    .. py:method:: __init__(self, xy: slangpy.math.float16_t2, zw: slangpy.math.float16_t2) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xyz: sgl.math.float16_t3, w: sgl.math.float16_t) -> None
+    .. py:method:: __init__(self, xyz: slangpy.math.float16_t3, w: slangpy.math.float16_t) -> None
         :no-index:
     
-    .. py:method:: __init__(self, x: sgl.math.float16_t, yzw: sgl.math.float16_t3) -> None
+    .. py:method:: __init__(self, x: slangpy.math.float16_t, yzw: slangpy.math.float16_t3) -> None
         :no-index:
     
-    .. py:method:: __init__(self, a: collections.abc.Sequence[sgl.math.float16_t]) -> None
+    .. py:method:: __init__(self, a: collections.abc.Sequence[slangpy.math.float16_t]) -> None
         :no-index:
     
     .. py:property:: x
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: y
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: z
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: w
-        :type: sgl.math.float16_t
+        :type: slangpy.math.float16_t
     
     .. py:property:: shape
         :type: tuple
@@ -8990,43 +9629,43 @@ Math
 
 ----
 
-.. py:class:: sgl.float16_t1
-    :canonical: sgl.math.float16_t1
+.. py:class:: slangpy.float16_t1
+    :canonical: slangpy.math.float16_t1
     
-    Alias class: :py:class:`sgl.math.float16_t1`
-    
-
-
-----
-
-.. py:class:: sgl.float16_t2
-    :canonical: sgl.math.float16_t2
-    
-    Alias class: :py:class:`sgl.math.float16_t2`
+    Alias class: :py:class:`slangpy.math.float16_t1`
     
 
 
 ----
 
-.. py:class:: sgl.float16_t3
-    :canonical: sgl.math.float16_t3
+.. py:class:: slangpy.float16_t2
+    :canonical: slangpy.math.float16_t2
     
-    Alias class: :py:class:`sgl.math.float16_t3`
-    
-
-
-----
-
-.. py:class:: sgl.float16_t4
-    :canonical: sgl.math.float16_t4
-    
-    Alias class: :py:class:`sgl.math.float16_t4`
+    Alias class: :py:class:`slangpy.math.float16_t2`
     
 
 
 ----
 
-.. py:class:: sgl.math.float2x2
+.. py:class:: slangpy.float16_t3
+    :canonical: slangpy.math.float16_t3
+    
+    Alias class: :py:class:`slangpy.math.float16_t3`
+    
+
+
+----
+
+.. py:class:: slangpy.float16_t4
+    :canonical: slangpy.math.float16_t4
+    
+    Alias class: :py:class:`slangpy.math.float16_t4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.float2x2
 
     .. py:method:: __init__(self) -> None
     
@@ -9036,17 +9675,17 @@ Math
     .. py:method:: __init__(self, arg: ndarray[dtype=float32, shape=(2, 2)], /) -> None
         :no-index:
     
-    .. py:staticmethod:: zeros() -> sgl.math.float2x2
+    .. py:staticmethod:: zeros() -> slangpy.math.float2x2
     
-    .. py:staticmethod:: identity() -> sgl.math.float2x2
+    .. py:staticmethod:: identity() -> slangpy.math.float2x2
     
-    .. py:method:: get_row(self, row: int) -> sgl.math.float2
+    .. py:method:: get_row(self, row: int) -> slangpy.math.float2
     
-    .. py:method:: set_row(self, row: int, value: sgl.math.float2) -> None
+    .. py:method:: set_row(self, row: int, value: slangpy.math.float2) -> None
     
-    .. py:method:: get_col(self, col: int) -> sgl.math.float2
+    .. py:method:: get_col(self, col: int) -> slangpy.math.float2
     
-    .. py:method:: set_col(self, col: int, value: sgl.math.float2) -> None
+    .. py:method:: set_col(self, col: int, value: slangpy.math.float2) -> None
     
     .. py:property:: shape
         :type: tuple
@@ -9060,14 +9699,14 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float3x3
+.. py:class:: slangpy.math.float3x3
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, arg: sgl.math.float4x4, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float4x4, /) -> None
         :no-index:
     
-    .. py:method:: __init__(self, arg: sgl.math.float3x4, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float3x4, /) -> None
         :no-index:
     
     .. py:method:: __init__(self, arg: collections.abc.Sequence[float], /) -> None
@@ -9076,17 +9715,17 @@ Math
     .. py:method:: __init__(self, arg: ndarray[dtype=float32, shape=(3, 3)], /) -> None
         :no-index:
     
-    .. py:staticmethod:: zeros() -> sgl.math.float3x3
+    .. py:staticmethod:: zeros() -> slangpy.math.float3x3
     
-    .. py:staticmethod:: identity() -> sgl.math.float3x3
+    .. py:staticmethod:: identity() -> slangpy.math.float3x3
     
-    .. py:method:: get_row(self, row: int) -> sgl.math.float3
+    .. py:method:: get_row(self, row: int) -> slangpy.math.float3
     
-    .. py:method:: set_row(self, row: int, value: sgl.math.float3) -> None
+    .. py:method:: set_row(self, row: int, value: slangpy.math.float3) -> None
     
-    .. py:method:: get_col(self, col: int) -> sgl.math.float3
+    .. py:method:: get_col(self, col: int) -> slangpy.math.float3
     
-    .. py:method:: set_col(self, col: int, value: sgl.math.float3) -> None
+    .. py:method:: set_col(self, col: int, value: slangpy.math.float3) -> None
     
     .. py:property:: shape
         :type: tuple
@@ -9100,7 +9739,7 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float2x4
+.. py:class:: slangpy.math.float2x4
 
     .. py:method:: __init__(self) -> None
     
@@ -9110,17 +9749,17 @@ Math
     .. py:method:: __init__(self, arg: ndarray[dtype=float32, shape=(2, 4)], /) -> None
         :no-index:
     
-    .. py:staticmethod:: zeros() -> sgl.math.float2x4
+    .. py:staticmethod:: zeros() -> slangpy.math.float2x4
     
-    .. py:staticmethod:: identity() -> sgl.math.float2x4
+    .. py:staticmethod:: identity() -> slangpy.math.float2x4
     
-    .. py:method:: get_row(self, row: int) -> sgl.math.float4
+    .. py:method:: get_row(self, row: int) -> slangpy.math.float4
     
-    .. py:method:: set_row(self, row: int, value: sgl.math.float4) -> None
+    .. py:method:: set_row(self, row: int, value: slangpy.math.float4) -> None
     
-    .. py:method:: get_col(self, col: int) -> sgl.math.float2
+    .. py:method:: get_col(self, col: int) -> slangpy.math.float2
     
-    .. py:method:: set_col(self, col: int, value: sgl.math.float2) -> None
+    .. py:method:: set_col(self, col: int, value: slangpy.math.float2) -> None
     
     .. py:property:: shape
         :type: tuple
@@ -9134,14 +9773,14 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float3x4
+.. py:class:: slangpy.math.float3x4
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, arg: sgl.math.float3x3, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float3x3, /) -> None
         :no-index:
     
-    .. py:method:: __init__(self, arg: sgl.math.float4x4, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float4x4, /) -> None
         :no-index:
     
     .. py:method:: __init__(self, arg: collections.abc.Sequence[float], /) -> None
@@ -9150,17 +9789,17 @@ Math
     .. py:method:: __init__(self, arg: ndarray[dtype=float32, shape=(3, 4)], /) -> None
         :no-index:
     
-    .. py:staticmethod:: zeros() -> sgl.math.float3x4
+    .. py:staticmethod:: zeros() -> slangpy.math.float3x4
     
-    .. py:staticmethod:: identity() -> sgl.math.float3x4
+    .. py:staticmethod:: identity() -> slangpy.math.float3x4
     
-    .. py:method:: get_row(self, row: int) -> sgl.math.float4
+    .. py:method:: get_row(self, row: int) -> slangpy.math.float4
     
-    .. py:method:: set_row(self, row: int, value: sgl.math.float4) -> None
+    .. py:method:: set_row(self, row: int, value: slangpy.math.float4) -> None
     
-    .. py:method:: get_col(self, col: int) -> sgl.math.float3
+    .. py:method:: get_col(self, col: int) -> slangpy.math.float3
     
-    .. py:method:: set_col(self, col: int, value: sgl.math.float3) -> None
+    .. py:method:: set_col(self, col: int, value: slangpy.math.float3) -> None
     
     .. py:property:: shape
         :type: tuple
@@ -9174,14 +9813,14 @@ Math
 
 ----
 
-.. py:class:: sgl.math.float4x4
+.. py:class:: slangpy.math.float4x4
 
     .. py:method:: __init__(self) -> None
     
-    .. py:method:: __init__(self, arg: sgl.math.float3x3, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float3x3, /) -> None
         :no-index:
     
-    .. py:method:: __init__(self, arg: sgl.math.float3x4, /) -> None
+    .. py:method:: __init__(self, arg: slangpy.math.float3x4, /) -> None
         :no-index:
     
     .. py:method:: __init__(self, arg: collections.abc.Sequence[float], /) -> None
@@ -9190,17 +9829,17 @@ Math
     .. py:method:: __init__(self, arg: ndarray[dtype=float32, shape=(4, 4)], /) -> None
         :no-index:
     
-    .. py:staticmethod:: zeros() -> sgl.math.float4x4
+    .. py:staticmethod:: zeros() -> slangpy.math.float4x4
     
-    .. py:staticmethod:: identity() -> sgl.math.float4x4
+    .. py:staticmethod:: identity() -> slangpy.math.float4x4
     
-    .. py:method:: get_row(self, row: int) -> sgl.math.float4
+    .. py:method:: get_row(self, row: int) -> slangpy.math.float4
     
-    .. py:method:: set_row(self, row: int, value: sgl.math.float4) -> None
+    .. py:method:: set_row(self, row: int, value: slangpy.math.float4) -> None
     
-    .. py:method:: get_col(self, col: int) -> sgl.math.float4
+    .. py:method:: get_col(self, col: int) -> slangpy.math.float4
     
-    .. py:method:: set_col(self, col: int, value: sgl.math.float4) -> None
+    .. py:method:: set_col(self, col: int, value: slangpy.math.float4) -> None
     
     .. py:property:: shape
         :type: tuple
@@ -9214,65 +9853,65 @@ Math
 
 ----
 
-.. py:class:: sgl.float2x2
-    :canonical: sgl.math.float2x2
+.. py:class:: slangpy.float2x2
+    :canonical: slangpy.math.float2x2
     
-    Alias class: :py:class:`sgl.math.float2x2`
-    
-
-
-----
-
-.. py:class:: sgl.float3x3
-    :canonical: sgl.math.float3x3
-    
-    Alias class: :py:class:`sgl.math.float3x3`
+    Alias class: :py:class:`slangpy.math.float2x2`
     
 
 
 ----
 
-.. py:class:: sgl.float2x4
-    :canonical: sgl.math.float2x4
+.. py:class:: slangpy.float3x3
+    :canonical: slangpy.math.float3x3
     
-    Alias class: :py:class:`sgl.math.float2x4`
-    
-
-
-----
-
-.. py:class:: sgl.float3x4
-    :canonical: sgl.math.float3x4
-    
-    Alias class: :py:class:`sgl.math.float3x4`
+    Alias class: :py:class:`slangpy.math.float3x3`
     
 
 
 ----
 
-.. py:class:: sgl.float4x4
-    :canonical: sgl.math.float4x4
+.. py:class:: slangpy.float2x4
+    :canonical: slangpy.math.float2x4
     
-    Alias class: :py:class:`sgl.math.float4x4`
+    Alias class: :py:class:`slangpy.math.float2x4`
     
 
 
 ----
 
-.. py:class:: sgl.math.quatf
+.. py:class:: slangpy.float3x4
+    :canonical: slangpy.math.float3x4
+    
+    Alias class: :py:class:`slangpy.math.float3x4`
+    
+
+
+----
+
+.. py:class:: slangpy.float4x4
+    :canonical: slangpy.math.float4x4
+    
+    Alias class: :py:class:`slangpy.math.float4x4`
+    
+
+
+----
+
+.. py:class:: slangpy.math.quatf
 
     .. py:method:: __init__(self) -> None
     
     .. py:method:: __init__(self, x: float, y: float, z: float, w: float) -> None
         :no-index:
     
-    .. py:method:: __init__(self, xyz: sgl.math.float3, w: float) -> None
+    .. py:method:: __init__(self, xyz: slangpy.math.float3, w: float) -> None
         :no-index:
     
     .. py:method:: __init__(self, a: collections.abc.Sequence[float]) -> None
         :no-index:
     
-    .. py:staticmethod:: identity() -> sgl.math.quatf
+    .. py:staticmethod:: identity() -> slangpy.math.quatf
     
     .. py:property:: x
         :type: float
@@ -9296,24 +9935,24 @@ Math
 
 ----
 
-.. py:class:: sgl.quatf
-    :canonical: sgl.math.quatf
+.. py:class:: slangpy.quatf
+    :canonical: slangpy.math.quatf
     
-    Alias class: :py:class:`sgl.math.quatf`
+    Alias class: :py:class:`slangpy.math.quatf`
     
 
 
 ----
 
-.. py:class:: sgl.math.Handedness
+.. py:class:: slangpy.math.Handedness
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.math.Handedness.right_handed
+    .. py:attribute:: slangpy.math.Handedness.right_handed
         :type: Handedness
         :value: Handedness.right_handed
     
-    .. py:attribute:: sgl.math.Handedness.left_handed
+    .. py:attribute:: slangpy.math.Handedness.left_handed
         :type: Handedness
         :value: Handedness.left_handed
     
@@ -9321,1459 +9960,1459 @@ Math
 
 ----
 
-.. py:function:: sgl.math.isfinite(x: float) -> bool
+.. py:function:: slangpy.math.isfinite(x: float) -> bool
 
-.. py:function:: sgl.math.isfinite(x: float) -> bool
+.. py:function:: slangpy.math.isfinite(x: float) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.float16_t) -> bool
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.float16_t) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.float1) -> sgl.math.bool1
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.float1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.float2) -> sgl.math.bool2
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.float2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.float3) -> sgl.math.bool3
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.float3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.float4) -> sgl.math.bool4
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.float4) -> slangpy.math.bool4
     :no-index:
 
-.. py:function:: sgl.math.isfinite(x: sgl.math.quatf) -> sgl.math.bool4
+.. py:function:: slangpy.math.isfinite(x: slangpy.math.quatf) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.isinf(x: float) -> bool
+.. py:function:: slangpy.math.isinf(x: float) -> bool
 
-.. py:function:: sgl.math.isinf(x: float) -> bool
+.. py:function:: slangpy.math.isinf(x: float) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.float16_t) -> bool
+.. py:function:: slangpy.math.isinf(x: slangpy.math.float16_t) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.float1) -> sgl.math.bool1
+.. py:function:: slangpy.math.isinf(x: slangpy.math.float1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.float2) -> sgl.math.bool2
+.. py:function:: slangpy.math.isinf(x: slangpy.math.float2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.float3) -> sgl.math.bool3
+.. py:function:: slangpy.math.isinf(x: slangpy.math.float3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.float4) -> sgl.math.bool4
+.. py:function:: slangpy.math.isinf(x: slangpy.math.float4) -> slangpy.math.bool4
     :no-index:
 
-.. py:function:: sgl.math.isinf(x: sgl.math.quatf) -> sgl.math.bool4
+.. py:function:: slangpy.math.isinf(x: slangpy.math.quatf) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.isnan(x: float) -> bool
+.. py:function:: slangpy.math.isnan(x: float) -> bool
 
-.. py:function:: sgl.math.isnan(x: float) -> bool
+.. py:function:: slangpy.math.isnan(x: float) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.float16_t) -> bool
+.. py:function:: slangpy.math.isnan(x: slangpy.math.float16_t) -> bool
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.float1) -> sgl.math.bool1
+.. py:function:: slangpy.math.isnan(x: slangpy.math.float1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.float2) -> sgl.math.bool2
+.. py:function:: slangpy.math.isnan(x: slangpy.math.float2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.float3) -> sgl.math.bool3
+.. py:function:: slangpy.math.isnan(x: slangpy.math.float3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.float4) -> sgl.math.bool4
+.. py:function:: slangpy.math.isnan(x: slangpy.math.float4) -> slangpy.math.bool4
     :no-index:
 
-.. py:function:: sgl.math.isnan(x: sgl.math.quatf) -> sgl.math.bool4
+.. py:function:: slangpy.math.isnan(x: slangpy.math.quatf) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.floor(x: float) -> float
+.. py:function:: slangpy.math.floor(x: float) -> float
 
-.. py:function:: sgl.math.floor(x: float) -> float
+.. py:function:: slangpy.math.floor(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.floor(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.floor(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.floor(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.floor(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.floor(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.floor(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.floor(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.floor(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.ceil(x: float) -> float
+.. py:function:: slangpy.math.ceil(x: float) -> float
 
-.. py:function:: sgl.math.ceil(x: float) -> float
+.. py:function:: slangpy.math.ceil(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.ceil(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.ceil(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.ceil(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.ceil(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.ceil(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.ceil(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.ceil(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.ceil(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.trunc(x: float) -> float
+.. py:function:: slangpy.math.trunc(x: float) -> float
 
-.. py:function:: sgl.math.trunc(x: float) -> float
+.. py:function:: slangpy.math.trunc(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.trunc(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.trunc(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.trunc(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.trunc(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.trunc(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.trunc(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.trunc(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.trunc(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.round(x: float) -> float
+.. py:function:: slangpy.math.round(x: float) -> float
 
-.. py:function:: sgl.math.round(x: float) -> float
+.. py:function:: slangpy.math.round(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.round(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.round(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.round(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.round(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.round(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.round(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.round(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.round(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.pow(x: float, y: float) -> float
+.. py:function:: slangpy.math.pow(x: float, y: float) -> float
 
-.. py:function:: sgl.math.pow(x: float, y: float) -> float
+.. py:function:: slangpy.math.pow(x: float, y: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.pow(x: sgl.math.float1, y: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.pow(x: slangpy.math.float1, y: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.pow(x: sgl.math.float2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.pow(x: slangpy.math.float2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.pow(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.pow(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.pow(x: sgl.math.float4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.pow(x: slangpy.math.float4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.sqrt(x: float) -> float
+.. py:function:: slangpy.math.sqrt(x: float) -> float
 
-.. py:function:: sgl.math.sqrt(x: float) -> float
+.. py:function:: slangpy.math.sqrt(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.sqrt(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.sqrt(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.sqrt(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.sqrt(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.sqrt(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.sqrt(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.sqrt(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.sqrt(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.rsqrt(x: float) -> float
+.. py:function:: slangpy.math.rsqrt(x: float) -> float
 
-.. py:function:: sgl.math.rsqrt(x: float) -> float
+.. py:function:: slangpy.math.rsqrt(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.rsqrt(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.rsqrt(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.rsqrt(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.rsqrt(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.rsqrt(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.rsqrt(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.rsqrt(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.rsqrt(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.exp(x: float) -> float
+.. py:function:: slangpy.math.exp(x: float) -> float
 
-.. py:function:: sgl.math.exp(x: float) -> float
+.. py:function:: slangpy.math.exp(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.exp(x: sgl.math.float16_t) -> sgl.math.float16_t
+.. py:function:: slangpy.math.exp(x: slangpy.math.float16_t) -> slangpy.math.float16_t
     :no-index:
 
-.. py:function:: sgl.math.exp(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.exp(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.exp(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.exp(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.exp(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.exp(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.exp(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.exp(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.exp2(x: float) -> float
+.. py:function:: slangpy.math.exp2(x: float) -> float
 
-.. py:function:: sgl.math.exp2(x: float) -> float
+.. py:function:: slangpy.math.exp2(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.exp2(x: sgl.math.float16_t) -> sgl.math.float16_t
+.. py:function:: slangpy.math.exp2(x: slangpy.math.float16_t) -> slangpy.math.float16_t
     :no-index:
 
-.. py:function:: sgl.math.exp2(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.exp2(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.exp2(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.exp2(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.exp2(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.exp2(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.exp2(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.exp2(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.log(x: float) -> float
+.. py:function:: slangpy.math.log(x: float) -> float
 
-.. py:function:: sgl.math.log(x: float) -> float
+.. py:function:: slangpy.math.log(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.log(x: sgl.math.float16_t) -> sgl.math.float16_t
+.. py:function:: slangpy.math.log(x: slangpy.math.float16_t) -> slangpy.math.float16_t
     :no-index:
 
-.. py:function:: sgl.math.log(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.log(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.log(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.log(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.log(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.log(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.log(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.log(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.log2(x: float) -> float
+.. py:function:: slangpy.math.log2(x: float) -> float
 
-.. py:function:: sgl.math.log2(x: float) -> float
+.. py:function:: slangpy.math.log2(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.log2(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.log2(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.log2(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.log2(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.log2(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.log2(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.log2(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.log2(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.log10(x: float) -> float
+.. py:function:: slangpy.math.log10(x: float) -> float
 
-.. py:function:: sgl.math.log10(x: float) -> float
+.. py:function:: slangpy.math.log10(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.log10(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.log10(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.log10(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.log10(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.log10(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.log10(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.log10(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.log10(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.radians(x: float) -> float
+.. py:function:: slangpy.math.radians(x: float) -> float
 
-.. py:function:: sgl.math.radians(x: float) -> float
+.. py:function:: slangpy.math.radians(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.radians(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.radians(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.radians(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.radians(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.radians(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.radians(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.radians(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.radians(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.degrees(x: float) -> float
+.. py:function:: slangpy.math.degrees(x: float) -> float
 
-.. py:function:: sgl.math.degrees(x: float) -> float
+.. py:function:: slangpy.math.degrees(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.degrees(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.degrees(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.degrees(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.degrees(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.degrees(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.degrees(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.degrees(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.degrees(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.sin(x: float) -> float
+.. py:function:: slangpy.math.sin(x: float) -> float
 
-.. py:function:: sgl.math.sin(x: float) -> float
+.. py:function:: slangpy.math.sin(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.sin(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.sin(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.sin(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.sin(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.sin(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.sin(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.sin(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.sin(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.cos(x: float) -> float
+.. py:function:: slangpy.math.cos(x: float) -> float
 
-.. py:function:: sgl.math.cos(x: float) -> float
+.. py:function:: slangpy.math.cos(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.cos(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.cos(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.cos(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.cos(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.cos(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.cos(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.cos(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.cos(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.tan(x: float) -> float
+.. py:function:: slangpy.math.tan(x: float) -> float
 
-.. py:function:: sgl.math.tan(x: float) -> float
+.. py:function:: slangpy.math.tan(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.tan(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.tan(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.tan(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.tan(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.tan(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.tan(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.tan(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.tan(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.asin(x: float) -> float
+.. py:function:: slangpy.math.asin(x: float) -> float
 
-.. py:function:: sgl.math.asin(x: float) -> float
+.. py:function:: slangpy.math.asin(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.asin(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.asin(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.asin(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.asin(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.asin(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.asin(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.asin(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.asin(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.acos(x: float) -> float
+.. py:function:: slangpy.math.acos(x: float) -> float
 
-.. py:function:: sgl.math.acos(x: float) -> float
+.. py:function:: slangpy.math.acos(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.acos(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.acos(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.acos(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.acos(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.acos(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.acos(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.acos(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.acos(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.atan(x: float) -> float
+.. py:function:: slangpy.math.atan(x: float) -> float
 
-.. py:function:: sgl.math.atan(x: float) -> float
+.. py:function:: slangpy.math.atan(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.atan(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.atan(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.atan(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.atan(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.atan(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.atan(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.atan(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.atan(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.atan2(y: float, x: float) -> float
+.. py:function:: slangpy.math.atan2(y: float, x: float) -> float
 
-.. py:function:: sgl.math.atan2(y: float, x: float) -> float
+.. py:function:: slangpy.math.atan2(y: float, x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.atan2(y: sgl.math.float1, x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.atan2(y: slangpy.math.float1, x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.atan2(y: sgl.math.float2, x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.atan2(y: slangpy.math.float2, x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.atan2(y: sgl.math.float3, x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.atan2(y: slangpy.math.float3, x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.atan2(y: sgl.math.float4, x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.atan2(y: slangpy.math.float4, x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.sinh(x: float) -> float
+.. py:function:: slangpy.math.sinh(x: float) -> float
 
-.. py:function:: sgl.math.sinh(x: float) -> float
+.. py:function:: slangpy.math.sinh(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.sinh(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.sinh(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.sinh(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.sinh(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.sinh(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.sinh(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.sinh(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.sinh(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.cosh(x: float) -> float
+.. py:function:: slangpy.math.cosh(x: float) -> float
 
-.. py:function:: sgl.math.cosh(x: float) -> float
+.. py:function:: slangpy.math.cosh(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.cosh(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.cosh(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.cosh(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.cosh(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.cosh(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.cosh(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.cosh(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.cosh(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.tanh(x: float) -> float
+.. py:function:: slangpy.math.tanh(x: float) -> float
 
-.. py:function:: sgl.math.tanh(x: float) -> float
+.. py:function:: slangpy.math.tanh(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.tanh(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.tanh(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.tanh(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.tanh(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.tanh(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.tanh(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.tanh(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.tanh(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.fmod(x: float, y: float) -> float
+.. py:function:: slangpy.math.fmod(x: float, y: float) -> float
 
-.. py:function:: sgl.math.fmod(x: float, y: float) -> float
+.. py:function:: slangpy.math.fmod(x: float, y: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.fmod(x: sgl.math.float1, y: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.fmod(x: slangpy.math.float1, y: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.fmod(x: sgl.math.float2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.fmod(x: slangpy.math.float2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.fmod(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.fmod(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.fmod(x: sgl.math.float4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.fmod(x: slangpy.math.float4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.frac(x: float) -> float
+.. py:function:: slangpy.math.frac(x: float) -> float
 
-.. py:function:: sgl.math.frac(x: float) -> float
+.. py:function:: slangpy.math.frac(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.frac(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.frac(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.frac(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.frac(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.frac(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.frac(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.frac(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.frac(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.lerp(x: float, y: float, s: float) -> float
+.. py:function:: slangpy.math.lerp(x: float, y: float, s: float) -> float
 
-.. py:function:: sgl.math.lerp(x: float, y: float, s: float) -> float
+.. py:function:: slangpy.math.lerp(x: float, y: float, s: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float1, y: sgl.math.float1, s: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float1, y: slangpy.math.float1, s: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float1, y: sgl.math.float1, s: float) -> sgl.math.float1
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float1, y: slangpy.math.float1, s: float) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float2, y: sgl.math.float2, s: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float2, y: slangpy.math.float2, s: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float2, y: sgl.math.float2, s: float) -> sgl.math.float2
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float2, y: slangpy.math.float2, s: float) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float3, y: sgl.math.float3, s: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float3, y: slangpy.math.float3, s: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float3, y: sgl.math.float3, s: float) -> sgl.math.float3
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float3, y: slangpy.math.float3, s: float) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float4, y: sgl.math.float4, s: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float4, y: slangpy.math.float4, s: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.float4, y: sgl.math.float4, s: float) -> sgl.math.float4
+.. py:function:: slangpy.math.lerp(x: slangpy.math.float4, y: slangpy.math.float4, s: float) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.lerp(x: sgl.math.quatf, y: sgl.math.quatf, s: float) -> sgl.math.quatf
+.. py:function:: slangpy.math.lerp(x: slangpy.math.quatf, y: slangpy.math.quatf, s: float) -> slangpy.math.quatf
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.rcp(x: float) -> float
+.. py:function:: slangpy.math.rcp(x: float) -> float
 
-.. py:function:: sgl.math.rcp(x: float) -> float
+.. py:function:: slangpy.math.rcp(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.rcp(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.rcp(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.rcp(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.rcp(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.rcp(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.rcp(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.rcp(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.rcp(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.saturate(x: float) -> float
+.. py:function:: slangpy.math.saturate(x: float) -> float
 
-.. py:function:: sgl.math.saturate(x: float) -> float
+.. py:function:: slangpy.math.saturate(x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.saturate(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.saturate(x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.saturate(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.saturate(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.saturate(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.saturate(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.saturate(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.saturate(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.step(x: float, y: float) -> float
+.. py:function:: slangpy.math.step(x: float, y: float) -> float
 
-.. py:function:: sgl.math.step(x: float, y: float) -> float
+.. py:function:: slangpy.math.step(x: float, y: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.step(x: sgl.math.float1, y: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.step(x: slangpy.math.float1, y: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.step(x: sgl.math.float2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.step(x: slangpy.math.float2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.step(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.step(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.step(x: sgl.math.float4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.step(x: slangpy.math.float4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.smoothstep(min: float, max: float, x: float) -> float
+.. py:function:: slangpy.math.smoothstep(min: float, max: float, x: float) -> float
 
-.. py:function:: sgl.math.smoothstep(min: float, max: float, x: float) -> float
+.. py:function:: slangpy.math.smoothstep(min: float, max: float, x: float) -> float
     :no-index:
 
-.. py:function:: sgl.math.smoothstep(min: sgl.math.float1, max: sgl.math.float1, x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.smoothstep(min: slangpy.math.float1, max: slangpy.math.float1, x: slangpy.math.float1) -> slangpy.math.float1
     :no-index:
 
-.. py:function:: sgl.math.smoothstep(min: sgl.math.float2, max: sgl.math.float2, x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.smoothstep(min: slangpy.math.float2, max: slangpy.math.float2, x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.smoothstep(min: sgl.math.float3, max: sgl.math.float3, x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.smoothstep(min: slangpy.math.float3, max: slangpy.math.float3, x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.smoothstep(min: sgl.math.float4, max: sgl.math.float4, x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.smoothstep(min: slangpy.math.float4, max: slangpy.math.float4, x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.f16tof32(x: int) -> float
+.. py:function:: slangpy.math.f16tof32(x: int) -> float
 
-.. py:function:: sgl.math.f16tof32(x: sgl.math.uint2) -> sgl.math.float2
+.. py:function:: slangpy.math.f16tof32(x: slangpy.math.uint2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.f16tof32(x: sgl.math.uint3) -> sgl.math.float3
+.. py:function:: slangpy.math.f16tof32(x: slangpy.math.uint3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.f16tof32(x: sgl.math.uint4) -> sgl.math.float4
+.. py:function:: slangpy.math.f16tof32(x: slangpy.math.uint4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.f32tof16(x: float) -> int
+.. py:function:: slangpy.math.f32tof16(x: float) -> int
 
-.. py:function:: sgl.math.f32tof16(x: sgl.math.float2) -> sgl.math.uint2
+.. py:function:: slangpy.math.f32tof16(x: slangpy.math.float2) -> slangpy.math.uint2
     :no-index:
 
-.. py:function:: sgl.math.f32tof16(x: sgl.math.float3) -> sgl.math.uint3
+.. py:function:: slangpy.math.f32tof16(x: slangpy.math.float3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.f32tof16(x: sgl.math.float4) -> sgl.math.uint4
+.. py:function:: slangpy.math.f32tof16(x: slangpy.math.float4) -> slangpy.math.uint4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.asfloat(x: int) -> float
+.. py:function:: slangpy.math.asfloat(x: int) -> float
 
-.. py:function:: sgl.math.asfloat(x: int) -> float
+.. py:function:: slangpy.math.asfloat(x: int) -> float
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.asfloat16(x: int) -> sgl.math.float16_t
+.. py:function:: slangpy.math.asfloat16(x: int) -> slangpy.math.float16_t
 
 
 
 ----
 
-.. py:function:: sgl.math.asuint(x: float) -> int
+.. py:function:: slangpy.math.asuint(x: float) -> int
 
-.. py:function:: sgl.math.asuint(x: sgl.math.float2) -> sgl.math.uint2
+.. py:function:: slangpy.math.asuint(x: slangpy.math.float2) -> slangpy.math.uint2
     :no-index:
 
-.. py:function:: sgl.math.asuint(x: sgl.math.float3) -> sgl.math.uint3
+.. py:function:: slangpy.math.asuint(x: slangpy.math.float3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.asuint(x: sgl.math.float4) -> sgl.math.uint4
+.. py:function:: slangpy.math.asuint(x: slangpy.math.float4) -> slangpy.math.uint4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.asint(x: float) -> int
+.. py:function:: slangpy.math.asint(x: float) -> int
 
 
 
 ----
 
-.. py:function:: sgl.math.asuint16(x: sgl.math.float16_t) -> int
+.. py:function:: slangpy.math.asuint16(x: slangpy.math.float16_t) -> int
 
 
 
 ----
 
-.. py:function:: sgl.math.min(x: sgl.math.float1, y: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.min(x: slangpy.math.float1, y: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.min(x: sgl.math.float2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.min(x: slangpy.math.float2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.min(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.float4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.min(x: slangpy.math.float4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.uint1, y: sgl.math.uint1) -> sgl.math.uint1
+.. py:function:: slangpy.math.min(x: slangpy.math.uint1, y: slangpy.math.uint1) -> slangpy.math.uint1
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.uint2, y: sgl.math.uint2) -> sgl.math.uint2
+.. py:function:: slangpy.math.min(x: slangpy.math.uint2, y: slangpy.math.uint2) -> slangpy.math.uint2
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.uint3, y: sgl.math.uint3) -> sgl.math.uint3
+.. py:function:: slangpy.math.min(x: slangpy.math.uint3, y: slangpy.math.uint3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.uint4, y: sgl.math.uint4) -> sgl.math.uint4
+.. py:function:: slangpy.math.min(x: slangpy.math.uint4, y: slangpy.math.uint4) -> slangpy.math.uint4
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.int1, y: sgl.math.int1) -> sgl.math.int1
+.. py:function:: slangpy.math.min(x: slangpy.math.int1, y: slangpy.math.int1) -> slangpy.math.int1
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.int2, y: sgl.math.int2) -> sgl.math.int2
+.. py:function:: slangpy.math.min(x: slangpy.math.int2, y: slangpy.math.int2) -> slangpy.math.int2
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.int3, y: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.min(x: slangpy.math.int3, y: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.int4, y: sgl.math.int4) -> sgl.math.int4
+.. py:function:: slangpy.math.min(x: slangpy.math.int4, y: slangpy.math.int4) -> slangpy.math.int4
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.bool1, y: sgl.math.bool1) -> sgl.math.bool1
+.. py:function:: slangpy.math.min(x: slangpy.math.bool1, y: slangpy.math.bool1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.bool2, y: sgl.math.bool2) -> sgl.math.bool2
+.. py:function:: slangpy.math.min(x: slangpy.math.bool2, y: slangpy.math.bool2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.bool3, y: sgl.math.bool3) -> sgl.math.bool3
+.. py:function:: slangpy.math.min(x: slangpy.math.bool3, y: slangpy.math.bool3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.min(x: sgl.math.bool4, y: sgl.math.bool4) -> sgl.math.bool4
+.. py:function:: slangpy.math.min(x: slangpy.math.bool4, y: slangpy.math.bool4) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.max(x: sgl.math.float1, y: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.max(x: slangpy.math.float1, y: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.max(x: sgl.math.float2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.max(x: slangpy.math.float2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.max(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.float4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.max(x: slangpy.math.float4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.uint1, y: sgl.math.uint1) -> sgl.math.uint1
+.. py:function:: slangpy.math.max(x: slangpy.math.uint1, y: slangpy.math.uint1) -> slangpy.math.uint1
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.uint2, y: sgl.math.uint2) -> sgl.math.uint2
+.. py:function:: slangpy.math.max(x: slangpy.math.uint2, y: slangpy.math.uint2) -> slangpy.math.uint2
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.uint3, y: sgl.math.uint3) -> sgl.math.uint3
+.. py:function:: slangpy.math.max(x: slangpy.math.uint3, y: slangpy.math.uint3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.uint4, y: sgl.math.uint4) -> sgl.math.uint4
+.. py:function:: slangpy.math.max(x: slangpy.math.uint4, y: slangpy.math.uint4) -> slangpy.math.uint4
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.int1, y: sgl.math.int1) -> sgl.math.int1
+.. py:function:: slangpy.math.max(x: slangpy.math.int1, y: slangpy.math.int1) -> slangpy.math.int1
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.int2, y: sgl.math.int2) -> sgl.math.int2
+.. py:function:: slangpy.math.max(x: slangpy.math.int2, y: slangpy.math.int2) -> slangpy.math.int2
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.int3, y: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.max(x: slangpy.math.int3, y: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.int4, y: sgl.math.int4) -> sgl.math.int4
+.. py:function:: slangpy.math.max(x: slangpy.math.int4, y: slangpy.math.int4) -> slangpy.math.int4
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.bool1, y: sgl.math.bool1) -> sgl.math.bool1
+.. py:function:: slangpy.math.max(x: slangpy.math.bool1, y: slangpy.math.bool1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.bool2, y: sgl.math.bool2) -> sgl.math.bool2
+.. py:function:: slangpy.math.max(x: slangpy.math.bool2, y: slangpy.math.bool2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.bool3, y: sgl.math.bool3) -> sgl.math.bool3
+.. py:function:: slangpy.math.max(x: slangpy.math.bool3, y: slangpy.math.bool3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.max(x: sgl.math.bool4, y: sgl.math.bool4) -> sgl.math.bool4
+.. py:function:: slangpy.math.max(x: slangpy.math.bool4, y: slangpy.math.bool4) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.clamp(x: sgl.math.float1, min: sgl.math.float1, max: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.clamp(x: slangpy.math.float1, min: slangpy.math.float1, max: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.clamp(x: sgl.math.float2, min: sgl.math.float2, max: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.clamp(x: slangpy.math.float2, min: slangpy.math.float2, max: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.float3, min: sgl.math.float3, max: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.clamp(x: slangpy.math.float3, min: slangpy.math.float3, max: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.float4, min: sgl.math.float4, max: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.clamp(x: slangpy.math.float4, min: slangpy.math.float4, max: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.uint1, min: sgl.math.uint1, max: sgl.math.uint1) -> sgl.math.uint1
+.. py:function:: slangpy.math.clamp(x: slangpy.math.uint1, min: slangpy.math.uint1, max: slangpy.math.uint1) -> slangpy.math.uint1
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.uint2, min: sgl.math.uint2, max: sgl.math.uint2) -> sgl.math.uint2
+.. py:function:: slangpy.math.clamp(x: slangpy.math.uint2, min: slangpy.math.uint2, max: slangpy.math.uint2) -> slangpy.math.uint2
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.uint3, min: sgl.math.uint3, max: sgl.math.uint3) -> sgl.math.uint3
+.. py:function:: slangpy.math.clamp(x: slangpy.math.uint3, min: slangpy.math.uint3, max: slangpy.math.uint3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.uint4, min: sgl.math.uint4, max: sgl.math.uint4) -> sgl.math.uint4
+.. py:function:: slangpy.math.clamp(x: slangpy.math.uint4, min: slangpy.math.uint4, max: slangpy.math.uint4) -> slangpy.math.uint4
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.int1, min: sgl.math.int1, max: sgl.math.int1) -> sgl.math.int1
+.. py:function:: slangpy.math.clamp(x: slangpy.math.int1, min: slangpy.math.int1, max: slangpy.math.int1) -> slangpy.math.int1
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.int2, min: sgl.math.int2, max: sgl.math.int2) -> sgl.math.int2
+.. py:function:: slangpy.math.clamp(x: slangpy.math.int2, min: slangpy.math.int2, max: slangpy.math.int2) -> slangpy.math.int2
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.int3, min: sgl.math.int3, max: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.clamp(x: slangpy.math.int3, min: slangpy.math.int3, max: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.int4, min: sgl.math.int4, max: sgl.math.int4) -> sgl.math.int4
+.. py:function:: slangpy.math.clamp(x: slangpy.math.int4, min: slangpy.math.int4, max: slangpy.math.int4) -> slangpy.math.int4
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.bool1, min: sgl.math.bool1, max: sgl.math.bool1) -> sgl.math.bool1
+.. py:function:: slangpy.math.clamp(x: slangpy.math.bool1, min: slangpy.math.bool1, max: slangpy.math.bool1) -> slangpy.math.bool1
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.bool2, min: sgl.math.bool2, max: sgl.math.bool2) -> sgl.math.bool2
+.. py:function:: slangpy.math.clamp(x: slangpy.math.bool2, min: slangpy.math.bool2, max: slangpy.math.bool2) -> slangpy.math.bool2
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.bool3, min: sgl.math.bool3, max: sgl.math.bool3) -> sgl.math.bool3
+.. py:function:: slangpy.math.clamp(x: slangpy.math.bool3, min: slangpy.math.bool3, max: slangpy.math.bool3) -> slangpy.math.bool3
     :no-index:
 
-.. py:function:: sgl.math.clamp(x: sgl.math.bool4, min: sgl.math.bool4, max: sgl.math.bool4) -> sgl.math.bool4
+.. py:function:: slangpy.math.clamp(x: slangpy.math.bool4, min: slangpy.math.bool4, max: slangpy.math.bool4) -> slangpy.math.bool4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.abs(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.abs(x: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.abs(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.abs(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.abs(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.abs(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.int1) -> sgl.math.int1
+.. py:function:: slangpy.math.abs(x: slangpy.math.int1) -> slangpy.math.int1
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.int2) -> sgl.math.int2
+.. py:function:: slangpy.math.abs(x: slangpy.math.int2) -> slangpy.math.int2
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.abs(x: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.abs(x: sgl.math.int4) -> sgl.math.int4
+.. py:function:: slangpy.math.abs(x: slangpy.math.int4) -> slangpy.math.int4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.sign(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.sign(x: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.sign(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.sign(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.sign(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.sign(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.int1) -> sgl.math.int1
+.. py:function:: slangpy.math.sign(x: slangpy.math.int1) -> slangpy.math.int1
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.int2) -> sgl.math.int2
+.. py:function:: slangpy.math.sign(x: slangpy.math.int2) -> slangpy.math.int2
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.sign(x: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.sign(x: sgl.math.int4) -> sgl.math.int4
+.. py:function:: slangpy.math.sign(x: slangpy.math.int4) -> slangpy.math.int4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.dot(x: sgl.math.float1, y: sgl.math.float1) -> float
+.. py:function:: slangpy.math.dot(x: slangpy.math.float1, y: slangpy.math.float1) -> float
 
-.. py:function:: sgl.math.dot(x: sgl.math.float2, y: sgl.math.float2) -> float
+.. py:function:: slangpy.math.dot(x: slangpy.math.float2, y: slangpy.math.float2) -> float
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.float3, y: sgl.math.float3) -> float
+.. py:function:: slangpy.math.dot(x: slangpy.math.float3, y: slangpy.math.float3) -> float
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.float4, y: sgl.math.float4) -> float
+.. py:function:: slangpy.math.dot(x: slangpy.math.float4, y: slangpy.math.float4) -> float
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.uint1, y: sgl.math.uint1) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.uint1, y: slangpy.math.uint1) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.uint2, y: sgl.math.uint2) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.uint2, y: slangpy.math.uint2) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.uint3, y: sgl.math.uint3) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.uint3, y: slangpy.math.uint3) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.uint4, y: sgl.math.uint4) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.uint4, y: slangpy.math.uint4) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.int1, y: sgl.math.int1) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.int1, y: slangpy.math.int1) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.int2, y: sgl.math.int2) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.int2, y: slangpy.math.int2) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.int3, y: sgl.math.int3) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.int3, y: slangpy.math.int3) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.int4, y: sgl.math.int4) -> int
+.. py:function:: slangpy.math.dot(x: slangpy.math.int4, y: slangpy.math.int4) -> int
     :no-index:
 
-.. py:function:: sgl.math.dot(x: sgl.math.quatf, y: sgl.math.quatf) -> float
+.. py:function:: slangpy.math.dot(x: slangpy.math.quatf, y: slangpy.math.quatf) -> float
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.length(x: sgl.math.float1) -> float
+.. py:function:: slangpy.math.length(x: slangpy.math.float1) -> float
 
-.. py:function:: sgl.math.length(x: sgl.math.float2) -> float
+.. py:function:: slangpy.math.length(x: slangpy.math.float2) -> float
     :no-index:
 
-.. py:function:: sgl.math.length(x: sgl.math.float3) -> float
+.. py:function:: slangpy.math.length(x: slangpy.math.float3) -> float
     :no-index:
 
-.. py:function:: sgl.math.length(x: sgl.math.float4) -> float
+.. py:function:: slangpy.math.length(x: slangpy.math.float4) -> float
     :no-index:
 
-.. py:function:: sgl.math.length(x: sgl.math.quatf) -> float
+.. py:function:: slangpy.math.length(x: slangpy.math.quatf) -> float
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.normalize(x: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.normalize(x: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.normalize(x: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.normalize(x: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.normalize(x: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.normalize(x: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.normalize(x: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.normalize(x: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.normalize(x: sgl.math.quatf) -> sgl.math.quatf
+.. py:function:: slangpy.math.normalize(x: slangpy.math.quatf) -> slangpy.math.quatf
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.reflect(i: sgl.math.float1, n: sgl.math.float1) -> sgl.math.float1
+.. py:function:: slangpy.math.reflect(i: slangpy.math.float1, n: slangpy.math.float1) -> slangpy.math.float1
 
-.. py:function:: sgl.math.reflect(i: sgl.math.float2, n: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.reflect(i: slangpy.math.float2, n: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.reflect(i: sgl.math.float3, n: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.reflect(i: slangpy.math.float3, n: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.reflect(i: sgl.math.float4, n: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.reflect(i: slangpy.math.float4, n: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.cross(x: sgl.math.float3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.cross(x: slangpy.math.float3, y: slangpy.math.float3) -> slangpy.math.float3
 
-.. py:function:: sgl.math.cross(x: sgl.math.uint3, y: sgl.math.uint3) -> sgl.math.uint3
+.. py:function:: slangpy.math.cross(x: slangpy.math.uint3, y: slangpy.math.uint3) -> slangpy.math.uint3
     :no-index:
 
-.. py:function:: sgl.math.cross(x: sgl.math.int3, y: sgl.math.int3) -> sgl.math.int3
+.. py:function:: slangpy.math.cross(x: slangpy.math.int3, y: slangpy.math.int3) -> slangpy.math.int3
     :no-index:
 
-.. py:function:: sgl.math.cross(x: sgl.math.quatf, y: sgl.math.quatf) -> sgl.math.quatf
+.. py:function:: slangpy.math.cross(x: slangpy.math.quatf, y: slangpy.math.quatf) -> slangpy.math.quatf
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.any(x: sgl.math.bool1) -> bool
+.. py:function:: slangpy.math.any(x: slangpy.math.bool1) -> bool
 
-.. py:function:: sgl.math.any(x: sgl.math.bool2) -> bool
+.. py:function:: slangpy.math.any(x: slangpy.math.bool2) -> bool
     :no-index:
 
-.. py:function:: sgl.math.any(x: sgl.math.bool3) -> bool
+.. py:function:: slangpy.math.any(x: slangpy.math.bool3) -> bool
     :no-index:
 
-.. py:function:: sgl.math.any(x: sgl.math.bool4) -> bool
+.. py:function:: slangpy.math.any(x: slangpy.math.bool4) -> bool
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.all(x: sgl.math.bool1) -> bool
+.. py:function:: slangpy.math.all(x: slangpy.math.bool1) -> bool
 
-.. py:function:: sgl.math.all(x: sgl.math.bool2) -> bool
+.. py:function:: slangpy.math.all(x: slangpy.math.bool2) -> bool
     :no-index:
 
-.. py:function:: sgl.math.all(x: sgl.math.bool3) -> bool
+.. py:function:: slangpy.math.all(x: slangpy.math.bool3) -> bool
     :no-index:
 
-.. py:function:: sgl.math.all(x: sgl.math.bool4) -> bool
+.. py:function:: slangpy.math.all(x: slangpy.math.bool4) -> bool
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.none(x: sgl.math.bool1) -> bool
+.. py:function:: slangpy.math.none(x: slangpy.math.bool1) -> bool
 
-.. py:function:: sgl.math.none(x: sgl.math.bool2) -> bool
+.. py:function:: slangpy.math.none(x: slangpy.math.bool2) -> bool
     :no-index:
 
-.. py:function:: sgl.math.none(x: sgl.math.bool3) -> bool
+.. py:function:: slangpy.math.none(x: slangpy.math.bool3) -> bool
     :no-index:
 
-.. py:function:: sgl.math.none(x: sgl.math.bool4) -> bool
+.. py:function:: slangpy.math.none(x: slangpy.math.bool4) -> bool
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.transpose(x: sgl.math.float2x2) -> sgl.math.float2x2
+.. py:function:: slangpy.math.transpose(x: slangpy.math.float2x2) -> slangpy.math.float2x2
 
-.. py:function:: sgl.math.transpose(x: sgl.math.float3x3) -> sgl.math.float3x3
+.. py:function:: slangpy.math.transpose(x: slangpy.math.float3x3) -> slangpy.math.float3x3
     :no-index:
 
-.. py:function:: sgl.math.transpose(x: sgl.math.float2x4) -> sgl::math::matrix<float, 4, 2>
+.. py:function:: slangpy.math.transpose(x: slangpy.math.float2x4) -> sgl::math::matrix<float,4,2>
     :no-index:
 
-.. py:function:: sgl.math.transpose(x: sgl.math.float3x4) -> sgl::math::matrix<float, 4, 3>
+.. py:function:: slangpy.math.transpose(x: slangpy.math.float3x4) -> sgl::math::matrix<float,4,3>
     :no-index:
 
-.. py:function:: sgl.math.transpose(x: sgl.math.float4x4) -> sgl.math.float4x4
+.. py:function:: slangpy.math.transpose(x: slangpy.math.float4x4) -> slangpy.math.float4x4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.determinant(x: sgl.math.float2x2) -> float
+.. py:function:: slangpy.math.determinant(x: slangpy.math.float2x2) -> float
 
-.. py:function:: sgl.math.determinant(x: sgl.math.float3x3) -> float
+.. py:function:: slangpy.math.determinant(x: slangpy.math.float3x3) -> float
     :no-index:
 
-.. py:function:: sgl.math.determinant(x: sgl.math.float4x4) -> float
+.. py:function:: slangpy.math.determinant(x: slangpy.math.float4x4) -> float
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.inverse(x: sgl.math.float2x2) -> sgl.math.float2x2
+.. py:function:: slangpy.math.inverse(x: slangpy.math.float2x2) -> slangpy.math.float2x2
 
-.. py:function:: sgl.math.inverse(x: sgl.math.float3x3) -> sgl.math.float3x3
+.. py:function:: slangpy.math.inverse(x: slangpy.math.float3x3) -> slangpy.math.float3x3
     :no-index:
 
-.. py:function:: sgl.math.inverse(x: sgl.math.float4x4) -> sgl.math.float4x4
+.. py:function:: slangpy.math.inverse(x: slangpy.math.float4x4) -> slangpy.math.float4x4
     :no-index:
 
-.. py:function:: sgl.math.inverse(x: sgl.math.quatf) -> sgl.math.quatf
+.. py:function:: slangpy.math.inverse(x: slangpy.math.quatf) -> slangpy.math.quatf
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2x2, y: sgl.math.float2x2) -> sgl.math.float2x2
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2x2, y: slangpy.math.float2x2) -> slangpy.math.float2x2
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2x2, y: sgl.math.float2) -> sgl.math.float2
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2x2, y: slangpy.math.float2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2, y: sgl.math.float2x2) -> sgl.math.float2
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2, y: slangpy.math.float2x2) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3x3, y: sgl.math.float3x3) -> sgl.math.float3x3
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3x3, y: slangpy.math.float3x3) -> slangpy.math.float3x3
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3x3, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3x3, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3, y: sgl.math.float3x3) -> sgl.math.float3
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3, y: slangpy.math.float3x3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2x4, y: sgl::math::matrix<float, 4, 2>) -> sgl.math.float2x2
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2x4, y: sgl::math::matrix<float,4,2>) -> slangpy.math.float2x2
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2x4, y: sgl.math.float4) -> sgl.math.float2
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2x4, y: slangpy.math.float4) -> slangpy.math.float2
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float2, y: sgl.math.float2x4) -> sgl.math.float4
+.. py:function:: slangpy.math.mul(x: slangpy.math.float2, y: slangpy.math.float2x4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3x4, y: sgl::math::matrix<float, 4, 3>) -> sgl.math.float3x3
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3x4, y: sgl::math::matrix<float,4,3>) -> slangpy.math.float3x3
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3x4, y: sgl.math.float4) -> sgl.math.float3
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3x4, y: slangpy.math.float4) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float3, y: sgl.math.float3x4) -> sgl.math.float4
+.. py:function:: slangpy.math.mul(x: slangpy.math.float3, y: slangpy.math.float3x4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float4x4, y: sgl.math.float4x4) -> sgl.math.float4x4
+.. py:function:: slangpy.math.mul(x: slangpy.math.float4x4, y: slangpy.math.float4x4) -> slangpy.math.float4x4
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float4x4, y: sgl.math.float4) -> sgl.math.float4
+.. py:function:: slangpy.math.mul(x: slangpy.math.float4x4, y: slangpy.math.float4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.float4, y: sgl.math.float4x4) -> sgl.math.float4
+.. py:function:: slangpy.math.mul(x: slangpy.math.float4, y: slangpy.math.float4x4) -> slangpy.math.float4
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.quatf, y: sgl.math.quatf) -> sgl.math.quatf
+.. py:function:: slangpy.math.mul(x: slangpy.math.quatf, y: slangpy.math.quatf) -> slangpy.math.quatf
     :no-index:
 
-.. py:function:: sgl.math.mul(x: sgl.math.quatf, y: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.mul(x: slangpy.math.quatf, y: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.transform_point(m: sgl.math.float4x4, v: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.transform_point(m: slangpy.math.float4x4, v: slangpy.math.float3) -> slangpy.math.float3
 
 
 
 ----
 
-.. py:function:: sgl.math.transform_vector(m: sgl.math.float3x3, v: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.transform_vector(m: slangpy.math.float3x3, v: slangpy.math.float3) -> slangpy.math.float3
 
-.. py:function:: sgl.math.transform_vector(m: sgl.math.float4x4, v: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.transform_vector(m: slangpy.math.float4x4, v: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
-.. py:function:: sgl.math.transform_vector(q: sgl.math.quatf, v: sgl.math.float3) -> sgl.math.float3
+.. py:function:: slangpy.math.transform_vector(q: slangpy.math.quatf, v: slangpy.math.float3) -> slangpy.math.float3
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.translate(m: sgl.math.float4x4, v: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.translate(m: slangpy.math.float4x4, v: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.rotate(m: sgl.math.float4x4, angle: float, axis: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.rotate(m: slangpy.math.float4x4, angle: float, axis: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.scale(m: sgl.math.float4x4, v: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.scale(m: slangpy.math.float4x4, v: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.perspective(fovy: float, aspect: float, z_near: float, z_far: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.perspective(fovy: float, aspect: float, z_near: float, z_far: float) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.ortho(left: float, right: float, bottom: float, top: float, z_near: float, z_far: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.ortho(left: float, right: float, bottom: float, top: float, z_near: float, z_far: float) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_translation(v: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_translation(v: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_scaling(v: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_scaling(v: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_rotation(angle: float, axis: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation(angle: float, axis: slangpy.math.float3) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_rotation_x(angle: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation_x(angle: float) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_rotation_y(angle: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation_y(angle: float) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_rotation_z(angle: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation_z(angle: float) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_rotation_xyz(angle_x: float, angle_y: float, angle_z: float) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation_xyz(angle_x: float, angle_y: float, angle_z: float) -> slangpy.math.float4x4
 
-.. py:function:: sgl.math.matrix_from_rotation_xyz(angles: sgl.math.float3) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_rotation_xyz(angles: slangpy.math.float3) -> slangpy.math.float4x4
     :no-index:
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_look_at(eye: sgl.math.float3, center: sgl.math.float3, up: sgl.math.float3, handedness: sgl.math.Handedness = Handedness.right_handed) -> sgl.math.float4x4
+.. py:function:: slangpy.math.matrix_from_look_at(eye: slangpy.math.float3, center: slangpy.math.float3, up: slangpy.math.float3, handedness: slangpy.math.Handedness = Handedness.right_handed) -> slangpy.math.float4x4
 
 
 
 ----
 
-.. py:function:: sgl.math.matrix_from_quat(q: sgl.math.quatf) -> sgl.math.float3x3
+.. py:function:: slangpy.math.matrix_from_quat(q: slangpy.math.quatf) -> slangpy.math.float3x3
 
 
 
 ----
 
-.. py:function:: sgl.math.conjugate(x: sgl.math.quatf) -> sgl.math.quatf
+.. py:function:: slangpy.math.conjugate(x: slangpy.math.quatf) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.slerp(x: sgl.math.quatf, y: sgl.math.quatf, s: float) -> sgl.math.quatf
+.. py:function:: slangpy.math.slerp(x: slangpy.math.quatf, y: slangpy.math.quatf, s: float) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.pitch(x: sgl.math.quatf) -> float
+.. py:function:: slangpy.math.pitch(x: slangpy.math.quatf) -> float
 
 
 
 ----
 
-.. py:function:: sgl.math.yaw(x: sgl.math.quatf) -> float
+.. py:function:: slangpy.math.yaw(x: slangpy.math.quatf) -> float
 
 
 
 ----
 
-.. py:function:: sgl.math.roll(x: sgl.math.quatf) -> float
+.. py:function:: slangpy.math.roll(x: slangpy.math.quatf) -> float
 
 
 
 ----
 
-.. py:function:: sgl.math.euler_angles(x: sgl.math.quatf) -> sgl.math.float3
+.. py:function:: slangpy.math.euler_angles(x: slangpy.math.quatf) -> slangpy.math.float3
 
 
 
 ----
 
-.. py:function:: sgl.math.quat_from_angle_axis(angle: float, axis: sgl.math.float3) -> sgl.math.quatf
+.. py:function:: slangpy.math.quat_from_angle_axis(angle: float, axis: slangpy.math.float3) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.quat_from_rotation_between_vectors(from_: sgl.math.float3, to: sgl.math.float3) -> sgl.math.quatf
+.. py:function:: slangpy.math.quat_from_rotation_between_vectors(from_: slangpy.math.float3, to: slangpy.math.float3) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.quat_from_euler_angles(angles: sgl.math.float3) -> sgl.math.quatf
+.. py:function:: slangpy.math.quat_from_euler_angles(angles: slangpy.math.float3) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.quat_from_matrix(m: sgl.math.float3x3) -> sgl.math.quatf
+.. py:function:: slangpy.math.quat_from_matrix(m: slangpy.math.float3x3) -> slangpy.math.quatf
 
 
 
 ----
 
-.. py:function:: sgl.math.quat_from_look_at(dir: sgl.math.float3, up: sgl.math.float3, handedness: sgl.math.Handedness = Handedness.right_handed) -> sgl.math.quatf
+.. py:function:: slangpy.math.quat_from_look_at(dir: slangpy.math.float3, up: slangpy.math.float3, handedness: slangpy.math.Handedness = Handedness.right_handed) -> slangpy.math.quatf
 
 
 
@@ -10782,45 +11421,45 @@ Math
 UI
 --
 
-.. py:class:: sgl.ui.Context
+.. py:class:: slangpy.ui.Context
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     
     
-    .. py:method:: __init__(self, device: sgl.Device) -> None
+    .. py:method:: __init__(self, device: slangpy.Device) -> None
     
     .. py:method:: new_frame(self, width: int, height: int) -> None
     
-    .. py:method:: render(self, texture_view: sgl.TextureView, command_encoder: sgl.CommandEncoder) -> None
+    .. py:method:: render(self, texture_view: slangpy.TextureView, command_encoder: slangpy.CommandEncoder) -> None
     
-    .. py:method:: render(self, texture: sgl.Texture, command_encoder: sgl.CommandEncoder) -> None
+    .. py:method:: render(self, texture: slangpy.Texture, command_encoder: slangpy.CommandEncoder) -> None
         :no-index:
     
-    .. py:method:: handle_keyboard_event(self, event: sgl.KeyboardEvent) -> bool
+    .. py:method:: handle_keyboard_event(self, event: slangpy.KeyboardEvent) -> bool
     
-    .. py:method:: handle_mouse_event(self, event: sgl.MouseEvent) -> bool
+    .. py:method:: handle_mouse_event(self, event: slangpy.MouseEvent) -> bool
     
     .. py:method:: process_events(self) -> None
     
     .. py:property:: screen
-        :type: sgl.ui.Screen
+        :type: slangpy.ui.Screen
     
 
 
 ----
 
-.. py:class:: sgl.ui.Widget
+.. py:class:: slangpy.ui.Widget
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Base class for Python UI widgets. Widgets own their children.
     
     .. py:property:: parent
-        :type: sgl.ui.Widget
+        :type: slangpy.ui.Widget
     
     .. py:property:: children
-        :type: list[sgl.ui.Widget]
+        :type: list[slangpy.ui.Widget]
     
     .. py:property:: visible
         :type: bool
@@ -10828,13 +11467,13 @@ UI
     .. py:property:: enabled
         :type: bool
     
-    .. py:method:: child_index(self, child: sgl.ui.Widget) -> int
+    .. py:method:: child_index(self, child: slangpy.ui.Widget) -> int
     
-    .. py:method:: add_child(self, child: sgl.ui.Widget) -> None
+    .. py:method:: add_child(self, child: slangpy.ui.Widget) -> None
     
-    .. py:method:: add_child_at(self, child: sgl.ui.Widget, index: int) -> None
+    .. py:method:: add_child_at(self, child: slangpy.ui.Widget, index: int) -> None
     
-    .. py:method:: remove_child(self, child: sgl.ui.Widget) -> None
+    .. py:method:: remove_child(self, child: slangpy.ui.Widget) -> None
     
     .. py:method:: remove_child_at(self, index: int) -> None
     
@@ -10844,9 +11483,9 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.Screen
+.. py:class:: slangpy.ui.Screen
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     This is the main widget that represents the screen. It is intended to
     be used as the parent for ``Window`` widgets.
@@ -10857,13 +11496,13 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.Window
+.. py:class:: slangpy.ui.Window
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, title: str = '', position: sgl.math.float2 = {10, 10}, size: sgl.math.float2 = {400, 400}) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, title: str = '', position: slangpy.math.float2 = {10, 10}, size: slangpy.math.float2 = {400, 400}) -> None
     
     .. py:method:: show(self) -> None
     
@@ -10873,20 +11512,20 @@ UI
         :type: str
     
     .. py:property:: position
-        :type: sgl.math.float2
+        :type: slangpy.math.float2
     
     .. py:property:: size
-        :type: sgl.math.float2
+        :type: slangpy.math.float2
     
 
 
 ----
 
-.. py:class:: sgl.ui.Group
+.. py:class:: slangpy.ui.Group
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '') -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '') -> None
     
     .. py:property:: label
         :type: str
@@ -10895,11 +11534,11 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.Text
+.. py:class:: slangpy.ui.Text
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, text: str = '') -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, text: str = '') -> None
     
     .. py:property:: text
         :type: str
@@ -10908,13 +11547,13 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ProgressBar
+.. py:class:: slangpy.ui.ProgressBar
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, fraction: float = 0.0) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, fraction: float = 0.0) -> None
     
     .. py:property:: fraction
         :type: float
@@ -10923,13 +11562,13 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.Button
+.. py:class:: slangpy.ui.Button
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', callback: collections.abc.Callable[[], None] | None = None) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', callback: collections.abc.Callable[[], None] | None = None) -> None
     
     .. py:property:: label
         :type: str
@@ -10941,9 +11580,9 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyBool
+.. py:class:: slangpy.ui.ValuePropertyBool
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
@@ -10958,9 +11597,9 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyInt
+.. py:class:: slangpy.ui.ValuePropertyInt
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
@@ -10975,60 +11614,60 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyInt2
+.. py:class:: slangpy.ui.ValuePropertyInt2
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.int2
+        :type: slangpy.math.int2
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.int2], None]
+        :type: collections.abc.Callable[[slangpy.math.int2], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyInt3
+.. py:class:: slangpy.ui.ValuePropertyInt3
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.int3
+        :type: slangpy.math.int3
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.int3], None]
+        :type: collections.abc.Callable[[slangpy.math.int3], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyInt4
+.. py:class:: slangpy.ui.ValuePropertyInt4
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.int4
+        :type: slangpy.math.int4
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.int4], None]
+        :type: collections.abc.Callable[[slangpy.math.int4], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyFloat
+.. py:class:: slangpy.ui.ValuePropertyFloat
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
@@ -11043,60 +11682,60 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyFloat2
+.. py:class:: slangpy.ui.ValuePropertyFloat2
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.float2
+        :type: slangpy.math.float2
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.float2], None]
+        :type: collections.abc.Callable[[slangpy.math.float2], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyFloat3
+.. py:class:: slangpy.ui.ValuePropertyFloat3
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.float3
+        :type: slangpy.math.float3
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.float3], None]
+        :type: collections.abc.Callable[[slangpy.math.float3], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyFloat4
+.. py:class:: slangpy.ui.ValuePropertyFloat4
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
     
     .. py:property:: value
-        :type: sgl.math.float4
+        :type: slangpy.math.float4
     
     .. py:property:: callback
-        :type: collections.abc.Callable[[sgl.math.float4], None]
+        :type: collections.abc.Callable[[slangpy.math.float4], None]
     
 
 
 ----
 
-.. py:class:: sgl.ui.ValuePropertyString
+.. py:class:: slangpy.ui.ValuePropertyString
 
-    Base class: :py:class:`sgl.ui.Widget`
+    Base class: :py:class:`slangpy.ui.Widget`
     
     .. py:property:: label
         :type: str
@@ -11111,25 +11750,25 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.CheckBox
+.. py:class:: slangpy.ui.CheckBox
 
-    Base class: :py:class:`sgl.ui.ValuePropertyBool`
+    Base class: :py:class:`slangpy.ui.ValuePropertyBool`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: bool = False, callback: collections.abc.Callable[[bool], None] | None = None) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: bool = False, callback: collections.abc.Callable[[bool], None] | None = None) -> None
     
 
 
 ----
 
-.. py:class:: sgl.ui.ComboBox
+.. py:class:: slangpy.ui.ComboBox
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, items: collections.abc.Sequence[str] = []) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, items: collections.abc.Sequence[str] = []) -> None
     
     .. py:property:: items
         :type: list[str]
@@ -11138,11 +11777,11 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.ListBox
+.. py:class:: slangpy.ui.ListBox
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, items: collections.abc.Sequence[str] = [], height_in_items: int = -1) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, items: collections.abc.Sequence[str] = [], height_in_items: int = -1) -> None
     
     .. py:property:: items
         :type: list[str]
@@ -11154,41 +11793,41 @@ UI
 
 ----
 
-.. py:class:: sgl.ui.SliderFlags
+.. py:class:: slangpy.ui.SliderFlags
 
     Base class: :py:class:`enum.IntFlag`
     
     
     
-    .. py:attribute:: sgl.ui.SliderFlags.none
+    .. py:attribute:: slangpy.ui.SliderFlags.none
         :type: SliderFlags
-        :value: SliderFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.ui.SliderFlags.always_clamp
+    .. py:attribute:: slangpy.ui.SliderFlags.always_clamp
         :type: SliderFlags
-        :value: SliderFlags.always_clamp
+        :value: 16
     
-    .. py:attribute:: sgl.ui.SliderFlags.logarithmic
+    .. py:attribute:: slangpy.ui.SliderFlags.logarithmic
         :type: SliderFlags
-        :value: SliderFlags.logarithmic
+        :value: 32
     
-    .. py:attribute:: sgl.ui.SliderFlags.no_round_to_format
+    .. py:attribute:: slangpy.ui.SliderFlags.no_round_to_format
         :type: SliderFlags
-        :value: SliderFlags.no_round_to_format
+        :value: 64
     
-    .. py:attribute:: sgl.ui.SliderFlags.no_input
+    .. py:attribute:: slangpy.ui.SliderFlags.no_input
         :type: SliderFlags
-        :value: SliderFlags.no_input
+        :value: 128
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragFloat
+.. py:class:: slangpy.ui.DragFloat
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: float
@@ -11203,17 +11842,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragFloat2
+.. py:class:: slangpy.ui.DragFloat2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.float2], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.float2], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: float
@@ -11228,17 +11867,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragFloat3
+.. py:class:: slangpy.ui.DragFloat3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float3], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float3], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: float
@@ -11253,17 +11892,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragFloat4
+.. py:class:: slangpy.ui.DragFloat4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float4], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float4], None] | None = None, speed: float = 1.0, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: float
@@ -11278,17 +11917,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragInt
+.. py:class:: slangpy.ui.DragInt
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: int
@@ -11303,17 +11942,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragInt2
+.. py:class:: slangpy.ui.DragInt2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.int2], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.int2], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: int
@@ -11328,17 +11967,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragInt3
+.. py:class:: slangpy.ui.DragInt3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int3], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int3], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: int
@@ -11353,17 +11992,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.DragInt4
+.. py:class:: slangpy.ui.DragInt4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int4], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int4], None] | None = None, speed: float = 1.0, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: speed
         :type: int
@@ -11378,17 +12017,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderFloat
+.. py:class:: slangpy.ui.SliderFloat
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: float
@@ -11400,17 +12039,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderFloat2
+.. py:class:: slangpy.ui.SliderFloat2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.float2], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.float2], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: float
@@ -11422,17 +12061,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderFloat3
+.. py:class:: slangpy.ui.SliderFloat3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float3], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float3], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: float
@@ -11444,17 +12083,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderFloat4
+.. py:class:: slangpy.ui.SliderFloat4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float4], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float4], None] | None = None, min: float = 0.0, max: float = 0.0, format: str = '%.3f', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: float
@@ -11466,17 +12105,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderInt
+.. py:class:: slangpy.ui.SliderInt
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: int
@@ -11488,17 +12127,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderInt2
+.. py:class:: slangpy.ui.SliderInt2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.int2], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.int2], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: int
@@ -11510,17 +12149,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderInt3
+.. py:class:: slangpy.ui.SliderInt3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int3], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int3], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: int
@@ -11532,17 +12171,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.SliderInt4
+.. py:class:: slangpy.ui.SliderInt4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int4], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: sgl.ui.SliderFlags = SliderFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int4], None] | None = None, min: int = 0, max: int = 0, format: str = '%d', flags: slangpy.ui.SliderFlags = 0) -> None
     
     .. py:property:: min
         :type: int
@@ -11554,107 +12193,107 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.SliderFlags
+        :type: slangpy.ui.SliderFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputTextFlags
+.. py:class:: slangpy.ui.InputTextFlags
 
     Base class: :py:class:`enum.IntFlag`
     
     
     
-    .. py:attribute:: sgl.ui.InputTextFlags.none
+    .. py:attribute:: slangpy.ui.InputTextFlags.none
         :type: InputTextFlags
-        :value: InputTextFlags.none
+        :value: 0
     
-    .. py:attribute:: sgl.ui.InputTextFlags.chars_decimal
+    .. py:attribute:: slangpy.ui.InputTextFlags.chars_decimal
         :type: InputTextFlags
-        :value: InputTextFlags.chars_decimal
+        :value: 1
     
-    .. py:attribute:: sgl.ui.InputTextFlags.chars_hexadecimal
+    .. py:attribute:: slangpy.ui.InputTextFlags.chars_hexadecimal
         :type: InputTextFlags
-        :value: InputTextFlags.chars_hexadecimal
+        :value: 2
     
-    .. py:attribute:: sgl.ui.InputTextFlags.chars_uppercase
+    .. py:attribute:: slangpy.ui.InputTextFlags.chars_uppercase
         :type: InputTextFlags
-        :value: InputTextFlags.chars_uppercase
+        :value: 4
     
-    .. py:attribute:: sgl.ui.InputTextFlags.chars_no_blank
+    .. py:attribute:: slangpy.ui.InputTextFlags.chars_no_blank
         :type: InputTextFlags
-        :value: InputTextFlags.chars_no_blank
+        :value: 8
     
-    .. py:attribute:: sgl.ui.InputTextFlags.auto_select_all
+    .. py:attribute:: slangpy.ui.InputTextFlags.auto_select_all
         :type: InputTextFlags
-        :value: InputTextFlags.auto_select_all
+        :value: 16
     
-    .. py:attribute:: sgl.ui.InputTextFlags.enter_returns_true
+    .. py:attribute:: slangpy.ui.InputTextFlags.enter_returns_true
         :type: InputTextFlags
-        :value: InputTextFlags.enter_returns_true
+        :value: 32
     
-    .. py:attribute:: sgl.ui.InputTextFlags.callback_completion
+    .. py:attribute:: slangpy.ui.InputTextFlags.callback_completion
         :type: InputTextFlags
-        :value: InputTextFlags.callback_completion
+        :value: 64
     
-    .. py:attribute:: sgl.ui.InputTextFlags.callback_history
+    .. py:attribute:: slangpy.ui.InputTextFlags.callback_history
         :type: InputTextFlags
-        :value: InputTextFlags.callback_history
+        :value: 128
     
-    .. py:attribute:: sgl.ui.InputTextFlags.callback_always
+    .. py:attribute:: slangpy.ui.InputTextFlags.callback_always
         :type: InputTextFlags
-        :value: InputTextFlags.callback_always
+        :value: 256
     
-    .. py:attribute:: sgl.ui.InputTextFlags.callback_char_filter
+    .. py:attribute:: slangpy.ui.InputTextFlags.callback_char_filter
         :type: InputTextFlags
-        :value: InputTextFlags.callback_char_filter
+        :value: 512
     
-    .. py:attribute:: sgl.ui.InputTextFlags.allow_tab_input
+    .. py:attribute:: slangpy.ui.InputTextFlags.allow_tab_input
         :type: InputTextFlags
-        :value: InputTextFlags.allow_tab_input
+        :value: 1024
     
-    .. py:attribute:: sgl.ui.InputTextFlags.ctrl_enter_for_new_line
+    .. py:attribute:: slangpy.ui.InputTextFlags.ctrl_enter_for_new_line
         :type: InputTextFlags
-        :value: InputTextFlags.ctrl_enter_for_new_line
+        :value: 2048
     
-    .. py:attribute:: sgl.ui.InputTextFlags.no_horizontal_scroll
+    .. py:attribute:: slangpy.ui.InputTextFlags.no_horizontal_scroll
         :type: InputTextFlags
-        :value: InputTextFlags.no_horizontal_scroll
+        :value: 4096
     
-    .. py:attribute:: sgl.ui.InputTextFlags.always_overwrite
+    .. py:attribute:: slangpy.ui.InputTextFlags.always_overwrite
         :type: InputTextFlags
-        :value: InputTextFlags.always_overwrite
+        :value: 8192
     
-    .. py:attribute:: sgl.ui.InputTextFlags.read_only
+    .. py:attribute:: slangpy.ui.InputTextFlags.read_only
         :type: InputTextFlags
-        :value: InputTextFlags.read_only
+        :value: 16384
     
-    .. py:attribute:: sgl.ui.InputTextFlags.password
+    .. py:attribute:: slangpy.ui.InputTextFlags.password
         :type: InputTextFlags
-        :value: InputTextFlags.password
+        :value: 32768
     
-    .. py:attribute:: sgl.ui.InputTextFlags.no_undo_redo
+    .. py:attribute:: slangpy.ui.InputTextFlags.no_undo_redo
         :type: InputTextFlags
-        :value: InputTextFlags.no_undo_redo
+        :value: 65536
     
-    .. py:attribute:: sgl.ui.InputTextFlags.chars_scientific
+    .. py:attribute:: slangpy.ui.InputTextFlags.chars_scientific
         :type: InputTextFlags
-        :value: InputTextFlags.chars_scientific
+        :value: 131072
     
-    .. py:attribute:: sgl.ui.InputTextFlags.escape_clears_all
+    .. py:attribute:: slangpy.ui.InputTextFlags.escape_clears_all
         :type: InputTextFlags
-        :value: InputTextFlags.escape_clears_all
+        :value: 1048576
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputFloat
+.. py:class:: slangpy.ui.InputFloat
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: float = 0.0, callback: collections.abc.Callable[[float], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: float
@@ -11666,17 +12305,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputFloat2
+.. py:class:: slangpy.ui.InputFloat2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.float2], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.float2], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: float
@@ -11688,17 +12327,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputFloat3
+.. py:class:: slangpy.ui.InputFloat3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float3], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float3], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: float
@@ -11710,17 +12349,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputFloat4
+.. py:class:: slangpy.ui.InputFloat4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyFloat4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyFloat4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.float4], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.float4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.float4], None] | None = None, step: float = 1.0, step_fast: float = 100.0, format: str = '%.3f', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: float
@@ -11732,17 +12371,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputInt
+.. py:class:: slangpy.ui.InputInt
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: int = 0, callback: collections.abc.Callable[[int], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: int
@@ -11754,17 +12393,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputInt2
+.. py:class:: slangpy.ui.InputInt2
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt2`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt2`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int2 = {0, 0}, callback: collections.abc.Callable[[sgl.math.int2], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int2 = {0, 0}, callback: collections.abc.Callable[[slangpy.math.int2], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: int
@@ -11776,17 +12415,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputInt3
+.. py:class:: slangpy.ui.InputInt3
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt3`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt3`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int3], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int3 = {0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int3], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: int
@@ -11798,17 +12437,17 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputInt4
+.. py:class:: slangpy.ui.InputInt4
 
-    Base class: :py:class:`sgl.ui.ValuePropertyInt4`
+    Base class: :py:class:`slangpy.ui.ValuePropertyInt4`
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: sgl.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[sgl.math.int4], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: slangpy.math.int4 = {0, 0, 0, 0}, callback: collections.abc.Callable[[slangpy.math.int4], None] | None = None, step: int = 1, step_fast: int = 100, format: str = '%d', flags: slangpy.ui.InputTextFlags = 0) -> None
     
     .. py:property:: step
         :type: int
@@ -11820,19 +12459,19 @@ UI
         :type: str
     
     .. py:property:: flags
-        :type: sgl.ui.InputTextFlags
+        :type: slangpy.ui.InputTextFlags
     
 
 
 ----
 
-.. py:class:: sgl.ui.InputText
+.. py:class:: slangpy.ui.InputText
 
-    Base class: :py:class:`sgl.ui.ValuePropertyString`
+    Base class: :py:class:`slangpy.ui.ValuePropertyString`
     
     
     
-    .. py:method:: __init__(self, parent: sgl.ui.Widget | None, label: str = '', value: str = False, callback: collections.abc.Callable[[str], None] | None = None, multi_line: bool = False, flags: sgl.ui.InputTextFlags = InputTextFlags.none) -> None
+    .. py:method:: __init__(self, parent: slangpy.ui.Widget | None, label: str = '', value: str = False, callback: collections.abc.Callable[[str], None] | None = None, multi_line: bool = False, flags: slangpy.ui.InputTextFlags = 0) -> None
     
 
 
@@ -11841,15 +12480,15 @@ UI
 Utilities
 ---------
 
-.. py:class:: sgl.TextureLoader
+.. py:class:: slangpy.TextureLoader
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     Utility class for loading textures from bitmaps and image files.
     
-    .. py:method:: __init__(self, device: sgl.Device) -> None
+    .. py:method:: __init__(self, device: slangpy.Device) -> None
     
-    .. py:class:: sgl.TextureLoader.Options
+    .. py:class:: slangpy.TextureLoader.Options
     
         
         
@@ -11885,9 +12524,9 @@ Utilities
             Generate mip levels for the texture.
             
         .. py:property:: usage
-            :type: sgl.TextureUsage
+            :type: slangpy.TextureUsage
         
-    .. py:method:: load_texture(self, bitmap: sgl.Bitmap, options: sgl.TextureLoader.Options | None = None) -> sgl.Texture
+    .. py:method:: load_texture(self, bitmap: slangpy.Bitmap, options: slangpy.TextureLoader.Options | None = None) -> slangpy.Texture
     
         Load a texture from a bitmap.
         
@@ -11900,7 +12539,7 @@ Utilities
         Returns:
             New texture object.
         
-    .. py:method:: load_texture(self, path: str | os.PathLike, options: sgl.TextureLoader.Options | None = None) -> sgl.Texture
+    .. py:method:: load_texture(self, path: str | os.PathLike, options: slangpy.TextureLoader.Options | None = None) -> slangpy.Texture
         :no-index:
     
         Load a texture from an image file.
@@ -11914,7 +12553,7 @@ Utilities
         Returns:
             New texture object.
         
-    .. py:method:: load_textures(self, bitmaps: Sequence[sgl.Bitmap], options: sgl.TextureLoader.Options | None = None) -> list[sgl.Texture]
+    .. py:method:: load_textures(self, bitmaps: Sequence[slangpy.Bitmap], options: slangpy.TextureLoader.Options | None = None) -> list[slangpy.Texture]
     
         Load textures from a list of bitmaps.
         
@@ -11927,7 +12566,7 @@ Utilities
         Returns:
             List of new of texture objects.
         
-    .. py:method:: load_textures(self, paths: Sequence[str | os.PathLike], options: sgl.TextureLoader.Options | None = None) -> list[sgl.Texture]
+    .. py:method:: load_textures(self, paths: Sequence[str | os.PathLike], options: slangpy.TextureLoader.Options | None = None) -> list[slangpy.Texture]
         :no-index:
     
         Load textures from a list of image files.
@@ -11941,7 +12580,7 @@ Utilities
         Returns:
             List of new texture objects.
         
-    .. py:method:: load_texture_array(self, bitmaps: Sequence[sgl.Bitmap], options: sgl.TextureLoader.Options | None = None) -> sgl.Texture
+    .. py:method:: load_texture_array(self, bitmaps: Sequence[slangpy.Bitmap], options: slangpy.TextureLoader.Options | None = None) -> slangpy.Texture
     
         Load a texture array from a list of bitmaps.
         
@@ -11956,7 +12595,7 @@ Utilities
         Returns:
             New texture array object.
         
-    .. py:method:: load_texture_array(self, paths: Sequence[str | os.PathLike], options: sgl.TextureLoader.Options | None = None) -> sgl.Texture
+    .. py:method:: load_texture_array(self, paths: Sequence[str | os.PathLike], options: slangpy.TextureLoader.Options | None = None) -> slangpy.Texture
         :no-index:
     
         Load a texture array from a list of image files.
@@ -11976,7 +12615,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.tev.show(bitmap: sgl.Bitmap, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> bool
+.. py:function:: slangpy.tev.show(bitmap: slangpy.Bitmap, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> bool
 
     Show a bitmap in the tev viewer (https://github.com/Tom94/tev).
     
@@ -12001,7 +12640,7 @@ Utilities
     Returns:
         True if successful.
     
-.. py:function:: sgl.tev.show(texture: sgl.Texture, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> bool
+.. py:function:: slangpy.tev.show(texture: slangpy.Texture, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> bool
     :no-index:
 
     Show texture in the tev viewer (https://github.com/Tom94/tev).
@@ -12031,7 +12670,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.tev.show_async(bitmap: sgl.Bitmap, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> None
+.. py:function:: slangpy.tev.show_async(bitmap: slangpy.Bitmap, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> None
 
     Show a bitmap in the tev viewer (https://github.com/Tom94/tev).
     
@@ -12054,7 +12693,7 @@ Utilities
     Parameter ``max_retries``:
         Maximum number of retries.
     
-.. py:function:: sgl.tev.show_async(texture: sgl.Texture, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> None
+.. py:function:: slangpy.tev.show_async(texture: slangpy.Texture, name: str = '', host: str = '127.0.0.1', port: int = 14158, max_retries: int = 3) -> None
     :no-index:
 
     Show a texture in the tev viewer (https://github.com/Tom94/tev).
@@ -12082,7 +12721,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.renderdoc.is_available() -> bool
+.. py:function:: slangpy.renderdoc.is_available() -> bool
 
     Check if RenderDoc is available.
     
@@ -12096,7 +12735,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.renderdoc.start_frame_capture(device: sgl.Device, window: sgl.Window | None = None) -> bool
+.. py:function:: slangpy.renderdoc.start_frame_capture(device: slangpy.Device, window: slangpy.Window | None = None) -> bool
 
     Start capturing a frame in RenderDoc.
     
@@ -12118,7 +12757,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.renderdoc.end_frame_capture() -> bool
+.. py:function:: slangpy.renderdoc.end_frame_capture() -> bool
 
     End capturing a frame in RenderDoc.
     
@@ -12132,7 +12771,7 @@ Utilities
 
 ----
 
-.. py:function:: sgl.renderdoc.is_frame_capturing() -> bool
+.. py:function:: slangpy.renderdoc.is_frame_capturing() -> bool
 
     Check if a frame is currently being captured in RenderDoc.
     
@@ -12146,23 +12785,23 @@ Utilities
 SlangPy
 -------
 
-.. py:class:: sgl.slangpy.AccessType
+.. py:class:: slangpy.slangpy.AccessType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.slangpy.AccessType.none
+    .. py:attribute:: slangpy.slangpy.AccessType.none
         :type: AccessType
         :value: AccessType.none
     
-    .. py:attribute:: sgl.slangpy.AccessType.read
+    .. py:attribute:: slangpy.slangpy.AccessType.read
         :type: AccessType
         :value: AccessType.read
     
-    .. py:attribute:: sgl.slangpy.AccessType.write
+    .. py:attribute:: slangpy.slangpy.AccessType.write
         :type: AccessType
         :value: AccessType.write
     
-    .. py:attribute:: sgl.slangpy.AccessType.readwrite
+    .. py:attribute:: slangpy.slangpy.AccessType.readwrite
         :type: AccessType
         :value: AccessType.readwrite
     
@@ -12170,19 +12809,19 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.CallMode
+.. py:class:: slangpy.slangpy.CallMode
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.slangpy.CallMode.prim
+    .. py:attribute:: slangpy.slangpy.CallMode.prim
         :type: CallMode
         :value: CallMode.prim
     
-    .. py:attribute:: sgl.slangpy.CallMode.bwds
+    .. py:attribute:: slangpy.slangpy.CallMode.bwds
         :type: CallMode
         :value: CallMode.bwds
     
-    .. py:attribute:: sgl.slangpy.CallMode.fwds
+    .. py:attribute:: slangpy.slangpy.CallMode.fwds
         :type: CallMode
         :value: CallMode.fwds
     
@@ -12190,7 +12829,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.unpack_args(*args) -> list
+.. py:function:: slangpy.slangpy.unpack_args(*args) -> list
 
     N/A
     
@@ -12198,7 +12837,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.unpack_kwargs(**kwargs) -> dict
+.. py:function:: slangpy.slangpy.unpack_kwargs(**kwargs) -> dict
 
     N/A
     
@@ -12206,7 +12845,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.unpack_arg(arg: object) -> object
+.. py:function:: slangpy.slangpy.unpack_arg(arg: object) -> object
 
     N/A
     
@@ -12214,7 +12853,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.pack_arg(arg: object, unpacked_arg: object) -> None
+.. py:function:: slangpy.slangpy.pack_arg(arg: object, unpacked_arg: object) -> None
 
     N/A
     
@@ -12222,7 +12861,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.get_value_signature(o: object) -> str
+.. py:function:: slangpy.slangpy.get_value_signature(o: object) -> str
 
     N/A
     
@@ -12230,9 +12869,9 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.SignatureBuilder
+.. py:class:: slangpy.slangpy.SignatureBuilder
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
@@ -12256,9 +12895,9 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeObject
+.. py:class:: slangpy.slangpy.NativeObject
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
@@ -12267,7 +12906,7 @@ SlangPy
     .. py:property:: slangpy_signature
         :type: str
     
-    .. py:method:: read_signature(self, builder: sgl.slangpy.SignatureBuilder) -> None
+    .. py:method:: read_signature(self, builder: slangpy.slangpy.SignatureBuilder) -> None
     
         N/A
         
@@ -12275,21 +12914,21 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeSlangType
+.. py:class:: slangpy.slangpy.NativeSlangType
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
     .. py:property:: type_reflection
-        :type: sgl.TypeReflection
+        :type: slangpy.TypeReflection
     
         N/A
         
     .. py:property:: shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
@@ -12297,16 +12936,16 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeMarshall
+.. py:class:: slangpy.slangpy.NativeMarshall
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
     .. py:property:: concrete_shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
@@ -12315,32 +12954,32 @@ SlangPy
     
         N/A
         
-    .. py:method:: get_shape(self, value: object) -> sgl.slangpy.Shape
+    .. py:method:: get_shape(self, value: object) -> slangpy.slangpy.Shape
     
         N/A
         
     .. py:property:: slang_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
         N/A
         
-    .. py:method:: write_shader_cursor_pre_dispatch(self, context: sgl.slangpy.CallContext, binding: sgl.slangpy.NativeBoundVariableRuntime, cursor: sgl.ShaderCursor, value: object, read_back: list) -> None
+    .. py:method:: write_shader_cursor_pre_dispatch(self, context: slangpy.slangpy.CallContext, binding: slangpy.slangpy.NativeBoundVariableRuntime, cursor: slangpy.ShaderCursor, value: object, read_back: list) -> None
     
         N/A
         
-    .. py:method:: create_calldata(self, arg0: sgl.slangpy.CallContext, arg1: sgl.slangpy.NativeBoundVariableRuntime, arg2: object, /) -> object
+    .. py:method:: create_calldata(self, arg0: slangpy.slangpy.CallContext, arg1: slangpy.slangpy.NativeBoundVariableRuntime, arg2: object, /) -> object
     
         N/A
         
-    .. py:method:: read_calldata(self, arg0: sgl.slangpy.CallContext, arg1: sgl.slangpy.NativeBoundVariableRuntime, arg2: object, arg3: object, /) -> None
+    .. py:method:: read_calldata(self, arg0: slangpy.slangpy.CallContext, arg1: slangpy.slangpy.NativeBoundVariableRuntime, arg2: object, arg3: object, /) -> None
     
         N/A
         
-    .. py:method:: create_output(self, arg0: sgl.slangpy.CallContext, arg1: sgl.slangpy.NativeBoundVariableRuntime, /) -> object
+    .. py:method:: create_output(self, arg0: slangpy.slangpy.CallContext, arg1: slangpy.slangpy.NativeBoundVariableRuntime, /) -> object
     
         N/A
         
-    .. py:method:: read_output(self, arg0: sgl.slangpy.CallContext, arg1: sgl.slangpy.NativeBoundVariableRuntime, arg2: object, /) -> object
+    .. py:method:: read_output(self, arg0: slangpy.slangpy.CallContext, arg1: slangpy.slangpy.NativeBoundVariableRuntime, arg2: object, /) -> object
     
         N/A
         
@@ -12358,15 +12997,15 @@ SlangPy
     
         N/A
         
-    .. py:method:: reduce_type(self, context: object, dimensions: int) -> sgl.slangpy.NativeSlangType
+    .. py:method:: reduce_type(self, context: object, dimensions: int) -> slangpy.slangpy.NativeSlangType
     
         N/A
         
-    .. py:method:: resolve_type(self, context: object, bound_type: sgl.slangpy.NativeSlangType) -> sgl.slangpy.NativeSlangType
+    .. py:method:: resolve_type(self, context: object, bound_type: slangpy.slangpy.NativeSlangType) -> slangpy.slangpy.NativeSlangType
     
         N/A
         
-    .. py:method:: resolve_dimensionality(self, context: object, binding: object, vector_target_type: sgl.slangpy.NativeSlangType) -> int
+    .. py:method:: resolve_dimensionality(self, context: object, binding: object, vector_target_type: slangpy.slangpy.NativeSlangType) -> int
     
         N/A
         
@@ -12374,36 +13013,36 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeBoundVariableRuntime
+.. py:class:: slangpy.slangpy.NativeBoundVariableRuntime
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
     .. py:property:: access
-        :type: tuple[sgl.slangpy.AccessType, sgl.slangpy.AccessType]
+        :type: tuple[slangpy.slangpy.AccessType, slangpy.slangpy.AccessType]
     
         N/A
         
     .. py:property:: transform
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
     .. py:property:: python_type
-        :type: sgl.slangpy.NativeMarshall
+        :type: slangpy.slangpy.NativeMarshall
     
         N/A
         
     .. py:property:: vector_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
         N/A
         
     .. py:property:: shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
@@ -12413,15 +13052,15 @@ SlangPy
         N/A
         
     .. py:property:: children
-        :type: dict[str, sgl.slangpy.NativeBoundVariableRuntime] | None
+        :type: dict[str, slangpy.slangpy.NativeBoundVariableRuntime] | None
     
         N/A
         
-    .. py:method:: populate_call_shape(self, arg0: collections.abc.Sequence[int], arg1: object, arg2: sgl.slangpy.NativeCallData, /) -> None
+    .. py:method:: populate_call_shape(self, arg0: collections.abc.Sequence[int], arg1: object, arg2: slangpy.slangpy.NativeCallData, /) -> None
     
         N/A
         
-    .. py:method:: read_call_data_post_dispatch(self, arg0: sgl.slangpy.CallContext, arg1: dict, arg2: object, /) -> None
+    .. py:method:: read_call_data_post_dispatch(self, arg0: slangpy.slangpy.CallContext, arg1: dict, arg2: object, /) -> None
     
         N/A
         
@@ -12429,7 +13068,7 @@ SlangPy
     
         N/A
         
-    .. py:method:: read_output(self, arg0: sgl.slangpy.CallContext, arg1: object, /) -> object
+    .. py:method:: read_output(self, arg0: slangpy.slangpy.CallContext, arg1: object, /) -> object
     
         N/A
         
@@ -12437,33 +13076,33 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeBoundCallRuntime
+.. py:class:: slangpy.slangpy.NativeBoundCallRuntime
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
     .. py:property:: args
-        :type: list[sgl.slangpy.NativeBoundVariableRuntime]
+        :type: list[slangpy.slangpy.NativeBoundVariableRuntime]
     
         N/A
         
     .. py:property:: kwargs
-        :type: dict[str, sgl.slangpy.NativeBoundVariableRuntime]
+        :type: dict[str, slangpy.slangpy.NativeBoundVariableRuntime]
     
         N/A
         
-    .. py:method:: find_kwarg(self, arg: str, /) -> sgl.slangpy.NativeBoundVariableRuntime
+    .. py:method:: find_kwarg(self, arg: str, /) -> slangpy.slangpy.NativeBoundVariableRuntime
     
         N/A
         
-    .. py:method:: calculate_call_shape(self, arg0: int, arg1: list, arg2: dict, arg3: sgl.slangpy.NativeCallData, /) -> sgl.slangpy.Shape
+    .. py:method:: calculate_call_shape(self, arg0: int, arg1: list, arg2: dict, arg3: slangpy.slangpy.NativeCallData, /) -> slangpy.slangpy.Shape
     
         N/A
         
-    .. py:method:: read_call_data_post_dispatch(self, arg0: sgl.slangpy.CallContext, arg1: dict, arg2: list, arg3: dict, /) -> None
+    .. py:method:: read_call_data_post_dispatch(self, arg0: slangpy.slangpy.CallContext, arg1: dict, arg2: list, arg3: dict, /) -> None
     
         N/A
         
@@ -12475,9 +13114,9 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeCallRuntimeOptions
+.. py:class:: slangpy.slangpy.NativeCallRuntimeOptions
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
@@ -12492,21 +13131,21 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeCallData
+.. py:class:: slangpy.slangpy.NativeCallData
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
         N/A
         
     .. py:property:: kernel
-        :type: sgl.ComputeKernel
+        :type: slangpy.ComputeKernel
     
         N/A
         
@@ -12516,53 +13155,86 @@ SlangPy
         N/A
         
     .. py:property:: runtime
-        :type: sgl.slangpy.NativeBoundCallRuntime
+        :type: slangpy.slangpy.NativeBoundCallRuntime
     
         N/A
         
     .. py:property:: call_mode
-        :type: sgl.slangpy.CallMode
+        :type: slangpy.slangpy.CallMode
     
         N/A
         
     .. py:property:: last_call_shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
-    .. py:method:: call(self, opts: sgl.slangpy.NativeCallRuntimeOptions, *args, **kwargs) -> object
+    .. py:property:: debug_name
+        :type: str
     
         N/A
         
-    .. py:method:: append_to(self, opts: sgl.slangpy.NativeCallRuntimeOptions, command_buffer: sgl.CommandEncoder, *args, **kwargs) -> object
+    .. py:property:: logger
+        :type: slangpy.Logger
     
         N/A
         
+    .. py:method:: call(self, opts: slangpy.slangpy.NativeCallRuntimeOptions, *args, **kwargs) -> object
+    
+        N/A
+        
+    .. py:method:: append_to(self, opts: slangpy.slangpy.NativeCallRuntimeOptions, command_buffer: slangpy.CommandEncoder, *args, **kwargs) -> object
+    
+        N/A
+        
+    .. py:method:: log(self, level: slangpy.LogLevel, msg: str, frequency: slangpy.LogFrequency = LogFrequency.always) -> None
+    
+        Log a message.
+        
+        Parameter ``level``:
+            The log level.
+        
+        Parameter ``msg``:
+            The message.
+        
+        Parameter ``frequency``:
+            The log frequency.
+        
+    .. py:method:: log_debug(self, msg: str) -> None
+    
+    .. py:method:: log_info(self, msg: str) -> None
+    
+    .. py:method:: log_warn(self, msg: str) -> None
+    
+    .. py:method:: log_error(self, msg: str) -> None
+    
+    .. py:method:: log_fatal(self, msg: str) -> None
+    
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeCallDataCache
+.. py:class:: slangpy.slangpy.NativeCallDataCache
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
     .. py:method:: __init__(self) -> None
     
         N/A
         
-    .. py:method:: get_value_signature(self, builder: sgl.slangpy.SignatureBuilder, o: object) -> None
+    .. py:method:: get_value_signature(self, builder: slangpy.slangpy.SignatureBuilder, o: object) -> None
     
         N/A
         
-    .. py:method:: get_args_signature(self, builder: sgl.slangpy.SignatureBuilder, *args, **kwargs) -> None
+    .. py:method:: get_args_signature(self, builder: slangpy.slangpy.SignatureBuilder, *args, **kwargs) -> None
     
         N/A
         
-    .. py:method:: find_call_data(self, signature: str) -> sgl.slangpy.NativeCallData
+    .. py:method:: find_call_data(self, signature: str) -> slangpy.slangpy.NativeCallData
     
         N/A
         
-    .. py:method:: add_call_data(self, signature: str, call_data: sgl.slangpy.NativeCallData) -> None
+    .. py:method:: add_call_data(self, signature: str, call_data: slangpy.slangpy.NativeCallData) -> None
     
         N/A
         
@@ -12574,7 +13246,7 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.Shape
+.. py:class:: slangpy.slangpy.Shape
 
     .. py:method:: __init__(self, *args) -> None
     
@@ -12598,30 +13270,34 @@ SlangPy
     
         N/A
         
+    .. py:method:: calc_contiguous_strides(self) -> slangpy.slangpy.Shape
+    
+        N/A
+        
 
 
 ----
 
-.. py:class:: sgl.slangpy.CallContext
+.. py:class:: slangpy.slangpy.CallContext
 
-    Base class: :py:class:`sgl.Object`
+    Base class: :py:class:`slangpy.Object`
     
-    .. py:method:: __init__(self, device: sgl.Device, call_shape: sgl.slangpy.Shape, call_mode: sgl.slangpy.CallMode) -> None
+    .. py:method:: __init__(self, device: slangpy.Device, call_shape: slangpy.slangpy.Shape, call_mode: slangpy.slangpy.CallMode) -> None
     
         N/A
         
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
         N/A
         
     .. py:property:: call_shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
         N/A
         
     .. py:property:: call_mode
-        :type: sgl.slangpy.CallMode
+        :type: slangpy.slangpy.CallMode
     
         N/A
         
@@ -12629,63 +13305,71 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeNDBufferDesc
+.. py:class:: slangpy.slangpy.StridedBufferViewDesc
 
     .. py:method:: __init__(self) -> None
     
     .. py:property:: dtype
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
     .. py:property:: element_layout
-        :type: sgl.TypeLayoutReflection
+        :type: slangpy.TypeLayoutReflection
+    
+    .. py:property:: offset
+        :type: int
     
     .. py:property:: shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
     .. py:property:: strides
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
     .. py:property:: usage
-        :type: sgl.BufferUsage
+        :type: slangpy.BufferUsage
     
     .. py:property:: memory_type
-        :type: sgl.MemoryType
+        :type: slangpy.MemoryType
     
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeNDBuffer
+.. py:class:: slangpy.slangpy.StridedBufferView
 
-    Base class: :py:class:`sgl.slangpy.NativeObject`
+    Base class: :py:class:`slangpy.slangpy.NativeObject`
     
-    .. py:method:: __init__(self, arg0: sgl.Device, arg1: sgl.slangpy.NativeNDBufferDesc, /) -> None
+    .. py:method:: __init__(self, arg0: slangpy.Device, arg1: slangpy.slangpy.StridedBufferViewDesc, arg2: slangpy.Buffer, /) -> None
     
     .. py:property:: device
-        :type: sgl.Device
+        :type: slangpy.Device
     
     .. py:property:: dtype
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
+    
+    .. py:property:: offset
+        :type: int
     
     .. py:property:: shape
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
     .. py:property:: strides
-        :type: sgl.slangpy.Shape
+        :type: slangpy.slangpy.Shape
     
     .. py:property:: element_count
         :type: int
     
     .. py:property:: usage
-        :type: sgl.BufferUsage
+        :type: slangpy.BufferUsage
     
     .. py:property:: memory_type
-        :type: sgl.MemoryType
+        :type: slangpy.MemoryType
     
     .. py:property:: storage
-        :type: sgl.Buffer
+        :type: slangpy.Buffer
     
-    .. py:method:: cursor(self, start: int | None = None, count: int | None = None) -> sgl.BufferCursor
+    .. py:method:: clear(self, cmd: slangpy.CommandEncoder | None = None) -> None
+    
+    .. py:method:: cursor(self, start: int | None = None, count: int | None = None) -> slangpy.BufferCursor
     
     .. py:method:: uniforms(self) -> dict
     
@@ -12693,7 +13377,15 @@ SlangPy
     
         N/A
         
+    .. py:method:: to_torch(self) -> torch.Tensor[]
+    
+        N/A
+        
     .. py:method:: copy_from_numpy(self, data: numpy.ndarray[]) -> None
+    
+        N/A
+        
+    .. py:method:: is_contiguous(self) -> bool
     
         N/A
         
@@ -12701,11 +13393,35 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeNDBufferMarshall
+.. py:class:: slangpy.slangpy.NativeNDBufferDesc
 
-    Base class: :py:class:`sgl.slangpy.NativeMarshall`
+    Base class: :py:class:`slangpy.slangpy.StridedBufferViewDesc`
     
-    .. py:method:: __init__(self, dims: int, writable: bool, slang_type: sgl.slangpy.NativeSlangType, slang_element_type: sgl.slangpy.NativeSlangType, element_layout: sgl.TypeLayoutReflection) -> None
+    .. py:method:: __init__(self) -> None
+    
+
+
+----
+
+.. py:class:: slangpy.slangpy.NativeNDBuffer
+
+    Base class: :py:class:`slangpy.slangpy.StridedBufferView`
+    
+    .. py:method:: __init__(self, device: slangpy.Device, desc: slangpy.slangpy.NativeNDBufferDesc, buffer: slangpy.Buffer | None = None) -> None
+    
+    .. py:method:: broadcast_to(self, shape: slangpy.slangpy.Shape) -> slangpy.slangpy.NativeNDBuffer
+    
+    .. py:method:: view(self, shape: slangpy.slangpy.Shape, strides: slangpy.slangpy.Shape = [invalid], offset: int = 0) -> slangpy.slangpy.NativeNDBuffer
+    
+
+
+----
+
+.. py:class:: slangpy.slangpy.NativeNDBufferMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+    .. py:method:: __init__(self, dims: int, writable: bool, slang_type: slangpy.slangpy.NativeSlangType, slang_element_type: slangpy.slangpy.NativeSlangType, element_layout: slangpy.TypeLayoutReflection) -> None
     
         N/A
         
@@ -12716,17 +13432,17 @@ SlangPy
         :type: bool
     
     .. py:property:: slang_element_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeNumpyMarshall
+.. py:class:: slangpy.slangpy.NativeNumpyMarshall
 
-    Base class: :py:class:`sgl.slangpy.NativeNDBufferMarshall`
+    Base class: :py:class:`slangpy.slangpy.NativeNDBufferMarshall`
     
-    .. py:method:: __init__(self, dims: int, slang_type: sgl.slangpy.NativeSlangType, slang_element_type: sgl.slangpy.NativeSlangType, element_layout: sgl.TypeLayoutReflection, numpydtype: object) -> None
+    .. py:method:: __init__(self, dims: int, slang_type: slangpy.slangpy.NativeSlangType, slang_element_type: slangpy.slangpy.NativeSlangType, element_layout: slangpy.TypeLayoutReflection, numpydtype: object) -> None
     
         N/A
         
@@ -12737,23 +13453,23 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.FunctionNodeType
+.. py:class:: slangpy.slangpy.FunctionNodeType
 
     Base class: :py:class:`enum.Enum`
     
-    .. py:attribute:: sgl.slangpy.FunctionNodeType.unknown
+    .. py:attribute:: slangpy.slangpy.FunctionNodeType.unknown
         :type: FunctionNodeType
         :value: FunctionNodeType.unknown
     
-    .. py:attribute:: sgl.slangpy.FunctionNodeType.uniforms
+    .. py:attribute:: slangpy.slangpy.FunctionNodeType.uniforms
         :type: FunctionNodeType
         :value: FunctionNodeType.uniforms
     
-    .. py:attribute:: sgl.slangpy.FunctionNodeType.kernelgen
+    .. py:attribute:: slangpy.slangpy.FunctionNodeType.kernelgen
         :type: FunctionNodeType
         :value: FunctionNodeType.kernelgen
     
-    .. py:attribute:: sgl.slangpy.FunctionNodeType.this
+    .. py:attribute:: slangpy.slangpy.FunctionNodeType.this
         :type: FunctionNodeType
         :value: FunctionNodeType.this
     
@@ -12761,23 +13477,23 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeFunctionNode
+.. py:class:: slangpy.slangpy.NativeFunctionNode
 
-    Base class: :py:class:`sgl.slangpy.NativeObject`
+    Base class: :py:class:`slangpy.slangpy.NativeObject`
     
-    .. py:method:: __init__(self, parent: sgl.slangpy.NativeFunctionNode | None, type: sgl.slangpy.FunctionNodeType, data: object | None) -> None
-    
-        N/A
-        
-    .. py:method:: generate_call_data(self, *args, **kwargs) -> sgl.slangpy.NativeCallData
+    .. py:method:: __init__(self, parent: slangpy.slangpy.NativeFunctionNode | None, type: slangpy.slangpy.FunctionNodeType, data: object | None) -> None
     
         N/A
         
-    .. py:method:: read_signature(self, builder: sgl.slangpy.SignatureBuilder) -> None
+    .. py:method:: generate_call_data(self, *args, **kwargs) -> slangpy.slangpy.NativeCallData
     
         N/A
         
-    .. py:method:: gather_runtime_options(self, options: sgl.slangpy.NativeCallRuntimeOptions) -> None
+    .. py:method:: read_signature(self, builder: slangpy.slangpy.SignatureBuilder) -> None
+    
+        N/A
+        
+    .. py:method:: gather_runtime_options(self, options: slangpy.slangpy.NativeCallRuntimeOptions) -> None
     
         N/A
         
@@ -12785,7 +13501,7 @@ SlangPy
 
 ----
 
-.. py:function:: sgl.slangpy.get_texture_shape(texture: sgl.Texture, mip: int = 0) -> sgl.slangpy.Shape
+.. py:function:: slangpy.slangpy.get_texture_shape(texture: slangpy.Texture, mip: int = 0) -> slangpy.slangpy.Shape
 
     N/A
     
@@ -12793,59 +13509,59 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeBufferMarshall
+.. py:class:: slangpy.slangpy.NativeBufferMarshall
 
-    Base class: :py:class:`sgl.slangpy.NativeMarshall`
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
     
-    .. py:method:: __init__(self, slang_type: sgl.slangpy.NativeSlangType, usage: sgl.BufferUsage) -> None
-    
-        N/A
-        
-    .. py:method:: write_shader_cursor_pre_dispatch(self, context: sgl.slangpy.CallContext, binding: sgl.slangpy.NativeBoundVariableRuntime, cursor: sgl.ShaderCursor, value: object, read_back: list) -> None
+    .. py:method:: __init__(self, slang_type: slangpy.slangpy.NativeSlangType, usage: slangpy.BufferUsage) -> None
     
         N/A
         
-    .. py:method:: get_shape(self, value: object) -> sgl.slangpy.Shape
+    .. py:method:: write_shader_cursor_pre_dispatch(self, context: slangpy.slangpy.CallContext, binding: slangpy.slangpy.NativeBoundVariableRuntime, cursor: slangpy.ShaderCursor, value: object, read_back: list) -> None
+    
+        N/A
+        
+    .. py:method:: get_shape(self, value: object) -> slangpy.slangpy.Shape
     
         N/A
         
     .. py:property:: usage
-        :type: sgl.BufferUsage
+        :type: slangpy.BufferUsage
     
     .. py:property:: slang_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeTextureMarshall
+.. py:class:: slangpy.slangpy.NativeTextureMarshall
 
-    Base class: :py:class:`sgl.slangpy.NativeMarshall`
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
     
-    .. py:method:: __init__(self, slang_type: sgl.slangpy.NativeSlangType, element_type: sgl.slangpy.NativeSlangType, resource_shape: sgl.TypeReflection.ResourceShape, format: sgl.Format, usage: sgl.TextureUsage, dims: int) -> None
-    
-        N/A
-        
-    .. py:method:: write_shader_cursor_pre_dispatch(self, context: sgl.slangpy.CallContext, binding: sgl.slangpy.NativeBoundVariableRuntime, cursor: sgl.ShaderCursor, value: object, read_back: list) -> None
+    .. py:method:: __init__(self, slang_type: slangpy.slangpy.NativeSlangType, element_type: slangpy.slangpy.NativeSlangType, resource_shape: slangpy.TypeReflection.ResourceShape, format: slangpy.Format, usage: slangpy.TextureUsage, dims: int) -> None
     
         N/A
         
-    .. py:method:: get_shape(self, value: object) -> sgl.slangpy.Shape
+    .. py:method:: write_shader_cursor_pre_dispatch(self, context: slangpy.slangpy.CallContext, binding: slangpy.slangpy.NativeBoundVariableRuntime, cursor: slangpy.ShaderCursor, value: object, read_back: list) -> None
     
         N/A
         
-    .. py:method:: get_texture_shape(self, texture: sgl.Texture, mip: int) -> sgl.slangpy.Shape
+    .. py:method:: get_shape(self, value: object) -> slangpy.slangpy.Shape
+    
+        N/A
+        
+    .. py:method:: get_texture_shape(self, texture: slangpy.Texture, mip: int) -> slangpy.slangpy.Shape
     
         N/A
         
     .. py:property:: resource_shape
-        :type: sgl.TypeReflection.ResourceShape
+        :type: slangpy.TypeReflection.ResourceShape
     
         N/A
         
     .. py:property:: usage
-        :type: sgl.TextureUsage
+        :type: slangpy.TextureUsage
     
         N/A
         
@@ -12855,7 +13571,7 @@ SlangPy
         N/A
         
     .. py:property:: slang_element_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
         N/A
         
@@ -12863,94 +13579,46 @@ SlangPy
 
 ----
 
-.. py:class:: sgl.slangpy.NativeTensorDesc
+.. py:class:: slangpy.slangpy.NativeTensorDesc
 
+    Base class: :py:class:`slangpy.slangpy.StridedBufferViewDesc`
+    
     .. py:method:: __init__(self) -> None
     
-    .. py:property:: dtype
-        :type: sgl.slangpy.NativeSlangType
-    
-    .. py:property:: element_layout
-        :type: sgl.TypeLayoutReflection
-    
-    .. py:property:: shape
-        :type: sgl.slangpy.Shape
-    
-    .. py:property:: strides
-        :type: sgl.slangpy.Shape
-    
-    .. py:property:: offset
-        :type: int
-    
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeTensor
+.. py:class:: slangpy.slangpy.NativeTensor
 
-    Base class: :py:class:`sgl.slangpy.NativeObject`
+    Base class: :py:class:`slangpy.slangpy.StridedBufferView`
     
-    .. py:method:: __init__(self, desc: sgl.slangpy.NativeTensorDesc, storage: sgl.Buffer, grad_in: sgl.slangpy.NativeTensor | None, grad_out: sgl.slangpy.NativeTensor | None) -> None
-    
-    .. py:property:: device
-        :type: sgl.Device
-    
-    .. py:property:: dtype
-        :type: sgl.slangpy.NativeSlangType
-    
-    .. py:property:: shape
-        :type: sgl.slangpy.Shape
-    
-    .. py:property:: strides
-        :type: sgl.slangpy.Shape
-    
-    .. py:property:: offset
-        :type: int
-    
-    .. py:property:: element_count
-        :type: int
-    
-    .. py:property:: usage
-        :type: sgl.BufferUsage
-    
-    .. py:property:: memory_type
-        :type: sgl.MemoryType
-    
-    .. py:property:: storage
-        :type: sgl.Buffer
+    .. py:method:: __init__(self, desc: slangpy.slangpy.NativeTensorDesc, storage: slangpy.Buffer, grad_in: slangpy.slangpy.NativeTensor | None, grad_out: slangpy.slangpy.NativeTensor | None) -> None
     
     .. py:property:: grad_in
-        :type: sgl.slangpy.NativeTensor
+        :type: slangpy.slangpy.NativeTensor
     
     .. py:property:: grad_out
-        :type: sgl.slangpy.NativeTensor
+        :type: slangpy.slangpy.NativeTensor
     
     .. py:property:: grad
-        :type: sgl.slangpy.NativeTensor
+        :type: slangpy.slangpy.NativeTensor
     
-    .. py:method:: broadcast_to(self, shape: sgl.slangpy.Shape) -> sgl.slangpy.NativeTensor
+    .. py:method:: broadcast_to(self, shape: slangpy.slangpy.Shape) -> slangpy.slangpy.NativeTensor
     
-    .. py:method:: clear(self, cmd: sgl.CommandEncoder | None = None) -> None
+    .. py:method:: view(self, shape: slangpy.slangpy.Shape, strides: slangpy.slangpy.Shape = [invalid], offset: int = 0) -> slangpy.slangpy.NativeTensor
     
-    .. py:method:: with_grads(self, grad_in: sgl.slangpy.NativeTensor | None = None, grad_out: sgl.slangpy.NativeTensor | None = None, zero: bool = False) -> sgl.slangpy.NativeTensor
+    .. py:method:: with_grads(self, grad_in: slangpy.slangpy.NativeTensor | None = None, grad_out: slangpy.slangpy.NativeTensor | None = None, zero: bool = False) -> slangpy.slangpy.NativeTensor
     
-    .. py:method:: cursor(self, start: int | None = None, count: int | None = None) -> sgl.BufferCursor
-    
-    .. py:method:: uniforms(self) -> dict
-    
-    .. py:method:: to_numpy(self) -> numpy.ndarray[]
-    
-        N/A
-        
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeTensorMarshall
+.. py:class:: slangpy.slangpy.NativeTensorMarshall
 
-    Base class: :py:class:`sgl.slangpy.NativeMarshall`
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
     
-    .. py:method:: __init__(self, dims: int, writable: bool, slang_type: sgl.slangpy.NativeSlangType, slang_element_type: sgl.slangpy.NativeSlangType, element_layout: sgl.TypeLayoutReflection, d_in: sgl.slangpy.NativeTensorMarshall | None, d_out: sgl.slangpy.NativeTensorMarshall | None) -> None
+    .. py:method:: __init__(self, dims: int, writable: bool, slang_type: slangpy.slangpy.NativeSlangType, slang_element_type: slangpy.slangpy.NativeSlangType, element_layout: slangpy.TypeLayoutReflection, d_in: slangpy.slangpy.NativeTensorMarshall | None, d_out: slangpy.slangpy.NativeTensorMarshall | None) -> None
     
         N/A
         
@@ -12961,21 +13629,21 @@ SlangPy
         :type: bool
     
     .. py:property:: slang_element_type
-        :type: sgl.slangpy.NativeSlangType
+        :type: slangpy.slangpy.NativeSlangType
     
     .. py:property:: d_in
-        :type: sgl.slangpy.NativeTensorMarshall
+        :type: slangpy.slangpy.NativeTensorMarshall
     
     .. py:property:: d_out
-        :type: sgl.slangpy.NativeTensorMarshall
+        :type: slangpy.slangpy.NativeTensorMarshall
     
 
 
 ----
 
-.. py:class:: sgl.slangpy.NativeValueMarshall
+.. py:class:: slangpy.slangpy.NativeValueMarshall
 
-    Base class: :py:class:`sgl.slangpy.NativeMarshall`
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
     
     .. py:method:: __init__(self) -> None
     
@@ -12987,6 +13655,6680 @@ SlangPy
 
 Miscellaneous
 -------------
+
+
+
+----
+
+.. py:data:: slangpy.package_dir
+    :type: str
+    :value: "c:\src\sgl-slangpy\slangpy"
+
+
+
+----
+
+.. py:data:: slangpy.build_dir
+    :type: str
+    :value: "C:/src/sgl-slangpy/build/windows-msvc/Release"
+
+
+
+----
+
+.. py:class:: slangpy.core.enums.Enum
+    :canonical: enum.Enum
+    
+    Alias class: :py:class:`enum.Enum`
+    
+
+
+----
+
+.. py:class:: slangpy.core.enums.IOType
+
+    Base class: :py:class:`enum.Enum`
+    
+    .. py:attribute:: slangpy.core.enums.IOType.none
+        :type: IOType
+        :value: IOType.none
+    
+    .. py:attribute:: slangpy.core.enums.IOType.inn
+        :type: IOType
+        :value: IOType.inn
+    
+    .. py:attribute:: slangpy.core.enums.IOType.out
+        :type: IOType
+        :value: IOType.out
+    
+    .. py:attribute:: slangpy.core.enums.IOType.inout
+        :type: IOType
+        :value: IOType.inout
+    
+
+
+----
+
+.. py:class:: slangpy.core.enums.PrimType
+
+    Base class: :py:class:`enum.Enum`
+    
+    .. py:attribute:: slangpy.core.enums.PrimType.primal
+        :type: PrimType
+        :value: PrimType.primal
+    
+    .. py:attribute:: slangpy.core.enums.PrimType.derivative
+        :type: PrimType
+        :value: PrimType.derivative
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.unpack_args(*args) -> list
+
+    N/A
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.unpack_kwargs(**kwargs) -> dict
+
+    N/A
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.unpack_arg(arg: object) -> object
+
+    N/A
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.pack_arg(arg: object, unpacked_arg: object) -> None
+
+    N/A
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.get_value_signature(o: object) -> str
+
+    N/A
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.SignatureBuilder
+    :canonical: slangpy.slangpy.SignatureBuilder
+    
+    Alias class: :py:class:`slangpy.slangpy.SignatureBuilder`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeObject
+    :canonical: slangpy.slangpy.NativeObject
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeObject`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeSlangType
+    :canonical: slangpy.slangpy.NativeSlangType
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeSlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeBoundVariableRuntime
+    :canonical: slangpy.slangpy.NativeBoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeBoundCallRuntime
+    :canonical: slangpy.slangpy.NativeBoundCallRuntime
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBoundCallRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeCallRuntimeOptions
+    :canonical: slangpy.slangpy.NativeCallRuntimeOptions
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallRuntimeOptions`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeCallData
+    :canonical: slangpy.slangpy.NativeCallData
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallData`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeCallDataCache
+    :canonical: slangpy.slangpy.NativeCallDataCache
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallDataCache`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.StridedBufferViewDesc
+    :canonical: slangpy.slangpy.StridedBufferViewDesc
+    
+    Alias class: :py:class:`slangpy.slangpy.StridedBufferViewDesc`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.StridedBufferView
+    :canonical: slangpy.slangpy.StridedBufferView
+    
+    Alias class: :py:class:`slangpy.slangpy.StridedBufferView`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeNDBufferDesc
+    :canonical: slangpy.slangpy.NativeNDBufferDesc
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBufferDesc`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeNDBuffer
+    :canonical: slangpy.slangpy.NativeNDBuffer
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeNDBufferMarshall
+    :canonical: slangpy.slangpy.NativeNDBufferMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeNumpyMarshall
+    :canonical: slangpy.slangpy.NativeNumpyMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNumpyMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.FunctionNodeType
+    :canonical: slangpy.slangpy.FunctionNodeType
+    
+    Alias class: :py:class:`slangpy.slangpy.FunctionNodeType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeFunctionNode
+    :canonical: slangpy.slangpy.NativeFunctionNode
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeFunctionNode`
+    
+
+
+----
+
+.. py:function:: slangpy.core.native.get_texture_shape(texture: slangpy.Texture, mip: int = 0) -> slangpy.slangpy.Shape
+
+    N/A
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeBufferMarshall
+    :canonical: slangpy.slangpy.NativeBufferMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeTextureMarshall
+    :canonical: slangpy.slangpy.NativeTextureMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTextureMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeTensorDesc
+    :canonical: slangpy.slangpy.NativeTensorDesc
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensorDesc`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeTensor
+    :canonical: slangpy.slangpy.NativeTensor
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensor`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeTensorMarshall
+    :canonical: slangpy.slangpy.NativeTensorMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensorMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.native.NativeValueMarshall
+    :canonical: slangpy.slangpy.NativeValueMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.PathLike
+    :canonical: os.PathLike
+    
+    Alias class: :py:class:`os.PathLike`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.DeclReflection
+    :canonical: slangpy.DeclReflection
+    
+    Alias class: :py:class:`slangpy.DeclReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.ProgramLayout
+    :canonical: slangpy.ProgramLayout
+    
+    Alias class: :py:class:`slangpy.ProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.TypeLayoutReflection
+    :canonical: slangpy.TypeLayoutReflection
+    
+    Alias class: :py:class:`slangpy.TypeLayoutReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.DeviceType
+    :canonical: slangpy.DeviceType
+    
+    Alias class: :py:class:`slangpy.DeviceType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.core.utils.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.shapes.TArgShapesResult
+
+    Base class: :py:class:`builtins.dict`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.Protocol
+    :canonical: typing.Protocol
+    
+    Alias class: :py:class:`typing.Protocol`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.SignatureBuilder
+    :canonical: slangpy.slangpy.SignatureBuilder
+    
+    Alias class: :py:class:`slangpy.slangpy.SignatureBuilder`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.NativeCallRuntimeOptions
+    :canonical: slangpy.slangpy.NativeCallRuntimeOptions
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallRuntimeOptions`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.NativeFunctionNode
+    :canonical: slangpy.slangpy.NativeFunctionNode
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeFunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeType
+    :canonical: slangpy.slangpy.FunctionNodeType
+    
+    Alias class: :py:class:`slangpy.slangpy.FunctionNodeType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.CommandEncoder
+    :canonical: slangpy.CommandEncoder
+    
+    Alias class: :py:class:`slangpy.CommandEncoder`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.TypeConformance
+    :canonical: slangpy.TypeConformance
+    
+    Alias class: :py:class:`slangpy.TypeConformance`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.uint3
+    :canonical: slangpy.math.uint3
+    
+    Alias class: :py:class:`slangpy.math.uint3`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.Logger
+    :canonical: slangpy.Logger
+    
+    Alias class: :py:class:`slangpy.Logger`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.IThis
+
+    Base class: :py:class:`typing.Protocol`
+    
+    .. py:attribute:: slangpy.core.function.IThis.get_this
+        :type: function
+        :value: <function IThis.get_this at 0x0000018DD334CCC0>
+    
+    .. py:attribute:: slangpy.core.function.IThis.update_this
+        :type: function
+        :value: <function IThis.update_this at 0x0000018DD334C9A0>
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionBuildInfo
+
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNode
+
+    Base class: :py:class:`slangpy.slangpy.NativeFunctionNode`
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.torch
+        :type: function
+        :value: <function FunctionNode.torch at 0x0000018DD4350540>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.bind
+        :type: function
+        :value: <function FunctionNode.bind at 0x0000018DD43505E0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.map
+        :type: function
+        :value: <function FunctionNode.map at 0x0000018DD4350680>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.set
+        :type: function
+        :value: <function FunctionNode.set at 0x0000018DD4350720>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.constants
+        :type: function
+        :value: <function FunctionNode.constants at 0x0000018DD43507C0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.type_conformances
+        :type: function
+        :value: <function FunctionNode.type_conformances at 0x0000018DD4350860>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.return_type
+        :type: function
+        :value: <function FunctionNode.return_type at 0x0000018DD43509A0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.thread_group_size
+        :type: function
+        :value: <function FunctionNode.thread_group_size at 0x0000018DD4350A40>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.as_func
+        :type: function
+        :value: <function FunctionNode.as_func at 0x0000018DD4350AE0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.as_struct
+        :type: function
+        :value: <function FunctionNode.as_struct at 0x0000018DD4350B80>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.debug_build_call_data
+        :type: function
+        :value: <function FunctionNode.debug_build_call_data at 0x0000018DD4350C20>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.call
+        :type: function
+        :value: <function FunctionNode.call at 0x0000018DD4350CC0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.append_to
+        :type: function
+        :value: <function FunctionNode.append_to at 0x0000018DD4350D60>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.dispatch
+        :type: function
+        :value: <function FunctionNode.dispatch at 0x0000018DD4350E00>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.calc_build_info
+        :type: function
+        :value: <function FunctionNode.calc_build_info at 0x0000018DD4350EA0>
+    
+    .. py:attribute:: slangpy.core.function.FunctionNode.generate_call_data
+        :type: function
+        :value: <function FunctionNode.generate_call_data at 0x0000018DD43511C0>
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeBind
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeMap
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeSet
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeConstants
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeTypeConformances
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeBwds
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeReturnType
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeThreadGroupSize
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.FunctionNodeLogger
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.function.Function
+
+    Base class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.struct.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.struct.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.core.struct.Struct
+
+    
+        A Slang struct, typically created by accessing it via a module or parent struct. i.e. mymodule.Foo,
+        or mymodule.Foo.Bar.
+        
+    
+    .. py:attribute:: slangpy.core.struct.Struct.torch
+        :type: function
+        :value: <function Struct.torch at 0x0000018DD4352D40>
+    
+    .. py:attribute:: slangpy.core.struct.Struct.try_get_child
+        :type: function
+        :value: <function Struct.try_get_child at 0x0000018DD4352DE0>
+    
+    .. py:attribute:: slangpy.core.struct.Struct.as_func
+        :type: function
+        :value: <function Struct.as_func at 0x0000018DD4353060>
+    
+    .. py:attribute:: slangpy.core.struct.Struct.as_struct
+        :type: function
+        :value: <function Struct.as_struct at 0x0000018DD4353100>
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.ComputeKernel
+    :canonical: slangpy.ComputeKernel
+    
+    Alias class: :py:class:`slangpy.ComputeKernel`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.SlangModule
+    :canonical: slangpy.SlangModule
+    
+    Alias class: :py:class:`slangpy.SlangModule`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Logger
+    :canonical: slangpy.Logger
+    
+    Alias class: :py:class:`slangpy.Logger`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.NativeCallDataCache
+    :canonical: slangpy.slangpy.NativeCallDataCache
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallDataCache`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.CallDataCache
+
+    Base class: :py:class:`slangpy.slangpy.NativeCallDataCache`
+    
+    .. py:attribute:: slangpy.core.module.CallDataCache.lookup_value_signature
+        :type: function
+        :value: <function CallDataCache.lookup_value_signature at 0x0000018D8D48EFC0>
+    
+
+
+----
+
+.. py:class:: slangpy.core.module.Module
+
+    
+        A Slang module, created either by loading a slang file or providing a loaded SGL module.
+        
+    
+    .. py:attribute:: slangpy.core.module.Module.load_from_source
+        :type: function
+        :value: <function Module.load_from_source at 0x0000018D8D48F240>
+    
+    .. py:attribute:: slangpy.core.module.Module.load_from_file
+        :type: function
+        :value: <function Module.load_from_file at 0x0000018D8D48F1A0>
+    
+    .. py:attribute:: slangpy.core.module.Module.load_from_module
+        :type: function
+        :value: <function Module.load_from_module at 0x0000018D8D48F2E0>
+    
+    .. py:attribute:: slangpy.core.module.Module.torch
+        :type: function
+        :value: <function Module.torch at 0x0000018D8D48F600>
+    
+    .. py:attribute:: slangpy.core.module.Module.find_struct
+        :type: function
+        :value: <function Module.find_struct at 0x0000018D8D48F6A0>
+    
+    .. py:attribute:: slangpy.core.module.Module.require_struct
+        :type: function
+        :value: <function Module.require_struct at 0x0000018D8D48F740>
+    
+    .. py:attribute:: slangpy.core.module.Module.find_function
+        :type: function
+        :value: <function Module.find_function at 0x0000018D8D48F7E0>
+    
+    .. py:attribute:: slangpy.core.module.Module.require_function
+        :type: function
+        :value: <function Module.require_function at 0x0000018D8D48F880>
+    
+    .. py:attribute:: slangpy.core.module.Module.find_function_in_struct
+        :type: function
+        :value: <function Module.find_function_in_struct at 0x0000018D8D48F920>
+    
+    .. py:attribute:: slangpy.core.module.Module.on_hot_reload
+        :type: function
+        :value: <function Module.on_hot_reload at 0x0000018D8D48F9C0>
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.tr.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.tr.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.tr.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.TextureUsage
+    :canonical: slangpy.TextureUsage
+    
+    Alias class: :py:class:`slangpy.TextureUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.IOType
+    :canonical: slangpy.core.enums.IOType
+    
+    Alias class: :py:class:`slangpy.core.enums.IOType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.NativeSlangType
+    :canonical: slangpy.slangpy.NativeSlangType
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeSlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.FunctionReflection
+    :canonical: slangpy.FunctionReflection
+    
+    Alias class: :py:class:`slangpy.FunctionReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ModifierID
+    :canonical: slangpy.ModifierID
+    
+    Alias class: :py:class:`slangpy.ModifierID`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ProgramLayout
+    :canonical: slangpy.ProgramLayout
+    
+    Alias class: :py:class:`slangpy.ProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.TypeLayoutReflection
+    :canonical: slangpy.TypeLayoutReflection
+    
+    Alias class: :py:class:`slangpy.TypeLayoutReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.TR
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.VariableReflection
+    :canonical: slangpy.VariableReflection
+    
+    Alias class: :py:class:`slangpy.VariableReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.VoidType
+    :canonical: slangpy.reflection.reflectiontypes.VoidType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VoidType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.MatrixType
+    :canonical: slangpy.reflection.reflectiontypes.MatrixType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.MatrixType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ArrayType
+    :canonical: slangpy.reflection.reflectiontypes.ArrayType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ArrayType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.StructType
+    :canonical: slangpy.reflection.reflectiontypes.StructType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.InterfaceType
+    :canonical: slangpy.reflection.reflectiontypes.InterfaceType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.InterfaceType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ResourceType
+    :canonical: slangpy.reflection.reflectiontypes.ResourceType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ResourceType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.TextureType
+    :canonical: slangpy.reflection.reflectiontypes.TextureType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.TextureType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.StructuredBufferType
+    :canonical: slangpy.reflection.reflectiontypes.StructuredBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructuredBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.ByteAddressBufferType
+    :canonical: slangpy.reflection.reflectiontypes.ByteAddressBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ByteAddressBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.DifferentialPairType
+    :canonical: slangpy.reflection.reflectiontypes.DifferentialPairType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.DifferentialPairType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.RaytracingAccelerationStructureType
+    :canonical: slangpy.reflection.reflectiontypes.RaytracingAccelerationStructureType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.RaytracingAccelerationStructureType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SamplerStateType
+    :canonical: slangpy.reflection.reflectiontypes.SamplerStateType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SamplerStateType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.UnhandledType
+    :canonical: slangpy.reflection.reflectiontypes.UnhandledType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.UnhandledType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.BaseSlangVariable
+    :canonical: slangpy.reflection.reflectiontypes.BaseSlangVariable
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.BaseSlangVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangField
+    :canonical: slangpy.reflection.reflectiontypes.SlangField
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangField`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangParameter
+    :canonical: slangpy.reflection.reflectiontypes.SlangParameter
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangParameter`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.reflectiontypes.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.VoidType
+    :canonical: slangpy.reflection.reflectiontypes.VoidType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VoidType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.MatrixType
+    :canonical: slangpy.reflection.reflectiontypes.MatrixType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.MatrixType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.ArrayType
+    :canonical: slangpy.reflection.reflectiontypes.ArrayType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ArrayType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.StructType
+    :canonical: slangpy.reflection.reflectiontypes.StructType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.InterfaceType
+    :canonical: slangpy.reflection.reflectiontypes.InterfaceType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.InterfaceType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.TextureType
+    :canonical: slangpy.reflection.reflectiontypes.TextureType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.TextureType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.StructuredBufferType
+    :canonical: slangpy.reflection.reflectiontypes.StructuredBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructuredBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.ByteAddressBufferType
+    :canonical: slangpy.reflection.reflectiontypes.ByteAddressBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ByteAddressBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.DifferentialPairType
+    :canonical: slangpy.reflection.reflectiontypes.DifferentialPairType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.DifferentialPairType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.RaytracingAccelerationStructureType
+    :canonical: slangpy.reflection.reflectiontypes.RaytracingAccelerationStructureType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.RaytracingAccelerationStructureType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SamplerStateType
+    :canonical: slangpy.reflection.reflectiontypes.SamplerStateType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SamplerStateType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.UnhandledType
+    :canonical: slangpy.reflection.reflectiontypes.UnhandledType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.UnhandledType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangField
+    :canonical: slangpy.reflection.reflectiontypes.SlangField
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangField`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangParameter
+    :canonical: slangpy.reflection.reflectiontypes.SlangParameter
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangParameter`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.slr.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.ModifierID
+    :canonical: slangpy.ModifierID
+    
+    Alias class: :py:class:`slangpy.ModifierID`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.BoundCall
+    :canonical: slangpy.bindings.boundvariable.BoundCall
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundCall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.BoundVariableException
+    :canonical: slangpy.bindings.boundvariable.BoundVariableException
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariableException`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.CodeGen
+    :canonical: slangpy.bindings.codegen.CodeGen
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGen`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.NoneMarshall
+    :canonical: slangpy.builtin.value.NoneMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.NoneMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.ValueMarshall
+    :canonical: slangpy.builtin.value.ValueMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.ValueRef
+    :canonical: slangpy.types.valueref.ValueRef
+    
+    Alias class: :py:class:`slangpy.types.valueref.ValueRef`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.MismatchReason
+
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.ResolveException
+
+    Base class: :py:class:`builtins.Exception`
+    
+
+
+----
+
+.. py:class:: slangpy.core.callsignature.KernelGenException
+
+    Base class: :py:class:`builtins.Exception`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.FunctionReflection
+    :canonical: slangpy.FunctionReflection
+    
+    Alias class: :py:class:`slangpy.FunctionReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.ModifierID
+    :canonical: slangpy.ModifierID
+    
+    Alias class: :py:class:`slangpy.ModifierID`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.VariableReflection
+    :canonical: slangpy.VariableReflection
+    
+    Alias class: :py:class:`slangpy.VariableReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.logging.TableColumn
+
+
+
+----
+
+.. py:class:: slangpy.core.calldata.Path
+    :canonical: pathlib.Path
+    
+    Alias class: :py:class:`pathlib.Path`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.ModifierID
+    :canonical: slangpy.ModifierID
+    
+    Alias class: :py:class:`slangpy.ModifierID`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.BoundCall
+    :canonical: slangpy.bindings.boundvariable.BoundCall
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundCall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.BoundVariableException
+    :canonical: slangpy.bindings.boundvariable.BoundVariableException
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariableException`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.CodeGen
+    :canonical: slangpy.bindings.codegen.CodeGen
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGen`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.NoneMarshall
+    :canonical: slangpy.builtin.value.NoneMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.NoneMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.ValueMarshall
+    :canonical: slangpy.builtin.value.ValueMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.ValueRef
+    :canonical: slangpy.types.valueref.ValueRef
+    
+    Alias class: :py:class:`slangpy.types.valueref.ValueRef`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.MismatchReason
+    :canonical: slangpy.core.callsignature.MismatchReason
+    
+    Alias class: :py:class:`slangpy.core.callsignature.MismatchReason`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.ResolveException
+    :canonical: slangpy.core.callsignature.ResolveException
+    
+    Alias class: :py:class:`slangpy.core.callsignature.ResolveException`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.KernelGenException
+    :canonical: slangpy.core.callsignature.KernelGenException
+    
+    Alias class: :py:class:`slangpy.core.callsignature.KernelGenException`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.NativeCallData
+    :canonical: slangpy.slangpy.NativeCallData
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeCallData`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.SlangCompileError
+    :canonical: slangpy.SlangCompileError
+    
+    Alias class: :py:class:`slangpy.SlangCompileError`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.SlangLinkOptions
+    :canonical: slangpy.SlangLinkOptions
+    
+    Alias class: :py:class:`slangpy.SlangLinkOptions`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.BoundCallRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundCallRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundCallRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.core.calldata.CallData
+
+    Base class: :py:class:`slangpy.slangpy.NativeCallData`
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.FunctionNode
+    :canonical: slangpy.core.function.FunctionNode
+    
+    Alias class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.InstanceList
+
+    
+        Represents a list of instances of a struct, either as a single buffer
+        or an SOA style set of buffers for each field. data can either
+        be a dictionary of field names to buffers, or a single buffer.
+        
+    
+    .. py:attribute:: slangpy.core.instance.InstanceList.set_data
+        :type: function
+        :value: <function InstanceList.set_data at 0x0000018D8D4BA200>
+    
+    .. py:attribute:: slangpy.core.instance.InstanceList.get_this
+        :type: function
+        :value: <function InstanceList.get_this at 0x0000018D8D4BA2A0>
+    
+    .. py:attribute:: slangpy.core.instance.InstanceList.update_this
+        :type: function
+        :value: <function InstanceList.update_this at 0x0000018D8D4BA340>
+    
+    .. py:attribute:: slangpy.core.instance.InstanceList.construct
+        :type: function
+        :value: <function InstanceList.construct at 0x0000018D8D4BA3E0>
+    
+
+
+----
+
+.. py:class:: slangpy.core.instance.InstanceBuffer
+
+    Base class: :py:class:`slangpy.core.instance.InstanceList`
+    
+    
+        Simplified implementation of InstanceList that uses a single buffer for all instances and
+        provides buffer convenience functions for accessing its data.
+        
+    
+    .. py:attribute:: slangpy.core.instance.InstanceBuffer.to_numpy
+        :type: function
+        :value: <function InstanceBuffer.to_numpy at 0x0000018D8D4BA840>
+    
+    .. py:attribute:: slangpy.core.instance.InstanceBuffer.copy_from_numpy
+        :type: function
+        :value: <function InstanceBuffer.copy_from_numpy at 0x0000018D8D4BA8E0>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.codegen.CodeGenBlock
+
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.add_import
+        :type: function
+        :value: <function CodeGenBlock.add_import at 0x0000018DD334D6C0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.inc_indent
+        :type: function
+        :value: <function CodeGenBlock.inc_indent at 0x0000018DD334D760>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.dec_indent
+        :type: function
+        :value: <function CodeGenBlock.dec_indent at 0x0000018DD334D800>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.append_indent
+        :type: function
+        :value: <function CodeGenBlock.append_indent at 0x0000018DD334D8A0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.append_code
+        :type: function
+        :value: <function CodeGenBlock.append_code at 0x0000018DD334D940>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.append_code_indented
+        :type: function
+        :value: <function CodeGenBlock.append_code_indented at 0x0000018DD334D9E0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.empty_line
+        :type: function
+        :value: <function CodeGenBlock.empty_line at 0x0000018DD334DA80>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.append_line
+        :type: function
+        :value: <function CodeGenBlock.append_line at 0x0000018DD334DB20>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.append_statement
+        :type: function
+        :value: <function CodeGenBlock.append_statement at 0x0000018DD334DBC0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.begin_block
+        :type: function
+        :value: <function CodeGenBlock.begin_block at 0x0000018DD334DC60>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.end_block
+        :type: function
+        :value: <function CodeGenBlock.end_block at 0x0000018DD334DD00>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.begin_struct
+        :type: function
+        :value: <function CodeGenBlock.begin_struct at 0x0000018DD334DDA0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.end_struct
+        :type: function
+        :value: <function CodeGenBlock.end_struct at 0x0000018DD334DE40>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.type_alias
+        :type: function
+        :value: <function CodeGenBlock.type_alias at 0x0000018DD334DEE0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.diff_pair
+        :type: function
+        :value: <function CodeGenBlock.diff_pair at 0x0000018DD334DF80>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.declare
+        :type: function
+        :value: <function CodeGenBlock.declare at 0x0000018DD334E020>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.assign
+        :type: function
+        :value: <function CodeGenBlock.assign at 0x0000018DD334E0C0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.declarevar
+        :type: function
+        :value: <function CodeGenBlock.declarevar at 0x0000018DD334E160>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.statement
+        :type: function
+        :value: <function CodeGenBlock.statement at 0x0000018DD334E200>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.add_snippet
+        :type: function
+        :value: <function CodeGenBlock.add_snippet at 0x0000018DD334E2A0>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGenBlock.finish
+        :type: function
+        :value: <function CodeGenBlock.finish at 0x0000018DD334E340>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.codegen.CodeGen
+
+    
+        Tool for generating the code for a SlangPy kernel. Contains a set of
+        different code blocks that can be filled in and then combined to
+        generate the final code.
+        
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGen.add_snippet
+        :type: function
+        :value: <function CodeGen.add_snippet at 0x0000018DD334E480>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGen.add_import
+        :type: function
+        :value: <function CodeGen.add_import at 0x0000018DD334E520>
+    
+    .. py:attribute:: slangpy.bindings.codegen.CodeGen.finish
+        :type: function
+        :value: <function CodeGen.finish at 0x0000018DD334E5C0>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.BindContext
+
+    
+        Contextual information passed around during kernel generation process.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.ReturnContext
+
+    
+        Internal structure used to store information about return type of a function during generation.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.marshall.Marshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+    
+        Base class for a type marshall that describes how to pass a given type to/from a
+        SlangPy kernel. When a kernel is generated, a marshall is instantiated for each
+        Python value. Future calls to the kernel verify type signatures match and then
+        re-use the existing marshalls.
+        
+    
+    .. py:attribute:: slangpy.bindings.marshall.Marshall.gen_calldata
+        :type: function
+        :value: <function Marshall.gen_calldata at 0x0000018DD334E840>
+    
+    .. py:attribute:: slangpy.bindings.marshall.Marshall.reduce_type
+        :type: function
+        :value: <function Marshall.reduce_type at 0x0000018DD334E8E0>
+    
+    .. py:attribute:: slangpy.bindings.marshall.Marshall.resolve_type
+        :type: function
+        :value: <function Marshall.resolve_type at 0x0000018DD334E980>
+    
+    .. py:attribute:: slangpy.bindings.marshall.Marshall.resolve_dimensionality
+        :type: function
+        :value: <function Marshall.resolve_dimensionality at 0x0000018DD334EA20>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.IOType
+    :canonical: slangpy.core.enums.IOType
+    
+    Alias class: :py:class:`slangpy.core.enums.IOType`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.ModifierID
+    :canonical: slangpy.ModifierID
+    
+    Alias class: :py:class:`slangpy.ModifierID`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.CodeGen
+    :canonical: slangpy.bindings.codegen.CodeGen
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGen`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.SlangField
+    :canonical: slangpy.reflection.reflectiontypes.SlangField
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangField`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.SlangFunction
+    :canonical: slangpy.reflection.reflectiontypes.SlangFunction
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.SlangParameter
+    :canonical: slangpy.reflection.reflectiontypes.SlangParameter
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangParameter`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.BoundVariableException
+
+    Base class: :py:class:`builtins.Exception`
+    
+    
+        Custom exception type that carries a message and the variable that caused
+        the exception.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.BoundCall
+
+    
+        Stores the binding of python arguments to slang parameters during kernel
+        generation. This is initialized purely with a set of python arguments and
+        later bound to corresponding slang parameters during function resolution.
+        
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundCall.bind
+        :type: function
+        :value: <function BoundCall.bind at 0x0000018DD334ECA0>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundCall.apply_explicit_vectorization
+        :type: function
+        :value: <function BoundCall.apply_explicit_vectorization at 0x0000018DD334F060>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundCall.values
+        :type: function
+        :value: <function BoundCall.values at 0x0000018DD334F100>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundCall.apply_implicit_vectorization
+        :type: function
+        :value: <function BoundCall.apply_implicit_vectorization at 0x0000018DD334F1A0>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundCall.finalize_mappings
+        :type: function
+        :value: <function BoundCall.finalize_mappings at 0x0000018DD334F240>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariable.BoundVariable
+
+    
+        Node in a built signature tree, maintains a pairing of python+slang marshall,
+        and a potential set of child nodes for use during kernel generation.
+        
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.bind
+        :type: function
+        :value: <function BoundVariable.bind at 0x0000018DD334F420>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.apply_explicit_vectorization
+        :type: function
+        :value: <function BoundVariable.apply_explicit_vectorization at 0x0000018DD334F600>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.apply_implicit_vectorization
+        :type: function
+        :value: <function BoundVariable.apply_implicit_vectorization at 0x0000018DD334F740>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.finalize_mappings
+        :type: function
+        :value: <function BoundVariable.finalize_mappings at 0x0000018DD334F880>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.calculate_differentiability
+        :type: function
+        :value: <function BoundVariable.calculate_differentiability at 0x0000018DD334F9C0>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.get_input_list
+        :type: function
+        :value: <function BoundVariable.get_input_list at 0x0000018DD334FA60>
+    
+    .. py:attribute:: slangpy.bindings.boundvariable.BoundVariable.gen_call_data_code
+        :type: function
+        :value: <function BoundVariable.gen_call_data_code at 0x0000018DD334FCE0>
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BoundCall
+    :canonical: slangpy.bindings.boundvariable.BoundCall
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundCall`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BoundVariableException
+    :canonical: slangpy.bindings.boundvariable.BoundVariableException
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariableException`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariableruntime.NativeBoundCallRuntime
+    :canonical: slangpy.slangpy.NativeBoundCallRuntime
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBoundCallRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariableruntime.NativeBoundVariableRuntime
+    :canonical: slangpy.slangpy.NativeBoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariableruntime.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariableruntime.BoundCallRuntime
+
+    Base class: :py:class:`slangpy.slangpy.NativeBoundCallRuntime`
+    
+    
+        Minimal call data stored after kernel generation required to
+        dispatch a call to a SlangPy kernel.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+
+    Base class: :py:class:`slangpy.slangpy.NativeBoundVariableRuntime`
+    
+    
+        Minimal variable data stored after kernel generation required to
+        dispatch a call to a SlangPy kernel.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.BoundCallRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundCallRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundCallRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.CodeGen
+    :canonical: slangpy.bindings.codegen.CodeGen
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGen`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.bindings.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.NativeObject
+    :canonical: slangpy.slangpy.NativeObject
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeObject`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.GridArg
+
+    Base class: :py:class:`slangpy.slangpy.NativeObject`
+    
+    
+        Passes the thread id as an argument to a SlangPy function.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.GridArgType
+
+    Base class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.gridarg.GridArgMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.experimental.gridarg.GridArgMarshall.gen_calldata
+        :type: function
+        :value: <function GridArgMarshall.gen_calldata at 0x0000018DD435DB20>
+    
+    .. py:attribute:: slangpy.experimental.gridarg.GridArgMarshall.create_calldata
+        :type: function
+        :value: <function GridArgMarshall.create_calldata at 0x0000018DD435DBC0>
+    
+    .. py:attribute:: slangpy.experimental.gridarg.GridArgMarshall.get_shape
+        :type: function
+        :value: <function GridArgMarshall.get_shape at 0x0000018DD435DC60>
+    
+    .. py:attribute:: slangpy.experimental.gridarg.GridArgMarshall.resolve_type
+        :type: function
+        :value: <function GridArgMarshall.resolve_type at 0x0000018DD435DD00>
+    
+    .. py:attribute:: slangpy.experimental.gridarg.GridArgMarshall.resolve_dimensionality
+        :type: function
+        :value: <function GridArgMarshall.resolve_dimensionality at 0x0000018DD435DDA0>
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.MemoryType
+    :canonical: slangpy.MemoryType
+    
+    Alias class: :py:class:`slangpy.MemoryType`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer
+
+    Base class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+    
+        WIP: Use slangpy.Tensor instead.
+    
+        An N dimensional buffer of a given slang type, with optional additional buffer of gradients.
+        The supplied type can come from a SlangType (via reflection), a struct read from a Module,
+        or simply a name. If unspecified, the type of the gradient is assumed to match that of the
+        primal.
+    
+        When specifying just a type name, it is advisable to also supply the program_layout for the
+        module in question (see Module.layout), as this ensures type information is looked up from
+        the right place.
+        
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.primal_to_numpy
+        :type: function
+        :value: <function NDDifferentiableBuffer.primal_to_numpy at 0x0000018DD4382E80>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.primal_from_numpy
+        :type: function
+        :value: <function NDDifferentiableBuffer.primal_from_numpy at 0x0000018DD4382F20>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.primal_to_torch
+        :type: function
+        :value: <function NDDifferentiableBuffer.primal_to_torch at 0x0000018DD4382FC0>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.grad_to_numpy
+        :type: function
+        :value: <function NDDifferentiableBuffer.grad_to_numpy at 0x0000018DD4383060>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.grad_from_numpy
+        :type: function
+        :value: <function NDDifferentiableBuffer.grad_from_numpy at 0x0000018DD4383100>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.grad_to_torch
+        :type: function
+        :value: <function NDDifferentiableBuffer.grad_to_torch at 0x0000018DD43831A0>
+    
+    .. py:attribute:: slangpy.experimental.diffbuffer.NDDifferentiableBuffer.get_grad
+        :type: function
+        :value: <function NDDifferentiableBuffer.get_grad at 0x0000018DD4383240>
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.NativeNDBuffer
+    :canonical: slangpy.slangpy.NativeNDBuffer
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.NativeNDBufferDesc
+    :canonical: slangpy.slangpy.NativeNDBufferDesc
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBufferDesc`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.DataType
+    :canonical: slangpy.DataType
+    
+    Alias class: :py:class:`slangpy.DataType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.MemoryType
+    :canonical: slangpy.MemoryType
+    
+    Alias class: :py:class:`slangpy.MemoryType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.TypeLayoutReflection
+    :canonical: slangpy.TypeLayoutReflection
+    
+    Alias class: :py:class:`slangpy.TypeLayoutReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.CommandEncoder
+    :canonical: slangpy.CommandEncoder
+    
+    Alias class: :py:class:`slangpy.CommandEncoder`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.buffer.NDBuffer
+
+    Base class: :py:class:`slangpy.slangpy.NativeNDBuffer`
+    
+    
+        An N dimensional buffer of a given slang type. The supplied type can come from a SlangType (via
+        reflection), a struct read from a Module, or simply a name.
+    
+        When specifying just a type name, it is advisable to also supply the program_layout for the
+        module in question (see Module.layout), as this ensures type information is looked up from
+        the right place.
+        
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.broadcast_to
+        :type: function
+        :value: <function NDBuffer.broadcast_to at 0x0000018DD4353420>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.view
+        :type: function
+        :value: <function NDBuffer.view at 0x0000018DD43534C0>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.to_numpy
+        :type: function
+        :value: <function NDBuffer.to_numpy at 0x0000018DD4353560>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.to_torch
+        :type: function
+        :value: <function NDBuffer.to_torch at 0x0000018DD4353600>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.clear
+        :type: function
+        :value: <function NDBuffer.clear at 0x0000018DD43536A0>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.zeros
+        :type: function
+        :value: <function NDBuffer.zeros at 0x0000018DD4353740>
+    
+    .. py:attribute:: slangpy.types.buffer.NDBuffer.zeros_like
+        :type: function
+        :value: <function NDBuffer.zeros_like at 0x0000018DD43537E0>
+    
+
+
+----
+
+.. py:class:: slangpy.types.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.types.diffpair.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.diffpair.PrimType
+    :canonical: slangpy.core.enums.PrimType
+    
+    Alias class: :py:class:`slangpy.core.enums.PrimType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.diffpair.DiffPair
+
+    
+        A pair of values, one representing the primal value and the other representing the gradient value.
+        Typically only required when wanting to output gradients from scalar calls to a function.
+        
+    
+    .. py:attribute:: slangpy.types.diffpair.DiffPair.get
+        :type: function
+        :value: <function DiffPair.get at 0x0000018DD43539C0>
+    
+    .. py:attribute:: slangpy.types.diffpair.DiffPair.set
+        :type: function
+        :value: <function DiffPair.set at 0x0000018DD4353A60>
+    
+
+
+----
+
+.. py:class:: slangpy.types.DiffPair
+    :canonical: slangpy.types.diffpair.DiffPair
+    
+    Alias class: :py:class:`slangpy.types.diffpair.DiffPair`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.ArrayType
+    :canonical: slangpy.reflection.reflectiontypes.ArrayType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ArrayType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.helpers.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.WangHashArg
+
+    
+        Generates a random int/vector per thread when passed as an argument using a wang
+        hash of the thread id.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.types.wanghasharg.WangHashArgMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.types.wanghasharg.WangHashArgMarshall.gen_calldata
+        :type: function
+        :value: <function WangHashArgMarshall.gen_calldata at 0x0000018DD435C860>
+    
+    .. py:attribute:: slangpy.types.wanghasharg.WangHashArgMarshall.create_calldata
+        :type: function
+        :value: <function WangHashArgMarshall.create_calldata at 0x0000018DD435C900>
+    
+    .. py:attribute:: slangpy.types.wanghasharg.WangHashArgMarshall.resolve_type
+        :type: function
+        :value: <function WangHashArgMarshall.resolve_type at 0x0000018DD435C9A0>
+    
+    .. py:attribute:: slangpy.types.wanghasharg.WangHashArgMarshall.resolve_dimensionality
+        :type: function
+        :value: <function WangHashArgMarshall.resolve_dimensionality at 0x0000018DD435CA40>
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.RandFloatArg
+
+    
+        Generates a random float/vector per thread when passed as an argument
+        to a SlangPy function. The min and max values are inclusive.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.types.randfloatarg.RandFloatArgMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.types.randfloatarg.RandFloatArgMarshall.gen_calldata
+        :type: function
+        :value: <function RandFloatArgMarshall.gen_calldata at 0x0000018DD435CEA0>
+    
+    .. py:attribute:: slangpy.types.randfloatarg.RandFloatArgMarshall.create_calldata
+        :type: function
+        :value: <function RandFloatArgMarshall.create_calldata at 0x0000018DD435CF40>
+    
+    .. py:attribute:: slangpy.types.randfloatarg.RandFloatArgMarshall.resolve_type
+        :type: function
+        :value: <function RandFloatArgMarshall.resolve_type at 0x0000018DD435CFE0>
+    
+    .. py:attribute:: slangpy.types.randfloatarg.RandFloatArgMarshall.resolve_dimensionality
+        :type: function
+        :value: <function RandFloatArgMarshall.resolve_dimensionality at 0x0000018DD435D080>
+    
+
+
+----
+
+.. py:class:: slangpy.types.RandFloatArg
+    :canonical: slangpy.types.randfloatarg.RandFloatArg
+    
+    Alias class: :py:class:`slangpy.types.randfloatarg.RandFloatArg`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.NativeObject
+    :canonical: slangpy.slangpy.NativeObject
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeObject`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.ThreadIdArg
+
+    Base class: :py:class:`slangpy.slangpy.NativeObject`
+    
+    
+        Passes the thread id as an argument to a SlangPy function.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.types.threadidarg.ThreadIdArgMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.types.threadidarg.ThreadIdArgMarshall.gen_calldata
+        :type: function
+        :value: <function ThreadIdArgMarshall.gen_calldata at 0x0000018DD435D3A0>
+    
+    .. py:attribute:: slangpy.types.threadidarg.ThreadIdArgMarshall.resolve_type
+        :type: function
+        :value: <function ThreadIdArgMarshall.resolve_type at 0x0000018DD435D440>
+    
+    .. py:attribute:: slangpy.types.threadidarg.ThreadIdArgMarshall.resolve_dimensionality
+        :type: function
+        :value: <function ThreadIdArgMarshall.resolve_dimensionality at 0x0000018DD435D4E0>
+    
+
+
+----
+
+.. py:class:: slangpy.types.ThreadIdArg
+    :canonical: slangpy.types.threadidarg.ThreadIdArg
+    
+    Alias class: :py:class:`slangpy.types.threadidarg.ThreadIdArg`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.CallIdArg
+
+    
+        Passes the thread id as an argument to a SlangPy function.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.types.callidarg.CallIdArgMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.types.callidarg.CallIdArgMarshall.gen_calldata
+        :type: function
+        :value: <function CallIdArgMarshall.gen_calldata at 0x0000018DD435E020>
+    
+    .. py:attribute:: slangpy.types.callidarg.CallIdArgMarshall.resolve_type
+        :type: function
+        :value: <function CallIdArgMarshall.resolve_type at 0x0000018DD435E0C0>
+    
+    .. py:attribute:: slangpy.types.callidarg.CallIdArgMarshall.resolve_dimensionality
+        :type: function
+        :value: <function CallIdArgMarshall.resolve_dimensionality at 0x0000018DD435E160>
+    
+
+
+----
+
+.. py:class:: slangpy.types.CallIdArg
+    :canonical: slangpy.types.callidarg.CallIdArg
+    
+    Alias class: :py:class:`slangpy.types.callidarg.CallIdArg`
+    
+
+
+----
+
+.. py:class:: slangpy.types.valueref.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.valueref.ValueRef
+
+    
+        Minimal class to hold a reference to a scalar value, allowing user to get outputs
+        from scalar inout/out arguments.
+        
+    
+
+
+----
+
+.. py:class:: slangpy.types.ValueRef
+    :canonical: slangpy.types.valueref.ValueRef
+    
+    Alias class: :py:class:`slangpy.types.valueref.ValueRef`
+    
+
+
+----
+
+.. py:class:: slangpy.types.WangHashArg
+    :canonical: slangpy.types.wanghasharg.WangHashArg
+    
+    Alias class: :py:class:`slangpy.types.wanghasharg.WangHashArg`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.Buffer
+    :canonical: slangpy.Buffer
+    
+    Alias class: :py:class:`slangpy.Buffer`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.CommandBuffer
+    :canonical: slangpy.CommandBuffer
+    
+    Alias class: :py:class:`slangpy.CommandBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.NativeTensor
+    :canonical: slangpy.slangpy.NativeTensor
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensor`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.NativeTensorDesc
+    :canonical: slangpy.slangpy.NativeTensorDesc
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensorDesc`
+    
+
+
+----
+
+.. py:data:: slangpy.types.tensor.warn
+    :type: builtin_function_or_method
+    :value: <built-in function warn>
+
+
+
+----
+
+.. py:class:: slangpy.types.tensor.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.ST
+    :canonical: slangpy.TypeReflection.ScalarType
+    
+    Alias class: :py:class:`slangpy.TypeReflection.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.types.tensor.Tensor
+
+    Base class: :py:class:`slangpy.slangpy.NativeTensor`
+    
+    
+        Represents an N-D view of an underlying buffer with given shape and element type,
+        and has optional gradient information attached. Element type must be differentiable.
+    
+        Strides and offset can optionally be specified and are given in terms of elements, not bytes.
+        If omitted, a dense N-D grid is assumed (row-major).
+        
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.broadcast_to
+        :type: function
+        :value: <function Tensor.broadcast_to at 0x0000018DD435EB60>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.view
+        :type: function
+        :value: <function Tensor.view at 0x0000018DD435EC00>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.to_numpy
+        :type: function
+        :value: <function Tensor.to_numpy at 0x0000018DD435ED40>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.to_torch
+        :type: function
+        :value: <function Tensor.to_torch at 0x0000018DD435EDE0>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.with_grads
+        :type: function
+        :value: <function Tensor.with_grads at 0x0000018DD435EE80>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.clear
+        :type: function
+        :value: <function Tensor.clear at 0x0000018DD435EF20>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.numpy
+        :type: function
+        :value: <function Tensor.numpy at 0x0000018DD435EFC0>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.from_numpy
+        :type: function
+        :value: <function Tensor.from_numpy at 0x0000018DD435F060>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.empty
+        :type: function
+        :value: <function Tensor.empty at 0x0000018DD435F100>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.zeros
+        :type: function
+        :value: <function Tensor.zeros at 0x0000018DD435F1A0>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.empty_like
+        :type: function
+        :value: <function Tensor.empty_like at 0x0000018DD435F240>
+    
+    .. py:attribute:: slangpy.types.tensor.Tensor.zeros_like
+        :type: function
+        :value: <function Tensor.zeros_like at 0x0000018DD435F2E0>
+    
+
+
+----
+
+.. py:class:: slangpy.types.Tensor
+    :canonical: slangpy.types.tensor.Tensor
+    
+    Alias class: :py:class:`slangpy.types.tensor.Tensor`
+    
+
+
+----
+
+.. py:class:: slangpy.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.DiffPair
+    :canonical: slangpy.types.diffpair.DiffPair
+    
+    Alias class: :py:class:`slangpy.types.diffpair.DiffPair`
+    
+
+
+----
+
+.. py:class:: slangpy.RandFloatArg
+    :canonical: slangpy.types.randfloatarg.RandFloatArg
+    
+    Alias class: :py:class:`slangpy.types.randfloatarg.RandFloatArg`
+    
+
+
+----
+
+.. py:class:: slangpy.ThreadIdArg
+    :canonical: slangpy.types.threadidarg.ThreadIdArg
+    
+    Alias class: :py:class:`slangpy.types.threadidarg.ThreadIdArg`
+    
+
+
+----
+
+.. py:class:: slangpy.CallIdArg
+    :canonical: slangpy.types.callidarg.CallIdArg
+    
+    Alias class: :py:class:`slangpy.types.callidarg.CallIdArg`
+    
+
+
+----
+
+.. py:class:: slangpy.ValueRef
+    :canonical: slangpy.types.valueref.ValueRef
+    
+    Alias class: :py:class:`slangpy.types.valueref.ValueRef`
+    
+
+
+----
+
+.. py:class:: slangpy.WangHashArg
+    :canonical: slangpy.types.wanghasharg.WangHashArg
+    
+    Alias class: :py:class:`slangpy.types.wanghasharg.WangHashArg`
+    
+
+
+----
+
+.. py:class:: slangpy.Tensor
+    :canonical: slangpy.types.tensor.Tensor
+    
+    Alias class: :py:class:`slangpy.types.tensor.Tensor`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.NativeValueMarshall
+    :canonical: slangpy.slangpy.NativeValueMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.ValueMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.gen_calldata
+        :type: function
+        :value: <function ValueMarshall.gen_calldata at 0x0000018DD435F7E0>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.create_calldata
+        :type: function
+        :value: <function ValueMarshall.create_calldata at 0x0000018DD435F880>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.create_dispatchdata
+        :type: function
+        :value: <function ValueMarshall.create_dispatchdata at 0x0000018DD435F920>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.create_output
+        :type: function
+        :value: <function ValueMarshall.create_output at 0x0000018DD435F9C0>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.read_output
+        :type: function
+        :value: <function ValueMarshall.read_output at 0x0000018DD435FA60>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.resolve_type
+        :type: function
+        :value: <function ValueMarshall.resolve_type at 0x0000018DD435FB00>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.reduce_type
+        :type: function
+        :value: <function ValueMarshall.reduce_type at 0x0000018DD435FBA0>
+    
+    .. py:attribute:: slangpy.builtin.value.ValueMarshall.resolve_dimensionality
+        :type: function
+        :value: <function ValueMarshall.resolve_dimensionality at 0x0000018DD435FC40>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.ScalarMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.value.ScalarMarshall.reduce_type
+        :type: function
+        :value: <function ScalarMarshall.reduce_type at 0x0000018DD435FE20>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.NoneMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.value.NoneMarshall.resolve_dimensionality
+        :type: function
+        :value: <function NoneMarshall.resolve_dimensionality at 0x0000018DD4380040>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.VectorMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.value.VectorMarshall.reduce_type
+        :type: function
+        :value: <function VectorMarshall.reduce_type at 0x0000018DD4380180>
+    
+    .. py:attribute:: slangpy.builtin.value.VectorMarshall.resolve_type
+        :type: function
+        :value: <function VectorMarshall.resolve_type at 0x0000018DD4380220>
+    
+    .. py:attribute:: slangpy.builtin.value.VectorMarshall.gen_calldata
+        :type: function
+        :value: <function VectorMarshall.gen_calldata at 0x0000018DD43802C0>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.value.MatrixMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.value.MatrixMarshall.reduce_type
+        :type: function
+        :value: <function MatrixMarshall.reduce_type at 0x0000018DD4380400>
+    
+
+
+----
+
+.. py:data:: slangpy.builtin.value.base_name
+    :type: str
+    :value: "float16_t"
+
+
+
+----
+
+.. py:data:: slangpy.builtin.value.dim
+    :type: int
+    :value: 4
+
+
+
+----
+
+.. py:class:: slangpy.builtin.value.vec_type
+    :canonical: slangpy.math.float16_t4
+    
+    Alias class: :py:class:`slangpy.math.float16_t4`
+    
+
+
+----
+
+.. py:data:: slangpy.builtin.value.row
+    :type: int
+    :value: 4
+
+
+
+----
+
+.. py:data:: slangpy.builtin.value.col
+    :type: int
+    :value: 4
+
+
+
+----
+
+.. py:class:: slangpy.builtin.value.mat_type
+    :canonical: slangpy.math.float4x4
+    
+    Alias class: :py:class:`slangpy.math.float4x4`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ValueMarshall
+    :canonical: slangpy.builtin.value.ValueMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.BufferCursor
+    :canonical: slangpy.BufferCursor
+    
+    Alias class: :py:class:`slangpy.BufferCursor`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.Buffer
+    :canonical: slangpy.Buffer
+    
+    Alias class: :py:class:`slangpy.Buffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.ValueRef
+    :canonical: slangpy.types.valueref.ValueRef
+    
+    Alias class: :py:class:`slangpy.types.valueref.ValueRef`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.valueref.ValueRefMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.resolve_type
+        :type: function
+        :value: <function ValueRefMarshall.resolve_type at 0x0000018DD43819E0>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.resolve_dimensionality
+        :type: function
+        :value: <function ValueRefMarshall.resolve_dimensionality at 0x0000018DD4381A80>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.gen_calldata
+        :type: function
+        :value: <function ValueRefMarshall.gen_calldata at 0x0000018DD4381B20>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.create_calldata
+        :type: function
+        :value: <function ValueRefMarshall.create_calldata at 0x0000018DD4381BC0>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.create_dispatchdata
+        :type: function
+        :value: <function ValueRefMarshall.create_dispatchdata at 0x0000018DD4381C60>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.read_calldata
+        :type: function
+        :value: <function ValueRefMarshall.read_calldata at 0x0000018DD4381D00>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.create_output
+        :type: function
+        :value: <function ValueRefMarshall.create_output at 0x0000018DD4381DA0>
+    
+    .. py:attribute:: slangpy.builtin.valueref.ValueRefMarshall.read_output
+        :type: function
+        :value: <function ValueRefMarshall.read_output at 0x0000018DD4381E40>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ValueRefMarshall
+    :canonical: slangpy.builtin.valueref.ValueRefMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.valueref.ValueRefMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.PrimType
+    :canonical: slangpy.core.enums.PrimType
+    
+    Alias class: :py:class:`slangpy.core.enums.PrimType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.Buffer
+    :canonical: slangpy.Buffer
+    
+    Alias class: :py:class:`slangpy.Buffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.DiffPair
+    :canonical: slangpy.types.diffpair.DiffPair
+    
+    Alias class: :py:class:`slangpy.types.diffpair.DiffPair`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.diffpair.DiffPairMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.resolve_type
+        :type: function
+        :value: <function DiffPairMarshall.resolve_type at 0x0000018DD43822A0>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.resolve_dimensionality
+        :type: function
+        :value: <function DiffPairMarshall.resolve_dimensionality at 0x0000018DD4382340>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.gen_calldata
+        :type: function
+        :value: <function DiffPairMarshall.gen_calldata at 0x0000018DD43823E0>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.get_type
+        :type: function
+        :value: <function DiffPairMarshall.get_type at 0x0000018DD4382480>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.create_calldata
+        :type: function
+        :value: <function DiffPairMarshall.create_calldata at 0x0000018DD4382520>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.read_calldata
+        :type: function
+        :value: <function DiffPairMarshall.read_calldata at 0x0000018DD43825C0>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.create_output
+        :type: function
+        :value: <function DiffPairMarshall.create_output at 0x0000018DD4382660>
+    
+    .. py:attribute:: slangpy.builtin.diffpair.DiffPairMarshall.read_output
+        :type: function
+        :value: <function DiffPairMarshall.read_output at 0x0000018DD4382700>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.DiffPairMarshall
+    :canonical: slangpy.builtin.diffpair.DiffPairMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.diffpair.DiffPairMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.PrimType
+    :canonical: slangpy.core.enums.PrimType
+    
+    Alias class: :py:class:`slangpy.core.enums.PrimType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NativeNDBuffer
+    :canonical: slangpy.slangpy.NativeNDBuffer
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NativeNDBufferMarshall
+    :canonical: slangpy.slangpy.NativeNDBufferMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNDBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.StructuredBufferType
+    :canonical: slangpy.reflection.reflectiontypes.StructuredBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructuredBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NDBuffer
+    :canonical: slangpy.types.buffer.NDBuffer
+    
+    Alias class: :py:class:`slangpy.types.buffer.NDBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NDDifferentiableBuffer
+    :canonical: slangpy.experimental.diffbuffer.NDDifferentiableBuffer
+    
+    Alias class: :py:class:`slangpy.experimental.diffbuffer.NDDifferentiableBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.StopDebuggerException
+
+    Base class: :py:class:`builtins.Exception`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NDBufferType
+
+    Base class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.BaseNDBufferMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NDBufferMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeNDBufferMarshall`
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDBufferMarshall.reduce_type
+        :type: function
+        :value: <function NDBufferMarshall.reduce_type at 0x0000018DD4383880>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDBufferMarshall.resolve_type
+        :type: function
+        :value: <function NDBufferMarshall.resolve_type at 0x0000018DD4383920>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDBufferMarshall.resolve_dimensionality
+        :type: function
+        :value: <function NDBufferMarshall.resolve_dimensionality at 0x0000018DD43839C0>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDBufferMarshall.gen_calldata
+        :type: function
+        :value: <function NDBufferMarshall.gen_calldata at 0x0000018DD4383A60>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall
+
+    Base class: :py:class:`slangpy.builtin.ndbuffer.BaseNDBufferMarshall`
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.reduce_type
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.reduce_type at 0x0000018DD4383D80>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.resolve_type
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.resolve_type at 0x0000018DD4383E20>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.resolve_dimensionality
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.resolve_dimensionality at 0x0000018DD4383EC0>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.gen_calldata
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.gen_calldata at 0x0000018DD4383F60>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.create_calldata
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.create_calldata at 0x0000018DD4390040>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.create_output
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.create_output at 0x0000018DD43900E0>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.read_output
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.read_output at 0x0000018DD4390180>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.create_dispatchdata
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.create_dispatchdata at 0x0000018DD4390220>
+    
+    .. py:attribute:: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall.get_shape
+        :type: function
+        :value: <function NDDifferentiableBufferMarshall.get_shape at 0x0000018DD43902C0>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.NDBufferMarshall
+    :canonical: slangpy.builtin.ndbuffer.NDBufferMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.ndbuffer.NDBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.NDDifferentiableBufferMarshall
+    :canonical: slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.ndbuffer.NDDifferentiableBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.NativeMarshall
+    :canonical: slangpy.slangpy.NativeMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.ValueMarshall
+    :canonical: slangpy.builtin.value.ValueMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.struct.StructMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+    .. py:attribute:: slangpy.builtin.struct.StructMarshall.resolve_type
+        :type: function
+        :value: <function StructMarshall.resolve_type at 0x0000018DD4390720>
+    
+    .. py:attribute:: slangpy.builtin.struct.StructMarshall.resolve_dimensionality
+        :type: function
+        :value: <function StructMarshall.resolve_dimensionality at 0x0000018DD43907C0>
+    
+    .. py:attribute:: slangpy.builtin.struct.StructMarshall.create_dispatchdata
+        :type: function
+        :value: <function StructMarshall.create_dispatchdata at 0x0000018DD4390860>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.StructMarshall
+    :canonical: slangpy.builtin.struct.StructMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.struct.StructMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.NativeBufferMarshall
+    :canonical: slangpy.slangpy.NativeBufferMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeBufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.StructuredBufferType
+    :canonical: slangpy.reflection.reflectiontypes.StructuredBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.StructuredBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.ByteAddressBufferType
+    :canonical: slangpy.reflection.reflectiontypes.ByteAddressBufferType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ByteAddressBufferType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.Buffer
+    :canonical: slangpy.Buffer
+    
+    Alias class: :py:class:`slangpy.Buffer`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.structuredbuffer.BufferMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeBufferMarshall`
+    
+    .. py:attribute:: slangpy.builtin.structuredbuffer.BufferMarshall.resolve_type
+        :type: function
+        :value: <function BufferMarshall.resolve_type at 0x0000018DD4390AE0>
+    
+    .. py:attribute:: slangpy.builtin.structuredbuffer.BufferMarshall.resolve_dimensionality
+        :type: function
+        :value: <function BufferMarshall.resolve_dimensionality at 0x0000018DD4390B80>
+    
+    .. py:attribute:: slangpy.builtin.structuredbuffer.BufferMarshall.gen_calldata
+        :type: function
+        :value: <function BufferMarshall.gen_calldata at 0x0000018DD4390C20>
+    
+    .. py:attribute:: slangpy.builtin.structuredbuffer.BufferMarshall.reduce_type
+        :type: function
+        :value: <function BufferMarshall.reduce_type at 0x0000018DD4390D60>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.BufferMarshall
+    :canonical: slangpy.builtin.structuredbuffer.BufferMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.structuredbuffer.BufferMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.NativeTextureMarshall
+    :canonical: slangpy.slangpy.NativeTextureMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTextureMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.FormatType
+    :canonical: slangpy.FormatType
+    
+    Alias class: :py:class:`slangpy.FormatType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.TextureType
+    :canonical: slangpy.TextureType
+    
+    Alias class: :py:class:`slangpy.TextureType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.TextureUsage
+    :canonical: slangpy.TextureUsage
+    
+    Alias class: :py:class:`slangpy.TextureUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Sampler
+    :canonical: slangpy.Sampler
+    
+    Alias class: :py:class:`slangpy.Sampler`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Texture
+    :canonical: slangpy.Texture
+    
+    Alias class: :py:class:`slangpy.Texture`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Format
+    :canonical: slangpy.Format
+    
+    Alias class: :py:class:`slangpy.Format`
+    
+
+
+----
+
+.. py:function:: slangpy.builtin.texture.get_format_info(arg: slangpy.Format, /) -> slangpy.FormatInfo
+
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.TextureMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeTextureMarshall`
+    
+    .. py:attribute:: slangpy.builtin.texture.TextureMarshall.reduce_type
+        :type: function
+        :value: <function TextureMarshall.reduce_type at 0x0000018DD4391260>
+    
+    .. py:attribute:: slangpy.builtin.texture.TextureMarshall.resolve_type
+        :type: function
+        :value: <function TextureMarshall.resolve_type at 0x0000018DD4391300>
+    
+    .. py:attribute:: slangpy.builtin.texture.TextureMarshall.build_type_name
+        :type: function
+        :value: <function TextureMarshall.build_type_name at 0x0000018DD4391440>
+    
+    .. py:attribute:: slangpy.builtin.texture.TextureMarshall.build_accessor_name
+        :type: function
+        :value: <function TextureMarshall.build_accessor_name at 0x0000018DD43914E0>
+    
+    .. py:attribute:: slangpy.builtin.texture.TextureMarshall.gen_calldata
+        :type: function
+        :value: <function TextureMarshall.gen_calldata at 0x0000018DD4391580>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.texture.SamplerMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.builtin.texture.SamplerMarshall.gen_calldata
+        :type: function
+        :value: <function SamplerMarshall.gen_calldata at 0x0000018DD43919E0>
+    
+    .. py:attribute:: slangpy.builtin.texture.SamplerMarshall.create_calldata
+        :type: function
+        :value: <function SamplerMarshall.create_calldata at 0x0000018DD4391A80>
+    
+    .. py:attribute:: slangpy.builtin.texture.SamplerMarshall.create_dispatchdata
+        :type: function
+        :value: <function SamplerMarshall.create_dispatchdata at 0x0000018DD4391B20>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.TextureMarshall
+    :canonical: slangpy.builtin.texture.TextureMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.texture.TextureMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.ValueMarshall
+    :canonical: slangpy.builtin.value.ValueMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.array.ArrayMarshall
+
+    Base class: :py:class:`slangpy.builtin.value.ValueMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.ArrayMarshall
+    :canonical: slangpy.builtin.array.ArrayMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.array.ArrayMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.resourceview.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.resourceview.TextureView
+    :canonical: slangpy.TextureView
+    
+    Alias class: :py:class:`slangpy.TextureView`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.resourceview.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.TextureView
+    :canonical: slangpy.TextureView
+    
+    Alias class: :py:class:`slangpy.TextureView`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.AccelerationStructure
+    :canonical: slangpy.AccelerationStructure
+    
+    Alias class: :py:class:`slangpy.AccelerationStructure`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.accelerationstructure.AccelerationStructureMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.builtin.accelerationstructure.AccelerationStructureMarshall.gen_calldata
+        :type: function
+        :value: <function AccelerationStructureMarshall.gen_calldata at 0x0000018DD4391F80>
+    
+    .. py:attribute:: slangpy.builtin.accelerationstructure.AccelerationStructureMarshall.create_calldata
+        :type: function
+        :value: <function AccelerationStructureMarshall.create_calldata at 0x0000018DD4392020>
+    
+    .. py:attribute:: slangpy.builtin.accelerationstructure.AccelerationStructureMarshall.create_dispatchdata
+        :type: function
+        :value: <function AccelerationStructureMarshall.create_dispatchdata at 0x0000018DD43920C0>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.AccelerationStructureMarshall
+    :canonical: slangpy.builtin.accelerationstructure.AccelerationStructureMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.accelerationstructure.AccelerationStructureMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.Marshall
+    :canonical: slangpy.bindings.marshall.Marshall
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.range.RangeMarshall
+
+    Base class: :py:class:`slangpy.bindings.marshall.Marshall`
+    
+    .. py:attribute:: slangpy.builtin.range.RangeMarshall.gen_calldata
+        :type: function
+        :value: <function RangeMarshall.gen_calldata at 0x0000018DD43922A0>
+    
+    .. py:attribute:: slangpy.builtin.range.RangeMarshall.create_calldata
+        :type: function
+        :value: <function RangeMarshall.create_calldata at 0x0000018DD4392340>
+    
+    .. py:attribute:: slangpy.builtin.range.RangeMarshall.get_shape
+        :type: function
+        :value: <function RangeMarshall.get_shape at 0x0000018DD43923E0>
+    
+    .. py:attribute:: slangpy.builtin.range.RangeMarshall.resolve_type
+        :type: function
+        :value: <function RangeMarshall.resolve_type at 0x0000018DD4392480>
+    
+    .. py:attribute:: slangpy.builtin.range.RangeMarshall.resolve_dimensionality
+        :type: function
+        :value: <function RangeMarshall.resolve_dimensionality at 0x0000018DD4392520>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.RangeMarshall
+    :canonical: slangpy.builtin.range.RangeMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.range.RangeMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.NativeNumpyMarshall
+    :canonical: slangpy.slangpy.NativeNumpyMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeNumpyMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.MatrixType
+    :canonical: slangpy.reflection.reflectiontypes.MatrixType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.MatrixType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.numpy.NumpyMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeNumpyMarshall`
+    
+    .. py:attribute:: slangpy.builtin.numpy.NumpyMarshall.reduce_type
+        :type: function
+        :value: <function NumpyMarshall.reduce_type at 0x0000018DD4392840>
+    
+    .. py:attribute:: slangpy.builtin.numpy.NumpyMarshall.resolve_type
+        :type: function
+        :value: <function NumpyMarshall.resolve_type at 0x0000018DD43928E0>
+    
+    .. py:attribute:: slangpy.builtin.numpy.NumpyMarshall.resolve_dimensionality
+        :type: function
+        :value: <function NumpyMarshall.resolve_dimensionality at 0x0000018DD4392980>
+    
+    .. py:attribute:: slangpy.builtin.numpy.NumpyMarshall.gen_calldata
+        :type: function
+        :value: <function NumpyMarshall.gen_calldata at 0x0000018DD4392A20>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.NumpyMarshall
+    :canonical: slangpy.builtin.numpy.NumpyMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.numpy.NumpyMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.Tensor
+    :canonical: slangpy.types.tensor.Tensor
+    
+    Alias class: :py:class:`slangpy.types.tensor.Tensor`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.NativeTensorMarshall
+    :canonical: slangpy.slangpy.NativeTensorMarshall
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensorMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.NativeTensor
+    :canonical: slangpy.slangpy.NativeTensor
+    
+    Alias class: :py:class:`slangpy.slangpy.NativeTensor`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.ArrayType
+    :canonical: slangpy.reflection.reflectiontypes.ArrayType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ArrayType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.BindContext
+    :canonical: slangpy.bindings.marshall.BindContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.BindContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.BoundVariable
+    :canonical: slangpy.bindings.boundvariable.BoundVariable
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariable.BoundVariable`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.CodeGenBlock
+    :canonical: slangpy.bindings.codegen.CodeGenBlock
+    
+    Alias class: :py:class:`slangpy.bindings.codegen.CodeGenBlock`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.ITensorType
+
+    Base class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.tensor.TensorMarshall
+
+    Base class: :py:class:`slangpy.slangpy.NativeTensorMarshall`
+    
+    .. py:attribute:: slangpy.builtin.tensor.TensorMarshall.resolve_type
+        :type: function
+        :value: <function TensorMarshall.resolve_type at 0x0000018DD4393420>
+    
+    .. py:attribute:: slangpy.builtin.tensor.TensorMarshall.reduce_type
+        :type: function
+        :value: <function TensorMarshall.reduce_type at 0x0000018DD43934C0>
+    
+    .. py:attribute:: slangpy.builtin.tensor.TensorMarshall.resolve_dimensionality
+        :type: function
+        :value: <function TensorMarshall.resolve_dimensionality at 0x0000018DD4393560>
+    
+    .. py:attribute:: slangpy.builtin.tensor.TensorMarshall.get_shape
+        :type: function
+        :value: <function TensorMarshall.get_shape at 0x0000018DD4393600>
+    
+    .. py:attribute:: slangpy.builtin.tensor.TensorMarshall.gen_calldata
+        :type: function
+        :value: <function TensorMarshall.gen_calldata at 0x0000018DD43936A0>
+    
+
+
+----
+
+.. py:class:: slangpy.builtin.TensorMarshall
+    :canonical: slangpy.builtin.tensor.TensorMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.tensor.TensorMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.ScalarType
+    :canonical: slangpy.reflection.reflectiontypes.ScalarType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.DataType
+    :canonical: slangpy.DataType
+    
+    Alias class: :py:class:`slangpy.DataType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.BufferUsage
+    :canonical: slangpy.BufferUsage
+    
+    Alias class: :py:class:`slangpy.BufferUsage`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.TypeReflection
+    :canonical: slangpy.TypeReflection
+    
+    Alias class: :py:class:`slangpy.TypeReflection`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.CallContext
+    :canonical: slangpy.slangpy.CallContext
+    
+    Alias class: :py:class:`slangpy.slangpy.CallContext`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.CallMode
+    :canonical: slangpy.slangpy.CallMode
+    
+    Alias class: :py:class:`slangpy.slangpy.CallMode`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.Shape
+    :canonical: slangpy.slangpy.Shape
+    
+    Alias class: :py:class:`slangpy.slangpy.Shape`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.BoundVariableRuntime
+    :canonical: slangpy.bindings.boundvariableruntime.BoundVariableRuntime
+    
+    Alias class: :py:class:`slangpy.bindings.boundvariableruntime.BoundVariableRuntime`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.ReturnContext
+    :canonical: slangpy.bindings.marshall.ReturnContext
+    
+    Alias class: :py:class:`slangpy.bindings.marshall.ReturnContext`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.TensorMarshall
+    :canonical: slangpy.builtin.tensor.TensorMarshall
+    
+    Alias class: :py:class:`slangpy.builtin.tensor.TensorMarshall`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.Buffer
+    :canonical: slangpy.Buffer
+    
+    Alias class: :py:class:`slangpy.Buffer`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.SlangProgramLayout
+    :canonical: slangpy.reflection.reflectiontypes.SlangProgramLayout
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangProgramLayout`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.SlangType
+    :canonical: slangpy.reflection.reflectiontypes.SlangType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.SlangType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.VectorType
+    :canonical: slangpy.reflection.reflectiontypes.VectorType
+    
+    Alias class: :py:class:`slangpy.reflection.reflectiontypes.VectorType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.ST
+    :canonical: slangpy.TypeReflection.ScalarType
+    
+    Alias class: :py:class:`slangpy.TypeReflection.ScalarType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.WrappedTensor
+
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensor.collect_streams
+        :type: function
+        :value: <function WrappedTensor.collect_streams at 0x0000018D8D48D9E0>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall
+
+    Base class: :py:class:`slangpy.builtin.tensor.TensorMarshall`
+    
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall.get_shape
+        :type: function
+        :value: <function WrappedTensorMarshall.get_shape at 0x0000018D8D48DA80>
+    
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall.create_calldata
+        :type: function
+        :value: <function WrappedTensorMarshall.create_calldata at 0x0000018D8D48DBC0>
+    
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall.read_calldata
+        :type: function
+        :value: <function WrappedTensorMarshall.read_calldata at 0x0000018D8D48DC60>
+    
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall.create_output
+        :type: function
+        :value: <function WrappedTensorMarshall.create_output at 0x0000018D8D48DD00>
+    
+    .. py:attribute:: slangpy.torchintegration.wrappedtensor.WrappedTensorMarshall.read_output
+        :type: function
+        :value: <function WrappedTensorMarshall.read_output at 0x0000018D8D48DDA0>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.AccessType
+    :canonical: slangpy.slangpy.AccessType
+    
+    Alias class: :py:class:`slangpy.slangpy.AccessType`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.WrappedTensor
+    :canonical: slangpy.torchintegration.wrappedtensor.WrappedTensor
+    
+    Alias class: :py:class:`slangpy.torchintegration.wrappedtensor.WrappedTensor`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.FunctionNode
+    :canonical: slangpy.core.function.FunctionNode
+    
+    Alias class: :py:class:`slangpy.core.function.FunctionNode`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.IThis
+    :canonical: slangpy.core.function.IThis
+    
+    Alias class: :py:class:`slangpy.core.function.IThis`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.TypeConformance
+    :canonical: slangpy.TypeConformance
+    
+    Alias class: :py:class:`slangpy.TypeConformance`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.TorchAutoGradFunction
+
+    Base class: :py:class:`torch.autograd.function.Function`
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchAutoGradFunction.forward
+        :type: function
+        :value: <function TorchAutoGradFunction.forward at 0x0000018D8D48E3E0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchAutoGradFunction.backward
+        :type: function
+        :value: <function TorchAutoGradFunction.backward at 0x0000018D8D48E480>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchfunction.TorchFunction
+
+    Base class: :py:class:`torch.nn.modules.module.Module`
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.forward
+        :type: function
+        :value: <function TorchFunction.forward at 0x0000018D8D48E5C0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.bind
+        :type: function
+        :value: <function TorchFunction.bind at 0x0000018D8D48E660>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.map
+        :type: function
+        :value: <function TorchFunction.map at 0x0000018D8D48E700>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.set
+        :type: function
+        :value: <function TorchFunction.set at 0x0000018D8D48E7A0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.constants
+        :type: function
+        :value: <function TorchFunction.constants at 0x0000018D8D48E840>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.type_conformances
+        :type: function
+        :value: <function TorchFunction.type_conformances at 0x0000018D8D48E8E0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.return_type
+        :type: function
+        :value: <function TorchFunction.return_type at 0x0000018D8D48E980>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.as_func
+        :type: function
+        :value: <function TorchFunction.as_func at 0x0000018D8D48EAC0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchfunction.TorchFunction.as_struct
+        :type: function
+        :value: <function TorchFunction.as_struct at 0x0000018D8D48EB60>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.TorchFunction
+    :canonical: slangpy.torchintegration.torchfunction.TorchFunction
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchfunction.TorchFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchstruct.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchstruct.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchstruct.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchstruct.TorchFunction
+    :canonical: slangpy.torchintegration.torchfunction.TorchFunction
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchfunction.TorchFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchstruct.TorchStruct
+
+    
+        A Slang struct, typically created by accessing it via a module or parent struct. i.e. mymodule.Foo,
+        or mymodule.Foo.Bar.
+        
+    
+    .. py:attribute:: slangpy.torchintegration.torchstruct.TorchStruct.try_get_child
+        :type: function
+        :value: <function TorchStruct.try_get_child at 0x0000018D8D48FEC0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchstruct.TorchStruct.as_func
+        :type: function
+        :value: <function TorchStruct.as_func at 0x0000018D8D4B8180>
+    
+    .. py:attribute:: slangpy.torchintegration.torchstruct.TorchStruct.as_struct
+        :type: function
+        :value: <function TorchStruct.as_struct at 0x0000018D8D4B8220>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.Any
+    :canonical: typing.Any
+    
+    Alias class: :py:class:`typing.Any`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.SlangModule
+    :canonical: slangpy.SlangModule
+    
+    Alias class: :py:class:`slangpy.SlangModule`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.Device
+    :canonical: slangpy.Device
+    
+    Alias class: :py:class:`slangpy.Device`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.Module
+    :canonical: slangpy.core.module.Module
+    
+    Alias class: :py:class:`slangpy.core.module.Module`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.TorchFunction
+    :canonical: slangpy.torchintegration.torchfunction.TorchFunction
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchfunction.TorchFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.TorchStruct
+    :canonical: slangpy.torchintegration.torchstruct.TorchStruct
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchstruct.TorchStruct`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.torchmodule.TorchModule
+
+    
+        A Slang module, created either by loading a slang file or providing a loaded SGL module.
+        
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.load_from_source
+        :type: function
+        :value: <function TorchModule.load_from_source at 0x0000018D8D48EF20>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.load_from_file
+        :type: function
+        :value: <function TorchModule.load_from_file at 0x0000018D8D4B82C0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.load_from_module
+        :type: function
+        :value: <function TorchModule.load_from_module at 0x0000018D8D4B8360>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.find_struct
+        :type: function
+        :value: <function TorchModule.find_struct at 0x0000018D8D4B85E0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.require_struct
+        :type: function
+        :value: <function TorchModule.require_struct at 0x0000018D8D4B8680>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.find_function
+        :type: function
+        :value: <function TorchModule.find_function at 0x0000018D8D4B8720>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.require_function
+        :type: function
+        :value: <function TorchModule.require_function at 0x0000018D8D4B87C0>
+    
+    .. py:attribute:: slangpy.torchintegration.torchmodule.TorchModule.find_function_in_struct
+        :type: function
+        :value: <function TorchModule.find_function_in_struct at 0x0000018D8D4B8860>
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.TorchModule
+    :canonical: slangpy.torchintegration.torchmodule.TorchModule
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchmodule.TorchModule`
+    
+
+
+----
+
+.. py:class:: slangpy.torchintegration.TorchStruct
+    :canonical: slangpy.torchintegration.torchstruct.TorchStruct
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchstruct.TorchStruct`
+    
+
+
+----
+
+.. py:class:: slangpy.TorchModule
+    :canonical: slangpy.torchintegration.torchmodule.TorchModule
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchmodule.TorchModule`
+    
+
+
+----
+
+.. py:class:: slangpy.Function
+    :canonical: slangpy.core.function.Function
+    
+    Alias class: :py:class:`slangpy.core.function.Function`
+    
+
+
+----
+
+.. py:class:: slangpy.Struct
+    :canonical: slangpy.core.struct.Struct
+    
+    Alias class: :py:class:`slangpy.core.struct.Struct`
+    
+
+
+----
+
+.. py:class:: slangpy.Module
+    :canonical: slangpy.core.module.Module
+    
+    Alias class: :py:class:`slangpy.core.module.Module`
+    
+
+
+----
+
+.. py:class:: slangpy.InstanceList
+    :canonical: slangpy.core.instance.InstanceList
+    
+    Alias class: :py:class:`slangpy.core.instance.InstanceList`
+    
+
+
+----
+
+.. py:class:: slangpy.InstanceBuffer
+    :canonical: slangpy.core.instance.InstanceBuffer
+    
+    Alias class: :py:class:`slangpy.core.instance.InstanceBuffer`
+    
+
+
+----
+
+.. py:class:: slangpy.TorchFunction
+    :canonical: slangpy.torchintegration.torchfunction.TorchFunction
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchfunction.TorchFunction`
+    
+
+
+----
+
+.. py:class:: slangpy.TorchStruct
+    :canonical: slangpy.torchintegration.torchstruct.TorchStruct
+    
+    Alias class: :py:class:`slangpy.torchintegration.torchstruct.TorchStruct`
+    
+
+
+----
+
+.. py:data:: slangpy.SHADER_PATH
+    :type: str
+    :value: "c:\src\sgl-slangpy\slangpy\slang"
 
 
 

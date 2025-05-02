@@ -14,14 +14,6 @@ if errorlevel 1 (
     git submodule update --init --recursive
 )
 
-echo Fetching dependencies ...
-
-call python %~dp0\setup-tools.py
-if errorlevel 1 (
-    echo Failed to fetch dependencies!
-    exit /b 1
-)
-
 if not exist %~dp0\.vscode\ (
     echo Setting up VS Code workspace ...
     xcopy %~dp0\.vscode-default\ %~dp0\.vscode\ /y

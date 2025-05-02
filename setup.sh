@@ -14,14 +14,6 @@ else
     git submodule update --init --recursive
 fi
 
-echo "Fetching dependencies ..."
-
-python setup-tools.py
-if [ $? -ne 0 ]; then
-    echo "Failed to fetch dependencies!"
-    exit 1
-fi
-
 if [ ! -d ${BASE_DIR}/.vscode ]; then
     echo "Setting up VS Code workspace ..."
     cp -rp ${BASE_DIR}/.vscode-default ${BASE_DIR}/.vscode

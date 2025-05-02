@@ -35,8 +35,8 @@ Project structure
       - Source code.
     * - ``tools``
       - Host tools and scripts (cmake, ninja, clang-tools, etc.).
-    * - ``tutorials``
-      - Tutorials written as Jupyter notebooks (git submodule).
+    * - ``samples``
+      - Tutorials, examples and experiments (git submodule).
 
 
 Further reading

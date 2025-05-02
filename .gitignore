@@ -2,9 +2,20 @@ build/
 external/vcpkg
 tools/download
 tools/host
-.vscode/
+docs/_build/
 
 .DS_Store
 *.pyc
 
+.vscode/
 .vs/
+.temp/
+
+# Python files installed into source tree
+slangpy/**/*.pyi
+slangpy/*.pdb
+slangpy/*.pyd
+slangpy/*.ilk
+slangpy/*.so
+slangpy/.build_dir
+slangpy.egg-info/

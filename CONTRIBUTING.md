@@ -1,8 +1,8 @@
-# Slang Graphics Library Open Source Project
+# SlangPy Open Source Project
 
 ## Contribution Guide
 
-Thank you for considering contributing to the Slang Graphics Library (sgl) project! We welcome your help to improve and enhance our project. Please take a moment to read through this guide to understand how you can contribute.
+Thank you for considering contributing to the SlangPy project! We welcome your help to improve and enhance our project. Please take a moment to read through this guide to understand how you can contribute.
 
 This document is designed to guide you in contributing to the project. It is intended to be easy to follow without sending readers to other pages and links. You can simply copy and paste the command lines described in this document.
 
@@ -18,36 +18,35 @@ This document is designed to guide you in contributing to the project. It is int
    - [Forking the Repository](#forking-the-repository)
    - [Cloning Your Fork](#cloning-your-fork)
    - [Creating a Branch](#creating-a-branch)
-   - [Build SGL from Source](#build-sgl-from-source)
-   - [Testing](#testing)
+   - [Build SlangPy from Source](#build-slangpy-from-source)
+   - [Making and Testing Changes](#making-and-testing-changes)
    - [Commit to the Branch](#commit-to-the-branch)
    - [Push to Forked Repository](#push-to-forked-repository)
 2. [Pull Request](#pull-request)
    - [Addressing Code Reviews](#addressing-code-reviews)
-3. [Code Style](#code-style)
-4. [Issue Tracking](#issue-tracking)
-5. [Communication](#communication)
-6. [License](#license)
+3. [Issue Tracking](#issue-tracking)
+4. [Communication](#communication)
+5. [License](#license)
 
 ## Contribution Process
 
 ### Forking the Repository
-Navigate to the [sgl repository](https://github.com/shader-slang/sgl).
+Navigate to the [SlangPy repository](https://github.com/shader-slang/slangpy).
 Click on the "Fork" button in the top right corner to create a copy of the repository in your GitHub account.
-This document will assume that the name of your forked repository is "sgl".
+This document will assume that the name of your forked repository is "slangpy".
 Make sure your "Actions" are enabled. Visit your forked repository, click on the "Actions" tab, and enable the actions.
 
 ### Cloning Your Fork
 1. Clone your fork locally, replacing "USER-NAME" in the command below with your actual username.
    ```
-   $ git clone --recursive --tags https://github.com/USER-NAME/sgl.git
-   $ cd sgl
+   $ git clone --recursive --tags https://github.com/USER-NAME/slangpy.git
+   $ cd slangpy
    ```
 
 2. Fetch tags by adding the original repository as an upstream.
    It is important to have tags in your forked repository because our workflow/action uses the information for the build process. But the tags are not fetched by default when you fork a repository in GitHub. You need to add the original repository as an upstream and fetch tags manually.
    ```
-   $ git remote add upstream https://github.com/shader-slang/sgl.git
+   $ git remote add upstream https://github.com/shader-slang/slangpy.git
    $ git fetch --tags upstream
    ```
 
@@ -68,13 +67,13 @@ Create a new branch for your contribution:
 $ git checkout -b feature/your-feature-name
 ```
 
-### Build SGL from Source
-Please follow the instructions on [Compiling](https://nv-sgl.readthedocs.io/en/latest/src/developer_guide/compiling.html) sgl in the documentation on readthedocs.
+### Build SlangPy from Source
+Please follow the instructions on how to [Develop with SlangPy](DEVELOP.md).
 
-### Testing
-Test your changes thoroughly to ensure they do not introduce new issues. This is done by running `pytest` and `sgl_tests` from the repository root directory. For more details about these tests, please refer to the [Testing](https://nv-sgl.readthedocs.io/en/latest/src/developer_guide/testing.html) documentation on readthedocs.
+### Making and Testing Changes
+After making your changes, test your changes thoroughly to ensure they do not introduce new issues. This is done by running unit tests via `pytest` from the repository root directory. For more details about running `pytest`, please refer to the "Tests" section of [Developing with SlangPy](DEVELOP.md#tests).
 
-If you are familiar with Workflows/Actions in GitHub, you can check [Our Workflows](.github/workflows). The "Unit Tests" sections in [ci.yml](.github/workflows/ci.yml) are where `pytest` and `sgl_tests` are run.
+If you are familiar with Workflows/Actions in GitHub, you can check [Our Workflows](.github/workflows). The "Run tests" sections in [ci.yml](.github/workflows/ci.yml) is where `pytest` is run by [ci.py](.build_agent/ci.py).
 
 ### Commit to the Branch
 Commit your changes to the branch with a descriptive commit message:
@@ -98,22 +97,22 @@ Push your branch to your forked repository with the following command:
 $ git push origin feature/your-feature-name
 ```
 
-After the changes are pushed to your forked repository, the change needs to be merged to the final destination `shader-slang/sgl`.
+After the changes are pushed to your forked repository, the change needs to be merged to the final destination `shader-slang/slangpy`.
 In order to proceed, you will need to create a "Pull Request," or "PR" for short.
 
-When you push to your forked repository, `git push` usually prints a URL that allows you to create a PR.
+When you push to your forked repository, `git-push` usually prints a URL that allows you to create a PR.
 
 If you missed a chance to use the URL, you can still create a PR from the GitHub webpage.
-Go to your forked repository and change the branch name to the one you used for `git push`.
-It will show a message like "This branch is 1 commit ahead of `shader-slang/sgl:main`."
+Go to your forked repository and change the branch name to the one you used for `git-push`.
+It will show a message like "This branch is 1 commit ahead of `shader-slang/slangpy:main`."
 You can create a PR by clicking on the message.
 
 ## Pull Request
-Once a PR is created against `shader-slang/sgl:main`, the PR will be merged when the following conditions are met:
+Once a PR is created against `shader-slang/slangpy:main`, the PR will be merged when the following conditions are met:
 1. The PR is reviewed and got approval.
 1. All of the workflows pass.
 
-When the conditions above are all met, you will have a chance to rewrite the commit message. Since the SGL repo uses the "squash" strategy for merging, multiple commits in your PR will become one commit. By default, GitHub will concatenate all of the commit messages sequentially, but often it is not readable. Please rewrite the final commit message in a way that people can easily understand what the purpose of the commit is.
+When the conditions above are all met, you will have a chance to rewrite the commit message. Since the SlangPy repo uses the "squash" strategy for merging, multiple commits in your PR will become one commit. By default, GitHub will concatenate all of the commit messages sequentially, but often it is not readable. Please rewrite the final commit message in a way that people can easily understand what the purpose of the commit is.
 
 ### Addressing Code Reviews
 After your pull request is created, you will receive code reviews from the community within 24 hours.
@@ -126,21 +125,18 @@ When your branch is out of sync with top-of-tree, submit a merge commit to keep 
 
 Use these commands to sync your branch:
 ```
-$ git fetch upstream main
-$ git merge upstream/main # resolve any conflicts here
-$ git submodule update --recursive
+$ git fetch upstream master
+$ git merge upstream/master # resolve any conflicts here
 ```
 
-The SGL repository uses the squash strategy for merging pull requests, which means all your commits will be squashed into one commit by GitHub upon merge.
-
-## Code Style
-Follow our [Coding Style](https://nv-sgl.readthedocs.io/en/latest/src/developer_guide/coding_style.html) to maintain consistency throughout the project.
+The SlangPy repository uses the squash strategy for merging pull requests, which means all your commits will be squashed into one commit by GitHub upon merge.
 
 ## Issue Tracking
-We track all our work with GitHub issues. Check the [Issues](https://github.com/shader-slang/sgl/issues) for open issues. If you find a bug or want to suggest an enhancement, please open a new issue.
+We track all our work with GitHub issues. Check the [Issues](https://github.com/shader-slang/slangpy/issues) for open issues. If you find a bug or want to suggest an enhancement, please open a new issue.
 
 ## Communication
-Join our [Discussions](https://github.com/shader-slang/slang/discussions).
+Join our [Discussions](https://github.com/shader-slang/slang/discussions),
+and our [Discord Server](https://khr.io/slangdiscord).
 
 ## License
-By contributing to SGL, you agree that your contributions will be licensed under the Apache License 2.0 with LLVM Exception. The full text of the License can be found in the [LICENSE](LICENSE) file in the root of the repository.
+By contributing to SlangPy, you agree that your contributions will be licensed under the Apache License 2.0 with LLVM Exception. The full text of the License can be found in the [LICENSE](LICENSE.txt) file in the root of the repository.

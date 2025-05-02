@@ -4,7 +4,7 @@ Basic Tutorials
 ===============
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     tutorials/image_io_and_manipulation
     tutorials/compute_shader

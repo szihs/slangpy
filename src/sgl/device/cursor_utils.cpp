@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 #include "sgl/device/cursor_utils.h"
 
 namespace sgl {

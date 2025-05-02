@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 from __future__ import annotations
 import argparse
 from typing import Any, Optional, cast
@@ -131,9 +133,7 @@ class FindConvertableToDictionaryTypes(cst.CSTVisitor):
                 return False
 
             # 2nd parameter should be a dictionary.
-            if not self._annotation_name_equals(
-                func_params.posonly_params[1].annotation, "dict"
-            ):
+            if not self._annotation_name_equals(func_params.posonly_params[1].annotation, "dict"):
                 return False
 
             # Store the type
@@ -157,9 +157,7 @@ class FindConvertableToDictionaryTypes(cst.CSTVisitor):
 
     def _is_setter(self, node: cst.FunctionDef):
         for decorator in node.decorators:
-            if m.matches(
-                decorator, m.Decorator(decorator=m.Attribute(attr=m.Name("setter")))
-            ):
+            if m.matches(decorator, m.Decorator(decorator=m.Attribute(attr=m.Name("setter")))):
                 return True
         return False
 
@@ -171,9 +169,7 @@ class InsertTypesTransformer(cst.CSTTransformer):
         super().__init__()
         self.discovered_descriptor_types = discovered_descriptor_types
 
-    def leave_Module(
-        self, original_node: cst.Module, updated_node: cst.Module
-    ) -> cst.Module:
+    def leave_Module(self, original_node: cst.Module, updated_node: cst.Module) -> cst.Module:
         # On leaving a module, insert the dictionary and union types for any global descriptor classes.
         new_body: list[cst.CSTNode] = list(updated_node.body)
         changed = self._insert_descriptor_nodes(None, new_body)
@@ -272,9 +268,7 @@ class InsertTypesTransformer(cst.CSTTransformer):
                     last_line=cst.SimpleWhitespace("    "), indent=True
                 )
             ),
-            rbrace=cst.RightCurlyBrace(
-                whitespace_before=cst.ParenthesizedWhitespace(indent=True)
-            ),
+            rbrace=cst.RightCurlyBrace(whitespace_before=cst.ParenthesizedWhitespace(indent=True)),
         )
 
         # Wrap the dictionary in a call to 'TypedDict' to create the new type.
@@ -294,9 +288,7 @@ class InsertTypesTransformer(cst.CSTTransformer):
             body=[
                 cst.Assign(
                     targets=[
-                        cst.AssignTarget(
-                            target=cst.Name(f"{result.class_type.name.value}Dict")
-                        )
+                        cst.AssignTarget(target=cst.Name(f"{result.class_type.name.value}Dict"))
                     ],
                     value=typed_dict_annotation,
                 )
@@ -319,23 +311,17 @@ class InsertTypesTransformer(cst.CSTTransformer):
             body=[
                 cst.Assign(
                     targets=[
-                        cst.AssignTarget(
-                            target=cst.Name(f"{result.class_type.name.value}Param")
-                        )
+                        cst.AssignTarget(target=cst.Name(f"{result.class_type.name.value}Param"))
                     ],
                     value=cst.Subscript(
                         value=cst.Name("Union"),
                         slice=[
                             cst.SubscriptElement(
-                                slice=cst.Index(
-                                    value=cst.Name(result.class_type.name.value)
-                                )
+                                slice=cst.Index(value=cst.Name(result.class_type.name.value))
                             ),
                             cst.SubscriptElement(
                                 slice=cst.Index(
-                                    value=cst.Name(
-                                        f"{result.class_type.name.value}Dict"
-                                    )
+                                    value=cst.Name(f"{result.class_type.name.value}Dict")
                                 )
                             ),
                         ]
@@ -358,16 +344,12 @@ class BaseParamAnnotationAndTypeDictTransformer(cst.CSTTransformer):
         self.in_typed_dict_call = 0
 
     def is_in_scope(self):
-        return (self.in_param == 1 and self.in_annotation == 1) or (
-            self.in_typed_dict_call == 1
-        )
+        return (self.in_param == 1 and self.in_annotation == 1) or (self.in_typed_dict_call == 1)
 
     def visit_Param(self, node: cst.Param) -> Optional[bool]:
         self.in_param += 1
 
-    def leave_Param(
-        self, original_node: cst.Param, updated_node: cst.Param
-    ) -> cst.Param:
+    def leave_Param(self, original_node: cst.Param, updated_node: cst.Param) -> cst.Param:
         self.in_param -= 1
         return updated_node
 
@@ -441,9 +423,7 @@ class ReplaceTypesTransformer(BaseParamAnnotationAndTypeDictTransformer):
         if self.is_in_scope():
             if updated_node.value in self.types_by_full_name:
                 self.replacements += 1
-                return updated_node.with_changes(
-                    value=f"{updated_node.value}{self.extension}"
-                )
+                return updated_node.with_changes(value=f"{updated_node.value}{self.extension}")
         return updated_node
 
     def visit_Attribute(self, node: cst.Attribute) -> Optional[bool]:
@@ -459,9 +439,7 @@ class ReplaceTypesTransformer(BaseParamAnnotationAndTypeDictTransformer):
             full_name = build_attribute_name(updated_node)
             if full_name in self.types_by_full_name:
                 self.replacements += 1
-                return cast(
-                    cst.Attribute, build_attribute_tree(f"{full_name}{self.extension}")
-                )
+                return cast(cst.Attribute, build_attribute_tree(f"{full_name}{self.extension}"))
 
         return updated_node
 
@@ -521,9 +499,7 @@ class ExtendVectorTypeArgs(BaseParamAnnotationAndTypeDictTransformer):
 
         return updated_node
 
-    def leave_Module(
-        self, original_node: cst.Module, updated_node: cst.Module
-    ) -> cst.Module:
+    def leave_Module(self, original_node: cst.Module, updated_node: cst.Module) -> cst.Module:
         new_union_types: list[cst.CSTNode] = []
         for conversion in self.CONVERSIONS:
             type_name = conversion[0]
@@ -539,9 +515,7 @@ class ExtendVectorTypeArgs(BaseParamAnnotationAndTypeDictTransformer):
                 cst.SimpleStatementLine(
                     body=[
                         cst.Assign(
-                            targets=[
-                                cst.AssignTarget(target=cst.Name(type_name + "param"))
-                            ],
+                            targets=[cst.AssignTarget(target=cst.Name(type_name + "param"))],
                             value=type_union,
                         )
                     ]
@@ -585,9 +559,7 @@ class ExtendVectorTypeArgs(BaseParamAnnotationAndTypeDictTransformer):
                         value=cst.Subscript(
                             value=cst.Name("Sequence"),
                             slice=[
-                                cst.SubscriptElement(
-                                    slice=cst.Index(value=cst.Name(sequence_type))
-                                )
+                                cst.SubscriptElement(slice=cst.Index(value=cst.Name(sequence_type)))
                             ],
                         )
                     )
@@ -641,8 +613,7 @@ def find_convertable_descriptors(tree: cst.Module) -> list[FCDStackInfo]:
             )
     for conv_type in DESCRIPTOR_CONVERT_TYPES:
         if not any(
-            result.full_name == conv_type
-            for result in find_convertable_types_visitor.results
+            result.full_name == conv_type for result in find_convertable_types_visitor.results
         ):
             raise Exception(
                 f"Type {conv_type} is in list of types to convert but no corresponding descriptor class was discovered. Remove it from the list in postprocess_stub.py."
@@ -650,13 +621,9 @@ def find_convertable_descriptors(tree: cst.Module) -> list[FCDStackInfo]:
 
     # Filter only results for which DESCRIPTOR_CONVERT_TYPES is true.
     convertable_types = [
-        x
-        for x in find_convertable_types_visitor.results
-        if DESCRIPTOR_CONVERT_TYPES[x.full_name]
+        x for x in find_convertable_types_visitor.results if DESCRIPTOR_CONVERT_TYPES[x.full_name]
     ]
-    print_verbose(
-        f"  Found {len(convertable_types)} descriptor types convertable to dictionaries."
-    )
+    print_verbose(f"  Found {len(convertable_types)} descriptor types convertable to dictionaries.")
     return convertable_types
 
 
@@ -677,9 +644,7 @@ def insert_typing_imports(tree: cst.Module) -> cst.Module:
     insert_idx = 0
     while insert_idx < len(tree.body):
         bn = tree.body[insert_idx]
-        if m.matches(
-            bn, m.SimpleStatementLine(body=(m.ImportFrom(module=m.Name("typing")),))
-        ):
+        if m.matches(bn, m.SimpleStatementLine(body=(m.ImportFrom(module=m.Name("typing")),))):
             break
         insert_idx += 1
 
@@ -699,9 +664,7 @@ def insert_typing_imports(tree: cst.Module) -> cst.Module:
         cst.SimpleStatementLine(
             body=[
                 cst.ImportFrom(
-                    module=cst.Attribute(
-                        value=cst.Name("numpy"), attr=cst.Name("typing")
-                    ),
+                    module=cst.Attribute(value=cst.Name("numpy"), attr=cst.Name("typing")),
                     names=[
                         cst.ImportAlias(name=cst.Name("NDArray"), asname=None),
                     ],
@@ -720,16 +683,10 @@ def insert_typing_imports(tree: cst.Module) -> cst.Module:
 
 
 # Replaces argument and dictionary references to descriptor classes with their new types.
-def replace_types(
-    tree: cst.Module, convertable_types: list[FCDStackInfo]
-) -> cst.Module:
-    transformer = ReplaceTypesTransformer(
-        set([x.full_name for x in convertable_types]), "Param"
-    )
+def replace_types(tree: cst.Module, convertable_types: list[FCDStackInfo]) -> cst.Module:
+    transformer = ReplaceTypesTransformer(set([x.full_name for x in convertable_types]), "Param")
     res = tree.visit(transformer)
-    print_verbose(
-        f"  Replaced {transformer.replacements} type references to descriptor classes."
-    )
+    print_verbose(f"  Replaced {transformer.replacements} type references to descriptor classes.")
     return res
 
 
@@ -763,9 +720,7 @@ if __name__ == "__main__":
         action="store",
         help="Out filename (defaults to overwriting input)",
     )
-    parser.add_argument(
-        "--quiet", action="store_true", help="Suppress output to console"
-    )
+    parser.add_argument("--quiet", action="store_true", help="Suppress output to console")
     parser.add_argument(
         "--submodule",
         action="store_true",

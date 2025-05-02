@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
@@ -6,7 +8,7 @@ import sys, re, os, subprocess, shutil
 from pathlib import Path
 
 try:
-    from setuptools import Extension, setup
+    from setuptools import Extension, setup, find_packages
     from setuptools.command.build_ext import build_ext
 except ImportError:
     print(
@@ -27,12 +29,6 @@ elif sys.platform.startswith("darwin"):
     PLATFORM = "macos"
 else:
     raise Exception(f"Unsupported platform: {sys.platform}")
-
-CMAKE_EXE = {
-    "windows": SOURCE_DIR / "tools/host/cmake/bin/cmake.exe",
-    "linux": SOURCE_DIR / "tools/host/cmake/bin/cmake",
-    "macos": SOURCE_DIR / "tools/host/cmake/CMake.app/Contents/bin/cmake",
-}[PLATFORM]
 
 CMAKE_PRESET = {
     "windows": "windows-msvc",
@@ -56,12 +52,6 @@ class CMakeBuild(build_ext):
         ext_fullpath = Path.cwd() / self.get_ext_fullpath(ext.name)
         extdir = ext_fullpath.parent.resolve()
 
-        # Run local setup script to download dependencies and cmake/ninja
-        if PLATFORM == "windows":
-            subprocess.run("setup.bat", shell=True, check=True)
-        else:
-            subprocess.run("./setup.sh", shell=True, check=True)
-
         # Setup environment variables
         env = os.environ.copy()
         if os.name == "nt":
@@ -81,10 +71,10 @@ class CMakeBuild(build_ext):
             f"-DPython_ROOT_DIR:PATH={sys.prefix}",
             f"-DPython_FIND_REGISTRY:STRING=NEVER",
             f"-DCMAKE_INSTALL_PREFIX={extdir}",
-            f"-DCMAKE_INSTALL_LIBDIR=lib",
-            f"-DCMAKE_INSTALL_BINDIR=sgl",
-            f"-DCMAKE_INSTALL_INCLUDEDIR=sgl/include",
-            f"-DCMAKE_INSTALL_DATAROOTDIR=sgl",
+            f"-DCMAKE_INSTALL_LIBDIR=.",
+            f"-DCMAKE_INSTALL_BINDIR=.",
+            f"-DCMAKE_INSTALL_INCLUDEDIR=include",
+            f"-DCMAKE_INSTALL_DATAROOTDIR=.",
             "-DSGL_BUILD_EXAMPLES=OFF",
             "-DSGL_BUILD_TESTS=OFF",
         ]
@@ -94,37 +84,31 @@ class CMakeBuild(build_ext):
             cmake_args += [item for item in os.environ["CMAKE_ARGS"].split(" ") if item]
 
         # Configure, build and install
-        subprocess.run([CMAKE_EXE, *cmake_args], env=env, check=True)
-        subprocess.run([CMAKE_EXE, "--build", build_dir], env=env, check=True)
-        subprocess.run([CMAKE_EXE, "--install", build_dir], env=env, check=True)
+        subprocess.run(["cmake", *cmake_args], env=env, check=True)
+        subprocess.run(["cmake", "--build", build_dir], env=env, check=True)
+        subprocess.run(["cmake", "--install", build_dir], env=env, check=True)
 
-        # Remove lib directory
-        shutil.rmtree(extdir / "lib", ignore_errors=True)
+        # Remove files that are not needed
+        for file in ["slang-rhi.lib"]:
+            path = extdir / file
+            if path.exists():
+                os.remove(path)
 
 
-VERSION_REGEX = re.compile(
-    r"^\s*#\s*define\s+SGL_VERSION_([A-Z]+)\s+(.*)$", re.MULTILINE
-)
+VERSION_REGEX = re.compile(r"^\s*#\s*define\s+SGL_VERSION_([A-Z]+)\s+(.*)$", re.MULTILINE)
 
 with open("src/sgl/sgl.h") as f:
     matches = dict(VERSION_REGEX.findall(f.read()))
     version = "{MAJOR}.{MINOR}.{PATCH}".format(**matches)
     print(f"version={version}")
 
-long_description = """TBD"""
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 setup(
-    name="nv-sgl",
     version=version,
-    author="Simon Kallweit",
-    author_email="skallweit@nvidia.com",
-    description="Slang Graphics Library",
-    url="https://github.com/shader-slang/sgl",
-    license="Apache-2.0",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    ext_modules=[CMakeExtension("sgl")],
+    packages=find_packages(),
+    ext_modules=[CMakeExtension("slangpy.slangpy_ext")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
-    python_requires=">=3.9",
 )

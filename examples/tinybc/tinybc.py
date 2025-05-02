@@ -1,9 +1,9 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 import sys
 import argparse
 import numpy as np
-import sgl
+import slangpy as spy
 from pathlib import Path
 
 EXAMPLE_DIR = Path(__file__).parent
@@ -21,7 +21,7 @@ parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose
 # args = parser.parse_args()
 args = parser.parse_args(
     [
-        "C:/src/sgl/data/test_images/monalisa.jpg",
+        str(EXAMPLE_DIR.parent.parent / "data/test_images/monalisa.jpg"),
         "-o",
         "monalisa_bc7.jpg",
         "-t",
@@ -32,9 +32,9 @@ args = parser.parse_args(
 
 # Load input image
 try:
-    image = sgl.Bitmap(args.input_path).convert(
-        pixel_format=sgl.Bitmap.PixelFormat.rgba,
-        component_type=sgl.Bitmap.ComponentType.float32,
+    image = spy.Bitmap(args.input_path).convert(
+        pixel_format=spy.Bitmap.PixelFormat.rgba,
+        component_type=spy.Bitmap.ComponentType.float32,
         srgb_gamma=False,
     )
     w, h = image.width, image.height
@@ -44,30 +44,30 @@ except Exception as e:
     sys.exit(1)
 
 # Create device
-device = sgl.Device(
+device = spy.Device(
     enable_debug_layers=args.verbose,
     compiler_options={"include_paths": [EXAMPLE_DIR]},
 )
 
 # Create input texture
 input_tex = device.create_texture(
-    format=sgl.Format.rgba32_float,
+    format=spy.Format.rgba32_float,
     width=w,
     height=h,
-    usage=sgl.TextureUsage.shader_resource,
+    usage=spy.TextureUsage.shader_resource,
     data=input,
 )
 
 # Show input texture in tev
 if args.tev:
-    sgl.tev.show_async(input_tex, name="tinybc-input")
+    spy.tev.show_async(input_tex, name="tinybc-input")
 
 # Create decoded texture
 decoded_tex = device.create_texture(
-    format=sgl.Format.rgba32_float,
+    format=spy.Format.rgba32_float,
     width=w,
     height=h,
-    usage=sgl.TextureUsage.unordered_access,
+    usage=spy.TextureUsage.unordered_access,
 )
 
 # Load shader module
@@ -75,13 +75,13 @@ constants = f"export static const bool USE_ADAM = true;\nexport static const uin
 program = device.load_program("tinybc.slang", ["compute_main"], constants)
 kernel = device.create_compute_kernel(program)
 
-t = sgl.Timer()
+t = spy.Timer()
 
 # When running in benchmark mode amortize overheads over many runs to measure more accurate GPU times
 num_iters = 1000 if args.benchmark else 1
 
 # Setup query pool to measure GPU time
-queries = device.create_query_pool(sgl.QueryType.timestamp, num_iters * 2)
+queries = device.create_query_pool(spy.QueryType.timestamp, num_iters * 2)
 
 # Compress!
 command_encoder = device.create_command_encoder()
@@ -127,12 +127,12 @@ print(f"PSNR: {psnr:.4g}")
 
 # Show decoded texture in tev
 if args.tev:
-    sgl.tev.show_async(decoded_tex, name="tinybc-decoded")
+    spy.tev.show_async(decoded_tex, name="tinybc-decoded")
 
 # Output decoded texture
 if args.output_path:
     decoded_tex.to_bitmap().convert(
-        pixel_format=sgl.Bitmap.PixelFormat.rgb,
-        component_type=sgl.Bitmap.ComponentType.uint8,
+        pixel_format=spy.Bitmap.PixelFormat.rgb,
+        component_type=spy.Bitmap.ComponentType.uint8,
         srgb_gamma=True,
     ).write_async(args.output_path)

@@ -20,11 +20,20 @@ repos:
   rev: 24.4.2
   hooks:
   - id: black
+- repo: local
+  hooks:
+    - id: custom-python-hook
+      name: slangpy hooks
+      entry: python tools/local_precommit.py
+      language: python
+
 exclude: |
   (?x)^(
       .*\.ipynb|
       build/.*|
       external/.*|
-      src/sgl/python/py_doc.h|
+      src/sgl/stl/.*|
+      src/slangpy_ext/py_doc.h|
       docs/generated/.*|
+      tools/run_clang_format.py|
   )$

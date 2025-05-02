@@ -1,4 +1,4 @@
-
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 [Differentiable]
 float f(float x, no_diff float A, no_diff float B, no_diff float C)

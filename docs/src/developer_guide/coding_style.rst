@@ -3,7 +3,7 @@
 Coding Style
 ============
 
-Because ``sgl`` is both a C++ library and a Python module, the coding style
+Because ``slangpy`` is both a C++ library and a Python module, the coding style
 should be consistent across both languages. Therefore we derive our coding
 conventions from Python's `PEP 8 <https://peps.python.org/pep-0008>`_
 style guide.

@@ -1,43 +1,51 @@
 [![docs][1]][2] [![ci][3]][4] [![pypi][5]][6]
 
-# Slang Graphics Library
+# SlangPy
 
-[1]: https://readthedocs.org/projects/nv-sgl/badge/?version=latest
-[2]: https://nv-sgl.readthedocs.io/en/latest/
-[3]: https://github.com/shader-slang/sgl/actions/workflows/ci.yml/badge.svg
-[4]: https://github.com/shader-slang/sgl/actions/workflows/ci.yml
-[5]: https://img.shields.io/pypi/v/nv-sgl.svg?color=green
-[6]: https://pypi.org/pypi/nv-sgl
+[1]: https://readthedocs.org/projects/slangpy/badge/?version=latest
+[2]: https://slangpy.readthedocs.io/en/latest/
+[3]: https://github.com/shader-slang/slangpy/actions/workflows/ci.yml/badge.svg
+[4]: https://github.com/shader-slang/slangpy/actions/workflows/ci.yml
+[5]: https://img.shields.io/pypi/v/slangpy.svg?color=green
+[6]: https://pypi.org/pypi/slangpy
 
 ## Introduction
 
-Slang Graphics Library (sgl) is a modern, cross-platform graphics library written in C++ and Python.
-
-## Features
-
-TBD
-
-## Installation
-
-sgl is available as pre-compiled wheels via PyPI. Installing sgl is as simple as running
-
-```bash
-pip install nv-sgl
-```
-
-### Requirements
-
-- `python >= 3.9`
+SlangPy is a cross-platform library designed to make calling GPU code written in Slang extremely simple and easy. It's core objectives are to:
+- Make it quick and simple to call Slang functions on the GPU from Python
+- Eradicate the boilerplate and bugs associated with writing compute kernels
+- Grant easy access to Slang's auto-diff features
+- Provide optional PyTorch support out of the box
 
 ## Documentation
 
-The documentation is available on [readthedocs][2].
+See the [documentation][2] for more detailed information and examples.
+
+More information about Slang in general can be found [here](https://shader-slang.com).
+
+## Installation
+
+SlangPy is available as pre-compiled wheels via PyPi. Installing SlangPy is as simple as running:
+
+```bash
+pip install slangpy
+```
+
+To enable PyTorch integration, simply ``pip install pytorch`` as usual and it will be detected automatically by SlangPy.
+
+You can also compile SlangPy from source:
+
+```bash
+git clone https://github.com/shader-slang/slangpy.git --recursive
+cd slangpy
+pip install .
+```
 
 ## License
 
-sgl source code is licensed under the Apache-2.0 License - see the [LICENSE.txt](LICENSE.txt) file for details.
+SlangPy source code is licensed under the Apache-2.0 License - see the [LICENSE.txt](LICENSE.txt) file for details.
 
-sgl depends on the following third-party libraries, which have their own license:
+SlangPy depends on the following third-party libraries, which have their own license:
 
 - [argparse](https://github.com/p-ranav/argparse) (MIT)
 - [AsmJit](https://github.com/asmjit/asmjit) (Zlib)
@@ -60,21 +68,21 @@ sgl depends on the following third-party libraries, which have their own license
 - [vcpkg](https://vcpkg.io/en/) (MIT)
 - [Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) (MIT)
 
-sgl releases additionally include pre-built binaries of the following third-party components, which have their own license:
+SlangPy releases additionally include pre-built binaries of the following third-party components, which have their own license:
 
 - [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler) (LLVM Release License)
 - [Agility SDK](https://devblogs.microsoft.com/directx/directx12agility) (MICROSOFT DIRECTX License)
 
 ## Citation
 
-If you use sgl in a research project leading to a publication, please cite the project. The BibTex entry is:
+If you use SlangPy in a research project leading to a publication, please cite the project. The BibTex entry is:
 
 ```bibtex
-@software{sgl,
-    title = {Slang Graphics Library},
-    author = {Simon Kallweit and Chris Cummings},
-    note = {https://github.com/shader-slang/sgl},
-    version = {0.15.0},
-    year = 2024
+@software{slangpy,
+    title = {SlangPy},
+    author = {Simon Kallweit and Chris Cummings and Benedikt Bitterli and Sai Bangaru and Yong He},
+    note = {https://github.com/shader-slang/slangpy},
+    version = {0.24.0},
+    year = 2025
 }
 ```

@@ -13,7 +13,7 @@ env:
   CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28
   CIBW_ARCHS_WINDOWS: auto64
   CIBW_ARCHS_LINUX: auto64
-  CIBW_TEST_COMMAND: "python -c \"import sgl\""
+  CIBW_TEST_COMMAND: "python -c \"import slangpy\""
   # zip required for vcpkg, rest for glfw
   CIBW_BEFORE_ALL_LINUX: yum install -y zip wayland-devel libxkbcommon-devel libXcursor-devel libXi-devel libXinerama-devel libXrandr-devel
 

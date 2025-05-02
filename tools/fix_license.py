@@ -7,6 +7,7 @@ A utility for adding SPDX license identifer to source files.
 from __future__ import annotations
 import sys
 import os
+import re
 import argparse
 from typing import Any, Sequence
 from pathlib import Path
@@ -15,18 +16,22 @@ PROJECT_DIR = Path(__file__).parent.parent.resolve()
 
 INCLUDE_PATHS = [
     "src",
+    "slangpy",
+    "tools",
 ]
 
 EXCLUDE_PATHS = [
     "src/sgl/stl/",
-    "src/sgl/python/py_doc.h",
+    "src/slangpy_ext/py_doc.h",
+    "tools/run_clang_format.py",
 ]
 
-EXTENSIONS = "h,cpp,slang,slangh,py"
+EXTENSIONS = ["h", "cpp", "slang", "slangh", "py"]
 
-SPDX_IDENTIFIER = "SPDX-License-Identifier: Apache-2.0"
-SPDX_IDENTIFIER_C_LIKE = f"// {SPDX_IDENTIFIER}\n\n"
-SPDX_IDENTIFIER_PYTHON = f"# {SPDX_IDENTIFIER}\n\n"
+SPDX_REMOVE_REGEX = re.compile(r"^((// )|(# ))SPDX-License-Identifier: .*\n\n")
+SPDX_IDENTIFIER = "SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception"
+SPDX_IDENTIFIER_C_LIKE = f"// {SPDX_IDENTIFIER}\n"
+SPDX_IDENTIFIER_PYTHON = f"# {SPDX_IDENTIFIER}\n"
 
 
 def list_files(
@@ -56,11 +61,30 @@ def list_files(
 
 def add_spdx_identifier(path: str, text: str):
     if not SPDX_IDENTIFIER in text:
-        identifier = (
-            SPDX_IDENTIFIER_PYTHON if path.endswith(".py") else SPDX_IDENTIFIER_C_LIKE
-        )
+        # remove lines containing SPDX identifer
+        text = SPDX_REMOVE_REGEX.sub("", text)
+        # add SPDX_IDENTIFIER to the top of the file
+        identifier = SPDX_IDENTIFIER_PYTHON if path.endswith(".py") else SPDX_IDENTIFIER_C_LIKE
+        # add extra newline if file is not empty
+        if text != "":
+            identifier += "\n"
         return identifier + text
     return text
+
+
+def process_file(path: str, dry_run: bool = False):
+    ext = os.path.splitext(path)[1][1:]
+    if not ext in EXTENSIONS:
+        return
+
+    text = open(path, "r").read()
+    edited = add_spdx_identifier(path, text)
+    if edited != text:
+        if dry_run:
+            print(edited[0:100])
+        else:
+            print(f"Writing file '{path}'")
+            open(path, "w").write(edited)
 
 
 def run(args: Any):
@@ -68,18 +92,11 @@ def run(args: Any):
         root=PROJECT_DIR,
         include=INCLUDE_PATHS,
         exclude=EXCLUDE_PATHS,
-        extensions=EXTENSIONS.split(","),
+        extensions=EXTENSIONS,
     )
 
     for file in files:
-        text = open(file, "r").read()
-        edited = add_spdx_identifier(file, text)
-        if edited != text:
-            if args.dry_run:
-                print(edited[0:100])
-            else:
-                print(f"Writing file '{file}'")
-                open(file, "w").write(edited)
+        process_file(file, args.dry_run)
 
 
 def main():

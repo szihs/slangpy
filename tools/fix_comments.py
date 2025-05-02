@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 #!/usr/bin/env python
 
 """
@@ -104,9 +106,7 @@ def format_comment(comment: str, is_block_comment: bool) -> str:
 
 
 def format_comments(text: str) -> str:
-    BLOCK_COMMENT = re.compile(
-        r"^[ \t]*\/\*(\*(?!\/)|[^*])*\*\/$", re.DOTALL | re.MULTILINE
-    )
+    BLOCK_COMMENT = re.compile(r"^[ \t]*\/\*(\*(?!\/)|[^*])*\*\/$", re.DOTALL | re.MULTILINE)
     MULTILINE_COMMENT = re.compile(r"^[ \t]*\/\/\/.*$", re.MULTILINE)
 
     # Format block comments.
@@ -133,9 +133,7 @@ def format_comments(text: str) -> str:
 
 
 def run(args: Any):
-    files = list_files(
-        args.paths, recursive=args.recursive, extensions=args.extensions.split(",")
-    )
+    files = list_files(args.paths, recursive=args.recursive, extensions=args.extensions.split(","))
 
     for file in files:
         text = open(file, "r").read()
@@ -155,9 +153,7 @@ def main():
     parser.add_argument(
         "-e",
         "--extensions",
-        help="comma separated list of file extensions (default: {})".format(
-            DEFAULT_EXTENSIONS
-        ),
+        help="comma separated list of file extensions (default: {})".format(DEFAULT_EXTENSIONS),
         default=DEFAULT_EXTENSIONS,
     )
     parser.add_argument(

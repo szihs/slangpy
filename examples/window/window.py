@@ -1,6 +1,6 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-import sgl
+import slangpy as spy
 from pathlib import Path
 
 EXAMPLE_DIR = Path(__file__).parent
@@ -9,24 +9,22 @@ EXAMPLE_DIR = Path(__file__).parent
 class App:
     def __init__(self):
         super().__init__()
-        self.window = sgl.Window(
-            width=1920, height=1280, title="Example", resizable=True
-        )
-        self.device = sgl.Device(
+        self.window = spy.Window(width=1920, height=1280, title="Example", resizable=True)
+        self.device = spy.Device(
             enable_debug_layers=True,
             compiler_options={"include_paths": [EXAMPLE_DIR]},
         )
         self.surface = self.device.create_surface(self.window)
         self.surface.configure(width=self.window.width, height=self.window.height)
 
-        self.ui = sgl.ui.Context(self.device)
+        self.ui = spy.ui.Context(self.device)
 
         self.output_texture = None
 
         program = self.device.load_program("draw", ["compute_main"])
         self.kernel = self.device.create_compute_kernel(program)
 
-        self.mouse_pos = sgl.float2()
+        self.mouse_pos = spy.float2()
         self.mouse_down = False
 
         self.playing = True
@@ -40,60 +38,54 @@ class App:
 
     def setup_ui(self):
         screen = self.ui.screen
-        window = sgl.ui.Window(screen, "Settings", size=sgl.float2(500, 300))
+        window = spy.ui.Window(screen, "Settings", size=spy.float2(500, 300))
 
-        self.fps_text = sgl.ui.Text(window, "FPS: 0")
+        self.fps_text = spy.ui.Text(window, "FPS: 0")
 
         def start():
             self.playing = True
 
-        sgl.ui.Button(window, "Start", callback=start)
+        spy.ui.Button(window, "Start", callback=start)
 
         def stop():
             self.playing = False
 
-        sgl.ui.Button(window, "Stop", callback=stop)
+        spy.ui.Button(window, "Stop", callback=stop)
 
-        self.noise_scale = sgl.ui.SliderFloat(
-            window, "Noise Scale", value=0.5, min=0, max=1
-        )
-        self.noise_amount = sgl.ui.SliderFloat(
-            window, "Noise Amount", value=0.5, min=0, max=1
-        )
-        self.mouse_radius = sgl.ui.SliderFloat(
-            window, "Radius", value=100, min=0, max=1000
-        )
+        self.noise_scale = spy.ui.SliderFloat(window, "Noise Scale", value=0.5, min=0, max=1)
+        self.noise_amount = spy.ui.SliderFloat(window, "Noise Amount", value=0.5, min=0, max=1)
+        self.mouse_radius = spy.ui.SliderFloat(window, "Radius", value=100, min=0, max=1000)
 
-    def on_keyboard_event(self, event: sgl.KeyboardEvent):
+    def on_keyboard_event(self, event: spy.KeyboardEvent):
         if self.ui.handle_keyboard_event(event):
             return
 
-        if event.type == sgl.KeyboardEventType.key_press:
-            if event.key == sgl.KeyCode.escape:
+        if event.type == spy.KeyboardEventType.key_press:
+            if event.key == spy.KeyCode.escape:
                 self.window.close()
-            elif event.key == sgl.KeyCode.f1:
+            elif event.key == spy.KeyCode.f1:
                 if self.output_texture:
-                    sgl.tev.show_async(self.output_texture)
-            elif event.key == sgl.KeyCode.f2:
+                    spy.tev.show_async(self.output_texture)
+            elif event.key == spy.KeyCode.f2:
                 if self.output_texture:
                     bitmap = self.output_texture.to_bitmap()
                     bitmap.convert(
-                        sgl.Bitmap.PixelFormat.rgb,
-                        sgl.Bitmap.ComponentType.uint8,
+                        spy.Bitmap.PixelFormat.rgb,
+                        spy.Bitmap.ComponentType.uint8,
                         srgb_gamma=True,
                     ).write_async("screenshot.png")
 
-    def on_mouse_event(self, event: sgl.MouseEvent):
+    def on_mouse_event(self, event: spy.MouseEvent):
         if self.ui.handle_mouse_event(event):
             return
 
-        if event.type == sgl.MouseEventType.move:
+        if event.type == spy.MouseEventType.move:
             self.mouse_pos = event.pos
-        elif event.type == sgl.MouseEventType.button_down:
-            if event.button == sgl.MouseButton.left:
+        elif event.type == spy.MouseEventType.button_down:
+            if event.button == spy.MouseButton.left:
                 self.mouse_down = True
-        elif event.type == sgl.MouseEventType.button_up:
-            if event.button == sgl.MouseButton.left:
+        elif event.type == spy.MouseEventType.button_up:
+            if event.button == spy.MouseButton.left:
                 self.mouse_down = False
 
     def on_resize(self, width: int, height: int):
@@ -103,7 +95,7 @@ class App:
     def run(self):
         frame = 0
         time = 0.0
-        timer = sgl.Timer()
+        timer = spy.Timer()
 
         while not self.window.should_close():
             self.window.process_events()
@@ -128,11 +120,10 @@ class App:
                 or self.output_texture.height != surface_texture.height
             ):
                 self.output_texture = self.device.create_texture(
-                    format=sgl.Format.rgba16_float,
+                    format=spy.Format.rgba16_float,
                     width=surface_texture.width,
                     height=surface_texture.height,
-                    usage=sgl.TextureUsage.shader_resource
-                    | sgl.TextureUsage.unordered_access,
+                    usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                     label="output_texture",
                 )
 

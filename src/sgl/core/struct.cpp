@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 /*
 This is a modified version of the struct.cpp file from Mitsuba 3.0 found at

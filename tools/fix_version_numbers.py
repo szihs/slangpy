@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 from pathlib import Path
 from typing import Callable, Optional
 import re
@@ -58,11 +60,9 @@ def fix_sgl_h(file: str, version: Version) -> str:
 def fix_api_rst(file: str, version: Version) -> str:
     lines = file.split("\n")
     for i, line in enumerate(lines):
-        if line.startswith(".. py:data:: sgl.SGL_VERSION"):
+        if line.startswith(".. py:data:: slangpy.SGL_VERSION"):
             if line.endswith("VERSION"):
-                lines[i + 2] = (
-                    f'    :value: "{version.major}.{version.minor}.{version.patch}"'
-                )
+                lines[i + 2] = f'    :value: "{version.major}.{version.minor}.{version.patch}"'
             elif line.endswith("MAJOR"):
                 lines[i + 2] = f"    :value: {version.major}"
             elif line.endswith("MINOR"):
@@ -72,7 +72,7 @@ def fix_api_rst(file: str, version: Version) -> str:
     return "\n".join(lines)
 
 
-def fix_docs_index(file: str, version: Version) -> str:
+def fix_bibtex_entry(file: str, version: Version) -> str:
     file = re.sub(
         r"version = \{\d+\.\d+\.\d+\}",
         f"version = {{{version.major}.{version.minor}.{version.patch}}}",
@@ -98,16 +98,17 @@ def run(save: bool = False):
     changlog_content = changlog.read_text()
 
     # find last version in changlog
-    match = re.search(r"(\d+)\.(\d+)\.(\d+)", changlog_content)
+    match = re.search(r"Version (\d+)\.(\d+)\.(\d+)", changlog_content)
     if match:
         version = Version(int(match.group(1)), int(match.group(2)), int(match.group(3)))
     else:
+        print("Could not find current version in changelog")
         exit(1)
 
     files = [
         File(root / "src/sgl/sgl.h", fix_sgl_h),
-        File(root / "docs/index.rst", fix_docs_index),
-        File(root / "README.md", fix_docs_index),
+        File(root / "docs/index.rst", fix_bibtex_entry),
+        File(root / "README.md", fix_bibtex_entry),
         File(root / "vcpkg.json", fix_vcpkg),
         File(root / "docs/generated/api.rst", fix_api_rst),
     ]

@@ -137,11 +137,11 @@ if(NOT SETUP_CONFIGURATION_TYPES)
 
     if(CMAKE_CONFIGURATION_TYPES)
         # multi config generator
-        set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
+        set(CMAKE_CONFIGURATION_TYPES "Debug;Release;RelWithDebInfo" CACHE STRING "" FORCE)
     else()
         # single config generator
         set_property(CACHE CMAKE_BUILD_TYPE PROPERTY HELPSTRING "Choose the type of build")
-        set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug;Release")
+        set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug;Release;RelWithDebInfo")
     endif()
 endif()
 
@@ -362,6 +362,10 @@ if(SGL_BUILD_DOC)
     add_subdirectory(docs)
 endif()
 
+if(SGL_BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
+
 # -----------------------------------------------------------------------------
 # copy binary files
 # -----------------------------------------------------------------------------
@@ -397,8 +401,6 @@ if(SGL_GENERATE_SETPATH_SCRIPTS)
     endif()
 endif()
 
-file(GENERATE OUTPUT ${SGL_OUTPUT_DIRECTORY}/python/sgl/__init__.py INPUT ${CMAKE_CURRENT_SOURCE_DIR}/resources/__init__.py)
-
 # -----------------------------------------------------------------------------
 # install
 # -----------------------------------------------------------------------------
@@ -416,9 +418,3 @@ install(
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     FILES_MATCHING PATTERN "*.h"
 )
-
-# Install python extension.
-if(SGL_BUILD_PYTHON)
-    install(TARGETS sgl_ext LIBRARY DESTINATION sgl)
-    install(DIRECTORY ${SGL_OUTPUT_DIRECTORY}/python/sgl/ DESTINATION sgl FILES_MATCHING PATTERN "*.py" PATTERN "*.pyi")
-endif()

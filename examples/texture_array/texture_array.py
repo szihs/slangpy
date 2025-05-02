@@ -1,63 +1,59 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-import sgl
+import slangpy as spy
 from pathlib import Path
 from glob import glob
 
 EXAMPLE_DIR = Path(__file__).parent
 
 
-class DemoWindow(sgl.AppWindow):
-    def __init__(self, app: sgl.App):
+class DemoWindow(spy.AppWindow):
+    def __init__(self, app: spy.App):
         super().__init__(app, title="Texture Array")
 
         self.linear_sampler = self.device.create_sampler(
-            min_filter=sgl.TextureFilteringMode.linear,
-            mag_filter=sgl.TextureFilteringMode.linear,
-            address_u=sgl.TextureAddressingMode.clamp_to_edge,
-            address_v=sgl.TextureAddressingMode.clamp_to_edge,
+            min_filter=spy.TextureFilteringMode.linear,
+            mag_filter=spy.TextureFilteringMode.linear,
+            address_u=spy.TextureAddressingMode.clamp_to_edge,
+            address_v=spy.TextureAddressingMode.clamp_to_edge,
         )
         self.point_sampler = self.device.create_sampler(
-            min_filter=sgl.TextureFilteringMode.point,
-            mag_filter=sgl.TextureFilteringMode.point,
+            min_filter=spy.TextureFilteringMode.point,
+            mag_filter=spy.TextureFilteringMode.point,
         )
 
-        loader = sgl.TextureLoader(self.device)
+        loader = spy.TextureLoader(self.device)
         files = glob(
             str(Path(__file__).parent.parent.parent) + "/data/test_images/*.jpg",
             recursive=True,
         )
         files = sorted(files)
-        timer = sgl.Timer()
+        timer = spy.Timer()
         self.texture = loader.load_texture_array(
             paths=files, options={"generate_mips": True, "load_as_srgb": True}
         )
         print(f"elapsed={timer.elapsed_ms()} ms")
         print(self.texture)
 
-        program = self.device.load_program(
-            str(EXAMPLE_DIR / "draw.slang"), ["compute_main"]
-        )
+        program = self.device.load_program(str(EXAMPLE_DIR / "draw.slang"), ["compute_main"])
         self.kernel = self.device.create_compute_kernel(program)
 
-        self.render_texture: sgl.Texture = None  # type: ignore (will be immediately initialized)
+        self.render_texture: spy.Texture = None  # type: ignore (will be immediately initialized)
 
         self.setup_ui()
 
     def setup_ui(self):
-        window = sgl.ui.Window(self.screen, "Settings", size=sgl.float2(500, 300))
+        window = spy.ui.Window(self.screen, "Settings", size=spy.float2(500, 300))
 
-        self.layer = sgl.ui.SliderInt(
+        self.layer = spy.ui.SliderInt(
             window, "Layer", value=0, min=0, max=self.texture.array_length - 1
         )
-        self.mip_level = sgl.ui.SliderFloat(
+        self.mip_level = spy.ui.SliderFloat(
             window, "MIP Level", value=0, min=0, max=self.texture.mip_count - 1
         )
-        self.filter = sgl.ui.ComboBox(
-            window, "Filter", value=0, items=["Point", "Linear"]
-        )
+        self.filter = spy.ui.ComboBox(window, "Filter", value=0, items=["Point", "Linear"])
 
-    def render(self, render_context: sgl.AppWindow.RenderContext):
+    def render(self, render_context: spy.AppWindow.RenderContext):
         image = render_context.surface_texture
         command_encoder = render_context.command_encoder
 
@@ -67,11 +63,10 @@ class DemoWindow(sgl.AppWindow):
             or self.render_texture.height != image.height
         ):
             self.render_texture = self.device.create_texture(
-                format=sgl.Format.rgba16_float,
+                format=spy.Format.rgba16_float,
                 width=image.width,
                 height=image.height,
-                usage=sgl.TextureUsage.shader_resource
-                | sgl.TextureUsage.unordered_access,
+                usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                 label="render_texture",
             )
 
@@ -80,9 +75,7 @@ class DemoWindow(sgl.AppWindow):
             vars={
                 "g_output": self.render_texture,
                 "g_texture": self.texture,
-                "g_sampler": [self.point_sampler, self.linear_sampler][
-                    self.filter.value
-                ],
+                "g_sampler": [self.point_sampler, self.linear_sampler][self.filter.value],
                 "g_layer": self.layer.value,
                 "g_mip_level": self.mip_level.value,
             },
@@ -93,6 +86,6 @@ class DemoWindow(sgl.AppWindow):
 
 
 if __name__ == "__main__":
-    app = sgl.App(device=sgl.Device())
+    app = spy.App(device=spy.Device())
     window = DemoWindow(app)
     app.run()

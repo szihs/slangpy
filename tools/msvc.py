@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 """
 Taken from: https://github.com/pypa/setuptools/blob/v73.0.1/setuptools/msvc.py
 Stripped out all code other than required for msvc14_get_vc_env
@@ -101,9 +103,7 @@ def _msvc14_find_vc2017():
             path = (
                 subprocess.check_output(
                     [
-                        join(
-                            root, "Microsoft Visual Studio", "Installer", "vswhere.exe"
-                        ),
+                        join(root, "Microsoft Visual Studio", "Installer", "vswhere.exe"),
                         "-latest",
                         "-prerelease",
                         "-requires",
@@ -201,9 +201,7 @@ def _msvc14_get_vc_env(plat_spec):
             stderr=subprocess.STDOUT,
         ).decode("utf-16le", errors="replace")
     except subprocess.CalledProcessError as exc:
-        raise distutils.errors.DistutilsPlatformError(
-            "Error executing {}".format(exc.cmd)
-        ) from exc
+        raise distutils.errors.DistutilsPlatformError("Error executing {}".format(exc.cmd)) from exc
 
     env = {
         key.lower(): value

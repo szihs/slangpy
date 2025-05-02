@@ -1,11 +1,11 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 #pragma once
 
 #include "sgl/core/macros.h"
 
 #define SGL_VERSION_MAJOR 0
-#define SGL_VERSION_MINOR 15
+#define SGL_VERSION_MINOR 24
 #define SGL_VERSION_PATCH 0
 
 #define SGL_VERSION                                                                                                    \

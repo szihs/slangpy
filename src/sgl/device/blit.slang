@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 // This shader uses preprocessor macros to adapt to different texture types and layouts.
 // Ideally we would use Slang's link time specialization to achieve the same effect,

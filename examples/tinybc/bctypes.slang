@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 // This struct holds the BC interpolation weights for a 4x4 texel tile
 struct BCWeights : IDifferentiable {

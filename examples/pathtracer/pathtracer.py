@@ -1,7 +1,7 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 from typing import Optional
-import sgl
+import slangpy as spy
 import numpy as np
 import numpy.typing as npt
 from pathlib import Path
@@ -17,26 +17,26 @@ class Camera:
         self.width = 100
         self.height = 100
         self.aspect_ratio = 1.0
-        self.position = sgl.float3(1, 1, 1)
-        self.target = sgl.float3(0, 0, 0)
-        self.up = sgl.float3(0, 1, 0)
+        self.position = spy.float3(1, 1, 1)
+        self.target = spy.float3(0, 0, 0)
+        self.up = spy.float3(0, 1, 0)
         self.fov = 70.0
         self.recompute()
 
     def recompute(self):
         self.aspect_ratio = float(self.width) / float(self.height)
 
-        self.fwd = sgl.math.normalize(self.target - self.position)
-        self.right = sgl.math.normalize(sgl.math.cross(self.fwd, self.up))
-        self.up = sgl.math.normalize(sgl.math.cross(self.right, self.fwd))
+        self.fwd = spy.math.normalize(self.target - self.position)
+        self.right = spy.math.normalize(spy.math.cross(self.fwd, self.up))
+        self.up = spy.math.normalize(spy.math.cross(self.right, self.fwd))
 
-        fov = sgl.math.radians(self.fov)
+        fov = spy.math.radians(self.fov)
 
-        self.image_u = self.right * sgl.math.tan(fov * 0.5) * self.aspect_ratio
-        self.image_v = self.up * sgl.math.tan(fov * 0.5)
+        self.image_u = self.right * spy.math.tan(fov * 0.5) * self.aspect_ratio
+        self.image_v = self.up * spy.math.tan(fov * 0.5)
         self.image_w = self.fwd
 
-    def bind(self, cursor: sgl.ShaderCursor):
+    def bind(self, cursor: spy.ShaderCursor):
         cursor["position"] = self.position
         cursor["image_u"] = self.image_u
         cursor["image_v"] = self.image_v
@@ -45,12 +45,12 @@ class Camera:
 
 class CameraController:
     MOVE_KEYS = {
-        sgl.KeyCode.a: sgl.float3(-1, 0, 0),
-        sgl.KeyCode.d: sgl.float3(1, 0, 0),
-        sgl.KeyCode.e: sgl.float3(0, 1, 0),
-        sgl.KeyCode.q: sgl.float3(0, -1, 0),
-        sgl.KeyCode.w: sgl.float3(0, 0, 1),
-        sgl.KeyCode.s: sgl.float3(0, 0, -1),
+        spy.KeyCode.a: spy.float3(-1, 0, 0),
+        spy.KeyCode.d: spy.float3(1, 0, 0),
+        spy.KeyCode.e: spy.float3(0, 1, 0),
+        spy.KeyCode.q: spy.float3(0, -1, 0),
+        spy.KeyCode.w: spy.float3(0, 0, 1),
+        spy.KeyCode.s: spy.float3(0, 0, -1),
     }
     MOVE_SHIFT_FACTOR = 10.0
 
@@ -58,12 +58,12 @@ class CameraController:
         super().__init__()
         self.camera = camera
         self.mouse_down = False
-        self.mouse_pos = sgl.float2()
+        self.mouse_pos = spy.float2()
         self.key_state = {k: False for k in CameraController.MOVE_KEYS.keys()}
         self.shift_down = False
 
-        self.move_delta = sgl.float3()
-        self.rotate_delta = sgl.float2()
+        self.move_delta = spy.float3()
+        self.rotate_delta = spy.float2()
 
         self.move_speed = 1.0
         self.rotate_speed = 0.002
@@ -76,7 +76,7 @@ class CameraController:
         right = self.camera.right
 
         # Move
-        if sgl.math.length(self.move_delta) > 0:
+        if spy.math.length(self.move_delta) > 0:
             offset = right * self.move_delta.x
             offset += up * self.move_delta.y
             offset += fwd * self.move_delta.z
@@ -86,44 +86,44 @@ class CameraController:
             changed = True
 
         # Rotate
-        if sgl.math.length(self.rotate_delta) > 0:
-            yaw = sgl.math.atan2(fwd.z, fwd.x)
-            pitch = sgl.math.asin(fwd.y)
+        if spy.math.length(self.rotate_delta) > 0:
+            yaw = spy.math.atan2(fwd.z, fwd.x)
+            pitch = spy.math.asin(fwd.y)
             yaw += self.rotate_speed * self.rotate_delta.x
             pitch -= self.rotate_speed * self.rotate_delta.y
-            fwd = sgl.float3(
-                sgl.math.cos(yaw) * sgl.math.cos(pitch),
-                sgl.math.sin(pitch),
-                sgl.math.sin(yaw) * sgl.math.cos(pitch),
+            fwd = spy.float3(
+                spy.math.cos(yaw) * spy.math.cos(pitch),
+                spy.math.sin(pitch),
+                spy.math.sin(yaw) * spy.math.cos(pitch),
             )
-            self.rotate_delta = sgl.float2()
+            self.rotate_delta = spy.float2()
             changed = True
 
         if changed:
             self.camera.position = position
             self.camera.target = position + fwd
-            self.camera.up = sgl.float3(0, 1, 0)
+            self.camera.up = spy.float3(0, 1, 0)
             self.camera.recompute()
 
         return changed
 
-    def on_keyboard_event(self, event: sgl.KeyboardEvent):
+    def on_keyboard_event(self, event: spy.KeyboardEvent):
         if event.is_key_press() or event.is_key_release():
             down = event.is_key_press()
             if event.key in CameraController.MOVE_KEYS:
                 self.key_state[event.key] = down
-            elif event.key == sgl.KeyCode.left_shift:
+            elif event.key == spy.KeyCode.left_shift:
                 self.shift_down = down
-        self.move_delta = sgl.float3()
+        self.move_delta = spy.float3()
         for key, state in self.key_state.items():
             if state:
                 self.move_delta += CameraController.MOVE_KEYS[key]
 
-    def on_mouse_event(self, event: sgl.MouseEvent):
-        self.rotate_delta = sgl.float2()
-        if event.is_button_down() and event.button == sgl.MouseButton.left:
+    def on_mouse_event(self, event: spy.MouseEvent):
+        self.rotate_delta = spy.float2()
+        if event.is_button_down() and event.button == spy.MouseButton.left:
             self.mouse_down = True
-        if event.is_button_up() and event.button == sgl.MouseButton.left:
+        if event.is_button_up() and event.button == spy.MouseButton.left:
             self.mouse_down = False
         if event.is_move():
             mouse_delta = event.pos - self.mouse_pos
@@ -133,7 +133,7 @@ class CameraController:
 
 
 class Material:
-    def __init__(self, base_color: "sgl.float3param" = sgl.float3(0.5)):
+    def __init__(self, base_color: "spy.float3param" = spy.float3(0.5)):
         super().__init__()
         self.base_color = base_color
 
@@ -163,7 +163,7 @@ class Mesh:
         return self.triangle_count * 3
 
     @classmethod
-    def create_quad(cls, size: "sgl.float2param" = sgl.float2(1)):
+    def create_quad(cls, size: "spy.float2param" = spy.float2(1)):
         vertices = np.array(
             [
                 # position, normal, uv
@@ -185,7 +185,7 @@ class Mesh:
         return Mesh(vertices, indices)
 
     @classmethod
-    def create_cube(cls, size: "sgl.float3param" = sgl.float3(1)):
+    def create_cube(cls, size: "spy.float3param" = spy.float3(1)):
         vertices = np.array(
             [
                 # position, normal, uv
@@ -248,16 +248,16 @@ class Mesh:
 class Transform:
     def __init__(self):
         super().__init__()
-        self.translation = sgl.float3(0)
-        self.scaling = sgl.float3(1)
-        self.rotation = sgl.float3(0)
-        self.matrix = sgl.float4x4.identity()
+        self.translation = spy.float3(0)
+        self.scaling = spy.float3(1)
+        self.rotation = spy.float3(0)
+        self.matrix = spy.float4x4.identity()
 
     def update_matrix(self):
-        T = sgl.math.matrix_from_translation(self.translation)
-        S = sgl.math.matrix_from_scaling(self.scaling)
-        R = sgl.math.matrix_from_rotation_xyz(self.rotation)
-        self.matrix = sgl.math.mul(sgl.math.mul(T, R), S)
+        T = spy.math.matrix_from_translation(self.translation)
+        S = spy.math.matrix_from_scaling(self.scaling)
+        R = spy.math.matrix_from_rotation_xyz(self.rotation)
+        self.matrix = spy.math.mul(spy.math.mul(T, R), S)
 
 
 class Stage:
@@ -292,10 +292,10 @@ class Stage:
     @classmethod
     def demo(cls):
         stage = Stage()
-        stage.camera.target = sgl.float3(0, 1, 0)
-        stage.camera.position = sgl.float3(2, 1, 2)
+        stage.camera.target = spy.float3(0, 1, 0)
+        stage.camera.position = spy.float3(2, 1, 2)
 
-        floor_material = stage.add_material(Material(base_color=sgl.float3(0.5)))
+        floor_material = stage.add_material(Material(base_color=spy.float3(0.5)))
         floor_mesh = stage.add_mesh(Mesh.create_quad([5, 5]))
         floor_transform = stage.add_transform(Transform())
         stage.add_instance(floor_mesh, floor_material, floor_transform)
@@ -304,22 +304,20 @@ class Stage:
         for _ in range(10):
             cube_materials.append(
                 stage.add_material(
-                    Material(base_color=sgl.float3(np.random.rand(3).astype(np.float32)))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
+                    Material(base_color=spy.float3(np.random.rand(3).astype(np.float32)))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
                 )
             )
         cube_mesh = stage.add_mesh(Mesh.create_cube([0.1, 0.1, 0.1]))
 
         for i in range(1000):
             transform = Transform()
-            transform.translation = sgl.float3((np.random.rand(3) * 2 - 1).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
+            transform.translation = spy.float3((np.random.rand(3) * 2 - 1).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
             transform.translation[1] += 1
-            transform.scaling = sgl.float3((np.random.rand(3) + 0.5).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
-            transform.rotation = sgl.float3((np.random.rand(3) * 10).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
+            transform.scaling = spy.float3((np.random.rand(3) + 0.5).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
+            transform.rotation = spy.float3((np.random.rand(3) * 10).astype(np.float32))  # type: ignore (TYPINGTODO: need explicit np->float conversion)
             transform.update_matrix()
             cube_transform = stage.add_transform(transform)
-            stage.add_instance(
-                cube_mesh, cube_materials[i % len(cube_materials)], cube_transform
-            )
+            stage.add_instance(cube_mesh, cube_materials[i % len(cube_materials)], cube_transform)
 
         return stage
 
@@ -327,12 +325,10 @@ class Stage:
 class Scene:
     @dataclass
     class MaterialDesc:
-        base_color: sgl.float3
+        base_color: spy.float3
 
         def pack(self):
-            return struct.pack(
-                "fff", self.base_color[0], self.base_color[1], self.base_color[2]
-            )
+            return struct.pack("fff", self.base_color[0], self.base_color[1], self.base_color[2])
 
     @dataclass
     class MeshDesc:
@@ -359,21 +355,19 @@ class Scene:
         def pack(self):
             return struct.pack("III", self.mesh_id, self.material_id, self.transform_id)
 
-    def __init__(self, device: sgl.Device, stage: Stage):
+    def __init__(self, device: spy.Device, stage: Stage):
         super().__init__()
         self.device = device
 
         self.camera = stage.camera
 
         # Prepare material descriptors
-        self.material_descs = [
-            Scene.MaterialDesc(base_color=m.base_color) for m in stage.materials
-        ]
+        self.material_descs = [Scene.MaterialDesc(base_color=m.base_color) for m in stage.materials]
         material_descs_data = np.frombuffer(
             b"".join(d.pack() for d in self.material_descs), dtype=np.uint8
         ).flatten()
         self.material_descs_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="material_descs_buffer",
             data=material_descs_data,
         )
@@ -397,9 +391,7 @@ class Scene:
         # Prepare instance descriptors
         self.instance_descs = []
         for mesh_id, material_id, transform_id in stage.instances:
-            self.instance_descs.append(
-                Scene.InstanceDesc(mesh_id, material_id, transform_id)
-            )
+            self.instance_descs.append(Scene.InstanceDesc(mesh_id, material_id, transform_id))
 
         # Create vertex and index buffers
         vertices = np.concatenate([mesh.vertices for mesh in stage.meshes], axis=0)
@@ -408,13 +400,13 @@ class Scene:
         assert indices.shape[0] == index_count // 3
 
         self.vertex_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="vertex_buffer",
             data=vertices,
         )
 
         self.index_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="index_buffer",
             data=indices,
         )
@@ -423,7 +415,7 @@ class Scene:
             b"".join(d.pack() for d in self.mesh_descs), dtype=np.uint8
         ).flatten()
         self.mesh_descs_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="mesh_descs_buffer",
             data=mesh_descs_data,
         )
@@ -432,7 +424,7 @@ class Scene:
             b"".join(d.pack() for d in self.instance_descs), dtype=np.uint8
         ).flatten()
         self.instance_descs_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="instance_descs_buffer",
             data=instance_descs_data,
         )
@@ -440,15 +432,15 @@ class Scene:
         # Prepare transforms
         self.transforms = [t.matrix for t in stage.transforms]
         self.inverse_transpose_transforms = [
-            sgl.math.transpose(sgl.math.inverse(t)) for t in self.transforms
+            spy.math.transpose(spy.math.inverse(t)) for t in self.transforms
         ]
         self.transform_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="transform_buffer",
             data=np.stack([t.to_numpy() for t in self.transforms]),
         )
         self.inverse_transpose_transforms_buffer = device.create_buffer(
-            usage=sgl.BufferUsage.shader_resource,
+            usage=spy.BufferUsage.shader_resource,
             label="inverse_transpose_transforms_buffer",
             data=np.stack([t.to_numpy() for t in self.inverse_transpose_transforms]),
         )
@@ -460,7 +452,7 @@ class Scene:
         self.tlas = self.build_tlas()
 
     def build_blas(self, mesh_desc: MeshDesc):
-        build_input = sgl.AccelerationStructureBuildInputTriangles(
+        build_input = spy.AccelerationStructureBuildInputTriangles(
             {
                 "vertex_buffers": [
                     {
@@ -468,26 +460,26 @@ class Scene:
                         "offset": mesh_desc.vertex_offset * 32,
                     }
                 ],
-                "vertex_format": sgl.Format.rgb32_float,
+                "vertex_format": spy.Format.rgb32_float,
                 "vertex_count": mesh_desc.vertex_count,
                 "vertex_stride": 32,
                 "index_buffer": {
                     "buffer": self.index_buffer,
                     "offset": mesh_desc.index_offset * 4,
                 },
-                "index_format": sgl.IndexFormat.uint32,
+                "index_format": spy.IndexFormat.uint32,
                 "index_count": mesh_desc.index_count,
-                "flags": sgl.AccelerationStructureGeometryFlags.opaque,
+                "flags": spy.AccelerationStructureGeometryFlags.opaque,
             }
         )
 
-        build_desc = sgl.AccelerationStructureBuildDesc({"inputs": [build_input]})
+        build_desc = spy.AccelerationStructureBuildDesc({"inputs": [build_input]})
 
         sizes = self.device.get_acceleration_structure_sizes(build_desc)
 
         blas_scratch_buffer = self.device.create_buffer(
             size=sizes.scratch_size,
-            usage=sgl.BufferUsage.unordered_access,
+            usage=spy.BufferUsage.unordered_access,
             label="blas_scratch_buffer",
         )
 
@@ -512,18 +504,16 @@ class Scene:
             instance_list.write(
                 instance_id,
                 {
-                    "transform": sgl.float3x4(
-                        self.transforms[instance_desc.transform_id]
-                    ),
+                    "transform": spy.float3x4(self.transforms[instance_desc.transform_id]),
                     "instance_id": instance_id,
                     "instance_mask": 0xFF,
                     "instance_contribution_to_hit_group_index": 0,
-                    "flags": sgl.AccelerationStructureInstanceFlags.none,
+                    "flags": spy.AccelerationStructureInstanceFlags.none,
                     "acceleration_structure": self.blases[instance_desc.mesh_id].handle,
                 },
             )
 
-        build_desc = sgl.AccelerationStructureBuildDesc(
+        build_desc = spy.AccelerationStructureBuildDesc(
             {
                 "inputs": [instance_list.build_input_instances()],
             }
@@ -533,7 +523,7 @@ class Scene:
 
         tlas_scratch_buffer = self.device.create_buffer(
             size=sizes.scratch_size,
-            usage=sgl.BufferUsage.unordered_access,
+            usage=spy.BufferUsage.unordered_access,
             label="tlas_scratch_buffer",
         )
 
@@ -550,7 +540,7 @@ class Scene:
 
         return tlas
 
-    def bind(self, cursor: sgl.ShaderCursor):
+    def bind(self, cursor: spy.ShaderCursor):
         cursor["tlas"] = self.tlas
         cursor["material_descs"] = self.material_descs_buffer
         cursor["mesh_descs"] = self.mesh_descs_buffer
@@ -558,14 +548,12 @@ class Scene:
         cursor["vertices"] = self.vertex_buffer
         cursor["indices"] = self.index_buffer
         cursor["transforms"] = self.transform_buffer
-        cursor["inverse_transpose_transforms"] = (
-            self.inverse_transpose_transforms_buffer
-        )
+        cursor["inverse_transpose_transforms"] = self.inverse_transpose_transforms_buffer
         self.camera.bind(cursor["camera"])
 
 
 class PathTracer:
-    def __init__(self, device: sgl.Device, scene: Scene):
+    def __init__(self, device: spy.Device, scene: Scene):
         super().__init__()
         self.device = device
         self.scene = scene
@@ -573,9 +561,7 @@ class PathTracer:
         self.program = self.device.load_program("pathtracer.slang", ["main"])
         self.pipeline = self.device.create_compute_pipeline(self.program)
 
-    def execute(
-        self, command_encoder: sgl.CommandEncoder, output: sgl.Texture, frame: int
-    ):
+    def execute(self, command_encoder: spy.CommandEncoder, output: spy.Texture, frame: int):
         w = output.width
         h = output.height
 
@@ -585,7 +571,7 @@ class PathTracer:
 
         with command_encoder.begin_compute_pass() as pass_encoder:
             shader_object = pass_encoder.bind_pipeline(self.pipeline)
-            cursor = sgl.ShaderCursor(shader_object)
+            cursor = spy.ShaderCursor(shader_object)
             cursor.g_output = output
             cursor.g_frame = frame
             self.scene.bind(cursor.g_scene)
@@ -593,18 +579,18 @@ class PathTracer:
 
 
 class Accumulator:
-    def __init__(self, device: sgl.Device):
+    def __init__(self, device: spy.Device):
         super().__init__()
         self.device = device
         self.program = self.device.load_program("accumulator.slang", ["main"])
         self.kernel = self.device.create_compute_kernel(self.program)
-        self.accumulator: Optional[sgl.Texture] = None
+        self.accumulator: Optional[spy.Texture] = None
 
     def execute(
         self,
-        command_encoder: sgl.CommandEncoder,
-        input: sgl.Texture,
-        output: sgl.Texture,
+        command_encoder: spy.CommandEncoder,
+        input: spy.Texture,
+        output: spy.Texture,
         reset: bool = False,
     ):
         if (
@@ -613,11 +599,10 @@ class Accumulator:
             or self.accumulator.height != input.height
         ):
             self.accumulator = self.device.create_texture(
-                format=sgl.Format.rgba32_float,
+                format=spy.Format.rgba32_float,
                 width=input.width,
                 height=input.height,
-                usage=sgl.TextureUsage.shader_resource
-                | sgl.TextureUsage.unordered_access,
+                usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                 label="accumulator",
             )
         self.kernel.dispatch(
@@ -635,7 +620,7 @@ class Accumulator:
 
 
 class ToneMapper:
-    def __init__(self, device: sgl.Device):
+    def __init__(self, device: spy.Device):
         super().__init__()
         self.device = device
         self.program = self.device.load_program("tone_mapper.slang", ["main"])
@@ -643,9 +628,9 @@ class ToneMapper:
 
     def execute(
         self,
-        command_encoder: sgl.CommandEncoder,
-        input: sgl.Texture,
-        output: sgl.Texture,
+        command_encoder: spy.CommandEncoder,
+        input: spy.Texture,
+        output: spy.Texture,
     ):
         self.kernel.dispatch(
             thread_count=[input.width, input.height, 1],
@@ -662,10 +647,8 @@ class ToneMapper:
 class App:
     def __init__(self):
         super().__init__()
-        self.window = sgl.Window(
-            width=1920, height=1080, title="PathTracer", resizable=True
-        )
-        self.device = sgl.Device(
+        self.window = spy.Window(width=1920, height=1080, title="PathTracer", resizable=True)
+        self.device = spy.Device(
             enable_debug_layers=False,
             compiler_options={"include_paths": [EXAMPLE_DIR]},
         )
@@ -674,9 +657,9 @@ class App:
             {"width": self.window.width, "height": self.window.height, "vsync": False}
         )
 
-        self.render_texture: sgl.Texture = None  # type: ignore (will be set immediately)
-        self.accum_texture: sgl.Texture = None  # type: ignore (will be set immediately)
-        self.output_texture: sgl.Texture = None  # type: ignore (will be set immediately)
+        self.render_texture: spy.Texture = None  # type: ignore (will be set immediately)
+        self.accum_texture: spy.Texture = None  # type: ignore (will be set immediately)
+        self.output_texture: spy.Texture = None  # type: ignore (will be set immediately)
 
         self.window.on_keyboard_event = self.on_keyboard_event
         self.window.on_mouse_event = self.on_mouse_event
@@ -691,25 +674,25 @@ class App:
         self.accumulator = Accumulator(self.device)
         self.tone_mapper = ToneMapper(self.device)
 
-    def on_keyboard_event(self, event: sgl.KeyboardEvent):
-        if event.type == sgl.KeyboardEventType.key_press:
-            if event.key == sgl.KeyCode.escape:
+    def on_keyboard_event(self, event: spy.KeyboardEvent):
+        if event.type == spy.KeyboardEventType.key_press:
+            if event.key == spy.KeyCode.escape:
                 self.window.close()
-            elif event.key == sgl.KeyCode.f1:
+            elif event.key == spy.KeyCode.f1:
                 if self.output_texture:
-                    sgl.tev.show_async(self.output_texture)
-            elif event.key == sgl.KeyCode.f2:
+                    spy.tev.show_async(self.output_texture)
+            elif event.key == spy.KeyCode.f2:
                 if self.output_texture:
                     bitmap = self.output_texture.to_bitmap()
                     bitmap.convert(
-                        sgl.Bitmap.PixelFormat.rgb,
-                        sgl.Bitmap.ComponentType.uint8,
+                        spy.Bitmap.PixelFormat.rgb,
+                        spy.Bitmap.ComponentType.uint8,
                         srgb_gamma=True,
                     ).write_async("screenshot.png")
 
         self.camera_controller.on_keyboard_event(event)
 
-    def on_mouse_event(self, event: sgl.MouseEvent):
+    def on_mouse_event(self, event: spy.MouseEvent):
         self.camera_controller.on_mouse_event(event)
 
     def on_resize(self, width: int, height: int):
@@ -718,7 +701,7 @@ class App:
 
     def main_loop(self):
         frame = 0
-        timer = sgl.Timer()
+        timer = spy.Timer()
         while not self.window.should_close():
             dt = timer.elapsed_s()
             timer.reset()
@@ -738,27 +721,24 @@ class App:
                 or self.output_texture.height != surface_texture.height
             ):
                 self.output_texture = self.device.create_texture(
-                    format=sgl.Format.rgba32_float,
+                    format=spy.Format.rgba32_float,
                     width=surface_texture.width,
                     height=surface_texture.height,
-                    usage=sgl.TextureUsage.shader_resource
-                    | sgl.TextureUsage.unordered_access,
+                    usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                     label="output_texture",
                 )
                 self.render_texture = self.device.create_texture(
-                    format=sgl.Format.rgba32_float,
+                    format=spy.Format.rgba32_float,
                     width=surface_texture.width,
                     height=surface_texture.height,
-                    usage=sgl.TextureUsage.shader_resource
-                    | sgl.TextureUsage.unordered_access,
+                    usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                     label="render_texture",
                 )
                 self.accum_texture = self.device.create_texture(
-                    format=sgl.Format.rgba32_float,
+                    format=spy.Format.rgba32_float,
                     width=surface_texture.width,
                     height=surface_texture.height,
-                    usage=sgl.TextureUsage.shader_resource
-                    | sgl.TextureUsage.unordered_access,
+                    usage=spy.TextureUsage.shader_resource | spy.TextureUsage.unordered_access,
                     label="accum_texture",
                 )
 
@@ -768,9 +748,7 @@ class App:
             self.accumulator.execute(
                 command_encoder, self.render_texture, self.accum_texture, frame == 0
             )
-            self.tone_mapper.execute(
-                command_encoder, self.accum_texture, self.output_texture
-            )
+            self.tone_mapper.execute(command_encoder, self.accum_texture, self.output_texture)
 
             command_encoder.blit(surface_texture, self.output_texture)
             self.device.submit_command_buffer(command_encoder.finish())

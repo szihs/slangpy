@@ -1,8 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
 from __future__ import annotations
 import re
 import importlib
 import json
-from inspect import isclass, ismodule
+from inspect import isbuiltin, isclass, ismodule
 from pathlib import Path
 
 DIR = Path(__file__).parent
@@ -42,9 +44,7 @@ def parse_signature(signature: str):
         arg_type = items[i * 2 + 1].strip()
         arg_default = None
         if "=" in arg_type:
-            arg_type, arg_default = [
-                s.strip() for s in arg_type.rsplit("=", maxsplit=1)
-            ]
+            arg_type, arg_default = [s.strip() for s in arg_type.rsplit("=", maxsplit=1)]
             if arg_default[-1] == ",":
                 arg_default = arg_default[:-1]
 
@@ -110,6 +110,7 @@ class Context:
         self.output = ""
         self.entries = {"*": ""}
         self.current_entry = "*"
+        self.visited_modules = set()
 
     def write(self, text: str):
         lines = text.split("\n")
@@ -162,11 +163,16 @@ def process_static_method(obj: object, name: str, ctx: Context):
 
 
 def process_property(obj: object, name: str, ctx: Context):
+    # TODO(docs) this fails on properties not defined in nanobind
+    try:
+        read_write = obj.fset != None  # type: ignore
+        doc = obj.fget.__doc__.split("\n")  # type: ignore
+        type = doc[0].split("->")[1].strip()
+        doc = "\n".join(doc[1:]).strip()
+    except:
+        print(f"Error processing property {name}")
+        return
     ctx.write(f".. py:property:: {name}")
-    read_write = obj.fset != None  # type: ignore
-    doc = obj.fget.__doc__.split("\n")  # type: ignore
-    type = doc[0].split("->")[1].strip()
-    doc = "\n".join(doc[1:]).strip()
     ctx.write(f"{INDENT}:type: {type}\n")
     ctx.push(name)
     if doc != "":
@@ -223,6 +229,10 @@ def process_class(obj: object, name: str, ctx: Context):
         elif isinstance(co, property):
             process_property(co, cn, ctx)
         elif isclass(co):
+            # TODO(docs) skip classes not defined in nanobind
+            if not is_extension(co):
+                print(f"Skipping class {cn} ({type(co)})")
+                continue
             process_class(co, cn, ctx)
         else:
             if is_enum or cn == "__init__":
@@ -264,7 +274,15 @@ def process_data(obj: object, name: str, ctx: Context):
     ctx.write("")
 
 
+def is_extension(obj: object):
+    return isbuiltin(obj) or (isclass(obj) and not hasattr(obj, "__code__"))
+
+
 def process_module(obj: object, name: str, ctx: Context):
+    if obj in ctx.visited_modules:
+        return
+    ctx.visited_modules.add(obj)
+
     ctx.push(name, indent=False)
 
     for cn in obj.__dict__:
@@ -276,9 +294,18 @@ def process_module(obj: object, name: str, ctx: Context):
             continue
 
         co = getattr(obj, cn)
+
         if ismodule(co):
+            if not co.__name__.startswith("slangpy"):
+                continue
+
             process_module(co, cn, ctx)
         elif isclass(co):
+            # TODO(docs) skip classes not defined in nanobind
+            if not is_extension(co):
+                print(f"Skipping class {cn} ({type(co)})")
+                continue
+
             ctx.new_entry(cn)
             process_class(co, cn, ctx)
         # elif isfunction(co):
@@ -287,6 +314,11 @@ def process_module(obj: object, name: str, ctx: Context):
             ctx.new_entry(cn)
             process_function(co, cn, ctx)
         else:
+            # TODO(docs) skip classes not defined in nanobind
+            if not co.__class__ == int and not co.__class__ == str and not is_extension(co):
+                print(f"Skipping data {cn} ({type(co)})")
+                continue
+
             ctx.new_entry(cn)
             process_data(co, cn, ctx)
 
@@ -295,8 +327,8 @@ def process_module(obj: object, name: str, ctx: Context):
 
 def generate_api():
     ctx = Context()
-    module = importlib.import_module("sgl")
-    process_module(module, "sgl", ctx)
+    module = importlib.import_module("slangpy")
+    process_module(module, "slangpy", ctx)
     # print(ctx.output)
 
     out = ""
@@ -340,4 +372,9 @@ def generate_api():
 
 
 if __name__ == "__main__":
+    # For testing, allow loading slangpy module from root
+    import sys
+
+    sys.path.append(str(DIR.parent))
+
     generate_api()

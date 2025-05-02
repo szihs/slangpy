@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
-
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 RaytracingAccelerationStructure tlas;
 RWTexture2D<float4> render_texture;

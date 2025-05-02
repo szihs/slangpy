@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 // Most of this code is derived from the GLM library at https://github.com/g-truc/glm
 // License: https://github.com/g-truc/glm/blob/master/copying.txt
