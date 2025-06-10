@@ -85,11 +85,32 @@ class ArrayMarshall(ValueMarshall):
 
 
 def _distill_array(layout: SlangProgramLayout, value: Union[list[Any], tuple[Any]]):
+    from slangpy import InstanceList
+
     shape = (len(value),)
     while True:
         if len(value) == 0:
             return shape, tr.get_or_create_type(layout, int).slang_type
-        if not isinstance(value[0], (list, tuple)):
+
+        el0 = value[0]
+
+        if isinstance(el0, InstanceList):
+            et = el0._struct.struct
+            return shape, et
+
+        if hasattr(value[0], "get_this"):
+            el0 = value[0].get_this()
+
+        if isinstance(el0, dict):
+            tn = el0.get("_type", None)
+            if tn is None:
+                raise ValueError("Dictionary must have a '_type' field to determine element type")
+            et = layout.find_type_by_name(tn)
+            if et is None:
+                raise ValueError(f"Could not find Slang type for '{tn}'")
+            return shape, et
+
+        if not isinstance(el0, (list, tuple)):
             et = tr.get_or_create_type(layout, type(value[0]), value[0]).slang_type
             return shape, et
 
