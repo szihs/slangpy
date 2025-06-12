@@ -92,32 +92,36 @@ def _distill_array(layout: SlangProgramLayout, value: Union[list[Any], tuple[Any
         if len(value) == 0:
             return shape, tr.get_or_create_type(layout, int).slang_type
 
+        # Get first element to decide type
         el0 = value[0]
 
+        # If an InstanceList, return its struct type
         if isinstance(el0, InstanceList):
             et = el0._struct.struct
             return shape, et
 
+        # Unpack from object with get_this interface
         if hasattr(value[0], "get_this"):
             el0 = value[0].get_this()
 
+        # If a dict, check for explicit _type field
         if isinstance(el0, dict):
             tn = el0.get("_type", None)
-            if tn is None:
-                raise ValueError("Dictionary must have a '_type' field to determine element type")
-            et = layout.find_type_by_name(tn)
-            if et is None:
-                raise ValueError(f"Could not find Slang type for '{tn}'")
-            return shape, et
+            if tn is not None:
+                et = layout.find_type_by_name(tn)
+                if et is None:
+                    raise ValueError(f"Could not find Slang type for '{tn}'")
+                return shape, et
 
+        # If not a list or tuple, attempt to get type from value using get_or_create_type
         if not isinstance(el0, (list, tuple)):
             et = tr.get_or_create_type(layout, type(value[0]), value[0]).slang_type
             return shape, et
 
+        # If got here, first element is list or tuple (i.e. we have a nested array)
         N = len(value[0])
         if not all(len(x) == N for x in value):
             raise ValueError("Elements of nested array must all have equal lengths")
-
         shape = shape + (N,)
         value = value[0]
 
