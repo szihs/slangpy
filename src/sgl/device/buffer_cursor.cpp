@@ -194,16 +194,9 @@ void BufferElementCursor::_set_matrix(
 )
 {
     cursor_utils::check_matrix(m_type_layout->slang_target(), size, scalar_type, rows, cols);
-    size_t stride = slang_type_layout()->getStride();
-    if (stride != size) {
-        size_t row_stride = stride / rows;
-        size_t row_size = size / rows;
-        for (int i = 0; i < rows; ++i) {
-            write_data(m_offset + i * row_stride, reinterpret_cast<const uint8_t*>(data) + i * row_size, row_size);
-        }
-    } else {
-        write_data(m_offset, data, size);
-    }
+    // In Buffer, we should always be tightly packed, the float4x3 padding is for paramblocks and constant buffers.
+    SGL_ASSERT(size == slang_type_layout()->getStride());
+    write_data(m_offset, data, size);
 }
 
 void BufferElementCursor::_get_matrix(
@@ -215,16 +208,9 @@ void BufferElementCursor::_get_matrix(
 ) const
 {
     cursor_utils::check_matrix(m_type_layout->slang_target(), size, scalar_type, rows, cols);
-    size_t stride = slang_type_layout()->getStride();
-    if (stride != size) {
-        size_t row_stride = stride / rows;
-        size_t row_size = size / rows;
-        for (int i = 0; i < rows; ++i) {
-            read_data(m_offset + i * row_stride, reinterpret_cast<uint8_t*>(data) + i * row_size, row_size);
-        }
-    } else {
-        read_data(m_offset, data, size);
-    }
+    // In Buffer, we should always be tightly packed, the float4x3 padding is for paramblocks and constant buffers.
+    SGL_ASSERT(size == slang_type_layout()->getStride());
+    read_data(m_offset, data, size);
 }
 
 
