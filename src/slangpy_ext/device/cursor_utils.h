@@ -561,7 +561,7 @@ private:
                 self._set_array(
                     nbarray.data(),
                     nbarray.nbytes(),
-                    (TypeReflection::ScalarType)type_layout->getElementTypeLayout()->getType()->getScalarType(),
+                    *dtype_to_scalar_type(nbarray.dtype()),
                     narrow_cast<int>(nbarray.shape(0))
                 );
                 return;
