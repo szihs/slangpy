@@ -14,6 +14,7 @@
 
 #include "utils/slangpypackedarg.h"
 #include "utils/slangpystridedbufferview.h"
+#include "sgl/device/buffer_cursor.h"
 
 namespace sgl {
 
@@ -362,6 +363,21 @@ public:
         }
     }
 
+    /// Writes a (dictionary of) ndarrays to the whole buffer.
+    /// First dimension of the ndarray is treated as an index into the buffer,
+    /// and all the other dimensions are then written to the corresponding
+    /// BufferElementCursors.
+    void write_from_numpy(BufferCursor& dst, nb::object nbval)
+        requires std::same_as<CursorType, BufferElementCursor>
+    {
+        m_stack.clear();
+        try {
+            write_from_numpy_internal(dst, dst[0], nbval);
+        } catch (const std::exception& err) {
+            SGL_THROW("{}: {}", build_error(), err.what());
+        }
+    }
+
 private:
     std::function<void(CursorType&, nb::object)> m_write_scalar[(int)TypeReflection::ScalarType::COUNT];
     std::function<void(CursorType&, nb::object)> m_write_vector[(int)TypeReflection::ScalarType::COUNT][5];
@@ -369,6 +385,85 @@ private:
     std::vector<const char*> m_stack;
 
     std::string build_error() { return fmt::format("{}", fmt::join(m_stack, ".")); }
+
+    void write_from_numpy_internal(BufferCursor& dst, BufferElementCursor self, nb::object nbval)
+        requires std::same_as<CursorType, BufferElementCursor>
+    {
+        if (!self.is_valid())
+            return;
+
+        slang::TypeLayoutReflection* type_layout = self.slang_type_layout();
+        auto kind = (TypeReflection::Kind)type_layout->getKind();
+
+        switch (kind) {
+        case TypeReflection::Kind::constant_buffer:
+        case TypeReflection::Kind::parameter_block:
+        case TypeReflection::Kind::struct_: {
+            // Unwrap constant buffers or parameter blocks
+            if (kind != TypeReflection::Kind::struct_)
+                type_layout = type_layout->getElementTypeLayout();
+
+            // Expect a dict for a slang struct.
+            if (nb::isinstance<nb::dict>(nbval)) {
+                auto dict = nb::cast<nb::dict>(nbval);
+                for (uint32_t i = 0; i < type_layout->getFieldCount(); i++) {
+                    auto field = type_layout->getFieldByIndex(i);
+                    const char* name = field->getName();
+                    auto child = self[name];
+                    if (dict.contains(name)) {
+                        m_stack.push_back(name);
+                        write_from_numpy_internal(dst, child, dict[name]);
+                        m_stack.pop_back();
+                    }
+                }
+                return;
+            } else {
+                SGL_THROW("Expected dict");
+            }
+        }
+        }
+
+        auto nbarray = nb::cast<nb::ndarray<nb::numpy>>(nbval);
+        SGL_CHECK(
+            nbarray.shape(0) == dst.element_count(),
+            "First dimension of ndarray ({}) does not match the size of destination buffer ({})",
+            nbarray.shape(0),
+            dst.element_count()
+        );
+
+        const size_t itemsize = nbarray.itemsize();
+        auto data = reinterpret_cast<uint8_t*>(nbarray.data());
+        size_t element_byte_size = itemsize;
+
+        for (size_t index = 0; index < dst.element_count(); ++index) {
+            nb::ndarray<nb::numpy> subarray;
+            if (nbarray.ndim() == 1) {
+                subarray = nb::ndarray<nb::numpy>(
+                    data + index * nbarray.stride(0) * itemsize,
+                    {1},
+                    {},
+                    {},
+                    nbarray.dtype(),
+                    nbarray.device_type(),
+                    nbarray.device_id()
+                );
+            } else {
+                subarray = nb::ndarray<nb::numpy>(
+                    data + index * nbarray.stride(0) * itemsize,
+                    nbarray.ndim() - 1,
+                    reinterpret_cast<const size_t*>(nbarray.shape_ptr()) + 1,
+                    {},
+                    nbarray.stride_ptr() + 1,
+                    nbarray.dtype(),
+                    nbarray.device_type(),
+                    nbarray.device_id()
+                );
+            }
+
+            write_internal(self, subarray.cast());
+            self._set_offset(self.offset() + dst.element_type_layout()->stride());
+        }
+    }
 
     void write_internal(CursorType& self, nb::object nbval)
     {
