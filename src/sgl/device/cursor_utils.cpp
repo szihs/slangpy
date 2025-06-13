@@ -48,30 +48,6 @@ namespace cursor_utils {
         return table.allow_conversion(from, to);
     }
 
-    size_t get_scalar_type_size(TypeReflection::ScalarType type)
-    {
-        switch (type) {
-        case TypeReflection::ScalarType::int8:
-        case TypeReflection::ScalarType::uint8:
-            return 1;
-        case TypeReflection::ScalarType::int16:
-        case TypeReflection::ScalarType::uint16:
-        case TypeReflection::ScalarType::float16:
-            return 2;
-        case TypeReflection::ScalarType::bool_:
-        case TypeReflection::ScalarType::int32:
-        case TypeReflection::ScalarType::uint32:
-        case TypeReflection::ScalarType::float32:
-            return 4;
-        case TypeReflection::ScalarType::int64:
-        case TypeReflection::ScalarType::uint64:
-        case TypeReflection::ScalarType::float64:
-            return 8;
-        default:
-            return 0;
-        }
-    }
-
     slang::TypeLayoutReflection* unwrap_array(slang::TypeLayoutReflection* layout)
     {
         while (layout->isArray()) {
