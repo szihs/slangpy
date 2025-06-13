@@ -318,9 +318,6 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
         sizes.append(size)
         references.append(struct.pack(struct_pattern, *flat_value).hex())
 
-        # CUDA/Metal have bool size of 1, which is currently not handled, see issue:
-        # https://github.com/shader-slang/slangpy/issues/274
-        # if device_type not in [spy.DeviceType.cuda, spy.DeviceType.metal] or var.type != "bool":
         cursor[name_or_index] = value
 
     def write_vars(
@@ -372,13 +369,7 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
             named_typed_result[0] == "u_float2x2" or named_typed_result[0] == "u_float3x3"
         ):
             continue
-        # CUDA/Metal have bool size of 1, which is currently not handled, see issue:
-        # https://github.com/shader-slang/slangpy/issues/274
-        # if (
-        #     device_type in [spy.DeviceType.cuda, spy.DeviceType.metal]
-        #     and named_typed_result[1] == "bool"
-        # ):
-        #     continue
+
         assert named_typed_result == named_typed_reference
 
 

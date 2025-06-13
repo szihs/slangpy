@@ -237,8 +237,6 @@ TESTS = [
 ]
 
 
-# Filter out all bool tests for CUDA/Metal backend, as it is not handled correct. See issue:
-# https://github.com/shader-slang/slangpy/issues/274
 def get_tests(device_type: spy.DeviceType):
     return TESTS
 
