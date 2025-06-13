@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-import sgl.device.print;
-
 struct Test {
     bool f_bool;
     bool2 f_bool2;
@@ -331,12 +329,4 @@ void compute_main(uint3 tid: SV_DispatchThreadID)
     writer.write(u_struct_array[3].f_float);
 
     // writer.write(u_buffer);
-
-#define PRINT(x) print(#x ": {}", x)
-    PRINT(u_bool2.x);
-    PRINT(u_bool2.y);
-    PRINT(u_bool_array[0]);
-    PRINT(u_bool_array[1]);
-    PRINT(u_bool_array[2]);
-    PRINT(u_bool_array[3]);
 }

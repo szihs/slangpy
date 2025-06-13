@@ -355,8 +355,6 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
         pass_encoder.dispatch(thread_count=[1, 1, 1])
     device.submit_command_buffer(command_encoder.finish())
 
-    print(f"Debug prints:\n{device.flush_print_to_string()}")
-
     data = result_buffer.to_numpy().tobytes()
     results = []
     for size in sizes:
