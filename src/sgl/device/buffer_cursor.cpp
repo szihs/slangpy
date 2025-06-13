@@ -11,6 +11,7 @@
 
 #include "sgl/math/vector_types.h"
 #include "sgl/math/matrix_types.h"
+#include "sgl/device/device.h"
 
 namespace sgl {
 
@@ -475,95 +476,104 @@ SGL_API void BufferElementCursor::get(bool& value) const
     value = v != 0;
 }
 
+template<int N>
+void BufferElementCursor::set_boolN(const sgl::math::vector<bool, N>& value)
+{
+    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
+    if (m_buffer->resource()->device()->type() == DeviceType::cuda) {
+        sgl::math::vector<uint32_t, N> v;
+        for (int i = 0; i < N; ++i)
+            v[i] = value[i] ? 1 : 0;
+        set_data(&v, sizeof(v));
+        return;
+    }
+
+    if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
+        SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
+        SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), 1);
+        _set_vector(&value, sizeof(value), TypeReflection::ScalarType::bool_, N);
+        return;
+    }
+    sgl::math::vector<uint32_t, N> v;
+    for (int i = 0; i < N; ++i)
+        v[i] = value[i] ? 1 : 0;
+    SGL_ASSERT_GE(slang_type_layout()->getStride(), sizeof(v));
+    SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), sizeof(uint32_t));
+    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, N);
+}
+
+template<int N>
+void BufferElementCursor::get_boolN(sgl::math::vector<bool, N>& value) const
+{
+    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
+    if (m_buffer->resource()->device()->type() == DeviceType::cuda) {
+        sgl::math::vector<uint32_t, N> v;
+        read_data(m_offset, &v, sizeof(v));
+        for (int i = 0; i < N; ++i)
+            value[i] = v[i] != 0;
+        return;
+    }
+
+    if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
+        SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
+        SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), 1);
+        _get_vector(&value, sizeof(value), TypeReflection::ScalarType::bool_, N);
+        return;
+    }
+
+    sgl::math::vector<uint32_t, N> v;
+    SGL_ASSERT_GE(slang_type_layout()->getStride(), sizeof(v));
+    SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), sizeof(uint32_t));
+    _get_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, N);
+    for (int i = 0; i < N; ++i)
+        value[i] = v[i] != 0;
+}
+
 template<>
 SGL_API void BufferElementCursor::set(const bool1& value)
 {
-#if SGL_MACOS
-    bool1 v = value;
-#else
-    uint1 v(value.x ? 1 : 0);
-#endif
-    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 1);
+    set_boolN(value);
 }
 template<>
 SGL_API void BufferElementCursor::get(bool1& value) const
 {
-#if SGL_MACOS
-    bool1 v;
-#else
-    uint1 v;
-#endif
-    _get_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 1);
-    value = bool1(v.x != 0);
+    get_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::set(const bool2& value)
 {
-#if SGL_MACOS
-    bool2 v = value;
-#else
-    uint2 v = {value.x ? 1 : 0, value.y ? 1 : 0};
-#endif
-    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 2);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::get(bool2& value) const
 {
-#if SGL_MACOS
-    bool2 v;
-#else
-    uint2 v;
-#endif
-    _get_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 2);
-    value = {v.x != 0, v.y != 0};
+    get_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::set(const bool3& value)
 {
-#if SGL_MACOS
-    bool3 v = value;
-#else
-    uint3 v = {value.x ? 1 : 0, value.y ? 1 : 0, value.z ? 1 : 0};
-#endif
-    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 3);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::get(bool3& value) const
 {
-#if SGL_MACOS
-    bool3 v;
-#else
-    uint3 v;
-#endif
-    _get_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 3);
-    value = {v.x != 0, v.y != 0, v.z != 0};
+    get_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::set(const bool4& value)
 {
-#if SGL_MACOS
-    bool4 v = value;
-#else
-    uint4 v = {value.x ? 1 : 0, value.y ? 1 : 0, value.z ? 1 : 0, value.w ? 1 : 0};
-#endif
-    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 4);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void BufferElementCursor::get(bool4& value) const
 {
-#if SGL_MACOS
-    bool4 v;
-#else
-    uint4 v;
-#endif
-    _get_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, 4);
-    value = {v.x != 0, v.y != 0, v.z != 0, v.w != 0};
+    get_boolN(value);
 }
 
 template<>

@@ -235,8 +235,7 @@ def convert_matrix(type: str, rows: int, cols: int, values: Any):
     return TABLE[key](flatten(values))
 
 
-# @pytest.mark.parametrize("device_type", helpers.DEFAULT_DEVICE_TYPES)
-@pytest.mark.parametrize("device_type", [spy.DeviceType.cuda])
+@pytest.mark.parametrize("device_type", helpers.DEFAULT_DEVICE_TYPES)
 @pytest.mark.parametrize("use_numpy", [False, True])
 def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
     if device_type == spy.DeviceType.vulkan and sys.platform == "darwin":

@@ -797,42 +797,53 @@ SGL_API void ShaderCursor::set(const bool& value) const
 }
 
 template<int N>
-void set_boolN(const ShaderCursor& cursor, const sgl::math::vector<bool, N>& value)
+void ShaderCursor::set_boolN(const sgl::math::vector<bool, N>& value) const
 {
-    if (cursor.slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
-        SGL_ASSERT_GE(cursor.slang_type_layout()->getSize(), sizeof(value));
-        cursor._set_vector(&value, sizeof(value), TypeReflection::ScalarType::bool_, N);
+    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
+    if (m_shader_object->device()->type() == DeviceType::cuda) {
+        sgl::math::vector<uint32_t, N> v;
+        for (int i = 0; i < N; ++i)
+            v[i] = value[i] ? 1 : 0;
+        set_data(&v, sizeof(v));
+        return;
+    }
+
+    if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
+        SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
+        SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), 1);
+        _set_vector(&value, sizeof(value), TypeReflection::ScalarType::bool_, N);
         return;
     }
     sgl::math::vector<uint32_t, N> v;
     for (int i = 0; i < N; ++i)
         v[i] = value[i] ? 1 : 0;
-    SGL_ASSERT_GE(cursor.slang_type_layout()->getStride(), sizeof(v));
-    cursor._set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, N);
+    SGL_ASSERT_GE(slang_type_layout()->getStride(), sizeof(v));
+    SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), sizeof(uint32_t));
+    _set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, N);
 }
 
 template<>
 SGL_API void ShaderCursor::set(const bool1& value) const
 {
-    set_boolN(*this, value);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void ShaderCursor::set(const bool2& value) const
 {
-    set_boolN(*this, value);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void ShaderCursor::set(const bool3& value) const
 {
-    set_boolN(*this, value);
+    set_boolN(value);
 }
 
 template<>
 SGL_API void ShaderCursor::set(const bool4& value) const
 {
-    set_boolN(*this, value);
+    set_boolN(value);
 }
 
 } // namespace sgl

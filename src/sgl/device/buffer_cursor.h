@@ -84,6 +84,11 @@ private:
     void set_bool_array(const void* data, size_t size, size_t element_count);
     void get_bool_array(void* data, size_t size, size_t element_count) const;
 
+    template<int N>
+    void set_boolN(const sgl::math::vector<bool, N>& value);
+    template<int N>
+    void get_boolN(sgl::math::vector<bool, N>& value) const;
+
     template<typename TDst, typename TSrc, typename Func>
     void write_data(
         size_t dst_offset,
