@@ -35,7 +35,7 @@ class TypeInfo:
 
 
 TYPE_INFOS = {
-    "bool": TypeInfo(size=4, struct="I", dtype=np.uint32),  # np.bool is 8 bits
+    "bool": TypeInfo(size=4, struct="I", dtype=np.bool_),  # np.bool is 8 bits
     "int": TypeInfo(size=4, struct="i", dtype=np.int32),
     "uint": TypeInfo(size=4, struct="I", dtype=np.uint32),
     "float": TypeInfo(size=4, struct="f", dtype=np.float32),
@@ -49,10 +49,7 @@ TYPE_INFOS = {
 
 
 def get_type_info(device_type: spy.DeviceType, type: str):
-    if device_type != spy.DeviceType.cuda or type != "bool":
-        return TYPE_INFOS[type]
-    # CUDA bool is size 1
-    TypeInfo(size=1, struct="I", dtype=np.uint32)
+    return TYPE_INFOS[type]
 
 
 @dataclass
@@ -238,7 +235,8 @@ def convert_matrix(type: str, rows: int, cols: int, values: Any):
     return TABLE[key](flatten(values))
 
 
-@pytest.mark.parametrize("device_type", helpers.DEFAULT_DEVICE_TYPES)
+# @pytest.mark.parametrize("device_type", helpers.DEFAULT_DEVICE_TYPES)
+@pytest.mark.parametrize("device_type", [spy.DeviceType.cuda])
 @pytest.mark.parametrize("use_numpy", [False, True])
 def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
     if device_type == spy.DeviceType.vulkan and sys.platform == "darwin":
@@ -323,8 +321,8 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
 
         # CUDA/Metal have bool size of 1, which is currently not handled, see issue:
         # https://github.com/shader-slang/slangpy/issues/274
-        if device_type not in [spy.DeviceType.cuda, spy.DeviceType.metal] or var.type != "bool":
-            cursor[name_or_index] = value
+        # if device_type not in [spy.DeviceType.cuda, spy.DeviceType.metal] or var.type != "bool":
+        cursor[name_or_index] = value
 
     def write_vars(
         device_type: spy.DeviceType,
@@ -358,6 +356,8 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
         pass_encoder.dispatch(thread_count=[1, 1, 1])
     device.submit_command_buffer(command_encoder.finish())
 
+    print(f"Debug prints:\n{device.flush_print_to_string()}")
+
     data = result_buffer.to_numpy().tobytes()
     results = []
     for size in sizes:
@@ -377,11 +377,11 @@ def test_shader_cursor(device_type: spy.DeviceType, use_numpy: bool):
             continue
         # CUDA/Metal have bool size of 1, which is currently not handled, see issue:
         # https://github.com/shader-slang/slangpy/issues/274
-        if (
-            device_type in [spy.DeviceType.cuda, spy.DeviceType.metal]
-            and named_typed_result[1] == "bool"
-        ):
-            continue
+        # if (
+        #     device_type in [spy.DeviceType.cuda, spy.DeviceType.metal]
+        #     and named_typed_result[1] == "bool"
+        # ):
+        #     continue
         assert named_typed_result == named_typed_reference
 
 

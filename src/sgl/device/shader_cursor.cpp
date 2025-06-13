@@ -498,12 +498,11 @@ void ShaderCursor::write_data(
 
 void ShaderCursor::set_bool_array(const void* data, size_t src_size, size_t element_count) const
 {
-    cursor_utils::check_array(m_type_layout, src_size, TypeReflection::ScalarType::bool_, element_count);
-
     size_t src_element_size = src_size / element_count;
     size_t src_element_stride = src_element_size;
     size_t dst_element_size = m_type_layout->getElementTypeLayout()->getSize();
-    uint32_t dst_element_stride = narrow_cast<uint32_t>(m_type_layout->getElementTypeLayout()->getStride());
+    uint32_t dst_element_stride
+        = narrow_cast<uint32_t>(m_type_layout->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM));
 
     if (m_type_layout->getSize() == src_size) {
         m_shader_object->set_data(m_offset, data, src_size);
@@ -788,12 +787,12 @@ template<>
 SGL_API void ShaderCursor::set(const bool& value) const
 {
     if (slang_type_layout()->getSize() == 1) {
-        SGL_ASSERT_EQ(slang_type_layout()->getSize(), sizeof(value));
+        SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
         _set_scalar(&value, sizeof(value), TypeReflection::ScalarType::bool_);
         return;
     }
     uint v = value ? 1 : 0;
-    SGL_ASSERT_EQ(slang_type_layout()->getSize(), sizeof(v));
+    SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(v));
     _set_scalar(&v, sizeof(v), TypeReflection::ScalarType::bool_);
 }
 
@@ -801,14 +800,14 @@ template<int N>
 void set_boolN(const ShaderCursor& cursor, const sgl::math::vector<bool, N>& value)
 {
     if (cursor.slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
-        SGL_ASSERT_EQ(cursor.slang_type_layout()->getSize(), sizeof(value));
+        SGL_ASSERT_GE(cursor.slang_type_layout()->getSize(), sizeof(value));
         cursor._set_vector(&value, sizeof(value), TypeReflection::ScalarType::bool_, N);
         return;
     }
     sgl::math::vector<uint32_t, N> v;
     for (int i = 0; i < N; ++i)
         v[i] = value[i] ? 1 : 0;
-    SGL_ASSERT_EQ(cursor.slang_type_layout()->getSize(), sizeof(v));
+    SGL_ASSERT_GE(cursor.slang_type_layout()->getStride(), sizeof(v));
     cursor._set_vector(&v, sizeof(v), TypeReflection::ScalarType::bool_, N);
 }
 

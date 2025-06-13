@@ -54,6 +54,7 @@ def get_device(type: spy.DeviceType, use_cache: bool = True) -> spy.Device:
     device = spy.Device(
         type=type,
         enable_debug_layers=True,
+        enable_print=True,
         compiler_options={
             "include_paths": [SHADER_DIR],
             "debug_info": spy.SlangDebugInfoLevel.standard,
