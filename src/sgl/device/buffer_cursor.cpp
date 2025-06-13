@@ -108,6 +108,146 @@ void BufferElementCursor::set_data(const void* data, size_t size)
     write_data(m_offset, data, size);
 }
 
+template<typename TDst, typename TSrc, typename Func>
+void BufferElementCursor::write_data(
+    size_t dst_offset,
+    size_t dst_stride,
+    const void* src_data,
+    size_t src_stride,
+    size_t dimension,
+    Func&& convert
+)
+{
+    const uint8_t* src_ptr = reinterpret_cast<const uint8_t*>(src_data);
+    for (size_t i = 0; i < dimension; ++i, dst_offset += dst_stride, src_ptr += src_stride) {
+        const TDst& dst = convert(*reinterpret_cast<const TSrc*>(src_ptr));
+        write_data(dst_offset, &dst, sizeof(dst));
+    }
+}
+
+template<typename TDst, typename TSrc, typename Func>
+void BufferElementCursor::read_data(
+    void* dst_data,
+    size_t dst_stride,
+    size_t src_offset,
+    size_t src_stride,
+    size_t dimension,
+    Func&& convert
+) const
+{
+    uint8_t* dst_ptr = reinterpret_cast<uint8_t*>(dst_data);
+    TSrc src;
+    for (size_t i = 0; i < dimension; ++i, dst_ptr += dst_stride, src_offset += src_stride) {
+        read_data(src_offset, &src, sizeof(TSrc));
+        *reinterpret_cast<TDst*>(dst_ptr) = convert(src);
+    }
+}
+
+void BufferElementCursor::set_bool_array(const void* data, size_t src_size, size_t element_count)
+{
+    cursor_utils::check_array(
+        m_type_layout->slang_target(),
+        src_size,
+        TypeReflection::ScalarType::bool_,
+        element_count
+    );
+
+    size_t src_element_size = src_size / element_count;
+    size_t src_element_stride = src_element_size;
+    size_t dst_element_size = m_type_layout->slang_target()->getElementTypeLayout()->getSize();
+    size_t dst_element_stride = m_type_layout->element_stride();
+
+    if (m_type_layout->slang_target()->getSize() == src_size) {
+        write_data(m_offset, &data, src_size);
+        return;
+    }
+
+    if (src_element_size == 1) // cpu bool
+    {
+        if (dst_element_size == 4) // d4d12, vulkan
+        {
+            write_data<uint32_t, bool>(
+                m_offset,
+                dst_element_stride,
+                data,
+                src_element_stride,
+                element_count,
+                [](bool b) -> uint32_t { return b ? 1 : 0; }
+            );
+            return;
+        } else if (dst_element_size == 1) // cuda, metal
+        {
+            write_data<uint8_t, bool>(
+                m_offset,
+                dst_element_stride,
+                data,
+                src_element_stride,
+                element_count,
+                [](bool b) -> uint8_t { return b ? 1 : 0; }
+            );
+            return;
+        }
+    }
+    SGL_THROW(
+        "Invalid configuration of bool array write, source is {}B, device is {}B.",
+        src_element_size,
+        dst_element_size
+    );
+}
+
+void BufferElementCursor::get_bool_array(void* dst_data, size_t dst_size, size_t element_count) const
+{
+    cursor_utils::check_array(
+        m_type_layout->slang_target(),
+        dst_size,
+        TypeReflection::ScalarType::bool_,
+        element_count
+    );
+
+    size_t src_element_size = m_type_layout->element_type_layout()->slang_target()->getSize();
+    size_t src_element_stride = m_type_layout->element_stride();
+    size_t dst_element_size = dst_size / element_count;
+    size_t dst_element_stride = dst_element_size;
+
+    if (dst_size == m_type_layout->slang_target()->getSize()) {
+        read_data(m_offset, dst_data, dst_size);
+        return;
+    }
+
+    if (dst_element_size == 1) // cpu bool
+    {
+        if (src_element_size == 4) // d4d12, vulkan
+        {
+            read_data<bool, uint32_t>(
+                dst_data,
+                dst_element_stride,
+                m_offset,
+                src_element_stride,
+                element_count,
+                [](uint32_t b) { return b != 0; }
+            );
+            return;
+        } else if (src_element_size == 1) // cuda, metal
+        {
+            read_data<bool, uint8_t>(
+                dst_data,
+                dst_element_stride,
+                m_offset,
+                src_element_stride,
+                element_count,
+                [](uint8_t b) { return b != 0; }
+            );
+            return;
+        }
+    }
+    SGL_THROW(
+        "Invalid configuration of bool array write, source is {}B, device is {}B.",
+        src_element_size,
+        dst_element_size
+    );
+}
+
+
 void BufferElementCursor::_set_array(
     const void* data,
     size_t size,
@@ -115,8 +255,11 @@ void BufferElementCursor::_set_array(
     size_t element_count
 )
 {
-    ref<const TypeReflection> element_type = m_type_layout->unwrap_array()->type();
-    size_t element_size = cursor_utils::get_scalar_type_size(element_type->scalar_type());
+    if (scalar_type == TypeReflection::ScalarType::bool_)
+        return set_bool_array(data, size, element_count);
+
+    ref<const TypeLayoutReflection> element_type_layout = m_type_layout->unwrap_array();
+    size_t element_size = element_type_layout->slang_target()->getSize();
 
     cursor_utils::check_array(m_type_layout->slang_target(), size, scalar_type, element_count);
 
@@ -139,8 +282,11 @@ void BufferElementCursor::_get_array(
     size_t element_count
 ) const
 {
-    ref<const TypeReflection> element_type = m_type_layout->unwrap_array()->type();
-    size_t element_size = cursor_utils::get_scalar_type_size(element_type->scalar_type());
+    if (scalar_type == TypeReflection::ScalarType::bool_)
+        return get_bool_array(data, size, element_count);
+
+    ref<const TypeLayoutReflection> element_type_layout = m_type_layout->unwrap_array();
+    size_t element_size = element_type_layout->slang_target()->getSize();
 
     cursor_utils::check_array(m_type_layout->slang_target(), size, scalar_type, element_count);
 
