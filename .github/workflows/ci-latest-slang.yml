@@ -1,26 +1,8 @@
-name: ci
+name: ci-latest-slang
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "docs/**"
-      - "LICENSES/**"
-      - "LICENSE"
-      - "**.md"
-      - .github/workflows/wheels.yml
-      - .github/workflows/ci-gcp.yml
-      - .github/workflows/ci-latest-slang.yml
-  pull_request:
-    branches: [main]
-    paths-ignore:
-      - "docs/**"
-      - "LICENSES/**"
-      - "LICENSE"
-      - "**.md"
-      - .github/workflows/wheels.yml
-      - .github/workflows/ci-gcp.yml
-      - .github/workflows/ci-latest-slang.yml
+  schedule:
+    - cron: '0 1 * * *' # run at 1 AM UTC
   workflow_dispatch:
 
 permissions:
@@ -34,33 +16,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows, linux, macos]
-        platform: [x86_64, aarch64]
-        compiler: [msvc, gcc, clang]
+        os: [windows, linux]
         config: [Debug, Release]
         python: ["3.10"]
-        exclude:
-          # Exclude aarch64 for windows
-          - { os: windows, platform: aarch64 }
-          # Exclude x86_64 for macos
-          - { os: macos, platform: x86_64 }
-          # Exclude unavailable compilers
-          - { os: windows, compiler: gcc }
-          - { os: windows, compiler: clang }
-          - { os: linux, compiler: msvc }
-          - { os: macos, compiler: msvc }
-          - { os: macos, compiler: gcc }
         include:
-          # Builds running on self-hosted runners (build + tests + coverage)
-          - { os: windows, platform: x86_64, compiler: msvc, config: Debug, flags: "unit-test,header-validation", runs-on: { group: nvrgfx, labels: [Windows, X64] } }
+          # Builds running on self-hosted runners
+          - { os: windows, platform: x86_64, compiler: msvc, config: Debug, flags: "unit-test", runs-on: { group: nvrgfx, labels: [Windows, X64] } }
           - { os: windows, platform: x86_64, compiler: msvc, config: Release, flags: "unit-test", runs-on: { group: nvrgfx, labels: [Windows, X64] } }
-          - { os: linux, platform: x86_64, compiler: gcc, config: Debug, flags: "unit-test,header-validation,coverage", runs-on: { group: nvrgfx, labels: [Linux, X64] } }
+          - { os: linux, platform: x86_64, compiler: gcc, config: Debug, flags: "unit-test", runs-on: { group: nvrgfx, labels: [Linux, X64] } }
           - { os: linux, platform: x86_64, compiler: gcc, config: Release, flags: "unit-test", runs-on: { group: nvrgfx, labels: [Linux, X64] } }
-          # Additional builds running on GitHub hosted runners (build only)
-          - { os: linux, platform: x86_64, compiler: clang, runs-on: ubuntu-latest }
-          - { os: linux, platform: aarch64, compiler: gcc, runs-on: ubuntu-24.04-arm }
-          - { os: linux, platform: aarch64, compiler: clang, runs-on: ubuntu-24.04-arm }
-          - { os: macos, platform: aarch64, compiler: clang, flags: "unit-test", runs-on: macos-latest }
 
     env:
       # Environment variables used by ci.py
@@ -109,6 +73,15 @@ jobs:
       - name: Setup CMake/Ninja
         uses: lukka/get-cmake@latest
 
+      # Build latest Slang.
+      - name: Build latest Slang
+        run: |
+          git clone --recursive https://github.com/shader-slang/slang.git
+          cd slang
+          mkdir build
+          cmake -B build --preset default
+          cmake --build build --config ${{ matrix.config }} --parallel
+
       # Setup.
       - name: Setup
         run: python tools/ci.py setup
@@ -130,7 +103,7 @@ jobs:
 
       # Configure.
       - name: Configure
-        run: python tools/ci.py configure
+        run: python tools/ci.py --cmake-args="-DSGL_LOCAL_SLANG=ON -DSGL_LOCAL_SLANG_DIR=slang -DSGL_LOCAL_SLANG_BUILD_DIR=build/${{ matrix.config }}" configure
 
       # Build.
       - name: Build
