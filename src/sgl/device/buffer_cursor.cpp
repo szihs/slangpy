@@ -101,6 +101,13 @@ BufferElementCursor BufferElementCursor::find_element(uint32_t index) const
     return {};
 }
 
+void BufferElementCursor::set_pointer(uint64_t pointer_value)
+{
+    size_t pointer_size = m_type_layout->size();
+    SGL_CHECK(pointer_size == 8, "Expected a pointer type with size 8, got {}", pointer_size);
+    set_data(&pointer_value, 8);
+}
+
 void BufferElementCursor::set_data(const void* data, size_t size)
 {
     if (m_type_layout->parameter_category() != TypeReflection::ParameterCategory::uniform)

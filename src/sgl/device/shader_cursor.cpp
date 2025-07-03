@@ -479,6 +479,13 @@ void ShaderCursor::set_cuda_tensor_view(const cuda::TensorView& tensor_view) con
     }
 }
 
+void ShaderCursor::set_pointer(uint64_t pointer_value) const
+{
+    size_t pointer_size = m_type_layout->getSize();
+    SGL_CHECK(pointer_size == 8, "Expected a pointer type with size 8, got {}", pointer_size);
+    set_data(&pointer_value, 8);
+}
+
 void ShaderCursor::_set_array(
     const void* data,
     size_t size,
