@@ -298,7 +298,7 @@ SGL_PY_EXPORT(device_device)
            size_t size,
            size_t element_count,
            size_t struct_size,
-           nb::object struct_type,
+           nb::object resource_type_layout,
            Format format,
            MemoryType memory_type,
            BufferUsage usage,
@@ -310,25 +310,41 @@ SGL_PY_EXPORT(device_device)
                 SGL_CHECK(is_ndarray_contiguous(*data), "Data is not contiguous.");
             }
 
-            // Note: nanobind can't try cast to a ref counted pointer, however the reflection
-            // cursor code below needs to ensure it maintains a reference to the type layout if
-            // returned, so we attempt to convert to the raw ptr here, and then immediately
-            // store it in a local ref counted ptr.
-            const TypeLayoutReflection* resolved_struct_type_ptr = nullptr;
-            nb::try_cast(struct_type, resolved_struct_type_ptr);
-            ref<const TypeLayoutReflection> resolved_struct_type(resolved_struct_type_ptr);
+            ref<const TypeLayoutReflection> resolved_resource_type_layout;
+            if (!resource_type_layout.is_none()) {
+                // Note: nanobind can't try cast to a ref counted pointer, however the reflection
+                // cursor code below needs to ensure it maintains a reference to the type layout if
+                // returned, so we attempt to convert to the raw ptr here, and then immediately
+                // store it in a local ref counted ptr.
+                if (const TypeLayoutReflection * resolved_struct_type_ptr;
+                    nb::try_cast(resource_type_layout, resolved_struct_type_ptr)) {
+                    resolved_resource_type_layout = ref<const TypeLayoutReflection>(resolved_struct_type_ptr);
+                }
+                // If this is a reflection cursor, get type layout from it
+                else if (ReflectionCursor reflection_cursor; nb::try_cast(resource_type_layout, reflection_cursor)) {
 
-            // If this is a reflection cursor, get type layout from it
-            ReflectionCursor reflection_cursor;
-            if (nb::try_cast(struct_type, reflection_cursor)) {
-                resolved_struct_type = reflection_cursor.type_layout();
+                    resolved_resource_type_layout = reflection_cursor.type_layout();
+                }
+                // Otherwise we got an invalid type
+                else {
+                    throw nb::type_error(
+                        "Expected a TypeLayoutReflection or ReflectionCursor for 'resource_type_layout'"
+                    );
+                }
+                if (resolved_resource_type_layout->kind() != TypeReflection::Kind::resource
+                    || resolved_resource_type_layout->type()->resource_shape()
+                        != TypeReflection::ResourceShape::structured_buffer) {
+                    throw nb::type_error(
+                        "Expected a TypeLayoutReflection of a structured buffer for 'resource_type_layout'"
+                    );
+                }
             }
 
             return self->create_buffer({
                 .size = size,
                 .element_count = element_count,
                 .struct_size = struct_size,
-                .struct_type = resolved_struct_type,
+                .resource_type_layout = resolved_resource_type_layout,
                 .format = format,
                 .memory_type = memory_type,
                 .usage = usage,
@@ -341,7 +357,7 @@ SGL_PY_EXPORT(device_device)
         "size"_a = BufferDesc().size,
         "element_count"_a = BufferDesc().element_count,
         "struct_size"_a = BufferDesc().struct_size,
-        "struct_type"_a.none() = nb::none(),
+        "resource_type_layout"_a.none() = nb::none(),
         "format"_a = BufferDesc().format,
         "memory_type"_a = BufferDesc().memory_type,
         "usage"_a = BufferDesc().usage,
