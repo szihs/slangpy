@@ -65,6 +65,17 @@ int _idx_vec<let N : int>(vector<int,N> index, int[N] stride) {
     return idx;
 }
 
+public struct StorageTraits<T>
+{
+#ifdef __TARGET_CUDA__
+    public typealias BufferType = T*;
+    public typealias RWBufferType = T*;
+#else
+    public typealias BufferType = StructuredBuffer<T>;
+    public typealias RWBufferType = RWStructuredBuffer<T>;
+#endif
+}
+
 public struct ImplicitCast<N>
 {
 
@@ -312,7 +323,9 @@ public struct StridedLayout<let D : int>
 
 public struct NDBuffer<T, let N : int>
 {
-    public StructuredBuffer<T> buffer;
+    typealias Storage = StorageTraits<T>.BufferType;
+
+    public Storage buffer;
     public StridedLayout<N> layout;
     private uint _shape[N];
 
@@ -332,10 +345,10 @@ public struct NDBuffer<T, let N : int>
     }
     public void store(Context0D context, in NDBuffer<T, N> value) {};
 
-    public void load(Context0D context, out StructuredBuffer<T> value) {
+    public void load(Context0D context, out Storage value) {
         value = buffer;
     }
-    public void store(Context0D context, in StructuredBuffer<T> value) {};
+    public void store(Context0D context, in Storage value) {};
 
     public void load<let VD : int>(ContextND<N - 1> context, out vector<T, VD> value) {
 
@@ -369,7 +382,10 @@ public struct NDBuffer<T, let N : int>
 
 public struct RWNDBuffer<T, let N : int>
 {
-    public RWStructuredBuffer<T> buffer;
+    typealias Storage = StorageTraits<T>.RWBufferType;
+
+    public Storage buffer;
+
     public StridedLayout<N> layout;
     private uint _shape[N];
 
@@ -396,9 +412,12 @@ public struct RWNDBuffer<T, let N : int>
     public void load(ContextND<N> context, out T value) { value = get(context.call_id); }
     public void store(ContextND<N> context, in T value) { set(context.call_id, value); }
 
-    public void load(Context0D context, out RWStructuredBuffer<T> value) {
+    public void load(Context0D context, out Storage value) {
         value = buffer;
     }
+    public void store(Context0D context, in Storage value) {
+    }
+
 
     public void load(Context0D context, out RWNDBuffer<T, N> value) {
         value = this;
