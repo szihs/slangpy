@@ -1,4 +1,4 @@
-name: ClaudeCode - Slang Assistant
+name: ClaudeCode - SlangPy Assistant
 
 permissions:
   contents: write
@@ -40,29 +40,56 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      # Format setup and environment preparation
+      # Setup and environment preparation
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: "recursive"
           fetch-depth: 2 # fetch minimal history for git context
 
-      - name: Format Setup and Environment Preparation
-        uses: ./.github/actions/format-setup
+      - name: Cleanup submodules # Fix for https://github.com/actions/checkout/issues/358
+        run: |
+          git submodule foreach --recursive git clean -ffdx
+          git submodule foreach --recursive git reset --hard
 
-      - name: Setup Environment Dependencies
+      - name: Setup Linux Dependencies
         run: |
           set -euo pipefail
-          echo "🏗️ Setting up environment dependencies..."
-
+          echo "🏗️ Setting up Linux dependencies..."
           sudo apt-get update
-          sudo apt-get install -y libx11-dev
+          sudo apt-get install -y libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config
 
-          # Configure and build the project
-          cmake --preset default --fresh
-          cmake --workflow --preset debug
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: 'pip'
 
-          echo "✅ Environment setup completed"
+      - name: Setup Python Environment
+        run: |
+          set -euo pipefail
+          echo "🐍 Setting up Python environment..."
+          python -m pip install -r requirements-dev.txt
+          python -m pip install pytest-github-actions-annotate-failures
+
+      - name: Setup CMake/Ninja
+        uses: lukka/get-cmake@latest
+
+      - name: Setup and Configure SlangPy
+        run: |
+          set -euo pipefail
+          echo "🏗️ Setting up and configuring SlangPy..."
+
+          # Setup
+          python tools/ci.py setup
+
+          # Configure
+          python tools/ci.py configure
+
+          # Build
+          python tools/ci.py build
+
+          echo "✅ SlangPy setup completed"
 
       # Validate environment and dependencies
       - name: Validate Environment
@@ -193,35 +220,51 @@ jobs:
         with:
           # Direct Prompt is for testing. We shall use the triggers (on) which shall trigger this part on runtime
           custom_instructions: |
-            # Build system information:
+            # SlangPy Build System Information:
             - OS: Ubuntu Linux
-            - Build commands: 
-              * Configure: `cmake --preset default`
-              * Build: `cmake --build --preset debug`
-              * Test: `./build/Release/bin/slang-test ./tests/path/to/test.slang`
-              * Format code: `./extras/formatting.sh`
+            - Build commands (use tools/ci.py for all tasks):
+              * Setup: `python tools/ci.py setup`
+              * Configure: `python tools/ci.py configure`
+              * Build: `python tools/ci.py build`
+              * Python Tests: `python tools/ci.py unit-test-python -p` or `pytest slangpy/tests -ra`
+              * C++ Tests: `python tools/ci.py unit-test-cpp`
+              * Example Tests: `python tools/ci.py test-examples -p` or `pytest samples/tests -vra`
+              * Type Checking: `python tools/ci.py typing-check-python` or `pyright`
+              * Format code: `pre-commit run --all-files` or `black . --line-length 100`
             - Project is pre-built and ready for development tasks
-            - Run formatting script before committing changes
+            - Use pre-commit hooks for code formatting before committing changes
+
+            # SlangPy Architecture Overview:
+            SlangPy is a cross-platform Python library enabling GPU shader execution with three layers:
+            1. **Python Layer** (`slangpy/`): High-level Module, Function, Device classes
+            2. **C++ Binding Layer** (`src/slangpy_ext/`): Nanobind-based Python-C++ interface
+            3. **Core SGL Layer** (`src/sgl/`): Low-level GPU abstraction and shader compilation
+
+            Key components:
+            - **Module**: Container for Slang shader code (.slang files)
+            - **Function**: Callable GPU functions with automatic marshalling
+            - **Device**: GPU context managing resources and compute dispatch
+            - **Buffer/Texture**: GPU memory with Python array interface
 
             # CRITICAL: You have access to the mcp__deepwiki__ask_question tool for deep repository knowledge.
 
               **How to use this tool effectively:**
-              - Use repoName: "shader-slang/slang" for all queries
+              - Use repoName: "shader-slang/slangpy" for all queries about SlangPy
+              - Use repoName: "shader-slang/slang" for queries about the underlying Slang compiler
               - Ask specific technical questions about architecture, patterns, or implementation approaches
-              - Examples: "What does the type legalization pass do?" or "What's the pattern for adding new code generation targets?"
+              - Examples: "How does SlangPy handle PyTorch tensor integration?" or "What's the pattern for adding new GPU backends?"
               - Use responses to understand existing patterns before implementing changes
 
               **Implementation Guidelines:**
               - Always follow existing code patterns and architectural decisions discovered through deepwiki
               - Consult the tool when you need context about unfamiliar parts of the codebase
+              - Use CMake presets for platform-specific builds (windows-msvc, linux-gcc, macos-arm64-clang)
 
-            # Debugging backend crashes or invalid downstream code:
-
-              Note that any issues in the generated target code could stem from IR passes or even the front-end type checking
-              early in the pipeline, and you need to focus on tracking the root cause that breaks the consistency/invariants/assumptions
-              of the IR instead of putting in band-aid fixes in the later passes or in the emit logic. The philosphy of the compiler is to
-              keep the target code emission logic as simple and direct as possible, and most of the heavy lifting code transform is done
-              in the IR passes.
+            # Development Best Practices:
+              - Use `python tools/ci.py` for all build/test operations
+              - PyTorch integration is automatic when available
+              - Hot-reload is supported for shader development
+              - Pre-commit hooks enforce formatting (Black for Python, clang-format for C++)
 
           mcp_config: |
             {
