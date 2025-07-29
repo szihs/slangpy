@@ -799,14 +799,6 @@ SGL_API void ShaderCursor::set(const bool& value) const
 template<int N>
 void ShaderCursor::set_boolN(const sgl::math::vector<bool, N>& value) const
 {
-    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
-    if (m_shader_object->device()->type() == DeviceType::cuda) {
-        sgl::math::vector<uint32_t, N> v;
-        for (int i = 0; i < N; ++i)
-            v[i] = value[i] ? 1 : 0;
-        set_data(&v, sizeof(v));
-        return;
-    }
 
     if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
         SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));

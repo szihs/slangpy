@@ -338,8 +338,6 @@ def test_cursor_read_write(device_type: spy.DeviceType, seed: int):
 
     # Randomize the order of the tests
     tests = get_tests(device_type).copy()
-    if device_type == spy.DeviceType.cuda:
-        tests = [x for x in tests if "bool" not in x[0]]
     random.seed(seed)
     random.shuffle(tests)
 
@@ -685,8 +683,8 @@ def test_boolX_reflection(device_type: spy.DeviceType):
         # Once that issue has been resolved, this test should trigger and workarounds can be removed
         if device_type == spy.DeviceType.cuda:
             return {
-                "size": 8,
-                "stride": 8,
+                "size": 2,
+                "stride": 2,
                 "element_stride": 1,
                 "element_type_layout.size": 1,
                 "element_type_layout.stride": 1,

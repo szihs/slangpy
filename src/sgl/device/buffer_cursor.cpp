@@ -459,34 +459,21 @@ GETSET_SCALAR(double, float64);
 #undef GETSET_MATRIX
 
 // Template specialization to allow setting booleans on a parameter block.
-// On the host side a bool is 1B and the device 4B. We cast bools to 32-bit integers here.
-// Note that this applies to our boolN vectors as well, which are currently 1B per element.
 
 template<>
 SGL_API void BufferElementCursor::set(const bool& value)
 {
-    uint v = value ? 1 : 0;
-    _set_scalar(&v, sizeof(v), TypeReflection::ScalarType::bool_);
+    _set_scalar(&value, sizeof(value), TypeReflection::ScalarType::bool_);
 }
 template<>
 SGL_API void BufferElementCursor::get(bool& value) const
 {
-    uint v;
-    _get_scalar(&v, sizeof(v), TypeReflection::ScalarType::bool_);
-    value = v != 0;
+    _get_scalar(&value, sizeof(value), TypeReflection::ScalarType::bool_);
 }
 
 template<int N>
 void BufferElementCursor::set_boolN(const sgl::math::vector<bool, N>& value)
 {
-    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
-    if (m_buffer->resource()->device()->type() == DeviceType::cuda) {
-        sgl::math::vector<uint32_t, N> v;
-        for (int i = 0; i < N; ++i)
-            v[i] = value[i] ? 1 : 0;
-        set_data(&v, sizeof(v));
-        return;
-    }
 
     if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
         SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
@@ -505,15 +492,6 @@ void BufferElementCursor::set_boolN(const sgl::math::vector<bool, N>& value)
 template<int N>
 void BufferElementCursor::get_boolN(sgl::math::vector<bool, N>& value) const
 {
-    /// Workaround for issue: https://github.com/shader-slang/slang/issues/7441
-    if (m_buffer->resource()->device()->type() == DeviceType::cuda) {
-        sgl::math::vector<uint32_t, N> v;
-        read_data(m_offset, &v, sizeof(v));
-        for (int i = 0; i < N; ++i)
-            value[i] = v[i] != 0;
-        return;
-    }
-
     if (slang_type_layout()->getElementTypeLayout()->getSize() == 1) {
         SGL_ASSERT_GE(slang_type_layout()->getSize(), sizeof(value));
         SGL_ASSERT_EQ(slang_type_layout()->getElementStride(SLANG_PARAMETER_CATEGORY_UNIFORM), 1);

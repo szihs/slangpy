@@ -49,6 +49,8 @@ TYPE_INFOS = {
 
 
 def get_type_info(device_type: spy.DeviceType, type: str):
+    if device_type == spy.DeviceType.cuda and type == "bool":
+       return TypeInfo(size=1, struct="B", dtype=np.bool_)
     return TYPE_INFOS[type]
 
 
