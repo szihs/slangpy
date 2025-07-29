@@ -90,9 +90,6 @@ class CMakeBuild(build_ext):
             f"-DCMAKE_INSTALL_DATAROOTDIR=.",
             "-DSGL_BUILD_EXAMPLES=OFF",
             "-DSGL_BUILD_TESTS=OFF",
-            "-DSGL_LOCAL_SLANG=ON",
-            "-DSGL_LOCAL_SLANG_DIR=/mnt/hd/l4t/SLANG",
-            "-DSGL_LOCAL_SLANG_BUILD_DIR=build/Debug",
         ]
 
         if BUILD_RELEASE_WHEEL:
