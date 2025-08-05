@@ -97,6 +97,12 @@ jobs:
             python tools/ci.py configure
             python tools/ci.py build
 
+            # Temporary to validate setup
+            python tools/ci.py unit-test-cpp
+            python tools/ci.py unit-test-python
+            python tools/ci.py test-examples -p
+
+
             echo "✅ SlangPy environment setup completed"
 
           # Custom instructions for SlangPy
