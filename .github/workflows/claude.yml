@@ -21,6 +21,7 @@ env:
   AWS_REGION: ${{ vars.AWS_REGION }}
   AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+  CI_PYTHON: "3.10"
 
 jobs:
   claude:
@@ -98,7 +99,6 @@ jobs:
             python tools/ci.py build
 
             # Temporary to validate setup
-            python tools/ci.py unit-test-cpp
             python tools/ci.py unit-test-python
             python tools/ci.py test-examples -p
 
@@ -116,7 +116,7 @@ jobs:
             - Configure: `python tools/ci.py configure`
             - Build: `python tools/ci.py build`
             - Python Tests: `python tools/ci.py unit-test-python -p` or `pytest slangpy/tests -ra`
-            - C++ Tests: `python tools/ci.py unit-test-cpp`
+            - C++ Tests: `python tools/ci.py unit-test-cpp` (Requires GPU Setup - Currently we don't have)
             - Example Tests: `python tools/ci.py test-examples -p` or `pytest samples/tests -vra`
             - Type Checking: `python tools/ci.py typing-check-python` or `pyright`
             - Format code: `pre-commit run --all-files` or `black . --line-length 100`
