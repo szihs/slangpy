@@ -41,6 +41,35 @@ cd slangpy
 pip install .
 ```
 
+## GPU Backend Dependencies
+
+SlangPy supports multiple GPU backends and will automatically use the best available option on your system. The following external dependencies are optional but recommended for optimal performance:
+
+### CUDA Backend (Windows/Linux)
+
+For CUDA GPU acceleration on Windows and Linux systems:
+
+- **CUDA Toolkit**: Version 11.8 or later (12.8 recommended)
+- **Platforms**: Windows and Linux only
+- **Installation**: CUDA toolkit is **not required** for SlangPy installation. SlangPy uses dynamic loading and will automatically detect and use CUDA if available at runtime.
+- **Fallback**: If CUDA is not available, SlangPy automatically falls back to Vulkan or D3D12 backends.
+
+### Metal Backend (macOS)
+
+For Metal GPU acceleration on macOS systems:
+
+- **Metal SDK**: No specific version requirements beyond macOS system requirements
+- **macOS Version**: 13.0 (Ventura) or later required
+- **Xcode**: Required for development (Xcode 16+ recommended), but not needed for using pre-built SlangPy wheels
+- **Fallback**: Vulkan backend is available as an alternative on macOS.
+
+### Other Backends
+
+- **Vulkan**: Available on all platforms (Windows, Linux, macOS) - no additional dependencies required
+- **D3D12**: Available on Windows - no additional dependencies required
+
+**Note**: SlangPy will work without any of these external dependencies installed, using the most appropriate available GPU backend for your system.
+
 ## License
 
 SlangPy source code is licensed under the Apache-2.0 License - see the [LICENSE.txt](LICENSE.txt) file for details.
