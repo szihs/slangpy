@@ -13,7 +13,6 @@ sys.path.append(str(Path(__file__).parent))
 import sglhelpers as helpers
 from sglhelpers import test_id  # type: ignore (pytest fixture)
 
-
 TESTS = [
     ("f_bool", "bool", "true", True),
     ("f_bool1", "bool1", "false", spy.bool1(False)),
