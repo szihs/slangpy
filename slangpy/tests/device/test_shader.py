@@ -2,12 +2,10 @@
 
 import pytest
 import sys
-import slangpy as spy
-from pathlib import Path
 
-sys.path.append(str(Path(__file__).parent))
-import sglhelpers as helpers
-from sglhelpers import test_id  # type: ignore (pytest fixture)
+import slangpy as spy
+from slangpy.testing import helpers
+from slangpy.testing.helpers import test_id  # type: ignore (pytest fixture)
 
 # TODO: Due to a bug in "Apple clang", the exception binding in nanobind
 # raises RuntimeError instead of SlangCompileError
