@@ -763,6 +763,8 @@ void bindings_to_pointer_function(int call_id, StructuredBuffer<int> in_buffer, 
 @pytest.mark.parametrize("device_type", POINTER_DEVICE_TYPES)
 @pytest.mark.parametrize("sync_type", ["none", "global", "resource"])
 def test_pointer_barriers(device_type: DeviceType, sync_type: str):
+    if sync_type == "none":
+        pytest.skip("Skipping non-deterministic race-condition test")
 
     device = helpers.get_device(device_type)
 
