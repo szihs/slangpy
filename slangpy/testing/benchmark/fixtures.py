@@ -48,8 +48,18 @@ class BenchmarkFixture:
         end_time = time()
         cpu_time = end_time - start_time
 
+        params = (
+            {k: str(v) for k, v in self.node.callspec.params.items()} if self.node.callspec else {}
+        )
+
+        meta = {"adapter_name": device.info.adapter_name}
+
         report: BenchmarkReport = {
             "name": self.node.name,
+            "filename": str(self.node.location[0]).replace("\\", "/"),
+            "function": self.node.originalname,
+            "params": params,
+            "meta": meta,
             "timestamp": datetime.now(),
             "cpu_time": cpu_time,
             "data": [float(d) for d in deltas],
@@ -60,7 +70,7 @@ class BenchmarkFixture:
             "stddev": float(np.std(deltas)),
         }
 
-        self.config._benchmark_reports.append(report)  # type: ignore
+        self.config._benchmark_context["benchmark_reports"].append(report)  # type: ignore
 
 
 @pytest.fixture
