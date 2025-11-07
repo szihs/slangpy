@@ -116,7 +116,9 @@ class TensorRefMarshall(TensorMarshall):
         strides = primal.stride()
 
         bound_shape = shape[-len(binding.vector_type.shape) :]
-        if any([b != -1 and a != b for a, b in zip(bound_shape, binding.vector_type.shape)]):  # type: ignore
+        if any(
+            [b != -1 and a != b for a, b in zip(bound_shape, binding.vector_type.shape)]
+        ):  # type: ignore
             raise ValueError(
                 f"Tensor shape {shape} does not match expected shape {binding.vector_type.shape}"
             )
@@ -161,13 +163,16 @@ class TensorRefMarshall(TensorMarshall):
             ):
                 if binding.access[1] == AccessType.readwrite:
                     raise ValueError(
-                        "inout parameter gradients need separate buffers for inputs and outputs (see Tensor.with_grads)"
+                        "inout parameter gradients need separate buffers for inputs and "
+                        "outputs (see Tensor.with_grads)"
                     )
 
             return result
         else:
             # CUDA tensors are handled by C++ fast path - this should not be reached
-            raise RuntimeError("CUDA tensors should be handled by C++ fast path, not Python marshalling")
+            raise RuntimeError(
+                "CUDA tensors should be handled by C++ fast path, not Python marshalling"
+            )
 
     def read_calldata(
         self,
