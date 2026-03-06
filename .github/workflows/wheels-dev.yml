@@ -9,10 +9,9 @@ env:
   CIBW_BUILD_VERBOSITY: 1
   CIBW_SKIP: "*-musllinux*"
   CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_34
-  CIBW_ARCHS_WINDOWS: auto64
-  CIBW_ARCHS_LINUX: auto64
+  CIBW_MANYLINUX_AARCH64_IMAGE: manylinux_2_34
   CIBW_TEST_COMMAND: "python -c \"import slangpy\""
-  CIBW_BEFORE_ALL_LINUX: yum install -y zip wayland-devel libxkbcommon-devel libXcursor-devel libXi-devel libXinerama-devel libXrandr-devel ninja-build perl-IPC-Cmd
+  CIBW_BEFORE_ALL_LINUX: yum install -y zip wayland-devel libxkbcommon-devel libXcursor-devel libXi-devel libXinerama-devel libXrandr-devel ninja-build perl-IPC-Cmd kernel-headers perl-FindBin perl-Time-Piece perl-lib clang
   CIBW_ENVIRONMENT: BUILD_RELEASE_WHEEL=1 SLANGPY_DEV_SUFFIX=$SLANGPY_DEV_SUFFIX
   MACOSX_DEPLOYMENT_TARGET: 14.0
   BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
@@ -38,6 +37,12 @@ jobs:
           - { os: macos, runs-on: [macos-latest] }
 
     steps:
+      - name: Set up QEMU
+        if: matrix.os == 'linux' && matrix.platform == 'aarch64'
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
       - uses: actions/checkout@v4
         with:
           submodules: recursive
