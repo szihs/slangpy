@@ -24,6 +24,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     timeout-minutes: 120
     strategy:
+      fail-fast: false
       matrix:
         os: [windows, linux, macos]
         platform: [x86_64, aarch64]
