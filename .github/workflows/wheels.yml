@@ -66,6 +66,35 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Cache cibuildwheel virtualenv
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/cibuildwheel
+            ~/Library/Caches/cibuildwheel
+            ~\AppData\Local\pypa\cibuildwheel\Cache
+          key: cibuildwheel-virtualenv-20.31.2
+
+      - name: Pre-download virtualenv.pyz
+        shell: bash
+        run: |
+          mkdir -p ~/.cache/cibuildwheel ~/Library/Caches/cibuildwheel
+          if [ "${{ matrix.os }}" = "windows" ]; then
+            mkdir -p "$HOME/AppData/Local/pypa/cibuildwheel/Cache"
+            CACHE_DIR="$HOME/AppData/Local/pypa/cibuildwheel/Cache"
+          elif [ "${{ matrix.os }}" = "macos" ]; then
+            CACHE_DIR="$HOME/Library/Caches/cibuildwheel"
+          else
+            CACHE_DIR="$HOME/.cache/cibuildwheel"
+          fi
+          VENV_FILE="$CACHE_DIR/virtualenv-20.31.2.pyz"
+          if [ ! -f "$VENV_FILE" ]; then
+            echo "Downloading virtualenv.pyz to $VENV_FILE"
+            curl -L --retry 5 --retry-delay 2 -o "$VENV_FILE" "https://github.com/pypa/get-virtualenv/blob/20.31.2/public/virtualenv.pyz?raw=true"
+          else
+            echo "virtualenv.pyz already cached at $VENV_FILE"
+          fi
+
       - name: Set CIBW_ARCHS
         shell: bash
         run: |
