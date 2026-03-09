@@ -75,6 +75,12 @@ jobs:
             echo "CIBW_ARCHS=${{ matrix.platform }}" >> $GITHUB_ENV
           fi
 
+      - name: Override march for aarch64 cross-compilation
+        if: matrix.os == 'linux' && matrix.platform == 'aarch64'
+        shell: bash
+        run: |
+          echo 'CIBW_ENVIRONMENT_LINUX=BUILD_RELEASE_WHEEL=1 CMAKE_CXX_FLAGS=-march=armv8-a CMAKE_C_FLAGS=-march=armv8-a' >> $GITHUB_ENV
+
       # Install cibuildwheel.
       - name: Install cibuildwheel
         run: python -m pip install cibuildwheel==3.0.0rc1
