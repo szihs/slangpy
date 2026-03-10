@@ -24,8 +24,7 @@ authors = [
 ]
 description = "Easily call Slang functions and integrate with PyTorch auto diff directly from Python."
 readme = "README.md"
-license = "Apache-2.0"
-license-files = ["LICENSE"]
+license = { text = "Apache-2.0" }
 
 [project.urls]
 Homepage = "https://github.com/shader-slang/slangpy"
