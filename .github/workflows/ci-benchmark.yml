@@ -71,25 +71,19 @@ jobs:
       - name: Setup CMake/Ninja
         uses: lukka/get-cmake@latest
 
-      # DNI (do-not-integrate): build Slang from the descriptor-array by-reference fix.
-      # Composition under test (all three, matching real post-merge master):
-      #   - shader-slang/slang#11939  dynamic-index local-copy legalization (the floor)
-      #   - shader-slang/slang#11941  descriptor-table uniforms by reference (merged into #11939)
-      #   - shader-slang/slang#11940  ParameterBlock-of-array emit-crash fix (independent)
-      # #11941 was merged into the floor branch (cuda-param-dynamic-index-floor), so that branch
-      # now carries BOTH #11939 and #11941; we clone it and fetch+merge #11940 so the implicit
-      # ParameterBlock-of-array this fix produces cannot hit the emit crash.
-      # NO slang-rhi bump here — unlike the retired F path (#779), the by-reference fix binds
-      # through the already-supported entry-point parameter-block sub-object path with zero
-      # host changes; SlangPy keeps its own external/slang-rhi pin (host-safety PR #1045).
-      - name: Build Slang (by-reference fix shader-slang/slang#11939+#11941 + #11940 — DNI)
+      # DNI (do-not-integrate): build Slang from the __grid_constant__ const-ref fix.
+      # Under test: shader-slang/slang @ haaggarwal/cuda-grid-constant-uniform (commit 9dccfd65).
+      # This branch is based on the floor (#11939 @9586d17f) and adds the CUDA emit change that
+      # marks entry-point by-value uniform aggregates `__grid_constant__ const` and forwards their
+      # address into borrow-in callees, eliminating the per-thread .local depot copy. It is the
+      # "simpler" fix Simon Kallweit reframed: no by-reference ABI move, no device<->host memcpy,
+      # no slang-rhi bump, no host changes. SGL_LOCAL_SLANG swaps only the compiler.
+      - name: Build Slang (__grid_constant__ const-ref fix shader-slang/slang@grid-constant — DNI)
         run: |
-          git clone --recursive -b haaggarwal/cuda-param-dynamic-index-floor https://github.com/shader-slang/slang.git
+          git clone --recursive -b haaggarwal/cuda-grid-constant-uniform https://github.com/shader-slang/slang.git
           cd slang
           git config user.email "ci@slangpy.local"
           git config user.name "slangpy-ci"
-          git fetch origin haaggarwal/cuda-pb-of-array-emit-fix
-          git merge --no-edit FETCH_HEAD
           git submodule update --init --recursive
           mkdir build
           cmake -B build --preset default
